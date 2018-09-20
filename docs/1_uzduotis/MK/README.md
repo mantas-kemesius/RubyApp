@@ -1,8 +1,5 @@
 ## Savybės (viso 30 kiekvienam)
 
-Dėstytojas:
-- gali prisijungti
-
 Studijų skyriaus darbuotojas:
 - gali sukurti naują vartotoją (studentas, dėstytojas, universiteto darbuotojas)
 - gali pakeisti vartotojo roles (studentas gali tapti dėstytoju)
