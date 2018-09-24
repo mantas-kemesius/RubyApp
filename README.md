@@ -6,6 +6,6 @@ Deatalus idėjos aprašymas
 
 - Juozas Natkevičius
 - Arnas Radzevičius
-- Eimantas Eima
+- Eimantas Markunas
 - Tomas Macikas
 - Mantas Kemėšius
