@@ -1,4 +1,9 @@
-require_relative './src/model/Student'
+require 'rspec'
+require './src/model/Student'
 
-student = Student.new("Petras", "Petraitis")
-puts student.name
+RSpec.describe Student do
+		it "name should be Petras" do
+		student = Student.new("Petras", "Petraitis")
+		expect(student.name).to eq ("Petras")
+	end
+end
