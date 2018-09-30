@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative './../src/Helpers/files_handler'
+require_relative './../src/helpers/files_handler'
 require 'json'
 RSpec.describe FilesHandler do
   file_handler = FilesHandler.new

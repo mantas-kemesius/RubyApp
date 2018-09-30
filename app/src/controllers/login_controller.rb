@@ -1,4 +1,4 @@
-require_relative './../Helpers/files_handler'
+require_relative './../helpers/files_handler'
 
 class LoginController
 

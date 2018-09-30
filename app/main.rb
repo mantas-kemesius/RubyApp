@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 require './src/model/User.rb'
-require '../app/src/Helpers/files_handler.rb'
+require '../app/src/helpers/files_handler.rb'
 require '../app/src/controllers/login_controller.rb'
 
 # files_handler = FilesHandler.new
