@@ -1,0 +1,13 @@
+{
+  "Users": [
+    {
+      "username": "s1612345",
+      "name": "Petras",
+      "lastName": "Petraitis",
+      "role": "ROLE_LECTURER",
+      "email": "petras@gmail.com",
+      "phone": 862435384,
+      "password": "123"
+    }
+  ]
+}

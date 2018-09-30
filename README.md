@@ -9,3 +9,7 @@ Deatalus idėjos aprašymas
 - Eimantas Markunas
 - Tomas Macikas
 - Mantas Kemėšius
+
+## Run tests
+
+rspec /test/*
