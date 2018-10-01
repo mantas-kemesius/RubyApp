@@ -12,9 +12,9 @@ Deatalus idėjos aprašymas
 
 ## Run console app
 
-from /app directory run this command if you are unix user:
+From /app directory run this command if you are unix user:
 ```ruby main.rb```
 
 ## Run tests
-from /app directory run this command if you are unix user:
+From /app directory run this command if you are unix user:
 ```rspec /tests/*```
