@@ -11,5 +11,5 @@ Deatalus idėjos aprašymas
 - Mantas Kemėšius
 
 ## Run tests
-
-rspec /test/*
+from /app directory run this command if you are unix user:
+```rspec /tests/*```
