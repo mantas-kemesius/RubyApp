@@ -20,11 +20,6 @@ end
 username = 's1612345'
 password = '123'
 
-file_handler = FilesHandler.new
-file_handler.save_data({"key_a" => "val_a","key_b" => "val_b"}, 'belekas')
-puts file_handler.file_exist?('belekas')
-
-
 login_controller = LoginController.new
 if login_controller.login?(username, password)
   loop do
