@@ -5,6 +5,7 @@ RSpec.describe FilesHandler do
   file_handler = FilesHandler.new
   data = ['data' => [1, 2, 3]]
   file_name = 'testFiles/testCreate'
+
   it 'File was created successfully' do
     file_handler.save_data(
         data,
