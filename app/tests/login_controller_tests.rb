@@ -1,5 +1,7 @@
 require 'rspec'
 require_relative './../src/controllers/login_controller'
+require 'simplecov'
+SimpleCov.start
 
 RSpec.describe LoginController do
   user = {

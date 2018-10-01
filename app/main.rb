@@ -3,7 +3,6 @@
 require './src/model/User.rb'
 require '../app/src/helpers/files_handler.rb'
 require '../app/src/controllers/login_controller.rb'
-
 def menu
   puts '1. Show pazymiai'
   puts '2. Show tvarkarasciai'

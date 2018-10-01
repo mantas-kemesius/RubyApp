@@ -1,5 +1,7 @@
 require 'rspec'
 require_relative './../src/model/User'
+require 'simplecov'
+SimpleCov.start
 
 RSpec.describe User do
   user = User.new('Petras', 'Petraitis', 0)
