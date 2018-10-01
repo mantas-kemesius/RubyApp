@@ -39,3 +39,5 @@ Mutation testing for Ruby: https://github.com/mbj/mutant
 
 Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test suites
 https://github.com/colszowka/simplecov
+
+Check tests coverage in: ```app/coverage/index.html``` page
