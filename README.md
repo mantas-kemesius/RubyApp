@@ -10,6 +10,11 @@ Deatalus idėjos aprašymas
 - Tomas Macikas
 - Mantas Kemėšius
 
-## Run tests
+## Run console app
 
-rspec /test/*
+From /app directory run this command if you are unix user:
+```ruby main.rb```
+
+## Run tests
+From /app directory run this command if you are unix user:
+```rspec tests/*```
