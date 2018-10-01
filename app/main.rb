@@ -22,6 +22,8 @@ password = '123'
 
 login_controller = LoginController.new
 if login_controller.login?(username, password)
+  # getting user obj if login was successful
+  user = login_controller.user
   loop do
     menu
     print 'Choose: '
