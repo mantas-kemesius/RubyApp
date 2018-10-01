@@ -14,30 +14,34 @@ def menu
 end
 
 # student credentials
-username = 's1612346'
-password = '123'
-
+# username = 's1612346'
+# password = '123'
 # lecturer credentials
 username = 's1612345'
 password = '123'
 
-login_controller = LoginController.new
-puts login_controller.login?(username, password)
+file_handler = FilesHandler.new
+file_handler.save_data({"key_a" => "val_a","key_b" => "val_b"}, 'belekas')
+puts file_handler.file_exist?('belekas')
 
-loop do
-  menu
-  print 'Choose: '
-  input = gets.chomp
-  case input
-  when '1'
-    puts input
-  when '2'
-    puts input
-  when '3'
-    puts input
-  when '4'
-    puts input
-  when 'exit'
-    break
+
+login_controller = LoginController.new
+if login_controller.login?(username, password)
+  loop do
+    menu
+    print 'Choose: '
+    input = gets.chomp
+    case input
+    when '1'
+      puts input
+    when '2'
+      puts input
+    when '3'
+      puts input
+    when '4'
+      puts input
+    when 'exit'
+      break
+    end
   end
 end
