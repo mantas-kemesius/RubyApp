@@ -18,3 +18,9 @@ From /app directory run this command if you are unix user:
 ## Run tests
 From /app directory run this command if you are unix user:
 ```rspec tests/*```
+
+## Run rubocop-rspec
+
+Code style checking for RSpec files
+
+```rubocop --require rubocop-rspec```
