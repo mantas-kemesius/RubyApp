@@ -33,7 +33,7 @@
 32. gali uždaryti BUS registracija
 33. gali pridėti studentui dalyką
 34. gali išimti studentui dalyką
-35. gali išleisti studentą akademinėms atostogoms
+35. gali išleisti studentą akademinėms atostogoms  
 **Studentas:**
 36. Studentas gali pretenduoti į dalyką
 37. Studentas gali skaityti bendrus pranešimus
@@ -57,7 +57,7 @@
 55. Studentų grupė gali gauti pranešimą
 56. Studentas gali gauti pranešimą
 57. Studentas gali žiūrėti mokomają medžiagą
-58. Studentas gali gauti kaupiamuosius taškus
+58. Studentas gali gauti kaupiamuosius taškus  
 **Destytojas:**
 59. Dėstytojas gali įkelti dėstomą medžiagą
 60. Dėstytojas gali sukurti testus
@@ -69,7 +69,7 @@
 66. Dėstytojas gali nurodyti/įkelti namų darbus
 67. Dėstytojas gali žiūrėti studentų ikeltus namų darbus
 68. Dėstytojas gali įvertinti studentų ikeltus namų darbus
-69. Dėstytojas gali skirti kaupiamuosius taškus
+69. Dėstytojas gali skirti kaupiamuosius taškus  
 **Sistemos naudotojas gali:**
 70. pradėti rašyti laišką
 71. išsiųsti laišką
@@ -90,7 +90,7 @@
 86. įterpti nuotrauką prie trumposios žinutės
 87. prisegti failą prie trumposios žinutės
 88. įterpti emoji trumposios žinutės tekste
-89. ištrinti gautas žinutes
+89. ištrinti gautas žinutes  
 **Sistemos administratorius gali:**
 90. koreguoti klasės aprašymą
 91. koreguoti auditorijos aprašymą
@@ -103,7 +103,7 @@
 98. keisti BUS dalyko vietų skaičių
 99. atnaujinti BUS dalyko užimtų vietų skaičių
 100. priskirti auditoriją dalykui
-101. keisti sisteminį laiką
+101. keisti sisteminį laiką  
 **Bendrabučio administracija gali:**
 102. Atidaryti sistemą studentų prašymams bendrabučiui
 103. Uždaryti sistemą studentų prašymams bendrabučiui
