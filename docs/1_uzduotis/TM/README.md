@@ -1,9 +1,10 @@
-##TODO 10 testu, igyvendint: Destytojas
+## TODO 10 testu, igyvendint: Destytojas
   Paveldi is Vartotojas?    
 1. Turi dėstytojo numerį  
 2. Turi dėstomus dalykus
 3. Turi fakultetą
 4. Turi universitetą
+5. Turi tvarkarasti
 
 ## Savybės
 
