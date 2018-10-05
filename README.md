@@ -1,6 +1,6 @@
 # Universiteto pagalbinė sistema
 
-Deatalus idėjos aprašymas
+Norime sukurti pagalbinę sistemą universitetui, kuri būtų patogi studentams bei dėstytojams. Studentai galės registruotis i paskaitas, atlikinėti testus, gauti namų darbų užduotis, laikyti egzaminus, taip pat užsiregistruoti į bendrabutį, rašyti prašymus studijų skyriui dėl stipendijų. Dėstytojai galės įkelinėti testus, užduotis, konspektus, peržiūrėti bei vertinti studentų darbus.
 
 # Komanda
 
