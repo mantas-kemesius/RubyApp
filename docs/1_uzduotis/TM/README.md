@@ -6,42 +6,63 @@
 4. Turi universitetą
 5. Turi tvarkarasti
 
-## Savybės
 
-1.	Studentas gali pretenduoti į dalyką
-2.	Studentas gali skaityti bendrus pranešimus
-3.	Studentas gali skaityti asmeninius laiškus
-4.	Studentas turi universitetą
-5.	Studentas turi grupę
-6.	Studentas turi studijų programą
-7.	Studentas turi dėstytojus
-8.	Studentas turi fakultetą
-9.	Studentas gali gauti pažymį
-10.	Studentas gali gauti dalyko įvertininimą
-11.	Studentas gali laikyti testus
-12.	Studentas gali laikyti egzaminą
-13.	Studentas gali laikyti koliokviumus
-14.	Studentas turi tvarkaraštį
-15.	Studentas gali gauti akademinę skolą
-16.	Studentas gali perlaikyti egzaminą
-17.	Paskaita turi savo Auditoriją
-18.	Studentų grupė gali gauti pranešimą
-19.	Studentas gali gauti pranešimą
-20.	Studentas gali žiūrėti mokomają medžiagą
-21.	Studentas gali gauti kaupiamuosius taškus
-22.	Dėstytojas gali įkelti dėstomą medžiagą
-23.	Dėstytojas gali sukurti testus
-24.	Dėstytojas gali peržiūrėti studentų atliktus testus
-25.	Dėstytojas turi tvarkaraštį
-26.	Dėstytojas gali vertinti studentus
-27.	Dėstytojas gali užskaityti studentui dalyką
-28.	Dėstytojas gali nurodyti/įkelti namų darbus
-29.	Dėstytojas gali skirti kaupiamuosius taškus
+## Dėstytojas  
+    1. Turi dėstytojo numerį  
+    2. Turi dėstomus dalykus  
+    3. Turi fakultetą  
+    4. Turi universitetą  
+    5. Gali įvesti pažymius  
+    6. Gali koreguoti pažymius  
+    7. Gali ištrint pažymius  
+    8. Gali sukurti testus  
+    9. Gali įkelti konspektus  
+    10. Gali ištrinti konspektus  
+    11. Gali koreguoti konspektus  
+    12. Gali rašyti pranešimus  
+    13. Gali įvertinti studentų testus  
+    14. Gali peržiūrėti testus  
+    15. Gali įkelti egzaminą  
+    16. Gali nustatyti egzamino laiką  
+    17. Gali įkelti užduotis  
+    18. Gali įvertinti užduotis  
+    19. Gali keisti užduotis  
+    20. Gali ištrinti užduotis  
+    21. Gali skaityti pranešimus  
+    22. Gali pretenduoti į vietą bendrabutyje  
+    23. Gali rašyti prašymą pereiti į kitą kambarį  
+    24. Gali užregistruoti gedimą bendrabutyje  
+    25. Gali parašyti prašymą išširegistruoti iš bendrabučio  
+    26. Gali prašyti atostogų  
+    27. Gali nustatyti komandiruočių laiką  
+ ## Savybes  
 
-## Esybės
-1.	Dėstomas dalykas
-2.	Pranešimas
-3.	Grupė
-4.	Testas
-5.	Perlaikymas
-6.	Paskaitų medžiaga
+    1. Dėstytojas  
+    2. Studentas  
+    3. Studijų skyrius  
+    4. Sistemos administratorius  
+    5. Universitetas  
+    6. Fakultetas  
+    7. Konspektai  
+    8. Tvarkaraščiai  
+    9. Koliokviumai  
+    10. Egzaminai  
+    11. Namų darbai  
+    12. Testai  
+    13. Studijų programa  
+    14. Pažymiai  
+    15. Akademinės skolos  
+    16. Auditorijos  
+    17. Dėstomas dalykas  
+    18. Pranešimas  
+    19. Grupė  
+    20. Testas  
+    21. Perlaikymas  
+    22. BUS dalykas  
+    23. Privalomasis dalykas  
+    24. Pasirenkamasis dalykas  
+    25. Paskaitų medžiaga  
+    26. Akademinės atostogos  
+    27. Bendrabutis  
+    28. Pažangumo eilė  
+    29. Stipendija  
