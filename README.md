@@ -17,19 +17,19 @@ From /app directory run this command if you are unix user:
 
 ## Run tests
 From /app directory run this command if you are unix user:
-```rspec tests/*```
+```rspec```
 
 ## Run rubocop-rspec
 
 Code style checking for RSpec files: https://github.com/rubocop-hq/rubocop-rspec
 
-```rubocop --require rubocop-rspec```
+```rubocop```
 
 ## Run reek
 
 Code smell detector for Ruby: https://github.com/troessner/reek
 
-```reek src/*```
+```reek```
 
 ## Run mutant 
 
