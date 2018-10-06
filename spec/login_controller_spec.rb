@@ -1,7 +1,4 @@
-require 'rspec'
-require_relative './../src/controllers/login_controller'
-require 'simplecov'
-SimpleCov.start
+require 'spec_helper'
 
 RSpec.describe LoginController do
   user = {
@@ -31,13 +28,27 @@ RSpec.describe LoginController do
     expect(login_controller.user.class).to eq User
   end
 
-  it 'Serializer makes user object from array' do
-    login_controller = LoginController.new
-    login_controller.serializer(user)
+  # Init serializer
+  login_controller = LoginController.new
+  login_controller.serializer(user)
+
+  it 'Serializer makes user object from user array' do
     expect(login_controller.user.class).to eq User
+  end
+
+  it 'Serializer creates name from user array' do
     expect(login_controller.user.name).to eq user['name']
+  end
+  
+  it 'Serializer creates last name from user array' do
     expect(login_controller.user.last_name).to eq user['lastName']
+  end
+  
+  it 'Serializer creates phone from user array' do
     expect(login_controller.user.phone).to eq user['phone']
+  end
+
+  it 'Serializer creates email from user array' do
     expect(login_controller.user.email).to eq user['email']
   end
 end

@@ -1,9 +1,5 @@
-require 'rspec'
-require_relative './../src/helpers/files_handler'
-require 'json'
-require 'simplecov'
+require 'spec_helper'
 
-SimpleCov.start
 RSpec.describe FilesHandler do
   file_handler = FilesHandler.new
   data = ['data' => [1, 2, 3]]

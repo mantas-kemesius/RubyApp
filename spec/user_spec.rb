@@ -1,10 +1,8 @@
-require 'rspec'
-require_relative './../src/model/User'
-require 'simplecov'
-SimpleCov.start
+require 'spec_helper'
 
 RSpec.describe User do
   user = User.new('Petras', 'Petraitis', 0)
+  
   it 'initial data was set successful' do
     expect(user.name).to eq 'Petras'
     expect(user.last_name).to eq 'Petraitis'
