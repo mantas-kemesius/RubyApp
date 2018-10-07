@@ -1,14 +1,14 @@
 # Description/Explanation of Student class
 class Student
-  attr_accessor :s_id, :faculty, :group, :subjects, :timetable, :marks, :active
+  attr_reader :s_id, :faculty, :group, :subjects, :timetable, :marks, :active
   def initialize(student_id, faculty, group, active = 0)
     @s_id = student_id
     @faculty = faculty
     @group = group
+    @active = active
     @subjects = []
     @timetable = []
     @marks = []
-    @active = active
   end
 
   def add_mark(mark)

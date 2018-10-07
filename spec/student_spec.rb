@@ -6,9 +6,9 @@ RSpec.describe Student do
     expect(student.s_id).to eq 's1611123'
     expect(student.faculty).to eq 'MIF'
     expect(student.group).to eq 2
-    expect(student.subjects).to eq [[]]
-    expect(student.timetable).to eq [[]]
-    expect(student.marks).to eq [[]]
+    expect(student.subjects).to eq []
+    expect(student.timetable).to eq []
+    expect(student.marks).to eq []
     expect(student.active).to eq 0
   end
 
