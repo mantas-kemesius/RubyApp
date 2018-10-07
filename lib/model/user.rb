@@ -5,47 +5,53 @@ class User
     @name = name
     @last_name = last_name
     @role = ROLE[role_id]
-    @email = email
+    @email = if Email.a_valid_email?(email)
+               email
+             else
+               ''
+             end
+    # @email = email  //added email validation above
+    # !!!
     @phone = phone
   end
 
-  def getName
-    return @name
+  def get_name
+    @name
   end
 
-  def setName (name)
+  def set_name (name)
     @name = name
   end
 
-  def getLastName
-    return @last_name
+  def get_last_name
+    @last_name
   end
 
-  def setLastName (last_name)
+  def set_last_name (last_name)
     @last_name = last_name
   end
 
-  def getRoleID
-    return @role
+  def get_role_id
+    @role
   end
 
-  def setRoleID (role_id)
+  def set_role_id (role_id)
     @role = ROLE[role_id]
   end
 
-  def getEmail
-    return @email
+  def get_email
+    @email
   end
 
-  def setEmail (email)
+  def set_email (email)
     @email = email
   end
 
-  def getPhone
-    return @phone
+  def get_phone
+    @phone
   end
 
-  def setPhone (phone)
+  def set_phone (phone)
     @phone = phone
   end
 
