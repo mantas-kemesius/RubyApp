@@ -113,6 +113,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   mutant
@@ -125,4 +126,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   1.15.4
+   1.16.6
