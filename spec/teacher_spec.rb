@@ -8,8 +8,11 @@ RSpec.describe Teacher do
     expect(teacher.faculty).to eq 'mif'
   end
   it 'id number is correct format' do
-    expect(teacher.id[0]).to eq 't'
     regex = /[t]\d{7}$/
     expect(!teacher.id[regex].nil?).to eq true
+  end
+  it 'teacher is on vacation' do
+    teacher.goes_on_vacation(true)
+    expect(teacher.onVacation).to eq true
   end
 end
