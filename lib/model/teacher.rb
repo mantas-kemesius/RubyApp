@@ -1,6 +1,6 @@
 # Some Comment:)
 class Teacher
-  attr_accessor :name, :faculty, :university
+  attr_reader :name, :faculty, :university
 
   def initialize(name, university, faculty)
     @name = name
