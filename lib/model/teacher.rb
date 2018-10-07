@@ -1,5 +1,4 @@
-#Teacher class
-
+# Some Comment:)
 class Teacher
   attr_accessor :name, :faculty, :university
 
