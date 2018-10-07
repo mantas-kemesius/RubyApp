@@ -13,7 +13,7 @@ RSpec.describe Teacher do
   end
   it 'teacher is on vacation' do
     teacher.goes_on_vacation(true)
-    expect(teacher.onVacation).to eq true
+    expect(teacher.on_vacation).to eq true
   end
   it 'have subjects' do
     expect(teacher.subjects_count).not_to eq nil
