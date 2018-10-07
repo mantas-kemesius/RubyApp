@@ -1,9 +1,9 @@
 # Some Comment:)
 class Teacher
-  attr_reader :name, :faculty, :university
+  attr_reader :id, :faculty, :university
 
-  def initialize(name, university, faculty)
-    @name = name
+  def initialize(id, university, faculty)
+    @id = id
     @university = university
     @faculty = faculty
   end
