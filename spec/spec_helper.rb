@@ -5,7 +5,6 @@ require_relative './../lib/helpers/files_handler'
 require_relative './../lib/model/user'
 require_relative './../lib/model/teacher'
 
-
 require 'simplecov'
 SimpleCov.start
 

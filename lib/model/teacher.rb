@@ -1,3 +1,5 @@
+#Teacher class
+
 class Teacher
   attr_accessor :name, :faculty, :university
 
