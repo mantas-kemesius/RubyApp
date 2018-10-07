@@ -2,9 +2,14 @@ require 'spec_helper'
 
 RSpec.describe Teacher do
   teacher = described_class.new('t1610179', 'Vilniaus universitetas', 'mif')
-  it 'initial data was set successful' do
+  it 'ID set correct' do
     expect(teacher.id).to eq 't1610179'
+
+  end
+  it 'university set correct'do
     expect(teacher.university).to eq 'Vilniaus universitetas'
+  end
+  it 'faculty set correct' do
     expect(teacher.faculty).to eq 'mif'
   end
   it 'id number is correct format' do
@@ -16,6 +21,6 @@ RSpec.describe Teacher do
     expect(teacher.on_vacation).to eq true
   end
   it 'have subjects' do
-    expect(teacher.subjects_count).not_to eq nil
+    expect(teacher.subjects).not_to eq nil
   end
 end
