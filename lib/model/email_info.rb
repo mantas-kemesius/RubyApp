@@ -1,3 +1,4 @@
+# Email info class
 class EmailInfo
   attr_reader :title, :text
 

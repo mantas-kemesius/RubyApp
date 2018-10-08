@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 RSpec.describe Teacher do
   teacher = described_class.new('t1610179', 'Vilniaus universitetas', 'mif')
   it 'ID set correct' do

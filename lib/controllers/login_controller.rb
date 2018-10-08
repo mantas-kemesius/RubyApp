@@ -15,5 +15,4 @@ class LoginController
     end
     false
   end
-
 end

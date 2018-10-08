@@ -62,8 +62,4 @@ RSpec.describe Email do
                                 'Test', 'Test email')
     email.send
   end
-
-  it 'receives email successfully' do
-
-  end
 end
