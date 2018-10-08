@@ -1,5 +1,4 @@
 require 'json'
-# Handles information in files
 class FilesHandler
   attr_accessor :full_path
   def initialize
@@ -45,4 +44,5 @@ class FilesHandler
     end
     nil
   end
+
 end

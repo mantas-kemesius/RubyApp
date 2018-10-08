@@ -64,5 +64,6 @@ RSpec.describe Email do
   end
 
   it 'receives email successfully' do
+
   end
 end
