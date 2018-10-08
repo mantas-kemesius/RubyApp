@@ -6,6 +6,7 @@ require_relative './../lib/model/user'
 require_relative './../lib/model/student'
 require_relative './../lib/model/teacher_info'
 require_relative './../lib/model/teacher'
+require_relative './../lib/model/subject_info'
 require_relative './../lib/model/subject'
 require_relative './../lib/model/email'
 
