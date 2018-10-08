@@ -1,5 +1,5 @@
 # Email class implements email functionality
-class Email
+class Email < EmailInfo
   attr_reader :email_from, :email_to, :title, :text
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
