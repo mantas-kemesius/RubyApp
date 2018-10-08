@@ -1,6 +1,5 @@
 require 'spec_helper'
-
-RSpec.describe LoginController do
+RSpec.describe(LoginController) do
   user = {
     'username' => 's1612345',
     'name' => 'Petras',
@@ -25,7 +24,7 @@ RSpec.describe LoginController do
   it 'Returned object should be created from User class' do
     login_controller = LoginController.new
     login_controller.login?('s1612345', '123', 'testFiles/Users')
-    expect(login_controller.user.class).to eq User
+    expect(login_controller.user_obj.class).to eq User
   end
 
   # Init serializer
@@ -33,22 +32,22 @@ RSpec.describe LoginController do
   login_controller.serializer(user)
 
   it 'Serializer makes user object from user array' do
-    expect(login_controller.user.class).to eq User
+    expect(login_controller.user_obj.class).to eq User
   end
 
   it 'Serializer creates name from user array' do
-    expect(login_controller.user.name).to eq user['name']
+    expect(login_controller.user_obj.name).to eq user['name']
   end
-  
+
   it 'Serializer creates last name from user array' do
-    expect(login_controller.user.last_name).to eq user['lastName']
+    expect(login_controller.user_obj.last_name).to eq user['lastName']
   end
-  
+
   it 'Serializer creates phone from user array' do
-    expect(login_controller.user.phone).to eq user['phone']
+    expect(login_controller.user_obj.phone).to eq user['phone']
   end
 
   it 'Serializer creates email from user array' do
-    expect(login_controller.user.email).to eq user['email']
+    expect(login_controller.user_obj.email).to eq user['email']
   end
-end
+}
