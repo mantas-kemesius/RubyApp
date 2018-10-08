@@ -1,6 +1,6 @@
 # Attributes of a study subject
 class Subject
-  attr_accessor :name, :description_text, :description_file, :number_of_credits,
+  attr_reader :name, :description_text, :description_file, :number_of_credits,
                 :coordinating_teacher
   def initialize(name, description_text, description_file, number_of_credits,
                  coordinating_teacher)
