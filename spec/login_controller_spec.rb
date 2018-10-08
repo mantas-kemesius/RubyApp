@@ -1,24 +1,28 @@
 require 'spec_helper'
-RSpec.describe(LoginController) do
-  user = {
-    'username' => 's1612345',
-    'name' => 'Petras',
-    'lastName' => 'Petraitis',
-    'role' => 'ROLE_LECTURER',
-    'role_id' => 1,
-    'email' => 'petras@gmail.com',
-    'phone' => '862435384',
-    'password' => '123'
-  }
 
+user = {
+  'username' => 's1612345',
+  'name' => 'Petras',
+  'lastName' => 'Petraitis',
+  'role' => 'ROLE_LECTURER',
+  'role_id' => 1,
+  'email' => 'petras@gmail.com',
+  'phone' => '862435384',
+  'password' => '123'
+}
+
+RSpec.describe(LoginController) do
   it 'Login should be unsuccessful' do
     login_controller = LoginController.new
-    expect(login_controller.login?('s1612345', '1223', 'testFiles/Users')).to eq false
+    expect(
+      login_controller.login?('s1612345', '1223', 'testFiles/Users')
+    ).to eq false
   end
 
   it 'Login should be successful' do
     login_controller = LoginController.new
-    expect(login_controller.login?('s1612345', '123', 'testFiles/Users')).to eq true
+    expect(login_controller
+       .login?('s1612345', '123', 'testFiles/Users')).to eq true
   end
 
   it 'Returned object should be created from User class' do
@@ -26,7 +30,8 @@ RSpec.describe(LoginController) do
     login_controller.login?('s1612345', '123', 'testFiles/Users')
     expect(login_controller.user_obj.class).to eq User
   end
-
+end
+RSpec.describe(LoginController) do
   # Init serializer
   login_controller = LoginController.new
   login_controller.serializer(user)
@@ -50,4 +55,4 @@ RSpec.describe(LoginController) do
   it 'Serializer creates email from user array' do
     expect(login_controller.user_obj.email).to eq user['email']
   end
-}
+end
