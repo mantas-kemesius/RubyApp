@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe FilesHandler do
-  file_handler = FilesHandler.new
+  file_handler = described_class.new
   data = ['data' => [1, 2, 3]]
   file_name = 'testFiles/testCreate'
 
