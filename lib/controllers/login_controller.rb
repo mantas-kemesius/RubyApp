@@ -2,7 +2,7 @@ require_relative './../helpers/files_handler'
 
 # User Login controller
 class LoginController
-  attr_accessor :user_obj
+  attr_reader :username, :password
   def initialize
     @file_handler = FilesHandler.new
   end
@@ -17,13 +17,4 @@ class LoginController
     false
   end
 
-  def serializer(user)
-    @user_obj = User.new(
-      user['name'],
-      user['lastName'],
-      user['role_id'],
-      user['email'],
-      user['phone']
-    )
-  end
 end
