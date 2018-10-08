@@ -33,4 +33,12 @@ RSpec.describe FilesHandler do
 
     expect(temp_user.name).to eq temp_user1.name
   end
+
+  it 'email was found successfully' do
+    temp_user1 = file_handler.get_email('Users', 'petras@gmail.com')
+    temp_user = User.new('Petras', 'Petraitis', 1,
+                         'petras@gmail.com', '862435384')
+
+    expect(temp_user.name).to eq temp_user1.name
+  end
 end

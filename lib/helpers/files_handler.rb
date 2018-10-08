@@ -34,4 +34,15 @@ class FilesHandler
     nil
   end
 
+  def get_email(file_name, email)
+    data = load_data(file_name)
+    data['Users'].each do |user|
+      if user['email'] == email
+        return User.new(user['name'], user['last_name'],
+                        user['role_id'], user['email'], user['phone'])
+      end
+    end
+    nil
+  end
+
 end
