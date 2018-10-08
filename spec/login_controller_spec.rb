@@ -1,16 +1,17 @@
 require 'spec_helper'
-RSpec.describe(LoginController) do
-  user = {
-    'username' => 's1612345',
-    'name' => 'Petras',
-    'lastName' => 'Petraitis',
-    'role' => 'ROLE_LECTURER',
-    'role_id' => 1,
-    'email' => 'petras@gmail.com',
-    'phone' => '862435384',
-    'password' => '123'
-  }
 
+user = {
+  'username' => 's1612345',
+  'name' => 'Petras',
+  'lastName' => 'Petraitis',
+  'role' => 'ROLE_LECTURER',
+  'role_id' => 1,
+  'email' => 'petras@gmail.com',
+  'phone' => '862435384',
+  'password' => '123'
+}
+
+RSpec.describe(LoginController) do
   it 'Login should be unsuccessful' do
     login_controller = LoginController.new
     expect(
@@ -29,7 +30,8 @@ RSpec.describe(LoginController) do
     login_controller.login?('s1612345', '123', 'testFiles/Users')
     expect(login_controller.user_obj.class).to eq User
   end
-
+end
+RSpec.describe(LoginController) do
   # Init serializer
   login_controller = LoginController.new
   login_controller.serializer(user)
