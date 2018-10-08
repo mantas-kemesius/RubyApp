@@ -1,14 +1,14 @@
+userArray = {
+    'username' => 's1612345',
+    'name' => 'Petras',
+    'lastName' => 'Petraitis',
+    'role' => 'ROLE_LECTURER',
+    'role_id' => 1,
+    'email' => 'petras@gmail.com',
+    'phone' => '862435384',
+    'password' => '123'
+}
 RSpec.describe Serializer do
-  userArray = {
-      'username' => 's1612345',
-      'name' => 'Petras',
-      'lastName' => 'Petraitis',
-      'role' => 'ROLE_LECTURER',
-      'role_id' => 1,
-      'email' => 'petras@gmail.com',
-      'phone' => '862435384',
-      'password' => '123'
-  }
   # Init serializer
   serializer = described_class.new
   user_obj = serializer.serializer(userArray)
