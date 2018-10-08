@@ -10,8 +10,6 @@ class User
              else
                ''
              end
-    # @email = email  //added email validation above
-    # !!!
     @phone = phone
   end
 end
