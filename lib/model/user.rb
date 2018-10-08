@@ -6,11 +6,7 @@ class User
     @name = name
     @last_name = last_name
     @role = ROLE[role_id]
-    @email = if Email.a_valid_email?(email)
-               email
-             else
-               ''
-             end
+    @email = email
     @phone = phone
   end
 end
