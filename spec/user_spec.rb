@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'spec_helper.rb'
 
 RSpec.describe User do
   user = User.new('Petras', 'Petraitis', 0)
