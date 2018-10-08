@@ -9,6 +9,7 @@ require_relative './../lib/model/teacher'
 require_relative './../lib/model/subject_info'
 require_relative './../lib/model/subject'
 require_relative './../lib/model/email'
+require_relative './../lib/model/serializer'
 
 require 'simplecov'
 SimpleCov.start

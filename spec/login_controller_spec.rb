@@ -13,10 +13,4 @@ RSpec.describe(LoginController) do
     expect(login_controller
        .login?('s1612345', '123', 'testFiles/Users')).to eq true
   end
-
-  it 'Returned object should be created from User class' do
-    login_controller = described_class.new
-    login_controller.login?('s1612345', '123', 'testFiles/Users')
-    expect(login_controller.user_obj.class).to eq User
-  end
 end
