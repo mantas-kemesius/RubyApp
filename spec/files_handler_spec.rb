@@ -7,7 +7,7 @@ RSpec.describe FilesHandler do
 
   it 'File was created successfully' do
     file_handler.save_data(
-        data,
+      data,
       'testFiles/testCreate'
     )
     expect(file_handler.file_exist?(file_name)).to eq true
@@ -21,5 +21,4 @@ RSpec.describe FilesHandler do
     file_handler.delete_file(file_name)
     expect(file_handler.file_exist?(file_name)).to eq false
   end
-
 end

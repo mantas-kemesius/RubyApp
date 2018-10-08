@@ -24,5 +24,4 @@ class FilesHandler
   def file_exist?(file_name)
     File.exist?(@full_path + file_name + '.json')
   end
-
 end
