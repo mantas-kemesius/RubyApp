@@ -23,6 +23,6 @@ RSpec.describe Teacher do
     expect(teacher.subjects).not_to eq nil
   end
   it 'can enter grade for student' do
-    expect(teacher.enter_grade('s1610179', 9)).to eq true
+    expect(teacher.enter_grade?).to eq true
   end
 end
