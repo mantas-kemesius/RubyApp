@@ -14,45 +14,4 @@ class User
     # !!!
     @phone = phone
   end
-
-  def get_name
-    @name
-  end
-
-  def set_name (name)
-    @name = name
-  end
-
-  def get_last_name
-    @last_name
-  end
-
-  def set_last_name (last_name)
-    @last_name = last_name
-  end
-
-  def get_role_id
-    @role
-  end
-
-  def set_role_id (role_id)
-    @role = ROLE[role_id]
-  end
-
-  def get_email
-    @email
-  end
-
-  def set_email (email)
-    @email = email
-  end
-
-  def get_phone
-    @phone
-  end
-
-  def set_phone (phone)
-    @phone = phone
-  end
-
 end
