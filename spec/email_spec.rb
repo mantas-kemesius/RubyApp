@@ -4,7 +4,7 @@ RSpec.describe Email do
   context 'initial data is set correctly when' do
     it 'email is in correct format (example@email.com)' do
       user = User.new('Petras', 'Petraitis', 0, 'petras.petraitis@gmail.com')
-      email = Email.new(user, 'jonas.jonaitis@gmail.com', 'Test email')
+      email = described_class.new(user, 'jonas.jonaitis@gmail.com', 'Test email')
 
       expect(email.email_from.name).to eq 'Petras'
       expect(email.email_from.last_name).to eq 'Petraitis'
@@ -21,7 +21,7 @@ RSpec.describe Email do
   context 'initial data is set unsuccessfully when' do
     it 'email format is incorrect (example@email.com)' do
       user = User.new('Petras', 'Petraitis', 0, 'petras.petraitis@gmailcom')
-      email = Email.new(user, 'jonas.jonaitis@gmail.com', 'Test email')
+      email = described_class.new(user, 'jonas.jonaitis@gmail.com', 'Test email')
 
       expect(email.email_from.name).to eq 'Petras'
       expect(email.email_from.last_name).to eq 'Petraitis'
@@ -42,5 +42,17 @@ RSpec.describe Email do
     expect(Email.a_valid_email?('us/er.2@yahoo.com')).to eq false
     expect(Email.a_valid_email?('user.2yahoocom')).to eq false
     expect(Email.a_valid_email?('us/er.2yahoo.com')).to eq false
+  end
+end
+
+RSpec.describe Email do
+  it 'sends email successfully' do
+    email = described_class.new('petras@gmail.com', 'jonas@gmail.com',
+                                'Test', 'Test email')
+    email.send()
+  end
+
+  it 'receives email successfully' do
+
   end
 end

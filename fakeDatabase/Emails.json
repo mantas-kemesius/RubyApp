@@ -1,0 +1,18 @@
+{
+  "Emails": [
+    {
+      "email_from": "petras@gmail.com",
+      "email_to": "jonas@gmail.com",
+      "type": "sent",
+      "title": "test email",
+      "text": "ROLE_LECTURER"
+    },
+    {
+      "email_from": "jonas@gmail.com",
+      "email_to": "petras@gmail.com",
+      "type": "received",
+      "title": "test email",
+      "text": "ROLE_STUDENT"
+    }
+  ]
+}

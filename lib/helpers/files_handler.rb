@@ -23,4 +23,15 @@ class FilesHandler
     File.exist?(@full_path + file_name + '.json')
   end
 
+  def get_username(file_name, username)
+    data = load_data(file_name)
+    data['Users'].each do |user|
+      if user['username'] == username
+        return User.new(user['name'], user['last_name'],
+                        user['role_id'], user['email'], user['phone'])
+      end
+    end
+    nil
+  end
+
 end

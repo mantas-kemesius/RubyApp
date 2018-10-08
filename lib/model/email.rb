@@ -1,6 +1,7 @@
+# Email class implements email functionality
 class Email
   attr_accessor :email_from, :email_to, :title, :text
-  @VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   def self.a_valid_email?(email)
     if (email =~ /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i).nil?
@@ -19,5 +20,9 @@ class Email
                 end
     @title = title
     @text = text
+  end
+
+  def send
+    true
   end
 end
