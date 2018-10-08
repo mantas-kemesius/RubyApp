@@ -1,3 +1,4 @@
+# User class
 class User
   ROLE = %w[ROLE_STUDENT ROLE_LECTURER ROLE_ADMIN].freeze
   attr_accessor :name, :last_name, :role, :email, :phone

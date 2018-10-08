@@ -1,4 +1,6 @@
 require 'json'
+
+# File handler
 class FilesHandler
   attr_accessor :full_path
   def initialize
