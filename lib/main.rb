@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require './model/User.rb'
+require './model/user.rb'
 require './helpers/files_handler.rb'
 require './controllers/login_controller.rb'
 

@@ -4,6 +4,10 @@ require_relative './../lib/controllers/login_controller'
 require_relative './../lib/helpers/files_handler'
 require_relative './../lib/model/user'
 require_relative './../lib/model/student'
+require_relative './../lib/model/teacher_info'
+require_relative './../lib/model/teacher'
+require_relative './../lib/model/subject'
+require_relative './../lib/model/email'
 
 require 'simplecov'
 SimpleCov.start

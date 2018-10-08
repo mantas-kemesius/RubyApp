@@ -5,7 +5,13 @@ class User
     @name = name
     @last_name = last_name
     @role = ROLE[role_id]
-    @email = email
+    @email = if Email.a_valid_email?(email)
+               email
+             else
+               ''
+             end
+    # @email = email  //added email validation above
+    # !!!
     @phone = phone
   end
 end

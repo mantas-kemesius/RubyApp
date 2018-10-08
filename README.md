@@ -21,8 +21,9 @@ From /app directory run this command if you are unix user:
 
 ## Run rubocop-rspec
 
-Code style checking for RSpec files: https://github.com/rubocop-hq/rubocop-rspec
-
+Code style checking for RSpec files: https://github.com/rubocop-hq/rubocop-rspec  
+edit "rubocop.yml" to ".rubocop.yml"
+paleidziam su rubocop --require rubocop-rspec
 ```rubocop```
 
 ## Run reek
