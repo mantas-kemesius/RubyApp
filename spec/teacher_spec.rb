@@ -5,7 +5,7 @@ RSpec.describe Teacher do
   it 'ID set correct' do
     expect(teacher.id).to eq 't1610179'
   end
-  it 'university set correct'do
+  it 'university set correct' do
     expect(teacher.university).to eq 'Vilniaus universitetas'
   end
   it 'faculty set correct' do

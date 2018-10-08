@@ -2,7 +2,9 @@ require 'spec_helper.rb'
 
 RSpec.describe User do
   user = User.new('Petras', 'Petraitis', 0)
-  temp_user = User.new('Petras', 'Petraitis', 0, 'email@email.com', '8623423423')
+  temp_user = User.new(
+    'Petras', 'Petraitis', 0, 'email@email.com', '8623423423'
+  )
   it 'user name was setted successfuly' do
     expect(user.name).to eq 'Petras'
   end
