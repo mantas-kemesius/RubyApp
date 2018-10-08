@@ -25,4 +25,10 @@ RSpec.describe Teacher do
   it 'can enter grade for student' do
     expect(teacher.enter_grade?).to eq true
   end
+  it 'can edit grade for student' do
+    expect(teacher.edit_grade?).to eq true
+  end
+  it 'can delete grade for student' do
+    expect(teacher.delete_grade?).to eq true
+  end
 end

@@ -15,4 +15,12 @@ class Teacher < TeacherInfo
   def enter_grade?
     true
   end
+
+  def edit_grade?
+    true
+  end
+
+  def delete_grade?
+    true
+  end
 end

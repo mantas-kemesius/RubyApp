@@ -1,6 +1,6 @@
 #  Email class
 class Email
-  attr_accessor :email_from, :email_to, :title, :text
+  attr_reader :email_from, :email_to, :title, :text
   @valid_email_regex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   def self.a_valid_email?(email)
