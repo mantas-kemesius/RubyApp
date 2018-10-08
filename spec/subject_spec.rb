@@ -1,10 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe Subject do
-  subject = Subject.new('Ruby Programming',
-                        'Agile Programming Ruby',
-                        'Ruby.pdf', '5',
-                        't1610179')
+  subject = described_class.new('Ruby Programming', 'Agile Programming Ruby',
+                                'Ruby.pdf', '5', 't1610179')
   it 'Subject name set correct' do
     expect(subject.name).to eq 'Ruby Programming'
   end
@@ -25,6 +23,11 @@ RSpec.describe Subject do
   it 'Credit number set correct' do
     expect(subject.number_of_credits).to eq '5'
   end
+end
+
+RSpec.describe Subject do
+  subject = described_class.new('Ruby Programming', 'Agile Programming Ruby',
+                                'Ruby.pdf', '5', 't1610179')
   it 'Coordinating teacher ID correct format' do
     regex = /[t]\d{7}$/
     expect(!subject.coordinating_teacher[regex].nil?).to eq true
