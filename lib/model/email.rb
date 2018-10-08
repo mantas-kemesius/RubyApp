@@ -1,3 +1,4 @@
+require_relative 'email_info'
 # Email class implements email functionality
 class Email < EmailInfo
   attr_reader :email_from, :email_to, :title, :text

@@ -1,4 +1,4 @@
-require_relative 'User'
+require_relative 'user'
 # Serializer
 class Serializer
   def serializer(user)
