@@ -13,4 +13,8 @@ class Teacher < TeacherInfo
   def goes_on_vacation(on_vacation)
     @on_vacation = on_vacation
   end
+
+  def enter_grade(student_id, grade)
+    return true
+  end
 end
