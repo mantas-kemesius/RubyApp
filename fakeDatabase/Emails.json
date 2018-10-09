@@ -12,5 +12,26 @@
     "was_sent": false,
     "title": "Test",
     "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "was_sent": false,
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "was_sent": false,
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "was_sent": false,
+    "title": "Test",
+    "text": "Test email"
   }
 ]

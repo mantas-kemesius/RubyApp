@@ -32,3 +32,13 @@ RSpec.describe User do
     expect(temp_user.phone).to eq '8623423423'
   end
 end
+
+RSpec.describe User do
+  it 'gets email count successfully' do
+    file_handler.save_data(
+        data,
+        'testFiles/testCreate'
+    )
+    expect(file_handler.get_email_count('Emails')).to eq 4
+  end
+end

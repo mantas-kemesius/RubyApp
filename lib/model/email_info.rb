@@ -1,9 +1,9 @@
 # For email attributes
 class EmailInfo
-  attr_reader :title, :text
+  attr_reader :email_from, :email_to
 
-  def initialize(title, text = '')
-    @title = title
-    @text = text
+  def initialize(email_from, email_to)
+    @email_from = email_from
+    @email_to = email_to
   end
 end

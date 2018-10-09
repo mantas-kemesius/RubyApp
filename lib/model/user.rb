@@ -11,6 +11,10 @@ class User < UserInfo
     @phone = phone
   end
 
+  def send_email(email_to, title, text)
+
+  end
+
   # @return [Email]
   def emails
     files_handler = FilesHandler.new

@@ -27,7 +27,7 @@ RSpec.describe FilesHandler do
   file_handler = FilesHandler.new
 
   it 'user was found successfully by username' do
-    temp_user1 = file_handler.get_user_by_username('Users', 's1612345')
+    temp_user1 = file_handler.get_user_by_username('s1612345', 'Users')
     temp_user = User.new('Petras', 'Petraitis', 1,
                          'petras@gmail.com', '862435384')
 
@@ -56,9 +56,5 @@ RSpec.describe FilesHandler do
   it 'emails sent to a user were found successfully' do
     emails = file_handler.get_user_emails('jonas@gmail.com', 'Emails', 'Users')
     expect(emails[0].email_from).not_to eq ''
-  end
-
-  it 'gets email count successfully' do
-    expect(file_handler.get_email_count('Emails')).to eq 4
   end
 end
