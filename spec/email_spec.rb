@@ -57,13 +57,13 @@ end
 # end
 # end
 
-RSpec.describe Email do
-  it 'sends email successfully' do
-    email = described_class.new('petras@gmail.com', 'jonas@gmail.com',
-                                'Test', 'Test email')
-    email.send('Emails')
-  end
-
-  it 'receives email successfully' do
-  end
-end
+# RSpec.describe Email do
+#   it 'sends email successfully' do
+#     email = described_class.new('petras@gmail.com', 'jonas@gmail.com',
+#                                 'Test', 'Test email')
+#     email.send('Emails')
+#   end
+#
+#   it 'receives email successfully' do
+#   end
+# end
