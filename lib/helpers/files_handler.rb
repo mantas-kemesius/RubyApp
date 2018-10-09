@@ -51,9 +51,10 @@ class FilesHandler
   def get_user_by_email(email, file_name)
     data = load_data(file_name)
     data['Users'].each do |user|
-      if user['email'] == email
+      temp_user_email = user['email']
+      if temp_user_email == email
         return User.new(user['name'], user['last_name'],
-                        user['role_id'], user['email'], user['phone'])
+                        user['role_id'], temp_user_email, user['phone'])
       end
     end
     User.new('', '', 0, '', '')
@@ -75,8 +76,9 @@ class FilesHandler
   def inflate_sent_email_array(user_email, data)
     email_array = []
     data.each do |email|
-      if email['email_from'] == user_email
-        email_array << Email.new(email['email_from'], email['email_to'],
+      temp_email_from = email['email_from']
+      if temp_email_from == user_email
+        email_array << Email.new(temp_email_from, email['email_to'],
                                  email['title'], email['text'])
       end
     end
@@ -98,8 +100,9 @@ class FilesHandler
   def inflate_received_email_array(user_email, data)
     email_array = []
     data.each do |email|
-      if email['email_to'] == user_email
-        email_array << Email.new(email['email_from'], email['email_to'],
+      temp_email_to = email['email_to']
+      if temp_email_to == user_email
+        email_array << Email.new(email['email_from'], temp_email_to,
                                  email['title'], email['text'])
       end
     end
