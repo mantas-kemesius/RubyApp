@@ -8,9 +8,19 @@ class LoginController
   end
 
   def login?(username, password, file_name = 'Users')
+    # temp_username = username
+    # temp_password = password
     users = @file_handler.load_data(file_name)
+
+    iterate_users(users, username, password)
+  end
+
+  def iterate_users(users, username, password)
+    temp_username = username
+    temp_password = password
     users['Users'].each do |item|
-      next unless item['username'] == username && item['password'] == password
+      next unless item['username'] == temp_username &&
+                  item['password'] == temp_password
 
       return true
     end
