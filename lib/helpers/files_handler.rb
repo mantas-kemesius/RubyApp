@@ -2,7 +2,7 @@ require 'json'
 
 # Files Handler class
 class FilesHandler
-  attr_accessor :full_path
+  attr_reader :full_path
   def initialize
     @full_path = __dir__ + '/../../fakeDatabase/'
   end
