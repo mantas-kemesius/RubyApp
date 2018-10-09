@@ -46,15 +46,16 @@ RSpec.describe Email do
   end
 end
 
-RSpec.describe Email do
-  it 'format validation works correctly' do
-    expect(Email.a_valid_email?('user@gmail.com')).to eq true
-  end
-
-  it 'format validation works correctly' do
-    expect(Email.a_valid_email?('us/er.2@yahoo.com')).to eq false
-  end
-end
+# RSpec.describe Email do
+# it 'format validation works correctly' do
+# expect(Email.a_valid_email?('user@gmail.com')).to eq true
+# end
+#
+# it 'format validation works correctly' do
+# expect(Email.a_valid_email?('us/er.2@yahoo.com')).to eq false
+#
+# end
+# end
 
 RSpec.describe Email do
   it 'sends email successfully' do

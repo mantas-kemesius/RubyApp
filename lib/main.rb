@@ -6,9 +6,7 @@ def menu
   puts '1. Show pazymiai'
   puts '2. Show tvarkarasciai'
   puts '3. Show user info'
-  puts '4. Show something more'
   puts 'exit: To exit from program'
-  puts puts
 end
 
 # student credentials

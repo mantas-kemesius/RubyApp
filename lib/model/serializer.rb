@@ -1,5 +1,5 @@
 require_relative 'user'
-# Serializer
+# Serializer do serialize!
 class Serializer
   def serializer(user)
     User.new(
