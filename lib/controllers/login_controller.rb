@@ -11,6 +11,7 @@ class LoginController
     users = @file_handler.load_data(file_name)
     users['Users'].each do |item|
       next unless item['username'] == username && item['password'] == password
+
       return true
     end
     false

@@ -1,5 +1,6 @@
 require 'json'
-# Handles data in the files
+
+# Files Handler class
 class FilesHandler
   attr_accessor :full_path
   def initialize
@@ -16,6 +17,12 @@ class FilesHandler
     end
   end
 
+  def append_data(data, file_name)
+    json_data = load_data(file_name)
+    json_data << data
+    save_data(json_data, file_name)
+  end
+
   def delete_file(file_name)
     File.delete(@full_path + file_name + '.json')
   end
@@ -24,7 +31,10 @@ class FilesHandler
     File.exist?(@full_path + file_name + '.json')
   end
 
-  def get_username(file_name, username)
+  # Searches fakeDatabase for User with given username
+  # Returns user object if found
+  # Returns empty user object if not found
+  def get_user_by_username(username, file_name)
     data = load_data(file_name)
     data['Users'].each do |user|
       if user['username'] == username
@@ -32,10 +42,13 @@ class FilesHandler
                         user['role_id'], user['email'], user['phone'])
       end
     end
-    nil
+    User.new('', '', 0, '', '')
   end
 
-  def get_email(file_name, email)
+  # Searches fakeDatabase for User with given email
+  # Returns user object if found
+  # Returns empty user object if not found
+  def get_user_by_email(email, file_name)
     data = load_data(file_name)
     data['Users'].each do |user|
       if user['email'] == email
@@ -43,6 +56,33 @@ class FilesHandler
                         user['role_id'], user['email'], user['phone'])
       end
     end
-    nil
+    User.new('', '', 0, '', '')
+  end
+
+  # Searches fakeDatabase for Emails sent to a user
+  # Returns email objects array
+  # Returns array with an empty email object
+  def get_user_emails(user_email, email_file_name, user_file_name)
+    user = get_user_by_email(user_email, user_file_name)
+    return [Email.new('', '', '', '')] if user.email == ''
+
+    data = load_data(email_file_name)
+
+    inflate_email_array(user_email, data)
+  end
+
+  def inflate_email_array(user_email, data)
+    email_array = []
+    data.each do |email|
+      if email['email_to'] == user_email
+        email_array << Email.new(email['email_from'], email['email_to'],
+                                 email['title'], email['text'])
+      end
+    end
+    email_array
+  end
+
+  def get_email_count(file_name)
+    load_data(file_name).count
   end
 end

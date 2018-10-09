@@ -9,4 +9,10 @@ class User
     @email = email
     @phone = phone
   end
+
+  # @return [Email]
+  def emails
+    files_handler = FilesHandler.new
+    files_handler.get_user_emails(email, 'Emails', 'Users')
+  end
 end
