@@ -16,5 +16,832 @@
     "email_to": "jonas@gmail.com",
     "title": "Test email",
     "text": "testing email functionality"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": null,
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": ""
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": null,
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "#<Email:0x00005597d77758c0>",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "#<Email:0x00005597d77386c8>",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "#<Email:0x00005597d76e4e10>"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  null,
+  null,
+  "#<Email:0x00007f0778015140>",
+  {
+  },
+  {
+    "": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "#<Email:0x00005597d767fe48>": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from__mutant__": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": null,
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "#<Email:0x00005597d75ffdb0>",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "#<Email:0x00005597d7566ac0>": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to__mutant__": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "#<Email:0x00005597d74ff910>",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": null,
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "#<Email:0x00007f078003df48>": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title__mutant__": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "#<Email:0x00007f077c095468>",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "#<Email:0x00007f077803aa30>": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text__mutant__": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "#<Email:0x00007f0788094548>"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  null,
+  "#<Email:0x00005597d78c34e8>",
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": null,
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": ""
+  },
+  {
+    "email_from": "#<Email:0x0000558d1293c430>",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": null,
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "#<Email:0x0000558d124294e8>",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "#<Email:0x0000558d12b96258>"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  null,
+  "#<Email:0x00007ffbd802d1c8>",
+  {
+  },
+  {
+    "": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from__mutant__": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "#<Email:0x00007ffbd40248d8>": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": null,
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "#<Email:0x00007ffbe4653ac8>",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "#<Email:0x00007ffbd8014ab0>": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to__mutant__": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": null,
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "#<Email:0x0000558d12ad7e98>",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "#<Email:0x0000558d12a87e98>": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": null,
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title__mutant__": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "#<Email:0x0000558d12a3e810>",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "#<Email:0x0000558d12be1be0>": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": null
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "#<Email:0x0000558d12bd2a78>"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  null,
+  "#<Email:0x00007ffbdc0d24d0>",
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
+  },
+  {
+    "email_from": "petras@gmail.com",
+    "email_to": "jonas@gmail.com",
+    "title": "Test",
+    "text": "Test email"
   }
 ]
