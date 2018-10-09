@@ -1,3 +1,4 @@
+require_relative 'teacher_info'
 # implements Teacher class
 class Teacher < TeacherInfo
   attr_reader :on_vacation

@@ -7,9 +7,6 @@ RSpec.describe Student do
     expect(student.faculty).to eq 'MIF'
     expect(student.group).to eq 2
     expect(student.subjects).to eq []
-    expect(student.timetable).to eq []
-    expect(student.marks).to eq []
-    expect(student.active).to eq 0
   end
 
   it 'initial student data was set unsuccessful' do
@@ -17,24 +14,11 @@ RSpec.describe Student do
     expect(student.faculty).not_to eq 'MIT'
     expect(student.group).not_to eq '3'
     expect(student.subjects).not_to eq [['Matematika']]
-    expect(student.timetable).not_to eq ['Pirmadienis 8-10 Matematika']
-    expect(student.marks).not_to eq [4, 5, 3, 2, 8, 9, 8]
-    expect(student.active).not_to eq 1
   end
 end
 
 RSpec.describe Student do
   student = Student.new('s1611123', 'MIF', 2)
-  it 'adding mark was successful' do
-    student.add_mark(5)
-    expect(student.marks.last).to eq 5
-  end
-
-  it 'adding mark was unsuccessful' do
-    student.add_mark(5)
-    expect(student.marks.last).not_to eq 9
-  end
-
   it 'adding subject was successful' do
     student.add_subject('Anglu')
     expect(student.subjects.last).to eq 'Anglu'
