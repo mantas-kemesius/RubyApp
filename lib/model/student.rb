@@ -1,12 +1,13 @@
+require_relative 'student_info'
 # Description/Explanation of Student class
-class Student
-  attr_reader :s_id, :faculty, :group, :subjects, :timetable, :active
-  def initialize(student_id, faculty, group, active = 0)
-    @s_id = student_id
+class Student < StudentInfo
+  attr_reader :s_id, :faculty, :group, :active
+  def initialize(s_id, faculty, group)
+    @s_id = s_id
     @faculty = faculty
     @group = group
-    @active = active
-    @subjects = []
+    @active = 1
+    super()
   end
 
   def add_subject(subject)
