@@ -1,3 +1,4 @@
+require_relative 'user_info'
 # User class
 class User < UserInfo
   ROLE = %w[ROLE_STUDENT ROLE_LECTURER ROLE_ADMIN].freeze

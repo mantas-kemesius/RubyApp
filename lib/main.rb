@@ -1,6 +1,6 @@
-require './model/user.rb'
-require './helpers/files_handler.rb'
-require './controllers/login_controller.rb'
+require_relative '../lib/model/user'
+require_relative '../lib/helpers/files_handler'
+require_relative 'controllers/login_controller'
 
 def menu
   puts '1. Show pazymiai'
