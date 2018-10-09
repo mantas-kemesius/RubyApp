@@ -54,7 +54,8 @@ RSpec.describe FilesHandler do
   file_handler = FilesHandler.new
 
   it 'emails sent to a user were found successfully' do
-    emails = file_handler.get_user_emails('jonas@gmail.com', 'Emails', 'Users')
+    emails = file_handler.get_received_emails('jonas@gmail.com',
+                                              'Emails', 'Users')
     expect(emails[0].email_from).not_to eq ''
   end
 end

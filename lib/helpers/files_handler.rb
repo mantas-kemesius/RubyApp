@@ -59,19 +59,43 @@ class FilesHandler
     User.new('', '', 0, '', '')
   end
 
-  # Searches fakeDatabase for Emails sent to a user
+  # Searches fakeDatabase for Emails sent by a user
   # Returns email objects array
   # Returns array with an empty email object
-  def get_user_emails(user_email, email_file_name, user_file_name)
+  def get_sent_emails(user_email, email_file_name, user_file_name)
+    user = get_user_by_email(user_email, user_file_name)
+    return [Email.new('', '', '', '')] if user.email == ''
+
+    puts 'got here'
+    data = load_data(email_file_name)
+
+    inflate_sent_email_array(user_email, data)
+  end
+
+  def inflate_sent_email_array(user_email, data)
+    email_array = []
+    data.each do |email|
+      if email['email_from'] == user_email
+        email_array << Email.new(email['email_from'], email['email_to'],
+                                 email['title'], email['text'])
+      end
+    end
+    email_array
+  end
+
+  # Searches fakeDatabase for Emails received by a user
+  # Returns email objects array
+  # Returns array with an empty email object
+  def get_received_emails(user_email, email_file_name, user_file_name)
     user = get_user_by_email(user_email, user_file_name)
     return [Email.new('', '', '', '')] if user.email == ''
 
     data = load_data(email_file_name)
 
-    inflate_email_array(user_email, data)
+    inflate_received_email_array(user_email, data)
   end
 
-  def inflate_email_array(user_email, data)
+  def inflate_received_email_array(user_email, data)
     email_array = []
     data.each do |email|
       if email['email_to'] == user_email

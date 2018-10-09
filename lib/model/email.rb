@@ -10,14 +10,14 @@ class Email < EmailInfo
     @text = text
   end
 
-  def send
+  def send(email_file_name)
     files_handler = FilesHandler.new
     user_to = files_handler.get_user_by_email(email_to, 'Users')
 
     # guard clause
     return false if user_to.email == ''
 
-    files_handler.append_data(prepare_for_json, 'Emails')
+    files_handler.append_data(prepare_for_json, email_file_name)
     true
   end
 

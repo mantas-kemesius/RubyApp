@@ -33,25 +33,33 @@ RSpec.describe User do
   end
 end
 
+# run all tests at one time
 RSpec.describe User do
+  file_handler = FilesHandler.new
   user_email = 'petras@gmail.com'
+  email_file_name = 'testFiles\Emails'
   user = described_class.new('Petras', 'Petraitis', 0, user_email)
+
   it 'sends email successfully' do
+    # create temporary data file
+    file_handler.save_data([], email_file_name)
     sent_successfully = user.send_email('jonas@gmail.com', 'Test email',
-                                        'testing email functionality')
+                                        'testing email functionality',
+                                        email_file_name)
     expect(sent_successfully).to eq true
   end
 
   it 'gets user emails successfully' do
-    emails = user.emails
-    expect(emails[0].email_from).to eq user_email
+    email_arr = user.sent_emails(email_file_name)
+    expect(email_arr[0].email_from).to eq user_email
   end
 
-  it 'gets email count successfully' do
-    file_handler.save_data(
-        data,
-        'testFiles/testCreate'
-    )
-    expect(file_handler.get_email_count('Emails')).to eq 4
+  it 'gets sent email count successfully' do
+    expect(user.sent_email_count(email_file_name)).to eq 1
+  end
+
+  it 'gets received emails successfully' do
+    expect(user.received_email_count(email_file_name)).to eq 0
+    file_handler.delete_file(email_file_name)
   end
 end
