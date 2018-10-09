@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 RSpec.describe Student do
-  student = Student.new('s1611123', 'MIF', 2)
+  student = described_class.new('s1611123', 'MIF', 2)
 
   it 'initial student data was set successful' do
     expect(student.s_id).to eq 's1611123'
@@ -18,7 +18,7 @@ RSpec.describe Student do
 end
 
 RSpec.describe Student do
-  student = Student.new('s1611123', 'MIF', 2)
+  student = described_class.new('s1611123', 'MIF', 2)
   it 'adding subject was successful' do
     student.add_subject('Anglu')
     expect(student.subjects.last).to eq 'Anglu'
@@ -35,7 +35,7 @@ RSpec.describe Student do
   end
 end
 RSpec.describe Student do
-  student = Student.new('s1611123', 'MIF', 2)
+  student = described_class.new('s1611123', 'MIF', 2)
   it 'changing group was unsuccessful' do
     student.change_group(3)
     expect(student.group).not_to eq 4
