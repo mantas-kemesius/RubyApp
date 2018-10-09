@@ -1,4 +1,4 @@
-require 'spec_helper.rb'
+require 'spec_helper'
 RSpec.describe Student do
   student = Student.new('s1611123', 'MIF', 2)
 
