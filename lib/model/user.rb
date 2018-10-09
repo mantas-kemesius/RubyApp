@@ -12,7 +12,10 @@ class User < UserInfo
   end
 
   def send_email(email_to, title, text)
-
+    # send email to receiver
+    email_to = Email.new(email, email_to, title, text)
+    return true if email_to.send
+    false
   end
 
   # @return [Email]

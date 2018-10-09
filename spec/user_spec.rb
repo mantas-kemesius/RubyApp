@@ -34,6 +34,19 @@ RSpec.describe User do
 end
 
 RSpec.describe User do
+  user_email = 'petras@gmail.com'
+  user = described_class.new('Petras', 'Petraitis', 0, user_email)
+  it 'sends email successfully' do
+    sent_successfully = user.send_email('jonas@gmail.com', 'Test email',
+                                        'testing email functionality')
+    expect(sent_successfully).to eq true
+  end
+
+  it 'gets user emails successfully' do
+    emails = user.emails
+    expect(emails[0].email_from).to eq user_email
+  end
+
   it 'gets email count successfully' do
     file_handler.save_data(
         data,
