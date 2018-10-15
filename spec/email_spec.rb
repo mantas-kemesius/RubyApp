@@ -2,9 +2,12 @@ require 'spec_helper'
 
 describe Email do
   context 'initial data is set successfully when' do
-    let(:user) {User.new('Petras', 'Petraitis', 0, 'petras.petraitis@gmail.com')}
-    let(:email) {described_class.new(user, 'jonas.jonaitis@gmail.com', 'Test email')}
-
+    let(:user) do
+      User.new('Petras', 'Petraitis', 0, 'petras.petraitis@gmail.com')
+    end
+    let(:email) do
+      described_class.new(user, 'jonas.jonaitis@gmail.com', 'Test email')
+    end
     it 'user name is set correctly' do
       expect(email.email_from.name).to eq 'Petras'
     end
@@ -25,9 +28,12 @@ end
 
 describe Email do
   context 'initial data is set unsuccessfully when' do
-    let(:user) {User.new('Petras', 'Petraitis', 0, 'petras.petraitis@gmailcom')}
-    let(:email) {described_class.new(user, 'jonas.jonaitis@gmail.com', 'Test email')}
-
+    let(:user) do
+      User.new('Petras', 'Petraitis', 0, 'petras.petraitis@gmailcom')
+    end
+    let(:email) do
+      described_class.new(user, 'jonas.jonaitis@gmail.com', 'Test email')
+    end
     it 'email format is incorrect (example@email.com)' do
       expect(email.email_from.name).to eq 'Petras'
     end
