@@ -2,36 +2,29 @@ require 'json'
 
 # Files Handler class
 class FilesHandler
-  attr_reader :full_path
-  def initialize
+  attr_reader :full_path, :file_name
+  def initialize(file_name)
+    @file_name = file_name
     @full_path = __dir__ + '/../../fakeDatabase/'
   end
 
-  def load_data(file_name)
-    JSON.parse(File.read(@full_path + file_name + '.json'))
+  def load_data
+    JSON.parse(File.read(@full_path + @file_name + '.json'))
   end
 
-  def save_data(data, file_name)
-    File.open(@full_path + file_name + '.json', 'w') do |file|
+  def save_data(data)
+    File.open(@full_path + @file_name + '.json', 'w') do |file|
       file.write(JSON.pretty_generate(data))
     end
+    true
   end
 
-  def append_data(data, file_name)
-    json_data = load_data(file_name)
-    json_data << data
-    save_data(json_data, file_name)
+  def delete_file
+    File.delete(@full_path + @file_name + '.json')
+    true
   end
 
-  def delete_file(file_name)
-    File.delete(@full_path + file_name + '.json')
-  end
-
-  def file_exist?(file_name)
-    File.exist?(@full_path + file_name + '.json')
-  end
-
-  def get_email_count(file_name)
-    load_data(file_name).count
+  def file_exist?
+    File.exist?(@full_path + @file_name + '.json')
   end
 end

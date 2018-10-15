@@ -1,19 +1,15 @@
 require 'spec_helper'
 
-describe Email do
+describe EmailInfo do
   context 'initial data is set successfully when' do
     let(:email) do
-      described_class.new('jonas.jonaitis@gmail.com',
-                          'Test email', 'Test email')
+      described_class.new('Test email', 'Test email')
     end
     it 'user last name is set correctly' do
-      expect(email.email_to).to eq 'jonas.jonaitis@gmail.com'
+      expect(email.email_to).to eq 'Test email'
     end
     it 'user email is set correctly' do
-      expect(email.title).to eq 'Test email'
-    end
-    it 'email to is set correctly' do
-      expect(email.text).to eq 'Test email'
+      expect(email.email_from).to eq 'Test email'
     end
   end
 end
