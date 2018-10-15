@@ -23,33 +23,6 @@ RSpec.describe FilesHandler do
   end
 end
 
-RSpec.describe FilesHandler do
-  file_handler = FilesHandler.new
-
-  it 'user was found successfully by username' do
-    temp_user1 = file_handler.get_user_by_username('s1612345', 'Users')
-    temp_user = User.new('Petras', 'Petraitis', 1,
-                         'petras@gmail.com', '862435384')
-
-    expect(temp_user.name).to eq temp_user1.name
-  end
-
-  it 'user was not found by username ' do
-    temp_user1 = file_handler.get_user_by_username('s161345', 'Users')
-    temp_user = User.new('Petras', 'Petraitis', 1,
-                         'petras@gmail.com', '862435384')
-    expect(temp_user1.name).not_to eq temp_user.name
-  end
-
-  it 'user was found successfully by email' do
-    temp_user1 = file_handler.get_user_by_email('petras@gmail.com', 'Users')
-    temp_user = User.new('Petras', 'Petraitis', 1,
-                         'petras@gmail.com', '862435384')
-
-    expect(temp_user1.name).to eq temp_user.name
-  end
-end
-
 # RSpec.describe FilesHandler do
 #   file_handler = FilesHandler.new
 #
