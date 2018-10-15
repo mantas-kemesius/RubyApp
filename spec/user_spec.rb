@@ -2,9 +2,11 @@ require 'spec_helper.rb'
 
 describe User do
   context 'when created' do
-    let(:user) { described_class.new('Petras', 'Petraitis', 0)}
-    let(:temp_user) { described_class.new('Petras', 'Petraitis', 0,
-                                  'email@email.com', '8623423423')}
+    let(:user) { described_class.new('Petras', 'Petraitis', 0) }
+    let(:temp_user) do
+      described_class.new('Petras', 'Petraitis', 0,
+                          'email@email.com', '8623423423')
+    end
     it 'user name was setted successfuly' do
       expect(user.name).to eq 'Petras'
     end
@@ -30,7 +32,7 @@ describe User do
     end
 
     it 'user phone was set successfuly' do
-     expect(temp_user.phone).to eq '8623423423'
+      expect(temp_user.phone).to eq '8623423423'
     end
   end
 end
@@ -38,18 +40,17 @@ end
 # run all tests at one time
 describe User do
   context 'when created' do
-  let(:file_handler) { FilesHandler.new}
-  user_email = 'petras@gmail.com'
-  email_file_name = 'testFiles\Emails'
-  let(:user) { described_class.new('Petras', 'Petraitis', 0, user_email)}
-  
+    let(:file_handler) { FilesHandler.new }
+    user_email = 'petras@gmail.com'
+    email_file_name = 'testFiles\Emails'
+    let(:user) { described_class.new('Petras', 'Petraitis', 0, user_email) }
 
     it 'sends email successfully' do
-     # create temporary data file
+      # create temporary data file
       file_handler.save_data([], email_file_name)
       sent_successfully = user.send_email('jonas@gmail.com', 'Test email',
-                                        'testing email functionality',
-                                        email_file_name)
+                                          'testing email functionality',
+                                          email_file_name)
       expect(sent_successfully).to eq true
     end
 
@@ -66,5 +67,30 @@ describe User do
       expect(user.received_email_count(email_file_name)).to eq 0
       file_handler.delete_file(email_file_name)
     end
+  end
+end
+
+RSpec.describe User do
+  it 'user was found successfully by username' do
+    temp_user1 = described_class.get_user_by_username('s1612345', 'Users')
+    temp_user = described_class.new('Petras', 'Petraitis', 1,
+                                    'petras@gmail.com', '862435384')
+
+    expect(temp_user.name).to eq temp_user1.name
+  end
+
+  it 'user was not found by username ' do
+    temp_user1 = described_class.get_user_by_username('s161345', 'Users')
+    temp_user = described_class.new('Petras', 'Petraitis', 1,
+                                    'petras@gmail.com', '862435384')
+    expect(temp_user1.name).not_to eq temp_user.name
+  end
+
+  it 'user was found successfully by email' do
+    temp_user1 = described_class.get_user_by_email('petras@gmail.com', 'Users')
+    temp_user = described_class.new('Petras', 'Petraitis', 1,
+                                    'petras@gmail.com', '862435384')
+
+    expect(temp_user1.name).to eq temp_user.name
   end
 end
