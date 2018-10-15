@@ -12,8 +12,8 @@ class FilesHandler
   end
 
   def save_data(data, file_name)
-    File.open(@full_path + file_name + '.json', 'w') do |f|
-      f.write(JSON.pretty_generate(data))
+    File.open(@full_path + file_name + '.json', 'w') do |file|
+      file.write(JSON.pretty_generate(data))
     end
   end
 

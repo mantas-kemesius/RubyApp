@@ -2,7 +2,7 @@ require_relative 'user_info'
 # User class
 class User < UserInfo
   ROLE = %w[ROLE_STUDENT ROLE_LECTURER ROLE_ADMIN].freeze
-  attr_reader :email, :phone
+  attr_reader :email, :phone, :temp_string
   def initialize(name, last_name, role_id, email = '', phone = '')
     super(name, last_name, role_id)
     # @name = name
@@ -10,6 +10,8 @@ class User < UserInfo
     # @role = ROLE[role_id]
     @email = email
     @phone = phone
+    # used to search for a user in the database (otherwise reek smells)
+    @temp_string = ''
   end
 
   def send_email(email_to, title, text, email_file_name)
@@ -44,9 +46,16 @@ class User < UserInfo
   def self.get_user_by_username(username, file_name)
     files_handler = FilesHandler.new
 
+    @temp_string = username
     data = files_handler.load_data(file_name)
+
+    search_for_user_by_username(data)
+  end
+
+  # used to implement get_user_by_username method
+  def self.search_for_user_by_username(data)
     data['Users'].each do |user|
-      if user['username'] == username
+      if user['username'] == @temp_string
         return User.new(user['name'], user['last_name'],
                         user['role_id'], user['email'], user['phone'])
       end
@@ -60,10 +69,16 @@ class User < UserInfo
   def self.get_user_by_email(email, file_name)
     files_handler = FilesHandler.new
 
+    @temp_string = email
     data = files_handler.load_data(file_name)
+
+    search_for_user_by_email(data)
+  end
+
+  def self.search_for_user_by_email(data)
     data['Users'].each do |user|
       temp_user_email = user['email']
-      if temp_user_email == email
+      if temp_user_email == @temp_string
         return User.new(user['name'], user['last_name'],
                         user['role_id'], temp_user_email, user['phone'])
       end
