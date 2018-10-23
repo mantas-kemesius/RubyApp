@@ -3,6 +3,7 @@ describe Teacher do
     let(:teacher) do
       described_class.new('t1610179', 'Vilniaus universitetas', 'mif')
     end
+
     it 'has no subjects' do
       expect(teacher.subjects).to eq []
     end
