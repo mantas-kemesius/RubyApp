@@ -2,14 +2,15 @@ require 'spec_helper'
 
 describe SubjectInfo do
   context 'initial data is set successfully when' do
-    let(:subject) do
+    let(:temp_subject) do
       described_class.new('Test email', 'Test email')
     end
+
     it 'user last name is set correctly' do
-      expect(subject.number_of_credits).to eq 'Test email'
+      expect(temp_subject.number_of_credits).to eq 'Test email'
     end
     it 'user email is set correctly' do
-      expect(subject.coordinating_teacher).to eq 'Test email'
+      expect(temp_subject.coordinating_teacher).to eq 'Test email'
     end
   end
 end
