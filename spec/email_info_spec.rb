@@ -5,6 +5,7 @@ describe EmailInfo do
     let(:email) do
       described_class.new('Test email', 'Test email')
     end
+
     it 'user last name is set correctly' do
       expect(email.email_to).to eq 'Test email'
     end
