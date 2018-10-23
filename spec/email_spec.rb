@@ -6,6 +6,7 @@ describe Email do
       described_class.new('jonas.jonaitis@gmail.com',
                           'Test email', 'Test email')
     end
+
     it 'user last name is set correctly' do
       expect(email.email_to).to eq 'jonas.jonaitis@gmail.com'
     end
