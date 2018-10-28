@@ -7,10 +7,9 @@ RSpec.describe(NotificationWindow) do
     end
 
     it 'added new notification' do
-      expect(notification_window.add(
-               Notification.new('2018-28-10', 'First',
-                                'Hello', 'Admin')
-      )).to eq true
+      expect(notification_window.add([],
+                                     Notification.new('2018-28-10', 'First',
+                                                      'Hello', 'Admin'))).to eq true
     end
     it 'view all notifications' do
       expect(notification_window.view_notifications).to eq true

@@ -7,4 +7,10 @@ class Notification < Text
     @date = date
     @sender = sender
   end
+
+  def print_notification?
+    str = date + "\n" + title + "\n" + text + "\n"+ sender
+    puts str
+    str
+  end
 end

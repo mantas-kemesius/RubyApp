@@ -1,24 +1,25 @@
 require_relative 'notification'
+require_relative '../../lib/helpers/files_handler'
 # All notifications
 class NotificationWindow
-  def print_notifications
-    array = []
-    array.each do |notification|
-      puts notification.to_s
+  def print_notifications(notifications)
+    notifications.each do |notification|
+      puts notification.date + "\n" + notification.title + "\n"
+      puts notification.text + "\n" + "\n" + notification.sender
+      puts '______________________________________'
     end
     true
   end
 
-  def add(notification)
-    array = []
-    array << notification
+  def add(notifications, notification)
+    notifications << notification
     # return notification
     true
   end
 
   def load_notifications
-    files_handler = FilesHandler.new('Notifications')
-    files_handler.load_data
+    file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
+    file.load_data
     true
   end
 
@@ -29,4 +30,10 @@ class NotificationWindow
   def delete_notification
     true
   end
+  # notifications = []
+  # item = NotificationWindow.new
+  # notifications = item.add(notifications,
+  # Notification.new('2018-28-10', 'First', 'Hello my name is tomas', 'Admin'))
+  # item.print_notifications(notifications)
+  # item.load_notifications
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(Notification) do
-  context 'on create' do
+  context 'object created' do
     let(:notification) do
       described_class.new('2018-28-10', 'First', 'Hello', 'Admin')
     end
@@ -21,6 +21,10 @@ RSpec.describe(Notification) do
     end
     it 'sender set correctly' do
       expect(notification.sender).to eq 'Admin'
+    end
+    it 'notification printed' do
+      str = notification.date + "\n" + notification.title + "\n" + notification.text + "\n" + notification.sender
+      expect(notification.print_notification?).to eq str
     end
   end
 end
