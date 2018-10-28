@@ -1,7 +1,7 @@
 require_relative '../lib/model/user'
 require_relative '../lib/helpers/files_handler'
 require_relative 'controllers/login_controller'
-#test
+
 def menu
   puts '1. Show pazymiai'
   puts '2. Show tvarkarasciai'
