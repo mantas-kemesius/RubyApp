@@ -3,11 +3,7 @@ require_relative '../../lib/helpers/files_handler'
 # All notifications
 class NotificationWindow
   def print_notifications(notifications)
-    notifications.each do |notification|
-      puts notification.date + "\n" + notification.title + "\n"
-      puts notification.text + "\n" + "\n" + notification.sender
-      puts '______________________________________'
-    end
+    notifications.each(&:print_notification)
     true
   end
 

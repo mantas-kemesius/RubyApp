@@ -8,9 +8,8 @@ class Notification < Text
     @sender = sender
   end
 
-  def print_notification?
-    str = date + "\n" + title + "\n" + text + "\n"+ sender
-    puts str
-    str
+  def print_notification
+    str = date + "\n" + title + "\n" + text + "\n" + sender
+    print str
   end
 end
