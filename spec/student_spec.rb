@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'spec_helper.rb'
 describe Student do
   context 'when created' do
