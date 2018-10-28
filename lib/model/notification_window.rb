@@ -17,8 +17,8 @@ class NotificationWindow
   end
 
   def load_notifications
-    files_handler = FilesHandler.new('Notifications')
-    files_handler.load_data
+    # files_handler = FilesHandler.new('Notifications')
+    # files_handler.load_data
     true
   end
 
