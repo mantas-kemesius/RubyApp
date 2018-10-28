@@ -1,3 +1,4 @@
+require 'spec_helper'
 describe Teacher do
   context 'when created' do
     let(:teacher) do

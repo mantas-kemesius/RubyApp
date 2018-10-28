@@ -1,3 +1,4 @@
+require 'spec_helper'
 describe Subject do
   context 'when created' do
     let(:temp_subject) do

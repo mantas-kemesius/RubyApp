@@ -1,31 +1,21 @@
 require 'spec_helper'
 
 RSpec.describe FilesHandler do
-  context 'when created' do
-    let(:file_handler) { described_class.new('testFiles/testCreate') }
+  context 'init' do
+    let(:folder) { 'fakeDatabase/testFiles/tests.json' }
+    let(:file_handler) { described_class.new(folder) }
+    let(:data) { ['data' => [1, 2, 3]] }
 
-    it 'File was created successfully' do
-      expect(
-        file_handler.save_data(
-          ['data' => [1, 2, 3]]
-        )
-      ).to eq true
+    it 'created successfully' do
+      expect(file_handler.save_data(data)).to eq true
     end
 
-    it 'File has right content' do
-      expect(file_handler.load_data).to eq ['data' => [1, 2, 3]]
+    it 'right content' do
+      expect(file_handler.load_data).to eq data
     end
 
-    it 'File was deleted successfully' do
+    it 'deleted succesfully' do
       expect(file_handler.delete_file).to eq true
-    end
-
-    it 'File exist' do
-      expect(file_handler.file_exist?).to eq false
-    end
-
-    it 'name set' do
-      expect(file_handler.file_name).to eq 'testFiles/testCreate'
     end
   end
 end

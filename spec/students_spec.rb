@@ -1,3 +1,4 @@
+require 'spec_helper'
 describe Student do
   context 'when changing' do
     let(:student_group) { described_class.new(123, 5, 'MIF', 'Informatika') }
