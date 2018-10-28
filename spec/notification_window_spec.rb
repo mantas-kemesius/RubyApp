@@ -15,5 +15,11 @@ RSpec.describe(NotificationWindow) do
     it 'view all notifications' do
       expect(notification_window.view_notifications).to eq true
     end
+    it 'loads notifications from file' do
+      expect(notification_window.load_notifications).to eq true
+    end
+    it 'delete notification' do
+      expect(notification_window.delete_notification).to eq true
+    end
   end
 end
