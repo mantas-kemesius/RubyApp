@@ -11,6 +11,7 @@ require_relative './../lib/model/subject_info'
 require_relative './../lib/model/subject'
 require_relative './../lib/model/email_info'
 require_relative './../lib/model/email'
+require_relative './../lib/model/notification'
 
 require 'simplecov'
 SimpleCov.start
