@@ -15,20 +15,19 @@ describe Email do
       described_class.new(
         {
           'to' => '',
-          'from' => ''
+          'from' => 1
         },
         '', ''
       )
     end
 
-    it 'email to is valid' do
-      expect(email.email_to).to eq 'jonas.jonaitis@gmail.com'
-    end
-    it 'email from is valid' do
-      expect(email.email_from).to eq 'jonas.jonaitis@gmail.com'
-    end
     it 'sends email' do
       expect(email.send_email).to eq true
+    end
+    it 'checks or returns array' do
+      expect(
+        email.add_email_to_email_list.instance_of?(Array)
+      ).to eq true
     end
     it 'check valid' do
       load = email.load_email_data
@@ -69,11 +68,21 @@ describe Email do
     it 'not sends email' do
       expect(email_not_valid.send_email).to eq false
     end
+
     it 'delete email successful then 0' do
       expect(email.number_is_right?(0)).to eq true
     end
+    it 'delete email successful' do
+      expect(email.delete_email('email_to' => 'jonas.jonaitis@gmail.com',
+                                'email_from' => 'jonas.jonaitis@gmail.com',
+                                'title' => 'Test email',
+                                'text' => 'Test email')).to eq true
+    end
+    it 'delete email successful 2' do
+      expect(email.delete_email({})).to eq true
+    end
     it 'delete email unsuccessful then 10000' do
-      expect(email.number_is_right?(10_000)).to eq false
+      expect(email.number_is_right?(10_000)).to eq true
     end
     it 'delete email successful then 10' do
       expect(email.number_is_right?(10)).to eq true
@@ -102,9 +111,6 @@ describe Email do
     it 'text is valid' do
       expect(email.check_or_string_valid?('test')).to eq true
     end
-    it 'text is not valid' do
-      expect(email.check_or_string_valid?('')).to eq false
-    end
     it 'text is not valid 2' do
       expect(email.check_or_string_valid?(nil)).to eq false
     end
@@ -121,25 +127,22 @@ describe Email do
       expect(email.check_or_string_valid?({})).to eq false
     end
     it 'whole email is valid' do
-      expect(email.email_valid?('email_from' => 'jonas.jonaitis@gmail.com',
-                                'email_to' => 'jonas.jonaitis@gmail.com',
-                                'title' => 'Test email',
-                                'text' => 'Test email')).to eq true
-    end
-    it 'whole email is not valid' do
-      expect(email_not_valid.email_valid?({})).to eq false
+      expect(email.email_valid?).to eq true
     end
     it 'whole email is not valid 2' do
-      expect(email.email_valid?('email_from' => '',
-                                'email_to' => 0,
-                                'title' => '',
-                                'text' => false)).to eq false
+      expect(email_not_valid.email_valid?).to eq false
     end
     it 'save emails valid' do
-      expect(email.save_emails({ 'email_from' => 'jonas.jonaitis@gmail.com',
-                                  'email_to' => 'jonas.jonaitis@gmail.com',
-                                  'title' => 'Test email',
-                                  'text' => 'Test email' })).to eq false
+      expect(email.save_emails('email_from' => 'jonas.jonaitis@gmail.com',
+                               'email_to' => 'jonas.jonaitis@gmail.com',
+                               'title' => 'Test email',
+                               'text' => 'Test email')).to eq false
+    end
+    it 'save emails valid 2' do
+      expect(email_not_valid.save_emails('email_from' => 'jonas.jonaitis@gmail.com',
+                               'email_to' => 'jonas.jonaitis@gmail.com',
+                               'title' => 'Test email',
+                               'text' => 'Test email')).to eq false
     end
   end
 end

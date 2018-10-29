@@ -1,6 +1,5 @@
 # Email class implements email functionality
 class Email
-  attr_reader :email_to, :email_from
   def initialize(email, title, text)
     @email_to = email.fetch('to')
     @email_from = email.fetch('from')
@@ -10,11 +9,8 @@ class Email
   end
 
   def send_email
-    emails = load_emails
-    email = load_email_data
-    if email_valid?(email)
-      emails[emails.length] = email
-      save_emails(emails)
+    if email_valid?
+      save_emails(add_email_to_email_list)
     else
       false
     end
@@ -29,12 +25,17 @@ class Email
     }
   end
 
+  def add_email_to_email_list
+    load_emails.push(load_email_data)
+  end
+
   # @return boolean
-  def email_valid?(email)
-    if check_or_string_valid?(email['email_to']) &&
-       check_or_string_valid?(email['email_from']) &&
-       check_or_string_valid?(email['text']) &&
-       check_or_string_valid?(email['title'])
+  def email_valid? # -
+    email = load_email_data
+    if check_or_string_valid?(email.fetch('email_to')) &&
+       check_or_string_valid?(email.fetch('email_from')) &&
+       check_or_string_valid?(email.fetch('text')) &&
+       check_or_string_valid?(email.fetch('title'))
       true
     else
       false
@@ -42,31 +43,28 @@ class Email
   end
 
   def check_or_string_valid?(val)
-    val != '' && !val.nil? && val.is_a?(String)
+    val.instance_of?(String)
   end
 
   def check_or_array(data)
-    data.is_a?(Array) && data.instance_of?(Array)
+    data.instance_of?(Array)
   end
 
-  def delete_email(number)
-    emails = load_emails
-    if number_is_right?(number) &&
-       number < emails.length &&
-       emails.is_a?(Array) &&
-       !emails.empty?
-      emails.delete_at(number)
-      save_emails(emails)
+  def delete_email(email) # -
+    @file_handler.save_data(load_emails.delete(email))
+    data = load_emails
+    !data.include?(email)
+  end
+
+  def save_emails(data) # -
+    if data.include?(load_email_data)
+      @file_handler.save_data(data)
+    else
+      false
     end
   end
 
-  def save_emails(data)
-    @file_handler.save_data(data)
-    emails = load_emails
-    emails.at(emails.length - 1).eql?(load_email_data)
-  end
-
-  def load_emails
+  def load_emails # -
     emails = @file_handler.load_data
     if check_or_array(emails)
       emails
@@ -77,6 +75,6 @@ class Email
   end
 
   def number_is_right?(number)
-    number.is_a?(Integer) && number >= 0 && number < 10_000
+    number.instance_of?(Integer)
   end
 end
