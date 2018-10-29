@@ -1,7 +1,7 @@
 # require_relative './schedule_info'
 # Study Schedule class
 class Schedule
-  attr_reader :date_day, :date_time, :class_number, :subject_name, :teacher_id
+  attr_reader :date_day, :date_time, :class_number, :subject_name
   def initialize(date, class_number, info)
     @date_day = date.fetch('day')
     @date_time = date.fetch('time')
