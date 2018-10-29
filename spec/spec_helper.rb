@@ -14,7 +14,6 @@ require_relative './../lib/model/email'
 require_relative './../lib/model/notification'
 require_relative './../lib/model/notification_window'
 require_relative './../lib/model/schedule'
-require_relative './../lib/model/schedule_info'
 
 require 'simplecov'
 SimpleCov.start

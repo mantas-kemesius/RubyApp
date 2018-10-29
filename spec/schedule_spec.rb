@@ -7,7 +7,7 @@ describe Schedule do
         {
           'day' => '2',
           'time' => '14:00'
-        }, '213', 'subject' => 'Programavimas', 'teacher' => 't1610179'
+        }, '213', 'subject' => 'Programavimas' # , 'teacher' => 't1610179'
       )
     end
 
@@ -23,8 +23,8 @@ describe Schedule do
     it 'subject_name has the correct value' do
       expect(temp_schedule.subject_name).to eq 'Programavimas'
     end
-    it 'teacher_id has the correct value' do
-      expect(temp_schedule.teacher_id).to eq 't1610179'
-    end
+    # it 'teacher_id has the correct value' do
+    #   expect(temp_schedule.teacher_id).to eq 't1610179'
+    # end
   end
 end
