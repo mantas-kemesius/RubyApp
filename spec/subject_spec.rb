@@ -25,4 +25,3 @@ describe Subject do
     end
   end
 end
-#kazkasv2
