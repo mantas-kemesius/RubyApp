@@ -1,26 +1,44 @@
 [
   {
-    "email_from": "petras@gmail.com",
-    "email_to": "jonas@gmail.com",
+    "email_from": "jonas.jonaitis@gmail.com",
+    "email_to": "jonas.jonaitis@gmail.com",
     "title": "Test email",
-    "text": "testing email functionality"
-  },
-  {
-    "email_from": "petras@gmail.com",
-    "email_to": "jonas@gmail.com",
-    "title": "Test",
     "text": "Test email"
   },
   {
-    "email_from": "petras@gmail.com",
-    "email_to": "jonas@gmail.com",
+    "email_from": "jonas.jonaitis@gmail.com",
+    "email_to": "jonas.jonaitis@gmail.com",
     "title": "Test email",
-    "text": "testing email functionality"
+    "text": "Test email"
   },
   {
-    "email_from": "petras@gmail.com",
-    "email_to": "jonas@gmail.com",
-    "title": "Test",
+    "email_from": "jonas.jonaitis@gmail.com",
+    "email_to": "jonas.jonaitis@gmail.com",
+    "title": "Test email",
+    "text": "Test email"
+  },
+  {
+    "email_from": "jonas.jonaitis@gmail.com",
+    "email_to": "jonas.jonaitis@gmail.com",
+    "title": "Test email",
+    "text": "Test email"
+  },
+  {
+    "email_from": "jonas.jonaitis@gmail.com",
+    "email_to": "jonas.jonaitis@gmail.com",
+    "title": "Test email",
+    "text": "Test email"
+  },
+  {
+    "email_from": "jonas.jonaitis@gmail.com",
+    "email_to": "jonas.jonaitis@gmail.com",
+    "title": "Test email",
+    "text": "Test email"
+  },
+  {
+    "email_from": "jonas.jonaitis@gmail.com",
+    "email_to": "jonas.jonaitis@gmail.com",
+    "title": "Test email",
     "text": "Test email"
   }
 ]

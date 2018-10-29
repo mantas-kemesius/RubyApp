@@ -4,7 +4,7 @@ RSpec.describe FilesHandler do
   context 'init' do
     let(:folder) { 'fakeDatabase/testFiles/tests.json' }
     let(:file_handler) { described_class.new(folder) }
-    let(:data) { ['data' => [1, 2, 3]] }
+    let(:data) { [[1, 2, 3]] }
 
     it 'created successfully' do
       expect(file_handler.save_data(data)).to eq true
