@@ -15,6 +15,15 @@ class NotificationWindow
     @size += 1
   end
 
+  def delete_notification(position)
+    notifications.delete_at(position)
+    @size -= 1
+  end
+
+  def print_notifications
+    print 'done'
+  end
+
   # def save_notification(notification)
   #   file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
   #   file.save_data(['Notifications' => ['date' => notification.date,
