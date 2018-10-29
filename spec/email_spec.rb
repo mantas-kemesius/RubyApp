@@ -53,6 +53,10 @@ describe Email do
       load = email.load_email_data
       expect(load.nil?).to eq false
     end
+    it 'check valid 7' do
+      load = email.load_email_data
+      expect(load.empty?).to eq false
+    end
     it 'check valid7' do
       expect(email.load_emails.nil?).to eq false
     end
@@ -60,7 +64,7 @@ describe Email do
       expect(email.load_emails.is_a?(Array)).to eq true
     end
     it 'check valid9' do
-      expect(email.load_emails.length).to be > 0
+      expect(email.load_emails.length).to be >= 0
     end
     it 'check valid10' do
       expect(email.load_emails.is_a?(String)).to eq false
@@ -105,6 +109,12 @@ describe Email do
     it 'not valid for zero' do
       expect(email.check_or_array(0)).to eq false
     end
+    it 'not valid for string' do
+      expect(email.check_or_array('')).to eq false
+    end
+    it 'not valid for bool' do
+      expect(email.check_or_array(true)).to eq false
+    end
     it 'not valid for nil' do
       expect(email.check_or_array(nil)).to eq false
     end
@@ -139,10 +149,10 @@ describe Email do
                                'text' => 'Test email')).to eq false
     end
     it 'save emails valid 2' do
-      expect(email_not_valid.save_emails('email_from' => 'jonas.jonaitis@gmail.com',
-                               'email_to' => 'jonas.jonaitis@gmail.com',
-                               'title' => 'Test email',
-                               'text' => 'Test email')).to eq false
+      expect(email_not_valid.save_emails('email_from' => 'jonas.jonaitis@gm',
+                                         'email_to' => 'jonas.jonaitis@gmail',
+                                         'title' => 'Test email',
+                                         'text' => 'Test email')).to eq false
     end
   end
 end
