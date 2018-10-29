@@ -1,10 +1,10 @@
 {
   "Notifications": [
     {
-      "date": "2018-10-28",
-      "title": "First",
-      "text": "Hello",
-      "sender": "Admin"
+      "date": "2018-28-10",
+      "title": "myTitle",
+      "text": "myText",
+      "sender": "Tomas"
     }
   ]
 }
