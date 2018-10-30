@@ -168,7 +168,7 @@ describe Email do
     it 'text is not valid 3d' do
       expect(email.check_or_string_valid?(2)).to eq false
     end
-    'text is not valid 3e' do
+    it 'text is not valid 3e' do
       expect(email.check_or_string_valid?(5)).to eq false
     end
     it 'text is not valid 4' do
