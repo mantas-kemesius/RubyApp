@@ -17,10 +17,10 @@ end
 # puts file.load_data['Schedule'][0]['date_day']
 # file.delete_file
 # =======
-file = FilesHandler.new('fakeDatabase/testFiles/data.json')
-file.save_data(['data' => [1, 2, 3]])
+# file = FilesHandler.new('fakeDatabase/testFiles/data.json')
+# file.save_data(['data' => [1, 2, 3]])
 # puts file.load_data[0]['data'][0]
-file.delete_file
+# file.delete_file
 # >>>>>>> master
 
 # email example
