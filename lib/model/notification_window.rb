@@ -21,21 +21,37 @@ class NotificationWindow
   end
 
   def print_notifications
-    print 'done'
+    notifications.each(&:print_notification)
   end
 
-  # def save_notification(notification)
+  def save_notifications
+    file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
+    # TODO: SAVE ALL NOT ONE
+    notifications.each do |notification|
+      file.save_data('Notifications' => [{ 'date' => notification.date,
+                                           'title' => notification.title,
+                                           'text' => notification.text,
+                                           'sender' => notification.sender }])
+    end
+  end
+  # def append_notification(notification)
   #   file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
-  #   file.save_data(['Notifications' => ['date' => notification.date,
-  #                                       'title' => notification.title,
-  #                                       'text' => notification.text,
-  #                                       'sender' => notification.sender]])
+  #   info = file.load_data.fetch(0)
+  #   info.fetch('Notifications') << {'date' => notification.date,
+  #                             'title' => notification.title,
+  #                             'text' => notification.text,
+  #                             'sender' => notification.sender}
+  #   file.save_data(info)
   # end
-  #
-  # def load_notification
-  #   file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
-  #   info = file.load_data[0]['Notifications'][0]
-  #   Notification.new(info['date'],
-  #                    info['title'], info['text'], info['sender'])
-  # end
+
+  def load_notifications
+    file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
+    info = file.load_data.fetch('Notifications')
+    info.each do |item|
+      add_notification(Notification.new(item.fetch('date'),
+                                        item.fetch('title'),
+                                        item.fetch('text'),
+                                        item.fetch('sender')))
+    end
+  end
 end
