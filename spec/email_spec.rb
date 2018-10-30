@@ -68,7 +68,7 @@ describe Email do
       email.change_emails_to(1)
       expect(email.email_to).to eq 'jonas.jonaitis@gmail.com'
     end
-    it 'change unsuccesful from' do
+    it 'change unsuccesful from2' do
       email.change_emails_from(2)
       expect(email.email_from).to eq 'petras.jonaitis@gmail.com'
     end
@@ -156,8 +156,23 @@ describe Email do
     it 'text is not valid 3' do
       expect(email.check_or_string_valid?(true)).to eq false
     end
-    it 'text is not valid 4' do
+    it 'text is not valid 3a' do
       expect(email.check_or_string_valid?(false)).to eq false
+    end
+    it 'text is not valid 3b' do
+      expect(email.check_or_string_valid?(0)).to eq false
+    end
+    it 'text is not valid 3c' do
+      expect(email.check_or_string_valid?(1)).to eq false
+    end
+    it 'text is not valid 3d' do
+      expect(email.check_or_string_valid?(2)).to eq false
+    end
+    'text is not valid 3e' do
+      expect(email.check_or_string_valid?(5)).to eq false
+    end
+    it 'text is not valid 4' do
+      expect(email.check_or_string_valid?(3)).to eq false
     end
     it 'text is not valid 5' do
       expect(email.check_or_string_valid?([])).to eq false

@@ -45,7 +45,6 @@ class NotificationWindow
   # end
 
   def load_notifications(path)
-    @notifications = []
     file = FilesHandler.new(path)
     info = file.load_data.fetch('Notifications')
     info.each do |item|
