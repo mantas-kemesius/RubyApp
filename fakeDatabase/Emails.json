@@ -1,26 +1,3 @@
 [
-  {
-    "email_from": "petras@gmail.com",
-    "email_to": "jonas@gmail.com",
-    "title": "Test email",
-    "text": "testing email functionality"
-  },
-  {
-    "email_from": "petras@gmail.com",
-    "email_to": "jonas@gmail.com",
-    "title": "Test",
-    "text": "Test email"
-  },
-  {
-    "email_from": "petras@gmail.com",
-    "email_to": "jonas@gmail.com",
-    "title": "Test email",
-    "text": "testing email functionality"
-  },
-  {
-    "email_from": "petras@gmail.com",
-    "email_to": "jonas@gmail.com",
-    "title": "Test",
-    "text": "Test email"
-  }
+
 ]
