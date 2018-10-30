@@ -22,7 +22,6 @@ class NotificationWindow
 
   def print_notifications
     notifications.each(&:print_notification)
-  end
 
   def save_notifications
     file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
