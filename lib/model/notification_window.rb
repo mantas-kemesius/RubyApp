@@ -55,4 +55,3 @@ class NotificationWindow
     end
   end
 end
-

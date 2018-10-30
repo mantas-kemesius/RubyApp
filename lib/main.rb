@@ -11,7 +11,7 @@ end
 
 # add example how to save data
 file = FilesHandler.new('fakeDatabase/testFiles/data.json')
-file.save_data(['data' => [1,2,3]])
+file.save_data(['data' => [1, 2, 3]])
 puts file.load_data[0]['data'][0]
 file.delete_file
 
