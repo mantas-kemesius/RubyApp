@@ -1,9 +1,8 @@
 {
-  "Notifications": [
-    {
-      "date": "2018-28-11",
-      "title": "myTitle",
-      "text": "myText"
-    }
-  ]
+  "Notifications": {
+    "date": "2018-28-11",
+    "title": "myTitle",
+    "text": "myText",
+    "sender": "Tomas"
+  }
 }
