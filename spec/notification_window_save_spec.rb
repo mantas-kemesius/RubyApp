@@ -11,20 +11,23 @@ RSpec.describe(NotificationWindow) do
     end
     let(:add) do
       window.add_notification(notification)
+      # window.add_notification(notification)
       window.save_notifications
+      # window.append_notification(notification)
       window.delete_notification(0)
+      # window.delete_notification(0)
       window.load_notifications
     end
 
-    it 'text correct' do
-      notification.change_text 'newText'
+    it 'date correct' do
+      notification.change_date('2018-28-11')
       add
-      expect(window.notifications[0].text).to eq 'newText'
+      expect(window.notifications[0].date).to eq '2018-28-11'
     end
-    it 'sender correct' do
-      notification.change_sender 'John'
+    it 'title correct' do
+      notification.change_title 'newTitle'
       add
-      expect(window.notifications[0].sender).to eq 'John'
+      expect(window.notifications[0].title).to eq 'newTitle'
     end
   end
 end
