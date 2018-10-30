@@ -9,7 +9,8 @@ class Notification < Text
   end
 
   def print_notification
-    str = date + "\n" + title + "\n" + text + "\n" + sender
+    str = date + "\n" + title + "\n" + text + "\n" + sender + "\n"
+    str += '____________________________________________________' + "\n"
     print str
   end
 
