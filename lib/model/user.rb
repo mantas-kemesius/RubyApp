@@ -8,4 +8,12 @@ class User < UserInfo
     @email = email
     @phone = phone
   end
+
+  def change_email(new_email)
+    @email = new_email if new_email.instance_of?(String)
+  end
+
+  def change_phone(new_phone)
+    @phone = new_phone if new_phone.instance_of?(String)
+  end
 end
