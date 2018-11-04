@@ -18,8 +18,44 @@
     "text": "Test email"
   },
   {
+    "email_from": "petras@gmail.com",
+    "email_to": "aldonas@gmail.com",
+    "title": "Labas",
+    "text": "heyjo kaip tau sekasis??"
+  },
+  {
     "email_from": "mantas@gmail.com",
     "email_to": "Tomas@gmail.com",
+    "title": "Labas",
+    "text": "sveikas kaip tau sekasis??"
+  },
+  {
+    "email_from": "mantas@gmail.com",
+    "email_to": "alio@gmail.com",
+    "title": "Labas",
+    "text": "sveikas kaip tau sekasis??"
+  },
+  {
+    "email_from": "aldona@gmail.com",
+    "email_to": "mantas@gmail.com",
+    "title": "Labas",
+    "text": "sveikas kaip tau sekasis??"
+  },
+  {
+    "email_from": "mantas@gmail.com",
+    "email_to": "juozas@gmail.com",
+    "title": "Labas",
+    "text": "sveikas kaip tau sekasis??"
+  },
+  {
+    "email_from": "mantas@gmail.com",
+    "email_to": "arnas@gmail.com",
+    "title": "Labas",
+    "text": "sveikas kaip tau sekasis??"
+  },
+  {
+    "email_from": "arnas@gmail.com",
+    "email_to": "juozas@gmail.com",
     "title": "Labas",
     "text": "sveikas kaip tau sekasis??"
   }
