@@ -13,26 +13,20 @@ class Email
     @text = text_init if text_init.instance_of?(String)
   end
 
-  def load_email(path_to_db)
-    file = FilesHandler.new(path_to_db)
-    initialize(file.load_data)
-  end
-
-  def save_email(path_to_db) # -
-    file = FilesHandler.new(path_to_db)
-    file.save_data(
+  def return_email
+    {
       'email_to' => email_to,
       'email_from' => email_from,
       'title' => title,
       'text' => text
-    )
+    }
   end
 
-  def change_emails_to(email_to_new)
+  def change_email_to(email_to_new)
     @email_to = email_to_new if email_to_new.instance_of?(String)
   end
 
-  def change_emails_from(email_from_new)
+  def change_email_from(email_from_new)
     @email_from = email_from_new if email_from_new.instance_of?(String)
   end
 
@@ -42,22 +36,5 @@ class Email
 
   def change_title(title_new)
     @title = title_new if title_new.instance_of?(String)
-  end
-
-  def delete_email_file(path_to_db)
-    file = FilesHandler.new(path_to_db)
-    file.delete_file
-  end
-
-  def number_is_right?(number)
-    number.instance_of?(Integer)
-  end
-
-  def check_or_array(data)
-    data.instance_of?(Array)
-  end
-
-  def check_or_string_valid?(val)
-    val.instance_of?(String)
   end
 end

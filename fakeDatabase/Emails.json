@@ -1,3 +1,26 @@
 [
-
+  {
+    "email_to": "jonas.jonaitis@gmail.com",
+    "email_from": "jonas.jonaitis@gmail.com",
+    "title": "Test email",
+    "text": "Test email"
+  },
+  {
+    "email_to": "jonas.jonaitis@gmail.com",
+    "email_from": "jonas.jonaitis@gmail.com",
+    "title": "Test email",
+    "text": "Test email"
+  },
+  {
+    "email_to": "jonas.jonaitis@gmail.com",
+    "email_from": "jonas.jonaitis@gmail.com",
+    "title": "Test email",
+    "text": "Test email"
+  },
+  {
+    "email_from": "mantas@gmail.com",
+    "email_to": "Tomas@gmail.com",
+    "title": "Labas",
+    "text": "sveikas kaip tau sekasis??"
+  }
 ]
