@@ -40,8 +40,8 @@ describe Exams do
       expect(temp_exams2.date_day).not_to be_instance_of(Integer)
     end
 
-    #it 'date_month is in correct range 2' do
+    # it 'date_month is in correct range 2' do
     #  expect(temp_exams2.date_month).not_to be_within(13).of(100)
-    #end
+    # end
   end
 end
