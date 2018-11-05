@@ -58,5 +58,11 @@
     "email_to": "juozas@gmail.com",
     "title": "Labas",
     "text": "sveikas kaip tau sekasis??"
+  },
+  {
+    "email_from": "arnas@gmail.com",
+    "email_to": "jonaitis@gmail.com",
+    "title": "Test email",
+    "text": "testas testukas testaitis"
   }
 ]

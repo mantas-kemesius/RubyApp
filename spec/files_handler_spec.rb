@@ -11,7 +11,23 @@ RSpec.describe FilesHandler do
     end
 
     it 'right content' do
+      file_handler.save_data(data)
       expect(file_handler.load_data).to eq data
+    end
+
+    it 'right load content' do
+      file_handler.delete_file
+      file_handler.save_data(data)
+      data.push(2)
+      expect(file_handler.load_data).to eq [1, 2, 3]
+    end
+
+    it 'right load contents' do
+      file_handler.save_data(data)
+      fh = open folder
+      content = fh.read
+      fh.close
+      expect(content).to eq "[\n  1,\n  2,\n  3\n]"
     end
 
     it 'deleted succesfully' do

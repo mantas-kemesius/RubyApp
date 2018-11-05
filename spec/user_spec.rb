@@ -28,17 +28,27 @@ describe User do
     end
 
     it ' user email change was successful' do
-      user.change_email('petras@gmail.com')
-      expect(user.email).to eq('petras@gmail.com')
+      expect { user.change_email('petras@gmail.com') }
+        .to change { user.email }
+        .from('').to('petras@gmail.com')
     end
 
     it 'user email phone was changed successfully' do
-      user.change_phone('864987315')
-      expect(user.phone).to eq('864987315')
+      expect { user.change_phone('864987315') }
+        .to change { user.phone }
+        .from('').to('864987315')
     end
 
     it 'phone number is less than 13 characters' do
       expect(user.phone.length).to be < 3
+    end
+
+    it 'email is of type String' do
+      expect(user.email).to be_instance_of(String)
+    end
+
+    it 'phone is of type String' do
+      expect(user.phone).to be_instance_of(String)
     end
   end
 end
