@@ -11,7 +11,8 @@ RSpec.describe(NotificationWindow) do
     end
     let(:load) do
       window.load_notifications(
-        'fakeDatabase/testFiles/Notifications_load.json')
+        'fakeDatabase/testFiles/Notifications_load.json'
+      )
     end
 
     it 'first item date correct' do

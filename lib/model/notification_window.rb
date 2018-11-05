@@ -23,15 +23,11 @@ class NotificationWindow
 
   def save_notifications(path)
     file = FilesHandler.new(path)
-    # TODO: SAVE ALL NOT ONE
     data = []
     notifications.each do |notification|
-
       data[data.length] = {
-          'date' => notification.date,
-          'title' => notification.title,
-          'text' => notification.text,
-          'sender' => notification.sender
+        'date' => notification.date, 'title' => notification.title,
+        'text' => notification.text, 'sender' => notification.sender
       }
       file.save_data('Notifications' => data)
     end

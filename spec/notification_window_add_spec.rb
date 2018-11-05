@@ -9,7 +9,8 @@ RSpec.describe(NotificationWindow) do
     notification = Notification.new('2018-28-10', 'myTitle', 'myText', 'Tomas')
     it 'added successful' do
       item.add_notification(notification)
-      expect(item.notifications[item.notifications.length - 1]).to eq notification
+      expect(item.notifications[
+                 item.notifications.length - 1]).to eq notification
       item.delete_notification(0)
     end
 

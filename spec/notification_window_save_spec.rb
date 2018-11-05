@@ -12,10 +12,14 @@ RSpec.describe(NotificationWindow) do
     let(:add) do
       window.add_notification(notification)
       window.add_notification(notification)
-      window.save_notifications('fakeDatabase/testFiles/Notifications_save.json')
+      window.save_notifications(
+        'fakeDatabase/testFiles/Notifications_save.json'
+      )
       window.delete_notification(0)
       window.delete_notification(0)
-      window.load_notifications('fakeDatabase/testFiles/Notifications_save.json')
+      window.load_notifications(
+        'fakeDatabase/testFiles/Notifications_save.json'
+      )
     end
 
     it 'date correct' do
