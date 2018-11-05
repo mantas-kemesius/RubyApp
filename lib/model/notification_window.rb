@@ -23,6 +23,7 @@ class NotificationWindow
   def print_notifications
     notifications.each(&:print_notification)
   end
+  # :reek:FeatureEnvy
 
   def save_notifications(path)
     file = FilesHandler.new(path)
@@ -44,15 +45,16 @@ class NotificationWindow
   #   file.save_data(info)
   # end
 
+  # :reek:FeatureEnvy
   def load_notifications(path)
-    @notifications = []
+  #  @notifications = []
     file = FilesHandler.new(path)
     info = file.load_data.fetch('Notifications')
-    info.each do |item|
-      add_notification(Notification.new(item.fetch('date'),
-                                        item.fetch('title'),
-                                        item.fetch('text'),
-                                        item.fetch('sender')))
+    info.each do |notification|
+      add_notification(Notification.new(notification.fetch('date'),
+                                        notification.fetch('title'),
+                                        notification.fetch('text'),
+                                        notification.fetch('sender')))
     end
   end
 end
