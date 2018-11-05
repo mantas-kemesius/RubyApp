@@ -1,4 +1,5 @@
 require_relative '../lib/model/notification_window'
+require_relative './model/schedule'
 
 @active_username
 @active_role
@@ -20,6 +21,8 @@ def menu
   puts '[5] Show all emails'
   puts '[6] Show all emails for...'
   puts '[7] Show all emails from...'
+  puts '[8] Show schedule by day'
+  puts '[9] Show schedule by week'
   puts '[0] Exit from program'
 end
 
@@ -384,6 +387,10 @@ def start
       print_all_emails_for
     when '7'
       print_all_emails_from
+    when '8'
+      print_choice
+    when '9'
+      print_week
     when '0'
       exit
     end
@@ -440,4 +447,53 @@ def start_notifications
     end
   end
 end
+
+def print_week
+  file = FilesHandler.new('../fakeDatabase/Schedule.json')
+  data = file.load_data.fetch('Schedule')
+  schedule = Schedule.new({
+                              'day' => '2',
+                              'time' => '14:00'
+                          }, '213', 'subject' => 'Programavimas')
+  data.each do |item|
+    (1..5).each do |count|
+      next unless item.fetch('date_day').to_i == count
+      puts '##############################'
+      puts "WEEKDAY #{item.fetch('date_day')}"
+      puts "TIME #{item.fetch('date_time')}"
+      puts "CLASSROOM #{item.fetch('class_number')}"
+      puts "SUBJECT #{item.fetch('subject_name')}"
+      puts "TEACHER #{item.fetch('teacher_id')}"
+    end
+  end
+  puts '##############################'
+end
+
+def print_day(choice)
+  file = FilesHandler.new('../fakeDatabase/Schedule.json')
+  data = file.load_data.fetch('Schedule')
+  schedule = Schedule.new({
+                              'day' => '2',
+                              'time' => '14:00'
+                          }, '213', 'subject' => 'Programavimas')
+  puts "WEEK DAY #{choice}"
+  data.each do |item|
+    next unless item.fetch('date_day').to_i == choice.to_i
+    puts '##############################'
+    puts "TIME #{item.fetch('date_time')}"
+    puts "CLASSROOM #{item.fetch('class_number')}"
+    puts "SUBJECT #{item.fetch('subject_name')}"
+    puts "TEACHER #{item.fetch('teacher_id')}"
+  end
+  puts '##############################'
+end
+
+def print_choice
+  puts 'Enter day number (1-5)'
+  choice = gets
+  print_day(choice)
+end
+
+
+
 start_login
