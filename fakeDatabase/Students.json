@@ -1,8 +1,11 @@
 [
   {
-    "username": "arnasrad",
+    "s_id": "arnasrad",
     "group": "2",
     "faculty": "MIF",
-    "study_program": "Computer Science"
+    "study_program": "Computer Science",
+    "subjects": "",
+    "active": 0,
+    "mode": 0
   }
 ]
