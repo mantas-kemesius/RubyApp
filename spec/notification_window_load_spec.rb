@@ -6,9 +6,6 @@ RSpec.describe(NotificationWindow) do
       described_class.new
     end
     let(:path_to_db) { 'fakeDatabase/testFiles/Notifications_load.json' }
-    let(:notification) do
-      Notification.new('2018-10-28', 'myTitle', 'myText', 'Tomas')
-    end
     let(:load) do
       window.load_notifications(
         'fakeDatabase/testFiles/Notifications_load.json'
