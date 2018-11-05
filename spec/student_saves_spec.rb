@@ -47,13 +47,15 @@ describe Student do
     end
 
     it 'adds subject' do
-      student.add_subjects('Rusu')
-      expect(student.subjects.last).to eq 'Rusu'
+      expect { student.add_subjects('Rusu') }
+        .to change { student.subjects.last }
+        .from('Matematika').to('Rusu')
     end
 
     it 'adds subject check size' do
-      student.add_subjects('Rusu')
-      expect(student.subjects.length).to eq 3
+      expect { student.add_subjects('Rusu') }
+        .to change { student.subjects.length }
+        .from(2).to(3)
     end
 
     it 'remove first subject ' do
@@ -74,13 +76,15 @@ describe Student do
 
     it 'remove some subject check size' do
       student.add_subjects('Rusu')
-      student.remove_subjects('Matematika')
-      expect(student.subjects.size).to eq 2
+      expect { student.remove_subjects('Matematika') }
+        .to change { student.subjects.size }
+        .from(3).to(2)
     end
 
     it 'remove some subject ' do
-      student.remove_subjects('Matematika')
-      expect(student.subjects).to eq ['Ruby']
+      expect { student.remove_subjects('Matematika') }
+        .to change { student.subjects }
+        .from(%w[Ruby Matematika]).to(['Ruby'])
     end
 
     it 'when init active level ' do
@@ -88,8 +92,9 @@ describe Student do
     end
 
     it 'when changing active level ' do
-      student.change_active(0)
-      expect(student.active).to eq 0
+      expect { student.change_active(0) }
+        .to change { student.active }
+        .from(1).to(0)
     end
 
     it 'when init mode  ' do
@@ -97,8 +102,9 @@ describe Student do
     end
 
     it 'when changing mode  ' do
-      student.change_mode('Vakarinis')
-      expect(student.mode).to eq 'Vakarinis'
+      expect { student.change_mode('Vakarinis') }
+        .to change { student.mode }
+        .from('Dieninis').to('Vakarinis')
     end
   end
 end
