@@ -32,8 +32,9 @@ describe Student do
     end
 
     it 'initial student number was changed successful' do
-      student.change_sid(100)
-      expect(student.s_id).to eq 100
+      expect { student.change_sid(100) }
+        .to change { student.s_id }
+        .from(123).to(100)
     end
 
     it 'initial student number was changed unsuccessful' do
