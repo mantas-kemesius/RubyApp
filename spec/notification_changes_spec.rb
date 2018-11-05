@@ -7,20 +7,24 @@ RSpec.describe(Notification) do
     end
 
     it 'date changed correctly' do
-      notification.change_date('2018-28-11')
-      expect(notification.date).to eq '2018-28-11'
+      expect { notification.change_date('2018-28-11') }
+        .to change { notification.date }
+        .from('2018-28-10').to('2018-28-11')
     end
     it 'title changed correctly' do
-      notification.change_title('newwTitle')
-      expect(notification.title).to eq 'newwTitle'
+      expect { notification.change_title('newwTitle') }
+        .to change { notification.title }
+        .from('First').to('newwTitle')
     end
     it 'text changed correctly' do
-      notification.change_text('newwText')
-      expect(notification.text).to eq 'newwText'
+      expect { notification.change_text('newwText') }
+        .to change { notification.text }
+        .from('Hello').to('newwText')
     end
     it 'sender change correctly' do
-      notification.change_sender('newwSender')
-      expect(notification.sender).to eq 'newwSender'
+      expect { notification.change_sender('newwSender') }
+        .to change { notification.sender }
+        .from('Admin').to('newwSender')
     end
   end
 end

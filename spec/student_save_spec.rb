@@ -5,6 +5,7 @@ require_relative '../lib/helpers/files_handler'
 describe Student do
   context 'when loading' do
     let(:path_to_db) { 'fakeDatabase/testFiles/test_student.json' }
+    let(:file) { FilesHandler.new(path_to_db) }
     let(:stud) do
       described_class.new(
         's_id' => 123,
@@ -22,7 +23,7 @@ describe Student do
       stud.change_sid(111)
       stud.load_student(path_to_db)
       expect(stud.s_id).to eq 123
-      stud.delete_student_file(path_to_db)
+      file.delete_file
     end
 
     it 'save student read student group' do
@@ -30,7 +31,7 @@ describe Student do
       stud.change_group(111)
       stud.load_student(path_to_db)
       expect(stud.group).to eq 10
-      stud.delete_student_file(path_to_db)
+      file.delete_file
     end
 
     it 'save student read student faculty' do
@@ -38,7 +39,7 @@ describe Student do
       stud.change_faculty('FF')
       stud.load_student(path_to_db)
       expect(stud.faculty).to eq 'MIF'
-      stud.delete_student_file(path_to_db)
+      file.delete_file
     end
 
     it 'save student read student active' do
@@ -46,7 +47,7 @@ describe Student do
       stud.change_active(0)
       stud.load_student(path_to_db)
       expect(stud.active).to eq 1
-      stud.delete_student_file(path_to_db)
+      file.delete_file
     end
   end
 end

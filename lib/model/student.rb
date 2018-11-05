@@ -48,9 +48,4 @@ class Student < StudentInfo
     file = FilesHandler.new(path_to_db)
     initialize(file.load_data)
   end
-
-  def delete_student_file(path_to_db)
-    file = FilesHandler.new(path_to_db)
-    file.delete_file
-  end
 end

@@ -57,20 +57,24 @@ describe Email do
       expect(email.return_email).to eq temp_email
     end
     it 'change succesful to' do
-      email_not_valid.change_email_to('Naujas email_to')
-      expect(email_not_valid.email_to).to eq 'Naujas email_to'
+      expect { email_not_valid.change_email_to('Naujas email_to') }
+        .to change { email_not_valid.email_to }
+        .from(nil).to('Naujas email_to')
     end
     it 'change succesful from' do
-      email_not_valid.change_email_from('Naujas email_from')
-      expect(email_not_valid.email_from).to eq 'Naujas email_from'
+      expect { email_not_valid.change_email_from('Naujas email_from') }
+        .to change { email_not_valid.email_from }
+        .from(nil).to('Naujas email_from')
     end
     it 'change succesful title' do
-      email_not_valid.change_title('Naujas title')
-      expect(email_not_valid.title).to eq 'Naujas title'
+      expect { email_not_valid.change_title('Naujas title') }
+        .to change { email_not_valid.title }
+        .from(nil).to('Naujas title')
     end
     it 'change succesful text' do
-      email_not_valid.change_text('Naujas text')
-      expect(email_not_valid.text).to eq 'Naujas text'
+      expect { email_not_valid.change_text('Naujas text') }
+        .to change { email_not_valid.text }
+        .from(nil).to('Naujas text')
     end
 
     it 'change unsuccesful to' do
