@@ -13,33 +13,14 @@ def login_menu
 end
 
 def menu
-  puts '[1] Show notifications'
-  puts '[2] Add notification'
-  puts '[3] Delete notification'
+  puts '[1] Notifications'
+  puts '[2] ?'
+  puts '[3] ?'
   puts '[4] Send email'
   puts '[5] Show all emails'
   puts '[6] Show all emails for...'
   puts '[7] Show all emails from...'
   puts '[0] Exit from program'
-end
-
-def print_notifications
-  notifications = NotificationWindow.new
-  notifications.load_notifications(
-    '../fakeDatabase/testFiles/Notifications.json'
-  )
-  notifications.print_notifications
-end
-
-def add_and_save_notification
-  notifications = NotificationWindow.new
-  notifications.add_notification(
-    Notification.new('2018-10-30', 'Pavadinimas',
-                     'kazkoks tekstas', 'Tomas')
-  )
-  notifications.save_notifications(
-    '../fakeDatabase/testFiles/Notifications.json'
-  )
 end
 
 def print_all_emails
@@ -390,9 +371,9 @@ def start
     input = gets.chomp
     case input
     when '1'
-      print_notifications
+      start_notifications
     when '2'
-      add_and_save
+      # empty
     when '3'
     #   notification function will be here
     when '4'
@@ -426,4 +407,37 @@ def start_login
   end
 end
 
+def notifications_menu
+  puts '[1] Show notifications'
+  puts '[2] Add notification'
+  puts '[3] Delete notification'
+  puts '[0] Back'
+end
+
+def start_notifications
+  notifications = NotificationWindow.new
+  notifications.load_notifications(
+      '../fakeDatabase/testFiles/Notifications_load.json'
+  )
+  loop do
+    notifications_menu
+    input = gets.chomp
+    case input
+    when '1'
+      notifications.print_notifications
+    when '2'
+      notifications.add_notification(
+          Notification.new('2018-10-30', 'Pavadinimas',
+                           'kazkoks tekstas', 'Tomas')
+      )
+      notifications.save_notifications(
+          '../fakeDatabase/testFiles/Notifications_load.json'
+      )
+    when '0'
+      break
+    else
+      'Incorrect input. Please enter numbers 0, 1, 2 or 3'
+    end
+  end
+end
 start_login
