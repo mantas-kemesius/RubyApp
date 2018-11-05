@@ -13,8 +13,9 @@ RSpec.describe(NotificationWindow) do
       item.delete_notification(0)
     end
     it 'incremented' do
-      item.add_notification(notification)
-      expect(item.size).to eq 1
+      expect { item.add_notification(notification) }
+        .to change { item.size }
+        .from(0).to(1)
     end
     it 'single item deleted' do
       item.add_notification(notification)
@@ -23,8 +24,9 @@ RSpec.describe(NotificationWindow) do
     end
     it 'decremented' do
       item.add_notification(notification)
-      item.delete_notification(0)
-      expect(item.size).to eq 0
+      expect { item.delete_notification(0) }
+        .to change { item.size }
+        .from(1).to(0)
     end
   end
 end
