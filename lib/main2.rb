@@ -1,4 +1,5 @@
 require_relative '../lib/model/notification_window'
+require_relative '../lib/model/schedule'
 
 def menu
   puts '[1] Show notifications'
@@ -8,6 +9,8 @@ def menu
   puts '[5] Show all emails'
   puts '[6] Show all emails for...'
   puts '[7] Show all emails from...'
+  puts '[8] Show schedule by day'
+  puts '[9] Show schedule by week'
   puts '[0] Exit from program'
 end
 
@@ -108,6 +111,16 @@ def send_email
   puts 'Email was sent successfully'
 end
 
+def show_day_schedule
+  puts 'Enter day of the week (1-5):'
+  choice = gets
+  Schedule.print_day(choice)
+end
+
+def show_week_schedule
+  Schedule.print_week
+end
+
 def start
   loop do
     menu
@@ -128,6 +141,10 @@ def start
       print_all_emails_for
     when '7'
       print_all_emails_from
+    when '8'
+      show_day_schedule
+    when '9'
+      show_week_schedule
     when '0'
       break
     end
