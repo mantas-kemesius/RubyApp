@@ -40,5 +40,13 @@ describe User do
     it 'phone number is less than 13 characters' do
       expect(user.phone.length).to be < 3
     end
+
+    it 'email is of type String' do
+      expect(user.email).to be_instance_of(String)
+    end
+
+    it 'phone is of type String' do
+      expect(user.phone).to be_instance_of(String)
+    end
   end
 end
