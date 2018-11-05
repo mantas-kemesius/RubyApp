@@ -1,24 +1,22 @@
-{
-  "Users": [
-    {
-      "username": "s1612345",
-      "name": "Petras",
-      "lastName": "Petraitis",
-      "role": "ROLE_LECTURER",
-      "role_id": 1,
-      "email": "petras@gmail.com",
-      "phone": 862435384,
-      "password": "123"
-    },
-    {
-      "username": "s1612346",
-      "name": "Jonas",
-      "lastName": "Jonaitis",
-      "role": "ROLE_STUDENT",
-      "role_id": 0,
-      "email": "jonas@gmail.com",
-      "phone": 862435385,
-      "password": "234"
-    }
-  ]
-}
+[
+  {
+    "username": "arnasrad",
+    "password": "slapta",
+    "name": "Arnas",
+    "surname": "Radzevicius",
+    "email": "arnasrad@gmail.com",
+    "role_id": 0,
+    "role": "ROLE_STUDENT",
+    "phone": "862537168"
+  },
+  {
+    "username": "mazasis",
+    "password": "princas",
+    "name": "okta",
+    "surname": "vijus",
+    "email": "maz.vijus@traku.voke.com",
+    "role_id": 1,
+    "role": "ROLE_TEACHER",
+    "phone": "+370skoda112"
+  }
+]

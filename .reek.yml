@@ -1,0 +1,3 @@
+exclude_paths:
+ - lib/main.rb
+ - lib/main2.rb

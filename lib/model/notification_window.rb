@@ -22,9 +22,10 @@ class NotificationWindow
 
   def print_notifications
     notifications.each(&:print_notification)
+  end
 
-  def save_notifications
-    file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
+  def save_notifications(path)
+    file = FilesHandler.new(path)
     # TODO: SAVE ALL NOT ONE
     notifications.each do |notification|
       file.save_data('Notifications' => [{ 'date' => notification.date,
@@ -43,8 +44,9 @@ class NotificationWindow
   #   file.save_data(info)
   # end
 
-  def load_notifications
-    file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
+  def load_notifications(path)
+    @notifications = []
+    file = FilesHandler.new(path)
     info = file.load_data.fetch('Notifications')
     info.each do |item|
       add_notification(Notification.new(item.fetch('date'),
