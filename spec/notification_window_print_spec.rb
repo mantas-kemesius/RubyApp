@@ -8,8 +8,9 @@ RSpec.describe(NotificationWindow) do
   notification = Notification.new('2018-28-10', 'myTitle', 'myText', 'Tomas')
   it 'print notifications' do
     item.add_notification(notification)
-    expect { item.print_notifications }.to output(
-      notification.print_notification
-    ).to_stdout
+    str = '2018-28-10' + "\n" + 'myTitle' + "\n" + 'myText' + "\n" + 'Tomas'
+    str += + "\n" + '____________________________________________________'
+    str += "\n"
+    expect { item.print_notifications }.to output(str).to_stdout
   end
 end
