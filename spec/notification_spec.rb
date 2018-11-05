@@ -24,6 +24,7 @@ RSpec.describe(Notification) do
     end
     it 'notification printed' do
       s = note.date + "\n" + note.title + "\n" + note.text + "\n" + note.sender
+      s += "\n" + '____________________________________________________' + "\n"
       expect { note.print_notification }.to output(s).to_stdout
     end
   end

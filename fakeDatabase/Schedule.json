@@ -1,0 +1,18 @@
+{
+  "Schedule": [
+    {
+      "date_day": "1",
+      "date_time": "08:30",
+      "class_number": "102",
+      "subject_name": "Ruby Programming",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "2",
+      "date_time": "10:15",
+      "class_number": "103",
+      "subject_name": "Objective C",
+      "teacher_id": "t1610179"
+    }
+  ]
+}

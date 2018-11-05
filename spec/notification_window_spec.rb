@@ -11,9 +11,9 @@ RSpec.describe(NotificationWindow) do
     end
     let(:add) do
       window.add_notification(notification)
-      window.save_notifications
+      window.save_notifications('fakeDatabase/testFiles/Notifications.json')
       window.delete_notification(0)
-      window.load_notifications
+      window.load_notifications('fakeDatabase/testFiles/Notifications.json')
     end
 
     it 'text correct' do
