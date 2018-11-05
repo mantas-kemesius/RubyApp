@@ -7,17 +7,14 @@ class NotificationWindow
 
   def initialize
     @notifications = []
-    @size = 0
   end
 
   def add_notification(notification)
     notifications << notification
-    @size += 1
   end
 
   def delete_notification(position)
     notifications.delete_at(position)
-    @size -= 1
   end
 
   def print_notifications
@@ -27,25 +24,20 @@ class NotificationWindow
   def save_notifications(path)
     file = FilesHandler.new(path)
     # TODO: SAVE ALL NOT ONE
+    data = []
     notifications.each do |notification|
-      file.save_data('Notifications' => [{ 'date' => notification.date,
-                                           'title' => notification.title,
-                                           'text' => notification.text,
-                                           'sender' => notification.sender }])
+
+      data[data.length] = {
+          'date' => notification.date,
+          'title' => notification.title,
+          'text' => notification.text,
+          'sender' => notification.sender
+      }
+      file.save_data('Notifications' => data)
     end
   end
-  # def append_notification(notification)
-  #   file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
-  #   info = file.load_data.fetch(0)
-  #   info.fetch('Notifications') << {'date' => notification.date,
-  #                             'title' => notification.title,
-  #                             'text' => notification.text,
-  #                             'sender' => notification.sender}
-  #   file.save_data(info)
-  # end
 
   def load_notifications(path)
-    @notifications = []
     file = FilesHandler.new(path)
     info = file.load_data.fetch('Notifications')
     info.each do |item|

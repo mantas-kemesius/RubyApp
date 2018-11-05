@@ -26,7 +26,7 @@ end
 def print_notifications
   notifications = NotificationWindow.new
   notifications.load_notifications(
-    '../fakeDatabase/testFiles/Notifications.json'
+    '../fakeDatabase/testFiles/Notifications_load.json'
   )
   notifications.print_notifications
 end
@@ -38,7 +38,7 @@ def add_and_save_notification
                      'kazkoks tekstas', 'Tomas')
   )
   notifications.save_notifications(
-    '../fakeDatabase/testFiles/Notifications.json'
+    '../fakeDatabase/testFiles/Notifications_load.json'
   )
 end
 
