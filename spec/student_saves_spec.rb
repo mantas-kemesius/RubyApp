@@ -5,6 +5,7 @@ require_relative '../lib/helpers/files_handler'
 describe Student do
   context 'when loading' do
     let(:path_to_db) { 'fakeDatabase/testFiles/test_student.json' }
+    let(:file) { FilesHandler.new(path_to_db) }
     let(:student) do
       described_class.new(
         's_id' => 123,
@@ -22,7 +23,7 @@ describe Student do
       student.change_study_program('PS')
       student.load_student(path_to_db)
       expect(student.study_program).to eq 'Informatika'
-      student.delete_student_file(path_to_db)
+      file.delete_file
     end
 
     it 'save student add subject load' do
@@ -30,7 +31,7 @@ describe Student do
       student.add_subjects('Rusu')
       student.load_student(path_to_db)
       expect(student.subjects.length).to eq 2
-      student.delete_student_file(path_to_db)
+      file.delete_file
     end
 
     it 'save student read mode' do
@@ -38,12 +39,7 @@ describe Student do
       student.change_mode('Vakarinis')
       student.load_student(path_to_db)
       expect(student.mode).to eq 'Dieninis'
-      student.delete_student_file(path_to_db)
-    end
-
-    it 'deletefile' do
-      student.save_student(path_to_db)
-      expect(student.delete_student_file(path_to_db)).to eq true
+      file.delete_file
     end
 
     it 'adds subject' do
