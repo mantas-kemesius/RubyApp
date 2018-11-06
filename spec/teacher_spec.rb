@@ -8,6 +8,11 @@ describe Teacher do
     it 'ID set correct' do
       expect(teacher.id).to eq 't1610179'
     end
+
+    it 'ID set correct start' do
+      expect(teacher.id).to start_with 't'
+    end
+
     it 'university set correct' do
       expect(teacher.university).to eq 'Vilniaus universitetas'
     end
