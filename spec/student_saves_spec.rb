@@ -8,7 +8,7 @@ describe Student do
     let(:file) { FilesHandler.new(path_to_db) }
     let(:student) do
       described_class.new(
-        's_id' => 123,
+        's_id' => '123',
         'group' => 10,
         'faculty' => 'MIF',
         'study_program' => 'Informatika',
@@ -32,6 +32,16 @@ describe Student do
       student.load_student(path_to_db)
       expect(student.subjects.length).to eq 2
       file.delete_file
+    end
+
+    it 'include subjects' do
+      student.add_subjects('Rusu')
+      expect(student.subjects).to include('Rusu')
+    end
+
+    it 'include subjects' do
+      student.add_subjects('Rusu')
+      expect(student.subjects).not_to include('Anglu')
     end
 
     it 'save student read mode' do
