@@ -24,7 +24,7 @@ describe Schedule do
       expect(!temp_schedule2.class_number[regex].nil?).to eq true
     end
     it 'subject_name is not empty' do
-      expect(temp_schedule2.subject_name).not_to eq nil
+      expect(temp_schedule2.subject_name).not_to be_nil
     end
   end
 end

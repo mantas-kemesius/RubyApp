@@ -77,7 +77,7 @@ describe Student do
     end
 
     it 'check if array empty' do
-      expect(student.subjects.empty?).to eq false
+      expect(student.subjects.empty?).to be false
     end
 
     it 'remove some subject check size' do

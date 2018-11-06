@@ -30,7 +30,8 @@ RSpec.describe(NotificationWindow) do
     it 'date format correct ' do
       item.add_notification(notification)
       expect(item.notifications[
-                 item.notifications.length - 1].date).to match(/\d{4}-([0]\d|[1][012])-[0123]\d/)
+                 item.notifications.length - 1].date
+            ).to match(/\d{4}-([0]\d|[1][012])-[0123]\d/)
     end
 
     it 'single item deleted' do

@@ -13,11 +13,11 @@ describe Exams do
 
     it 'date_month is in correct format' do
       regex = /(1|2|3|4|5|6|7|8|9|10|11|12){1}$/
-      expect(!temp_exams2.date_month[regex].nil?).to eq true
+      expect(!temp_exams2.date_month[regex].nil?).to be_truthy
     end
     it 'date_day is in correct format' do
       regex = /(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17){1}$/
-      expect(!temp_exams2.date_day[regex].nil?).to eq true
+      expect(!temp_exams2.date_day[regex].nil?).to be true
     end
     it 'date_time is in correct format' do
       regex = /((([0-1][0-9])|([2][0-3])):([0-5][0-9]))$/
