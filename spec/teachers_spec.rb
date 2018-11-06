@@ -19,7 +19,7 @@ describe Teacher do
     end
     it 'teacher is on vacation' do
       expect { teacher.goes_on_vacation(false) }
-      .not_to change { teacher.on_vacation }
+        .not_to { change { teacher.on_vacation } }
     end
   end
 end
