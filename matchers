@@ -5,6 +5,15 @@
         .from(123).to(100)
     end
     
+    it 'date_month is in correct format' do
+      regex = /(1|2|3|4|5|6|7|8|9|10|11|12){1}$/
+      expect(!temp_exams2.date_month[regex].nil?).to be_truthy
+    end
+    
+    it 'date_day is in correct format' do
+      regex = /(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17){1}$/
+      expect(!temp_exams2.date_day[regex].nil?).to be true
+    
     it 'added successful to list' do
       item.add_notification(notification)
       expect(item.notifications).not_to be_empty
@@ -31,8 +40,9 @@
     end
     
     it 'subject_name is not empty' do
-      expect(temp_schedule2.subject_name).not_to eq nil
+      expect(temp_schedule2.subject_name).not_to be_nil
     end
+    
     
     it 'phone number is less than 13 characters' do
       expect(user.phone.length).to be < 13
@@ -49,6 +59,9 @@
     
     expect { item.print_notifications }.to output(str).to_stdout
     
+    it 'check if array empty' do
+      expect(student.subjects.empty?).to be false
+    end
 
 
 # Custom Matchers
