@@ -88,6 +88,24 @@
     it 'initial student number was set successful' do
       expect(student.s_id).to start_with 's'
     end
+    
+    it ' student group change unsuccessful' do
+      student.change_group(-15)
+      expect(student.group).to be > -15
+    end
+    
+    it 'save student read student id' do
+      stud.save_student(path_to_db)
+      stud.change_sid(111)
+      stud.load_student(path_to_db)
+      expect(stud.s_id).to be > 111
+    end
 
+    it 'save student read student group' do
+      stud.save_student(path_to_db)
+      stud.change_group(111)
+      stud.load_student(path_to_db)
+      expect(stud.group).to be < 111
+    end
 
 # Custom Matchers
