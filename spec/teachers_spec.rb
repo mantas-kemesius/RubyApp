@@ -18,8 +18,8 @@ describe Teacher do
       expect(teacher.delete_grade?).to eq true
     end
     it 'teacher is on vacation' do
-      teacher.goes_on_vacation(false)
-      expect(teacher.on_vacation).to eq false
+      expect { teacher.goes_on_vacation(false) }
+      .not_to change { teacher.on_vacation }
     end
   end
 end
