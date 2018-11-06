@@ -7,5 +7,14 @@
     "subjects": "",
     "active": 0,
     "mode": 0
+  },
+  {
+    "s_id": "TomasMacikas",
+    "group": "1",
+    "faculty": "MIF",
+    "study_program": "Informatics",
+    "subjects": "",
+    "active": 0,
+    "mode": 0
   }
 ]

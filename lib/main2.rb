@@ -5,6 +5,7 @@ require_relative '../lib/model/user'
 require_relative '../lib/model/teacher'
 require_relative '../lib/model/student'
 require 'date'
+require 'io/console'
 
 @active_user
 @active_role
@@ -13,13 +14,25 @@ require 'date'
 @student_dir_name = '../fakeDatabase/Students.json'
 @email_dir_name = '../fakeDatabase/Emails.json'
 
+def clear
+  Gem.win_platform? ? (system 'cls') : (system 'clear')
+end
+
+def pause
+  print 'press any key'
+  STDIN.getch
+  print "               \r"
+end
+
 def login_menu
+  clear
   puts '[1] Login'
   puts '[2] Sign in'
   puts '[0] Exit from program'
 end
 
 def menu
+  clear
   puts '[1] Notifications'
   puts '[4] Emails'
   # puts '[4] Send email'
@@ -32,6 +45,7 @@ def menu
 end
 
 def print_sent_emails
+  clear
   file = FilesHandler.new(@email_dir_name)
   data = file.load_data
   data.each do |item|
@@ -50,6 +64,7 @@ def print_sent_emails
 end
 
 def print_received_emails
+  clear
   file = FilesHandler.new(@email_dir_name)
   data = file.load_data
   data.each do |item|
@@ -68,6 +83,7 @@ def print_received_emails
 end
 
 def print_all_emails
+  clear
   file = FilesHandler.new('../fakeDatabase/Emails.json')
   data = file.load_data
   data.each do |item|
@@ -85,6 +101,7 @@ def print_all_emails
 end
 
 def print_all_emails_for
+  clear
   print 'Email: '
   email = gets.chomp
   file = FilesHandler.new('../fakeDatabase/Emails.json')
@@ -105,6 +122,7 @@ def print_all_emails_for
 end
 
 def print_all_emails_from
+  clear
   print 'Email: '
   email = gets.chomp
   file = FilesHandler.new('../fakeDatabase/Emails.json')
@@ -125,6 +143,7 @@ def print_all_emails_from
 end
 
 def send_email
+  clear
   file = FilesHandler.new(@email_dir_name)
   data = file.load_data
   print 'To: '
@@ -195,6 +214,7 @@ def teacher_login
       @active_user = user_by_username(in_uname)
       @active_role = teacher_by_username(in_uname)
       puts 'Login successful'
+      puts 'Logged in as' + @active_user
       puts ''
 
       start
@@ -207,6 +227,7 @@ end
 
 def student_login
   loop do
+    clear
     puts 'Enter username / password'
     puts 'Enter [0] to exit'
     print 'Username: '
@@ -234,6 +255,7 @@ def student_login
 end
 
 def user_sign_in
+  clear
   puts 'Create new user.'
   puts 'Enter [0] to exit'
   print 'Username*: '
@@ -271,6 +293,7 @@ def user_sign_in
 end
 
 def teacher_sign_in(username, password, name, surname, email, phone)
+  clear
   print 'University*: '
   in_uni = non_blank_input
   return if in_uni == '0'
@@ -296,6 +319,7 @@ def teacher_sign_in(username, password, name, surname, email, phone)
 end
 
 def student_sign_in(username, password, name, surname, email, phone)
+  clear
   print 'Group*: '
   in_group = non_blank_input
   return if in_group == '0'
@@ -375,6 +399,7 @@ end
 def role_option(label)
   puts label
   loop do
+    clear
     puts '[1] Teacher'
     puts '[2] Student'
     puts '[0] Back'
@@ -466,6 +491,7 @@ end
 
 def start
   loop do
+    clear
     menu
     print 'Choose: '
     input = gets.chomp
@@ -492,6 +518,7 @@ end
 
 def start_login
   loop do
+    clear
     login_menu
     input = gets.chomp
     case input
@@ -508,6 +535,7 @@ def start_login
 end
 
 def emails_menu
+  clear
   puts 'Emails'
   puts '[1] Compose an email'
   puts '[2] Inbox'
@@ -516,6 +544,7 @@ end
 
 def start_emails
   loop do
+    clear
     emails_menu
     input = gets.chomp
     case input
@@ -534,6 +563,7 @@ def start_emails
 end
 
 def notifications_menu
+  clear
   puts '[1] Show notifications'
   puts '[2] Add notification'
   puts '[3] Delete notification'
@@ -541,6 +571,7 @@ def notifications_menu
 end
 
 def notification_add(notifications)
+  clear
   print 'Title: '
   title = non_blank_input
   return if title == '0'
@@ -549,13 +580,14 @@ def notification_add(notifications)
   return if text == '0'
   notifications.add_notification(
       Notification.new(Date.today.to_s, title,
-                       text, @active_username)
+                       text, @active_user)
   )
   puts 'Notification has been added successfully'
   puts ''
 end
 
 def notification_del(notifications)
+  clear
   print 'At position '
   position = non_blank_input
   return if position == '0'
@@ -572,11 +604,13 @@ def start_notifications
       '../fakeDatabase/Notifications.json'
   )
   loop do
+    clear
     notifications_menu
     input = gets.chomp
     case input
     when '1'
       notifications.print_notifications
+      pause
     when '2'
       notification_add(notifications)
     when '3'
@@ -593,6 +627,7 @@ def start_notifications
 end
 
 def print_week
+  clear
   file = FilesHandler.new('../fakeDatabase/Schedule.json')
   data = file.load_data.fetch('Schedule')
   schedule = Schedule.new({
@@ -614,6 +649,7 @@ def print_week
 end
 
 def print_day(choice)
+  clear
   file = FilesHandler.new('../fakeDatabase/Schedule.json')
   data = file.load_data.fetch('Schedule')
   schedule = Schedule.new({
@@ -633,11 +669,10 @@ def print_day(choice)
 end
 
 def print_choice
+  clear
   puts 'Enter day number (1-5)'
   choice = gets
   print_day(choice)
 end
-
-
 
 start_login
