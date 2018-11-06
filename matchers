@@ -107,5 +107,13 @@
       stud.load_student(path_to_db)
       expect(stud.group).to be < 111
     end
+    
+    it 'remove first subject ' do
+      student.remove_first_subjects
+      student.add_subjects('Rusu')
+      expect(student.subjects).to match_array %w[Matematika Rusu]
+    end
+    
+    
 
 # Custom Matchers
