@@ -8,7 +8,7 @@ class Student < StudentInfo
   def initialize(student)
     super(student)
     init_s_id = student.fetch('s_id')
-    @s_id = init_s_id if init_s_id.positive?
+    @s_id = init_s_id
     init_group = student.fetch('group')
     @group = init_group if init_group.positive?
     @faculty = student.fetch('faculty')
@@ -28,7 +28,7 @@ class Student < StudentInfo
   end
 
   def change_sid(new_s_id)
-    @s_id = new_s_id if new_s_id.positive?
+    @s_id = new_s_id
   end
 
   def save_student(path_to_db)
