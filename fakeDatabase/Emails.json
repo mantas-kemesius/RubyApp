@@ -64,5 +64,17 @@
     "email_to": "jonaitis@gmail.com",
     "title": "Test email",
     "text": "testas testukas testaitis"
+  },
+  {
+    "email_from": "maz.vijus@traku.voke.com",
+    "email_to": "arnasrad@gmail.com",
+    "title": "test email",
+    "text": "testuojam testas testukas jejeje"
+  },
+  {
+    "email_from": "arnasrad@gmail.com",
+    "email_to": "maz.vijus@traku.voke.com",
+    "title": "test email",
+    "text": "just another email "
   }
 ]

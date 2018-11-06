@@ -4,13 +4,13 @@
       "date": "2018-10-28",
       "title": "myTitle",
       "text": "myText",
-      "sender": "Tomas"
+      "sender": "newSender"
     },
     {
       "date": "2018-10-28",
       "title": "myTitle",
       "text": "myText",
-      "sender": "Tomas"
+      "sender": "newSender"
     }
   ]
 }

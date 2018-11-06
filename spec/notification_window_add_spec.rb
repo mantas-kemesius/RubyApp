@@ -19,5 +19,25 @@ RSpec.describe(NotificationWindow) do
       item.delete_notification(0)
       expect(item.notifications[0]).to eq nil
     end
+    it 'add with current date' do
+      item.add_notification_now('title', 'text', 'sender')
+      expect(item.notifications[
+                 item.notifications.length - 1].date).to eq Date.today.to_s
+    end
+    it 'add with current title' do
+      item.add_notification_now('title', 'text', 'sender')
+      expect(item.notifications[
+                 item.notifications.length - 1].title).to eq 'title'
+    end
+    it 'add current text correct' do
+      item.add_notification_now('title', 'text', 'sender')
+      expect(item.notifications[
+                 item.notifications.length - 1].text).to eq 'text'
+    end
+    it 'add current sender correct' do
+      item.add_notification_now('title', 'text', 'sender')
+      expect(item.notifications[
+                 item.notifications.length - 1].sender).to eq 'sender'
+    end
   end
 end
