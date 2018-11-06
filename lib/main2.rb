@@ -34,13 +34,13 @@ end
 def menu
   clear
   puts '[1] Notifications'
-  puts '[4] Emails'
+  puts '[2] Emails'
   # puts '[4] Send email'
   # puts '[5] Show all emails'
   # puts '[6] Show all emails for...'
   # puts '[7] Show all emails from...'
-  puts '[8] Show schedule by day'
-  puts '[9] Show schedule by week'
+  puts '[3] Show schedule by day'
+  puts '[4] Show schedule by week'
   puts '[0] Exit from program'
 end
 
@@ -503,14 +503,10 @@ def start
     when '1'
       start_notifications
     when '2'
-      # empty
-    when '3'
-    #   notification function will be here
-    when '4'
       start_emails
-    when '8'
+    when '3'
       print_choice
-    when '9'
+    when '4'
       print_week
     when '0'
       exit
@@ -583,7 +579,7 @@ def notification_add(notifications)
   return if text == '0'
   notifications.add_notification(
       Notification.new(Date.today.to_s, title,
-                       text, @active_user.to_s)
+                       text, @active_user.name + ' ' + @active_user.last_name)
   )
   puts 'Notification has been added successfully'
   puts ''
