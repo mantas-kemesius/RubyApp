@@ -13,6 +13,10 @@ class NotificationWindow
     notifications << notification
   end
 
+  def add_notification_now(title, text, sender)
+    add_notification(Notification.new(Date.today.to_s, title, text, sender))
+  end
+
   def delete_notification(position)
     notifications.delete_at(position)
   end
