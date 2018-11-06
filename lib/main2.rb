@@ -1,7 +1,9 @@
 require_relative '../lib/model/notification_window'
+
 require_relative '../lib/model/user'
 require_relative '../lib/model/teacher'
 require_relative '../lib/model/student'
+require 'date'
 
 @active_user
 @active_role
@@ -533,10 +535,36 @@ def notifications_menu
   puts '[0] Back'
 end
 
+def notification_add(notifications)
+  print 'Title: '
+  title = non_blank_input
+  return if title == '0'
+  print 'Text: '
+  text = non_blank_input
+  return if text == '0'
+  notifications.add_notification(
+      Notification.new(Date.today.to_s, title,
+                       text, @active_username)
+  )
+  puts 'Notification has been added successfully'
+  puts ''
+end
+
+def notification_del(notifications)
+  print 'At position '
+  position = non_blank_input
+  return if position == '0'
+  puts notifications.notifications.length
+  if position.to_i <= notifications.notifications.length
+    notifications.delete_notification(position.to_i-1)
+  else
+  puts 'Incorrect index'
+  end
+  end
 def start_notifications
   notifications = NotificationWindow.new
   notifications.load_notifications(
-    '../fakeDatabase/testFiles/Notifications_load.json'
+      '../fakeDatabase/Notifications.json'
   )
   loop do
     notifications_menu
@@ -545,18 +573,17 @@ def start_notifications
     when '1'
       notifications.print_notifications
     when '2'
-      notifications.add_notification(
-        Notification.new('2018-10-30', 'Pavadinimas',
-                         'kazkoks tekstas', 'Tomas')
-      )
-      notifications.save_notifications(
-        '../fakeDatabase/testFiles/Notifications_load.json'
-      )
+      notification_add(notifications)
+    when '3'
+      notification_del(notifications)
     when '0'
       break
     else
       'Incorrect input. Please enter numbers 0, 1, 2 or 3'
     end
   end
+  notifications.save_notifications(
+      '../fakeDatabase/Notifications.json'
+  )
 end
 start_login
