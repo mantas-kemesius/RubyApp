@@ -19,8 +19,9 @@
       expect(user.phone.length).to be < 13
     end
     
-    it 'date_month is of type String' do
-      expect(temp_exams2.date_month).to be_instance_of(String)
+    it 'added successful' do
+      item.add_notification(notification)
+      expect(item.notifications[item.notifications.length - 1]).to be_instance_of(Notification)
     end
     
     it 'date_month is not of type Integer' do
