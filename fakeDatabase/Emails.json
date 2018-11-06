@@ -76,5 +76,11 @@
     "email_to": "maz.vijus@traku.voke.com",
     "title": "test email",
     "text": "just another email "
+  },
+  {
+    "email_from": "arnasrad@gmail.com",
+    "email_to": "macikastomas@gmail.com",
+    "title": "Sveix",
+    "text": "ka tu"
   }
 ]

@@ -21,7 +21,7 @@ end
 def pause
   print 'press any key'
   STDIN.getch
-  print "               \r"
+  print "                          \r"
 end
 
 def login_menu
@@ -61,6 +61,7 @@ def print_sent_emails
   puts
   puts '------------------'
   puts
+  pause
 end
 
 def print_received_emails
@@ -80,6 +81,7 @@ def print_received_emails
   puts
   puts '------------------'
   puts
+  pause
 end
 
 def print_all_emails
@@ -98,6 +100,7 @@ def print_all_emails
   puts
   puts '------------------'
   puts
+  pause
 end
 
 def print_all_emails_for
@@ -119,6 +122,7 @@ def print_all_emails_for
   puts
   puts '------------------'
   puts
+  pause
 end
 
 def print_all_emails_from
@@ -140,10 +144,10 @@ def print_all_emails_from
   puts
   puts '------------------'
   puts
+  pause
 end
 
 def send_email
-  clear
   file = FilesHandler.new(@email_dir_name)
   data = file.load_data
   print 'To: '
@@ -544,7 +548,6 @@ end
 
 def start_emails
   loop do
-    clear
     emails_menu
     input = gets.chomp
     case input
@@ -580,7 +583,7 @@ def notification_add(notifications)
   return if text == '0'
   notifications.add_notification(
       Notification.new(Date.today.to_s, title,
-                       text, @active_user)
+                       text, @active_user.to_s)
   )
   puts 'Notification has been added successfully'
   puts ''
@@ -609,6 +612,7 @@ def start_notifications
     input = gets.chomp
     case input
     when '1'
+      clear
       notifications.print_notifications
       pause
     when '2'
@@ -646,6 +650,7 @@ def print_week
     end
   end
   puts '##############################'
+  pause
 end
 
 def print_day(choice)
@@ -666,6 +671,7 @@ def print_day(choice)
     puts "TEACHER #{item.fetch('teacher_id')}"
   end
   puts '##############################'
+  pause
 end
 
 def print_choice
