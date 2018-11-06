@@ -114,6 +114,9 @@
       expect(student.subjects).to match_array %w[Matematika Rusu]
     end
     
-    
+    it 'include subjects' do
+      student.add_subjects('Rusu')
+      expect(student.subjects).to include('Rusu')
+    end
 
 # Custom Matchers
