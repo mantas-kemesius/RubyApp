@@ -6,12 +6,31 @@ RSpec.describe(NotificationWindow) do
       described_class.new
     end
 
-    notification = Notification.new('2018-28-10', 'myTitle', 'myText', 'Tomas')
-    it 'added successful' do
+    notification = Notification.new('2018-12-10', 'myTitle', 'myText', 'Tomas')
+    it 'same object' do
       item.add_notification(notification)
       expect(item.notifications[
                  item.notifications.length - 1]).to eq notification
       item.delete_notification(0)
+    end
+
+    it 'added successful to list' do
+      item.add_notification(notification)
+      expect(item.notifications).not_to be_empty
+    end
+
+    it 'list size increased' do
+      expect do
+        item.add_notification(
+          notification
+        )
+      end.to change { item.notifications.length }.by(1)
+    end
+
+    it 'date format correct ' do
+      item.add_notification(notification)
+      expect(item.notifications[
+                 item.notifications.length - 1].date).to match(/\d{4}-([0]\d|[1][012])-[0123]\d/)
     end
 
     it 'single item deleted' do
