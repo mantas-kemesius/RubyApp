@@ -22,7 +22,7 @@ describe Student do
       stud.save_student(path_to_db)
       stud.change_sid(111)
       stud.load_student(path_to_db)
-      expect(stud.s_id).to eq 123
+      expect(stud.s_id).to be > 111
       file.delete_file
     end
 
@@ -30,7 +30,7 @@ describe Student do
       stud.save_student(path_to_db)
       stud.change_group(111)
       stud.load_student(path_to_db)
-      expect(stud.group).to eq 10
+      expect(stud.group).to be < 111
       file.delete_file
     end
 
