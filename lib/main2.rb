@@ -1,11 +1,16 @@
 require_relative '../lib/model/notification_window'
+
+require_relative '../lib/model/user'
+require_relative '../lib/model/teacher'
+require_relative '../lib/model/student'
 require 'date'
 
-@active_username
+@active_user
 @active_role
 @user_dir_name = '../fakeDatabase/Users.json'
 @teacher_dir_name = '../fakeDatabase/Teachers.json'
 @student_dir_name = '../fakeDatabase/Students.json'
+@email_dir_name = '../fakeDatabase/Emails.json'
 
 def login_menu
   puts '[1] Login'
@@ -17,11 +22,48 @@ def menu
   puts '[1] Notifications'
   puts '[2] ?'
   puts '[3] ?'
-  puts '[4] Send email'
-  puts '[5] Show all emails'
-  puts '[6] Show all emails for...'
-  puts '[7] Show all emails from...'
+  puts '[4] Emails'
+  # puts '[4] Send email'
+  # puts '[5] Show all emails'
+  # puts '[6] Show all emails for...'
+  # puts '[7] Show all emails from...'
   puts '[0] Exit from program'
+end
+
+def print_sent_emails
+  file = FilesHandler.new(@email_dir_name)
+  data = file.load_data
+  data.each do |item|
+    next unless @active_user.email == item.fetch('email_from')
+    puts
+    puts '------------------'
+    puts
+    puts "FROM: #{item.fetch('email_from')}"
+    puts "TO: #{item.fetch('email_to')}"
+    puts "TITLE: #{item.fetch('title')}"
+    puts "TEXT: #{item.fetch('text')}"
+  end
+  puts
+  puts '------------------'
+  puts
+end
+
+def print_received_emails
+  file = FilesHandler.new(@email_dir_name)
+  data = file.load_data
+  data.each do |item|
+    next unless @active_user.email == item.fetch('email_to')
+    puts
+    puts '------------------'
+    puts
+    puts "FROM: #{item.fetch('email_from')}"
+    puts "TO: #{item.fetch('email_to')}"
+    puts "TITLE: #{item.fetch('title')}"
+    puts "TEXT: #{item.fetch('text')}"
+  end
+  puts
+  puts '------------------'
+  puts
 end
 
 def print_all_emails
@@ -82,24 +124,44 @@ def print_all_emails_from
 end
 
 def send_email
-  file = FilesHandler.new('../fakeDatabase/Emails.json')
+  file = FilesHandler.new(@email_dir_name)
   data = file.load_data
-  print 'FROM: '
-  email_from = gets.chomp
   print 'To: '
   email_to = gets.chomp
-  print 'Title: '
-  title = gets.chomp
-  print 'Text: '
-  text = gets.chomp
-  data[data.length] = {
-    'email_from' => email_from,
-    'email_to' => email_to,
-    'title' => title,
-    'text' => text
-  }
-  file.save_data(data)
-  puts 'Email was sent successfully'
+  if email_used?(email_to)
+    print 'Title: '
+    title = gets.chomp
+    print 'Text: '
+    text = gets.chomp
+    data[data.length] = {
+      email_from: @active_user.email,
+      email_to: email_to,
+      title: title,
+      text: text
+    }
+    file.save_data(data)
+    puts 'Email was sent successfully'
+  else
+    puts 'Email ' + email_to + ' not found'
+  end
+  #   file = FilesHandler.new('../fakeDatabase/Emails.json')
+  #   data = file.load_data
+  #   print 'FROM: '
+  #   email_from = gets.chomp
+  #   print 'To: '
+  #   email_to = gets.chomp
+  #   print 'Title: '
+  #   title = gets.chomp
+  #   print 'Text: '
+  #   text = gets.chomp
+  #   data[data.length] = {
+  #     email_from: email_from,
+  #     email_to: email_to,
+  #     title: title,
+  #     text: text
+  #   }
+  #   file.save_data(data)
+  #   puts 'Email was sent successfully'
 end
 
 def user_login
@@ -129,8 +191,8 @@ def teacher_login
     return if in_psw == '0'
 
     if login_correct?(@user_dir_name, in_uname, in_psw, 1)
-      @active_username = in_uname
-      @active_role = 1
+      @active_user = user_by_username(in_uname)
+      @active_role = teacher_by_username(in_uname)
       puts 'Login successful'
       puts ''
 
@@ -155,8 +217,10 @@ def student_login
     return if in_psw == '0'
 
     if login_correct?(@user_dir_name, in_uname, in_psw, 0)
-      @active_username = in_uname
-      @active_role = 0
+      @active_user = user_by_username(in_uname)
+      # TODO: fix student initializer first.
+      # s_id should be string, not integer
+      # @active_role = student_by_username(in_uname)
       puts 'Login successful'
       puts ''
 
@@ -195,7 +259,6 @@ def user_sign_in
   in_phone = gets.chomp
   return if in_phone == '0'
 
-
   role_input = role_option('New account role:')
   if role_input == '1'
     teacher_sign_in(in_uname, in_psw, in_name, in_surname, in_email, in_phone)
@@ -220,7 +283,7 @@ def teacher_sign_in(username, password, name, surname, email, phone)
     return
   end
 
-  if email_used?(@user_dir_name, email)
+  if email_used?(email)
     puts 'Email ' + email + ' already used'
     return
   end
@@ -247,7 +310,7 @@ def student_sign_in(username, password, name, surname, email, phone)
     return
   end
 
-  if email_used?(@user_dir_name, email)
+  if email_used?(email)
     puts 'Email ' + email + ' already used'
     return
   end
@@ -289,10 +352,13 @@ def append_student(username, group, faculty, study_program)
   file = FilesHandler.new(@student_dir_name)
   data = file.load_data
   data[data.length] = {
-    username: username,
+    s_id: username,
     group: group,
     faculty: faculty,
-    study_program: study_program
+    study_program: study_program,
+    subjects: '',
+    active: 0,
+    mode: 0
   }
   file.save_data(data)
 end
@@ -304,7 +370,6 @@ def role_string(role_id)
     'ROLE_TEACHER'
   end
 end
-
 
 def role_option(label)
   puts label
@@ -335,22 +400,55 @@ def non_blank_input
   end
 end
 
+def user_by_username(username)
+  file = FilesHandler.new(@user_dir_name)
+  data = file.load_data
+  data.each do |item|
+    next unless username == item.fetch('username')
+    user = User.new(item.fetch('name'), item.fetch('surname'),
+                    item.fetch('role_id'), item.fetch('email'),
+                    item.fetch('phone'))
+    return user
+  end
+end
+
+def student_by_username(username)
+  file = FilesHandler.new(@student_dir_name)
+  data = file.load_data
+  data.each do |item|
+    next unless username == item.fetch('s_id')
+    student = Student.new(item)
+    return student
+  end
+end
+
+def teacher_by_username(username)
+  file = FilesHandler.new(@teacher_dir_name)
+  data = file.load_data
+  data.each do |item|
+    next unless username == item.fetch('username')
+    teacher = Teacher.new(item.fetch('username'), item.fetch('university'),
+                         item.fetch('faculty'))
+    return teacher
+  end
+end
+
 def username_used?(dir_name, username)
   file = FilesHandler.new(dir_name)
   data = file.load_data
   data.each do |item|
     return true if username == item.fetch('username')
   end
-  return false
+  false
 end
 
-def email_used?(dir_name, email)
-  file = FilesHandler.new(dir_name)
+def email_used?(email)
+  file = FilesHandler.new(@user_dir_name)
   data = file.load_data
   data.each do |item|
     return true if email == item.fetch('email')
   end
-  return false
+  false
 end
 
 def login_correct?(dir_name, username, password, role_id)
@@ -362,7 +460,7 @@ def login_correct?(dir_name, username, password, role_id)
                      role_id == item.fetch('role_id')
     end
   end
-  return false
+  false
 end
 
 def start
@@ -378,15 +476,11 @@ def start
     when '3'
     #   notification function will be here
     when '4'
-      send_email
-    when '5'
-      print_all_emails
-    when '6'
-      print_all_emails_for
-    when '7'
-      print_all_emails_from
+      start_emails
     when '0'
       exit
+    else
+      puts 'Incorrect input'
     end
   end
 end
@@ -404,6 +498,32 @@ def start_login
       break
     else
       'Incorrect input. Please enter numbers 0, 1 or 2'
+    end
+  end
+end
+
+def emails_menu
+  puts 'Emails'
+  puts '[1] Compose an email'
+  puts '[2] Inbox'
+  puts '[3] Sent'
+end
+
+def start_emails
+  loop do
+    emails_menu
+    input = gets.chomp
+    case input
+    when '1'
+      send_email
+    when '2'
+      print_received_emails
+    when '3'
+      print_sent_emails
+    when '0'
+      break
+    else
+      'Incorrect input. Please enter numbers 0, 1, 2 or 3'
     end
   end
 end
