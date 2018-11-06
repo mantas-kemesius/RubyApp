@@ -20,7 +20,8 @@ describe Student do
     end
 
     it ' student group change unsuccessful' do
-      expect { student.change_group(-15) }.not_to change { student.group }
+      student.change_group(-15)
+      expect(student.group).to eq 10
     end
 
     it ' student change_faculty change successful' do
