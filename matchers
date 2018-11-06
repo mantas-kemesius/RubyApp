@@ -62,6 +62,32 @@
     it 'check if array empty' do
       expect(student.subjects.empty?).to be false
     end
+    
+    it 'teacher is on vacation' do
+      expect { teacher.goes_on_vacation(true) }
+        .to change { teacher.on_vacation }
+        .from(false).to(true)
+    end
+    
+    it 'ID set correct start' do
+      expect(teacher.id).to start_with 't'
+    end
+    
+    it ' student change_faculty change successful' do
+      expect { student.change_faculty('FF') }
+        .to change { student.faculty }
+        .from('MIF').to('FF')
+    end
+    
+    it ' student study_program change was successful' do
+      expect { student.change_study_program('PS') }
+        .to change { student.study_program }
+        .from('Informatika').to('PS')
+    end
+    
+    it 'initial student number was set successful' do
+      expect(student.s_id).to start_with 's'
+    end
 
 
 # Custom Matchers
