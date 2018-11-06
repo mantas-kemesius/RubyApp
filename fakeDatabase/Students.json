@@ -4,5 +4,11 @@
     "group": "2",
     "faculty": "MIF",
     "study_program": "Computer Science"
+  },
+  {
+    "username": "Tomas",
+    "group": "1",
+    "faculty": "mif",
+    "study_program": "info"
   }
 ]

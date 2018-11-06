@@ -18,5 +18,15 @@
     "role_id": 1,
     "role": "ROLE_TEACHER",
     "phone": "+370skoda112"
+  },
+  {
+    "username": "Tomas",
+    "password": "Tomas",
+    "name": "Tomas",
+    "surname": "Macikas",
+    "email": "macikastomas@gmail.com",
+    "role_id": 0,
+    "role": "ROLE_STUDENT",
+    "phone": "+37062222222"
   }
 ]
