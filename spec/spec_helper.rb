@@ -14,6 +14,7 @@ require_relative './../lib/model/notification'
 require_relative './../lib/model/notification_window'
 require_relative './../lib/model/schedule'
 require_relative './../lib/model/grades'
+require_relative './../lib/model/instance_checker'
 require_relative './../lib/model/exams'
 
 require 'simplecov'

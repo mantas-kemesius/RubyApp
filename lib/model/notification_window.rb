@@ -1,57 +1,52 @@
 require_relative 'notification'
 require_relative '../../lib/helpers/files_handler'
-require 'json'
+
 # All notifications
 class NotificationWindow
   attr_reader :notifications, :size
 
   def initialize
     @notifications = []
-    @size = 0
   end
 
   def add_notification(notification)
     notifications << notification
-    @size += 1
+  end
+
+  def add_notification_now(title, text, sender)
+    add_notification(Notification.new(Date.today.to_s, title, text, sender))
   end
 
   def delete_notification(position)
     notifications.delete_at(position)
-    @size -= 1
   end
 
   def print_notifications
     notifications.each(&:print_notification)
   end
+  # :reek:FeatureEnvy
 
   def save_notifications(path)
     file = FilesHandler.new(path)
-    # TODO: SAVE ALL NOT ONE
+    data = []
     notifications.each do |notification|
-      file.save_data('Notifications' => [{ 'date' => notification.date,
-                                           'title' => notification.title,
-                                           'text' => notification.text,
-                                           'sender' => notification.sender }])
+      data[data.length] = {
+        'date' => notification.date, 'title' => notification.title,
+        'text' => notification.text, 'sender' => notification.sender
+      }
+      file.save_data('Notifications' => data)
     end
   end
-  # def append_notification(notification)
-  #   file = FilesHandler.new('fakeDatabase/testFiles/Notifications.json')
-  #   info = file.load_data.fetch(0)
-  #   info.fetch('Notifications') << {'date' => notification.date,
-  #                             'title' => notification.title,
-  #                             'text' => notification.text,
-  #                             'sender' => notification.sender}
-  #   file.save_data(info)
-  # end
 
+  # :reek:FeatureEnvy
   def load_notifications(path)
     file = FilesHandler.new(path)
     info = file.load_data.fetch('Notifications')
-    info.each do |item|
-      add_notification(Notification.new(item.fetch('date'),
-                                        item.fetch('title'),
-                                        item.fetch('text'),
-                                        item.fetch('sender')))
+    info.each do |notification|
+      add_notification(Notification.new(notification.fetch('date'),
+                                        notification.fetch('title'),
+                                        notification.fetch('text'),
+                                        notification.fetch('sender')))
     end
   end
 end

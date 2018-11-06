@@ -8,10 +8,87 @@
       "teacher_id": "t1610179"
     },
     {
-      "date_day": "2",
+      "date_day": "1",
       "date_time": "10:15",
       "class_number": "103",
       "subject_name": "Objective C",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "1",
+      "date_time": "12:00",
+      "class_number": "104",
+      "subject_name": "Calculus I",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "1",
+      "date_time": "16:00",
+      "class_number": "103",
+      "subject_name": "Calculus II",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "2",
+      "date_time": "10:15",
+      "class_number": "319",
+      "subject_name": "Objective C exercise",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "2",
+      "date_time": "10:15",
+      "class_number": "318",
+      "subject_name": "Calculus I exercise",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "2",
+      "date_time": "14:00",
+      "class_number": "101",
+      "subject_name": "Agile Ruby",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "2",
+      "date_time": "18:00",
+      "class_number": "105",
+      "subject_name": "Databases SQL",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "3",
+      "date_time": "10:15",
+      "class_number": "103",
+      "subject_name": "Objective C",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "3",
+      "date_time": "14:00",
+      "class_number": "412",
+      "subject_name": "Objective C exercise",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "3",
+      "date_time": "16:00",
+      "class_number": "419",
+      "subject_name": "Agile Ruby",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "5",
+      "date_time": "08:30",
+      "class_number": "420",
+      "subject_name": "Test Subject",
+      "teacher_id": "t1610179"
+    },
+    {
+      "date_day": "5",
+      "date_time": "12:00",
+      "class_number": "104",
+      "subject_name": "Java",
       "teacher_id": "t1610179"
     }
   ]
