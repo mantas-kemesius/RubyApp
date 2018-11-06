@@ -67,7 +67,7 @@ describe Student do
     it 'remove first subject ' do
       student.remove_first_subjects
       student.add_subjects('Rusu')
-      expect(student.subjects).to eq %w[Matematika Rusu]
+      expect(student.subjects).to match_array %w[Matematika Rusu]
     end
 
     it 'remove first subject check size' do
