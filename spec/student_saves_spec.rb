@@ -39,7 +39,7 @@ describe Student do
       expect(student.subjects).to include('Rusu')
     end
 
-    it 'include subjects' do
+    it 'not include subjects' do
       student.add_subjects('Rusu')
       expect(student.subjects).not_to include('Anglu')
     end
