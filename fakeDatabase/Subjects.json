@@ -1,0 +1,28 @@
+{
+  "Subjects": [
+    {
+      "title": "Algebra",
+      "description": "Algebros pagrindai",
+      "credits": "5",
+      "teacher": "Antanas Smetona"
+    },
+    {
+      "title": "smh",
+      "description": "sd",
+      "credits": "65",
+      "teacher": "change this"
+    },
+    {
+      "title": "ss",
+      "description": "dd",
+      "credits": "f",
+      "teacher": "change this"
+    },
+    {
+      "title": "ss",
+      "description": "ddd",
+      "credits": "55",
+      "teacher": "Change this"
+    }
+  ]
+}

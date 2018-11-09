@@ -17,8 +17,33 @@ class SubjectWindow
     subjects.delete_at(position)
   end
 
+  def delete_by_title(title)
+    subjects.each do |item|
+      if item.title.eql?(title)
+        subjects.delete(item)
+        delete_by_title(title)
+      end
+    end
+  end
+
+  def delete_by_title_by_teacher(title, teacher)
+    subjects.each do |item|
+      if item.title.eql?(title) && item.teacher.eql?(teacher)
+        subjects.delete(item)
+        delete_by_title_by_teacher(title, teacher)
+      end
+    end
+  end
+
   def print_subjects
     subjects.each(&:print_subject)
+  end
+
+  # :reek:FeatureEnvy
+  def print_subjects_by_teacher(teacher)
+    subjects.each do |item|
+      item.print_subject if item.teacher.eql?(teacher)
+    end
   end
 
   # :reek:FeatureEnvy

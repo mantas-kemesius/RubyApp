@@ -27,11 +27,48 @@ RSpec.describe(SubjectWindow) do
         window.add_subject(item)
       end.to change { window.subjects.length }.by(1)
     end
+  end
+  context 'on delete' do
+    let(:window) do
+      described_class.new
+    end
+    let(:item) do
+      Subject.new('Ruby', 'Agile Programming Ruby',
+                  '5', 'Andrius Kukulis')
+    end
+    let(:item2) do
+      Subject.new('Ruby', 'Agile Programming Ruby',
+                  '5', 'Andrius Andraitis')
+    end
+    let(:item3) do
+      Subject.new('Ruby', 'Agile Programming Ruby',
+                  '5', 'Andrius Andraitis')
+    end
+    let(:item4) do
+      Subject.new('Rubyy', 'Agile Programming Ruby',
+                  '5', 'Andrius Andraitis')
+    end
+    let(:add) do
+      window.add_subject(item)
+      window.add_subject(item2)
+      window.add_subject(item3)
+      window.add_subject(item4)
+    end
 
-    it 'single item deleted' do
+    it 'single item deleted by position' do
       window.add_subject(item)
       window.delete_subject(0)
       expect(window.subjects[0]).to eq nil
+    end
+    it 'deleted by name' do
+      add
+      window.delete_by_title('Ruby')
+      expect(window.subjects[0]).to eq item4
+    end
+    it 'deleted by name of teacher subjects' do
+      add
+      window.delete_by_title_by_teacher('Ruby', 'Andrius Andraitis')
+      expect(window.subjects[1]).to eq item4
     end
   end
   context 'on load' do
@@ -107,15 +144,27 @@ RSpec.describe(SubjectWindow) do
     let(:window) do
       described_class.new
     end
+    let(:create_str) do
+      window.add_subject(subject)
+    end
 
     subject = Subject.new('Discrete mathematics', 'Hardcoras', '7.5',
                           'Diciunas Jega')
+    subject2 = Subject.new('matanas', 'Hardcoras', '5',
+                           'Plikusas Jega')
+    str = 'Discrete mathematics' + "\n" + 'Hardcoras' + "\n" + '7.5' + "\n"
+    str += 'Diciunas Jega' + "\n"
+    str += '__________________________________________________' + "\n"
     it 'print notifications' do
       window.add_subject(subject)
-      str = 'Discrete mathematics' + "\n" + 'Hardcoras' + "\n" + '7.5' + "\n"
-      str += 'Diciunas Jega' + "\n"
-      str += '__________________________________________________' + "\n"
       expect { window.print_subjects }.to output(str).to_stdout
+    end
+    it 'print notifications by teacher' do
+      window.add_subject(subject)
+      window.add_subject(subject2)
+      expect { window.print_subjects_by_teacher('Diciunas Jega') }.to output(
+        str
+      ).to_stdout
     end
   end
 end
