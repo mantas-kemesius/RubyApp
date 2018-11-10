@@ -1,8 +1,8 @@
 # Additional attributes of a Study Subject class
 class SubjectInfo
-  attr_reader :number_of_credits, :coordinating_teacher
+  attr_reader :credits, :teacher
   def initialize(number_of_credits, coordinating_teacher)
-    @number_of_credits = number_of_credits
-    @coordinating_teacher = coordinating_teacher
+    @credits = number_of_credits
+    @teacher = coordinating_teacher
   end
 end

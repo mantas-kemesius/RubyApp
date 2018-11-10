@@ -3,7 +3,7 @@ require_relative '../../lib/helpers/files_handler'
 
 # All notifications
 class NotificationWindow
-  attr_reader :notifications, :size
+  attr_reader :notifications
 
   def initialize
     @notifications = []
