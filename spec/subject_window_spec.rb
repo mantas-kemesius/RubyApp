@@ -147,24 +147,39 @@ RSpec.describe(SubjectWindow) do
     let(:create_str) do
       window.add_subject(subject)
     end
+    let(:subject1) do
+      Subject.new('Discrete mathematics', 'Hardcoras', '7.5',
+                  'Diciunas Jega')
+    end
+    let(:subject2) do
+      Subject.new('matanas', 'Hardcoras', '5',
+                  'Plikusas Jega')
+    end
+    let(:add_two) do
+      window.add_subject(subject1)
+      window.add_subject(subject2)
+    end
 
-    subject = Subject.new('Discrete mathematics', 'Hardcoras', '7.5',
-                          'Diciunas Jega')
-    subject2 = Subject.new('matanas', 'Hardcoras', '5',
-                           'Plikusas Jega')
     str = 'Discrete mathematics' + "\n" + 'Hardcoras' + "\n" + '7.5' + "\n"
     str += 'Diciunas Jega' + "\n"
     str += '__________________________________________________' + "\n"
+
+    subjects = 'Discrete mathematics, nera'
     it 'print notifications' do
-      window.add_subject(subject)
+      window.add_subject(subject1)
       expect { window.print_subjects }.to output(str).to_stdout
     end
     it 'print notifications by teacher' do
-      window.add_subject(subject)
-      window.add_subject(subject2)
+      add_two
       expect { window.print_subjects_by_teacher('Diciunas Jega') }.to output(
         str
       ).to_stdout
+    end
+    it 'prints notifications by student subjects' do
+      add_two
+      expect do
+        window.print_subjects_by_student(subjects)
+      end.to output(str).to_stdout
     end
   end
 end
