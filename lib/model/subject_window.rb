@@ -10,6 +10,15 @@ class SubjectWindow
     @subjects = []
   end
 
+  def subject_exists?(title)
+    subjects.each do |item|
+      if item.title.eql?(title)
+        return true
+      end
+    end
+    false
+  end
+
   def add_subject(subject)
     subjects << subject
   end
