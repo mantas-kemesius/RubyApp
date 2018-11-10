@@ -46,7 +46,7 @@ class SubjectWindow
       item.print_subject if item.teacher.eql?(teacher)
     end
   end
-
+  # :reek:FeatureEnvy
   def print_subjects_by_student(student_subjects)
     # TODO: use student object, not string of subjects names
     subjects_arr = student_subjects.split(', ')
