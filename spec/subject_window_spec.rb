@@ -182,4 +182,31 @@ RSpec.describe(SubjectWindow) do
       end.to output(str).to_stdout
     end
   end
+  context 'subject exists' do
+    let(:window) do
+      described_class.new
+    end
+    let(:subject1) do
+      Subject.new('Discrete mathematics', 'Hardcoras', '7.5',
+                  'Diciunas Jega')
+    end
+    let(:subject2) do
+      Subject.new('matanas', 'Hardcoras', '5',
+                  'Plikusas Jega')
+    end
+    let(:add_two) do
+      window.add_subject(subject1)
+      window.add_subject(subject2)
+    end
+
+    it 'matanas exists' do
+      add_two
+      expect(window.subject_exists?('matanas')).to be true
+    end
+
+    it 'not existing' do
+      add_two
+      expect(window.subject_exists?('ff')).to be false
+    end
+  end
 end

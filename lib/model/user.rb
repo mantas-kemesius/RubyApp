@@ -18,4 +18,5 @@ class User < UserInfo
     # @phone = new_phone if new_phone.instance_of?(String)
     @phone = new_phone
   end
+  # TODO: implement user_exists?
 end

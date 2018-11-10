@@ -10,6 +10,13 @@ class SubjectWindow
     @subjects = []
   end
 
+  def subject_exists?(title)
+    subjects.each do |item|
+      return true if item.title.eql?(title)
+    end
+    false
+  end
+
   def add_subject(subject)
     subjects << subject
   end
@@ -47,6 +54,7 @@ class SubjectWindow
     end
   end
 
+  # :reek:FeatureEnvy
   def print_subjects_by_student(student_subjects)
     # TODO: use student object, not string of subjects names
     subjects_arr = student_subjects.split(', ')
