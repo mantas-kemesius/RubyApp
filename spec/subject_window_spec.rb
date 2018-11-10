@@ -201,7 +201,7 @@ RSpec.describe(SubjectWindow) do
 
     it 'matanas exists' do
       add_two
-      expect('matanas').to be_available_subject(window)
+      expect(window.subject_exists?('matanas')).to be true
     end
 
     it 'not existing' do

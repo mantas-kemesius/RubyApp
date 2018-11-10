@@ -12,9 +12,7 @@ class SubjectWindow
 
   def subject_exists?(title)
     subjects.each do |item|
-      if item.title.eql?(title)
-        return true
-      end
+      return true if item.title.eql?(title)
     end
     false
   end
@@ -55,6 +53,7 @@ class SubjectWindow
       item.print_subject if item.teacher.eql?(teacher)
     end
   end
+
   # :reek:FeatureEnvy
   def print_subjects_by_student(student_subjects)
     # TODO: use student object, not string of subjects names
