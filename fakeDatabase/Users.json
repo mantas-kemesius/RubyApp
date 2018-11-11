@@ -1,24 +1,42 @@
-{
-  "Users": [
-    {
-      "username": "s1612345",
-      "name": "Petras",
-      "lastName": "Petraitis",
-      "role": "ROLE_LECTURER",
-      "role_id": 1,
-      "email": "petras@gmail.com",
-      "phone": 862435384,
-      "password": "123"
-    },
-    {
-      "username": "s1612346",
-      "name": "Jonas",
-      "lastName": "Jonaitis",
-      "role": "ROLE_STUDENT",
-      "role_id": 0,
-      "email": "jonas@gmail.com",
-      "phone": 862435385,
-      "password": "234"
-    }
-  ]
-}
+[
+  {
+    "username": "mazasis",
+    "password": "princas",
+    "name": "okta",
+    "surname": "vijus",
+    "email": "maz.vijus@traku.voke.com",
+    "role_id": 1,
+    "role": "ROLE_TEACHER",
+    "phone": "+370skoda112"
+  },
+  {
+    "username": "arnasrad",
+    "password": "slapta",
+    "name": "Arnas",
+    "surname": "Radzevicius",
+    "email": "arnasrad@gmail.com",
+    "role_id": 0,
+    "role": "ROLE_STUDENT",
+    "phone": "860000000"
+  },
+  {
+    "username": "TomasMacikas",
+    "password": "slaptazodis",
+    "name": "Tomas",
+    "surname": "Macikas",
+    "email": "macikastomas@gmail.com",
+    "role_id": 0,
+    "role": "ROLE_STUDENT",
+    "phone": "+37062274996"
+  },
+  {
+    "username": "Tomas",
+    "password": "slapt",
+    "name": "Tomas",
+    "surname": "Macikas",
+    "email": "tomas.macikas@mif.stud.vu.lt",
+    "role_id": 1,
+    "role": "ROLE_TEACHER",
+    "phone": "+37062274996"
+  }
+]

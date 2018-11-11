@@ -1,158 +1,97 @@
 require 'spec_helper'
+require_relative '../lib/helpers/files_handler'
 
 describe Email do
-  context 'initial data is set successfully when' do
+  context 'initial data ' do
     let(:email) do
       described_class.new(
-        {
-          'to' => 'jonas.jonaitis@gmail.com',
-          'from' => 'jonas.jonaitis@gmail.com'
-        },
-        'Test email', 'Test email'
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
       )
     end
     let(:email_not_valid) do
       described_class.new(
-        {
-          'to' => '',
-          'from' => 1
-        },
-        '', ''
+        'email_to' => 1,
+        'email_from' => 2,
+        'title' => 3,
+        'text' => 4
       )
     end
 
-    it 'sends email' do
-      expect(email.send_email).to eq true
-    end
-    it 'checks or returns array' do
-      expect(
-        email.add_email_to_email_list.instance_of?(Array)
-      ).to eq true
-    end
-    it 'check valid' do
-      load = email.load_email_data
-      expect(load['email_to']).to eq 'jonas.jonaitis@gmail.com'
-    end
-    it 'check valid2' do
-      load = email.load_email_data
-      expect(load['email_from']).to eq 'jonas.jonaitis@gmail.com'
-    end
-    it 'check valid3' do
-      load = email.load_email_data
-      expect(load['text']).to eq 'Test email'
-    end
-    it 'check valid4' do
-      load = email.load_email_data
-      expect(load['title']).to eq 'Test email'
-    end
-    it 'check valid5' do
-      load = email.load_email_data
-      expect(load.is_a?(Hash)).to eq true
-    end
-    it 'check valid6' do
-      load = email.load_email_data
-      expect(load.nil?).to eq false
-    end
-    it 'check valid 7' do
-      load = email.load_email_data
-      expect(load.empty?).to eq false
-    end
-    it 'check valid7' do
-      expect(email.load_emails.nil?).to eq false
-    end
-    it 'check valid8' do
-      expect(email.load_emails.is_a?(Array)).to eq true
-    end
-    it 'check valid9' do
-      expect(email.load_emails.length).to be >= 0
-    end
-    it 'check valid10' do
-      expect(email.load_emails.is_a?(String)).to eq false
-    end
-    it 'not sends email' do
-      expect(email_not_valid.send_email).to eq false
+    let(:temp_email) do
+      {
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      }
     end
 
-    it 'delete email successful then 0' do
-      expect(email.number_is_right?(0)).to eq true
+    it 'succesful to' do
+      expect(email.email_to).to eq 'jonas.jonaitis@gmail.com'
     end
-    it 'delete email successful' do
-      expect(email.delete_email('email_to' => 'jonas.jonaitis@gmail.com',
-                                'email_from' => 'jonas.jonaitis@gmail.com',
-                                'title' => 'Test email',
-                                'text' => 'Test email')).to eq true
+    it 'succesful from' do
+      expect(email.email_from).to eq 'petras.jonaitis@gmail.com'
     end
-    it 'delete email successful 2' do
-      expect(email.delete_email({})).to eq true
+    it 'succesful text' do
+      expect(email.title).to eq 'Test title'
     end
-    it 'delete email unsuccessful then 10000' do
-      expect(email.number_is_right?(10_000)).to eq true
+    it 'succesful title' do
+      expect(email.text).to eq 'Test text'
     end
-    it 'delete email successful then 10' do
-      expect(email.number_is_right?(10)).to eq true
+    it 'unsuccesful to' do
+      expect(email_not_valid.email_to).to eq nil
     end
-    it 'delete email successful then not string' do
-      expect(email.number_is_right?('')).to eq false
+    it 'unsuccesful from' do
+      expect(email_not_valid.email_from).to eq nil
     end
-    it 'delete email successful then not float' do
-      expect(email.number_is_right?(1.3)).to eq false
+    it 'unsuccesful text' do
+      expect(email_not_valid.title).to eq nil
     end
-    it 'delete email successful then not nil' do
-      expect(email.number_is_right?(nil)).to eq false
+    it 'unsuccesful title' do
+      expect(email_not_valid.text).to eq nil
     end
-    it 'valid to use' do
-      expect(email.check_or_array(['valid'])).to eq true
+    it 'return full email' do
+      expect(email.return_email).to eq temp_email
     end
-    it 'not valid for empty array' do
-      expect(email.check_or_array([])).to eq true
+    it 'change succesful to' do
+      expect { email_not_valid.change_email_to('Naujas email_to') }
+        .to change { email_not_valid.email_to }
+        .from(nil).to('Naujas email_to')
     end
-    it 'not valid for zero' do
-      expect(email.check_or_array(0)).to eq false
+    it 'change succesful from' do
+      expect { email_not_valid.change_email_from('Naujas email_from') }
+        .to change { email_not_valid.email_from }
+        .from(nil).to('Naujas email_from')
     end
-    it 'not valid for string' do
-      expect(email.check_or_array('')).to eq false
+    it 'change succesful title' do
+      expect { email_not_valid.change_title('Naujas title') }
+        .to change { email_not_valid.title }
+        .from(nil).to('Naujas title')
     end
-    it 'not valid for bool' do
-      expect(email.check_or_array(true)).to eq false
+    it 'change succesful text' do
+      expect { email_not_valid.change_text('Naujas text') }
+        .to change { email_not_valid.text }
+        .from(nil).to('Naujas text')
     end
-    it 'not valid for nil' do
-      expect(email.check_or_array(nil)).to eq false
+
+    it 'change unsuccesful to' do
+      email.change_email_to(1)
+      expect(email.email_to).to eq 'jonas.jonaitis@gmail.com'
     end
-    it 'text is valid' do
-      expect(email.check_or_string_valid?('test')).to eq true
+    it 'change unsuccesful from' do
+      email.change_email_from(2)
+      expect(email.email_from).to eq 'petras.jonaitis@gmail.com'
     end
-    it 'text is not valid 2' do
-      expect(email.check_or_string_valid?(nil)).to eq false
+    it 'change unsuccesful title' do
+      email.change_title(3)
+      expect(email.title).to eq 'Test title'
     end
-    it 'text is not valid 3' do
-      expect(email.check_or_string_valid?(true)).to eq false
-    end
-    it 'text is not valid 4' do
-      expect(email.check_or_string_valid?(false)).to eq false
-    end
-    it 'text is not valid 5' do
-      expect(email.check_or_string_valid?([])).to eq false
-    end
-    it 'text is not valid 6' do
-      expect(email.check_or_string_valid?({})).to eq false
-    end
-    it 'whole email is valid' do
-      expect(email.email_valid?).to eq true
-    end
-    it 'whole email is not valid 2' do
-      expect(email_not_valid.email_valid?).to eq false
-    end
-    it 'save emails valid' do
-      expect(email.save_emails('email_from' => 'jonas.jonaitis@gmail.com',
-                               'email_to' => 'jonas.jonaitis@gmail.com',
-                               'title' => 'Test email',
-                               'text' => 'Test email')).to eq false
-    end
-    it 'save emails valid 2' do
-      expect(email_not_valid.save_emails('email_from' => 'jonas.jonaitis@gm',
-                                         'email_to' => 'jonas.jonaitis@gmail',
-                                         'title' => 'Test email',
-                                         'text' => 'Test email')).to eq false
+    it 'change unsuccesful text' do
+      email.change_text(4)
+      expect(email.text).to eq 'Test text'
     end
   end
 end

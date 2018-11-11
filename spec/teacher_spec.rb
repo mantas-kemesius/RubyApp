@@ -8,6 +8,11 @@ describe Teacher do
     it 'ID set correct' do
       expect(teacher.id).to eq 't1610179'
     end
+
+    it 'ID set correct start' do
+      expect(teacher.id).to start_with 't'
+    end
+
     it 'university set correct' do
       expect(teacher.university).to eq 'Vilniaus universitetas'
     end
@@ -22,8 +27,9 @@ describe Teacher do
       expect(!teacher.id[regex].nil?).to eq true
     end
     it 'teacher is on vacation' do
-      teacher.goes_on_vacation(true)
-      expect(teacher.on_vacation).to eq true
+      expect { teacher.goes_on_vacation(true) }
+        .to change { teacher.on_vacation }
+        .from(false).to(true)
     end
   end
 end

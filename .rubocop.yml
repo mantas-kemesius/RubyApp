@@ -2,3 +2,8 @@ require: rubocop-rspec
 
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context']
+AllCops:
+  Exclude:
+    - 'lib/main.rb'
+    - 'lib/main2.rb'
+    - 'lib/subjects_main.rb'
