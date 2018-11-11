@@ -36,6 +36,11 @@ describe Student do
       expect(student.subjects).to eq %w[Ruby]
     end
 
+    it ' addding  subject  was  unsuccessful' do
+      student.add_subjects('Ruby')
+      expect(student.subjects).to eq %w[Ruby Matematika]
+    end
+
     it 'initial student study_program was set successful' do
       expect(student.study_program).to eq 'Informatika'
     end
