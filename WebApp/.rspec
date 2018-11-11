@@ -1,1 +1,1 @@
---require ./test/spec/spec_helper
+--require spec_helper

@@ -4,4 +4,13 @@ Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context']
 AllCops:
   Exclude:
-    - 'app/models/subjects_main.rb'
+    - 'lib/models/subjects_main.rb'
+    - 'app/*'
+    - 'test/*'
+    - 'db/*'
+    - 'config/*'
+    - 'config/environments/*'
+    - 'Gemfile'
+    - 'bin/*'
+    - 'config/initializers/*'
+    - 'Rakefile'

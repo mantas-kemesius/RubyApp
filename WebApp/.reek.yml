@@ -1,4 +1,7 @@
 exclude_paths:
  - lib/main.rb
  - lib/main2.rb
- - lib/subjects_main.rb
+ - lib/model/subject_window.rb
+ - test/application_system_test_case.rb
+ - test/test_helper.rb
+ - config/application.rb
