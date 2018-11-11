@@ -13,6 +13,10 @@ class TeacherWindow
     teachers << teacher
   end
 
+  def delete_all
+    @teachers = []
+  end
+
   def delete_teacher(position)
     teachers.delete_at(position)
   end
@@ -30,6 +34,12 @@ class TeacherWindow
     teachers.each(&:print_teacher)
   end
 
+  def append_teacher(teacher, path)
+    load_teachers(path)
+    add_teacher(teacher)
+    save_teachers(path)
+  end
+
   # :reek:FeatureEnvy
   def save_teachers(path)
     file = FilesHandler.new(path)
@@ -45,6 +55,7 @@ class TeacherWindow
 
   # :reek:FeatureEnvy
   def load_teachers(path)
+    delete_all
     file = FilesHandler.new(path)
     info = file.load_data.fetch('Teachers')
     info.each do |teacher|

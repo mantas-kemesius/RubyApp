@@ -53,6 +53,12 @@ RSpec.describe(TeacherWindow) do
       window.delete_by_username('t1610179')
       expect(window.teachers[0]).to eq item3
     end
+    it 'delete all' do
+      window.add_teacher(item)
+      window.add_teacher(item2)
+      window.delete_all
+      expect(window.teachers[0]).to eq nil
+    end
   end
   context 'on load' do
     let(:window) do
@@ -62,6 +68,9 @@ RSpec.describe(TeacherWindow) do
       window.load_teachers(
         'fakeDatabase/testFiles/Teachers_load.json'
       )
+    end
+    let(:item) do
+      Teacher.new('t1610179', 'Vilniaus universitetas', 'mif')
     end
 
     it 'second item username correct' do
@@ -75,6 +84,11 @@ RSpec.describe(TeacherWindow) do
     it 'second item faculty correct' do
       load
       expect(window.teachers[1].faculty).to eq 'MIF'
+    end
+    it 'delete before load' do
+      window.add_teacher(item)
+      load
+      expect(window.teachers[0].username).to eq 'mazasis'
     end
   end
   context 'saved to file' do
@@ -115,6 +129,53 @@ RSpec.describe(TeacherWindow) do
       item2.change_faculty('vf')
       add
       expect(window.teachers[1].faculty).to eq 'vf'
+    end
+  end
+  context 'on append' do
+    let(:window) do
+      described_class.new
+    end
+    let(:item) do
+      Teacher.new('t1610179', 'Vilniaus universitetas', 'mif')
+    end
+    let(:item2) do
+      Teacher.new('t1610180', 'Vilniaus universitetas', 'mif')
+    end
+
+    let(:save_item) do
+      window.add_teacher(item)
+      window.save_teachers(
+        'fakeDatabase/testFiles/Teachers_append.json'
+      )
+      window.delete_teacher(0)
+    end
+    let(:load) do
+      window.load_teachers(
+        'fakeDatabase/testFiles/Teachers_append.json'
+      )
+    end
+    let(:append) do
+      window.append_teacher(item2,
+                            'fakeDatabase/testFiles/Teachers_append.json'
+                           )
+    end
+
+    it 'appended new item' do
+      save_item
+      append
+      load
+      expect(window.teachers[1].username).to eq 't1610180'
+    end
+    it 'appended changed value' do
+      item2.change_username('t1610181')
+      save_item
+      append
+      load
+      expect(window.teachers[1].username).to eq 't1610181'
+    end
+    it 'without adding' do
+      save_item
+      expect(window.teachers[1]).to eq nil
     end
   end
   context 'on print' do
