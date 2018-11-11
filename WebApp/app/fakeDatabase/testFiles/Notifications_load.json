@@ -1,0 +1,22 @@
+{
+  "Notifications": [
+    {
+      "date": "2018-10-28",
+      "title": "myTitle",
+      "text": "myText",
+      "sender": "John"
+    },
+    {
+      "date": "2018-10-27",
+      "title": "Kemauras",
+      "text": "Best Team",
+      "sender": "John"
+    },
+    {
+      "date": "2018-10-30",
+      "title": "Pavadinimas",
+      "text": "kazkoks tekstas",
+      "sender": "Tomas"
+    }
+  ]
+}
