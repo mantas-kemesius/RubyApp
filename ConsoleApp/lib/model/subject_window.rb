@@ -60,7 +60,7 @@ class SubjectWindow
     subjects_arr = student_subjects.split(', ')
     subjects_arr.each do |subject_title|
       subjects.each do |subject|
-        subject.print_subject if subject.title.eql?(subject_title)
+        subject.print_subject if subject_title.include?(subject.title)
       end
     end
   end
