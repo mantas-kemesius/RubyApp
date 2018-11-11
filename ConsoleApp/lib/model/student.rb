@@ -24,7 +24,9 @@ class Student
   end
 
   def add_subjects(new_subject)
-    subjects.push(new_subject)
+  if(find_subject(new_subject).nil?)
+      subjects.push(new_subject)
+  end
   end
 
   def remove_first_subjects
