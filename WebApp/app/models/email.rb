@@ -1,4 +1,4 @@
-require_relative '../../lib/helpers/files_handler'
+require_relative '../helpers/files_handler'
 # Email class implements email functionality
 class Email
   attr_reader :email_to, :email_from, :title, :text

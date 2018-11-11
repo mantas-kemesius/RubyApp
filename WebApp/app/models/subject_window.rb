@@ -1,5 +1,5 @@
 require_relative 'subject'
-require_relative '../../lib/helpers/files_handler'
+require_relative '../helpers/files_handler'
 require 'pp'
 
 # All subjects are placed here

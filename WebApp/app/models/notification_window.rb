@@ -1,5 +1,5 @@
 require_relative 'notification'
-require_relative '../../lib/helpers/files_handler'
+require_relative '../helpers/files_handler'
 
 # All notifications
 class NotificationWindow

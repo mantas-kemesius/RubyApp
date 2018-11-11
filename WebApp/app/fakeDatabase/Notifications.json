@@ -1,0 +1,10 @@
+{
+  "Notifications": [
+    {
+      "date": "2018-11-06",
+      "title": "First notif",
+      "text": "Some text",
+      "sender": "Arnas Radzevicius"
+    }
+  ]
+}

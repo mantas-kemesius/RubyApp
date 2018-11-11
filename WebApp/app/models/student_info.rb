@@ -1,4 +1,4 @@
-require_relative '../../lib/helpers/files_handler'
+require_relative '../helpers/files_handler'
 require 'json'
 # Description/Explanation of Student class
 class StudentInfo

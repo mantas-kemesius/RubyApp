@@ -1,4 +1,4 @@
-require_relative '../../lib/helpers/files_handler'
+require_relative '../helpers/files_handler'
 require 'json'
 # Study Schedule class
 class Schedule

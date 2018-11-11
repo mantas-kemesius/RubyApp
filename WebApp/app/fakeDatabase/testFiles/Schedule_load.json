@@ -1,0 +1,11 @@
+{
+  "Schedule": [
+    {
+      "date_day": "1",
+      "date_time": "08:30",
+      "class_number": "102",
+      "subject_name": "Ruby Programming",
+      "teacher_id": "t1610179"
+    }
+    ]
+}
