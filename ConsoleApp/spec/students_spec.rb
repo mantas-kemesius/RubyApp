@@ -18,7 +18,7 @@ describe Student do
 
     it ' student subject change successful' do
       student.add_subjects('Anglu')
-      expect(student.subjects).to eq %w[Ruby Matematika Anglu]
+      expect(student.subjects).to eq %w[Anglu Ruby Matematika]
     end
 
     it ' student subject change sizes successful' do
