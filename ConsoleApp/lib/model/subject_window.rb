@@ -57,11 +57,8 @@ class SubjectWindow
   # :reek:FeatureEnvy
   def print_subjects_by_student(student_subjects)
     # TODO: use student object, not string of subjects names
-    subjects_arr = student_subjects.split(', ')
-    subjects_arr.each do |subject_title|
-      subjects.each do |subject|
-        subject.print_subject if subject_title.include?(subject.title)
-      end
+    subjects.each do |subject|
+      subject.print_subject if student_subjects.include?(subject.title)
     end
   end
 

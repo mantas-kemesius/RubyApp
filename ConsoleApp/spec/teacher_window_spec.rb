@@ -156,8 +156,7 @@ RSpec.describe(TeacherWindow) do
     end
     let(:append) do
       window.append_teacher(item2,
-                            'fakeDatabase/testFiles/Teachers_append.json'
-                           )
+                            'fakeDatabase/testFiles/Teachers_append.json')
     end
 
     it 'appended new item' do
