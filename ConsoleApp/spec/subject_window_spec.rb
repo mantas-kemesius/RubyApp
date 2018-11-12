@@ -144,9 +144,6 @@ RSpec.describe(SubjectWindow) do
     let(:window) do
       described_class.new
     end
-    let(:create_str) do
-      window.add_subject(subject)
-    end
     let(:subject1) do
       Subject.new('Discrete mathematics', 'Hardcoras', '7.5',
                   'Diciunas Jega')

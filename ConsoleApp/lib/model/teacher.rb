@@ -1,27 +1,25 @@
 require_relative 'teacher_info'
 # implements Teacher class
 class Teacher < TeacherInfo
-  attr_reader :on_vacation
-  attr_reader :subjects
-  def initialize(id, university, faculty)
-    super(id, university, faculty)
-    @on_vacation = false
-    @subjects = []
+  def initialize(username, university, faculty)
+    super(username, university, faculty)
   end
 
-  def goes_on_vacation(on_vacation)
-    @on_vacation = on_vacation
+  def print_teacher
+    str = username + "\n" + university + "\n" + faculty + "\n"
+    str += '__________________________________________________' + "\n"
+    print str
   end
 
-  def enter_grade?
-    true
+  def change_username(username)
+    @username = username
   end
 
-  def edit_grade?
-    true
+  def change_university(university)
+    @university = university
   end
 
-  def delete_grade?
-    true
+  def change_faculty(faculty)
+    @faculty = faculty
   end
 end
