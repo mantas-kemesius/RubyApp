@@ -2,15 +2,14 @@ require_relative '../lib/model/notification_window'
 require_relative '../../ConsoleApp/lib/notifications_main'
 require_relative '../../ConsoleApp/lib/subjects_main'
 require_relative '../../ConsoleApp/lib/email_main'
-require 'date'
 require 'io/console'
 
-@active_user
-@active_role
-@user_dir_name = '../fakeDatabase/Users.json'
-@teacher_dir_name = '../fakeDatabase/Teachers.json'
-@student_dir_name = '../fakeDatabase/Students.json'
-@email_dir_name = '../fakeDatabase/Emails.json'
+# @active_user
+# @active_role
+# @user_dir_name = '../fakeDatabase/Users.json'
+# @teacher_dir_name = '../fakeDatabase/Teachers.json'
+# @student_dir_name = '../fakeDatabase/Students.json'
+# @email_dir_name = '../fakeDatabase/Emails.json'
 
 def clear
   Gem.win_platform? ? (system 'cls') : (system 'clear')
@@ -34,7 +33,7 @@ def start_teacher
     when '2'
       start_emails
     when '3'
-      start_subjects
+      start_subjects_teacher
     when '0'
       exit
     else
@@ -63,7 +62,7 @@ def start_student
     when '1'
       start_emails
     when '2'
-      start_subjects
+      start_subjects_student
     when '0'
       exit
     else

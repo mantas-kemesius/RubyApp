@@ -1,65 +1,98 @@
-# require_relative 'model/user'
-require_relative './helpers/files_handler'
-require_relative './model/email'
-# require_relative 'controllers/login_controller'
+require_relative '../../ConsoleApp/lib/login_main'
+require_relative '../../ConsoleApp/lib/signin_main'
+require 'io/console'
 
-def menu
-  puts '1. Show pazymiai'
-  puts '2. Show tvarkarasciai'
-  puts '3. Show user info'
-  puts 'exit: To exit from program'
+# @active_user
+# @active_role
+# @user_dir_name = '../fakeDatabase/Users.json'
+# @teacher_dir_name = '../fakeDatabase/Teachers.json'
+# @student_dir_name = '../fakeDatabase/Students.json'
+# @email_dir_name = '../fakeDatabase/Emails.json'
+
+def clear
+  Gem.win_platform? ? (system 'cls') : (system 'clear')
 end
 
-# add example how to save data
-# <<<<<<< JN-Schedule
-# file = FilesHandler.new('fakeDatabase/Schedule.json')
-# file.save_data(['data' => [1,2,3]])
-# puts file.load_data['Schedule'][0]['date_day']
-# file.delete_file
-# =======
-# file = FilesHandler.new('fakeDatabase/testFiles/data.json')
-# file.save_data(['data' => [1, 2, 3]])
-# puts file.load_data[0]['data'][0]
-# file.delete_file
-# >>>>>>> master
+def pause
+  print 'press any key'
+  STDIN.getch
+  print "                          \r"
+end
 
-# email example
-email = Email.new({
-                    'to' => 'jonas.jonaitis@gmail.com',
-                    'from' => 'jonas.jonaitis@gmail.com'
-                  },
-                  'Test email',
-                  'Test email')
-puts email.send_email
-puts email.delete_email(0)
+def start_login
+  loop do
+    clear
+    login_menu
+    input = gets.chomp
+    case input
+    when '1'
+      user_login
+    when '2'
+      user_sign_in
+    when '0'
+      break
+    else
+      'Incorrect input. Please enter numbers 0, 1 or 2'
+    end
+  end
+end
 
-# puts File.dirname(__dir__)
-# student credentials
-# username = 's1612346'
-# password = '123'
-# lecturer credentials
-# username = 's1612345'
-# password = '123'
-#
-# login_controller = LoginController.new
-# if login_controller.login?(username, password)
-#   # getting user obj if login was successful
-#   # user_obj = login_controller.user_obj
-#   loop do
-#     menu
-#     print 'Choose: '
-#     input = gets.chomp
-#     case input
-#     when '1'
-#       puts input
-#     when '2'
-#       puts input
-#     when '3'
-#       puts input
-#     when '4'
-#       puts input
-#     when 'exit'
-#       break
+def login_menu
+  clear
+  puts '[1] Login'
+  puts '[2] Sign in'
+  puts '[0] Exit from program'
+end
+
+# def print_week
+#   clear
+#   file = FilesHandler.new('../fakeDatabase/Schedule.json')
+#   data = file.load_data.fetch('Schedule')
+#   schedule = Schedule.new({
+#                               'day' => '2',
+#                               'time' => '14:00'
+#                           }, '213', 'subject' => 'Programavimas')
+#   data.each do |item|
+#     (1..5).each do |count|
+#       next unless item.fetch('date_day').to_i == count
+#       puts '##############################'
+#       puts "WEEKDAY #{item.fetch('date_day')}"
+#       puts "TIME #{item.fetch('date_time')}"
+#       puts "CLASSROOM #{item.fetch('class_number')}"
+#       puts "SUBJECT #{item.fetch('subject_name')}"
+#       puts "TEACHER #{item.fetch('teacher_id')}"
 #     end
 #   end
+#   puts '##############################'
+#   pause
 # end
+#
+# def print_day(choice)
+#   clear
+#   file = FilesHandler.new('../fakeDatabase/Schedule.json')
+#   data = file.load_data.fetch('Schedule')
+#   schedule = Schedule.new({
+#                               'day' => '2',
+#                               'time' => '14:00'
+#                           }, '213', 'subject' => 'Programavimas')
+#   puts "WEEK DAY #{choice}"
+#   data.each do |item|
+#     next unless item.fetch('date_day').to_i == choice.to_i
+#     puts '##############################'
+#     puts "TIME #{item.fetch('date_time')}"
+#     puts "CLASSROOM #{item.fetch('class_number')}"
+#     puts "SUBJECT #{item.fetch('subject_name')}"
+#     puts "TEACHER #{item.fetch('teacher_id')}"
+#   end
+#   puts '##############################'
+#   pause
+# end
+#
+# def print_choice
+#   clear
+#   puts 'Enter day number (1-5)'
+#   choice = gets
+#   print_day(choice)
+# end
+
+start_login

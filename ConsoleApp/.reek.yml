@@ -1,4 +1,4 @@
 exclude_paths:
  - lib/main.rb
- - lib/main2.rb
+ - lib/main.rb
  - lib/subjects_main.rb

@@ -2,15 +2,13 @@ require_relative '../lib/model/user'
 require_relative '../lib/model/teacher'
 require_relative '../lib/model/student'
 require_relative '../../ConsoleApp/lib/menu_main'
-require 'date'
 require 'io/console'
 
-@active_user
-@active_role
+# @active_user
+# @active_role
 @user_dir_name = '../fakeDatabase/Users.json'
 @teacher_dir_name = '../fakeDatabase/Teachers.json'
 @student_dir_name = '../fakeDatabase/Students.json'
-@email_dir_name = '../fakeDatabase/Emails.json'
 
 def clear
   Gem.win_platform? ? (system 'cls') : (system 'clear')

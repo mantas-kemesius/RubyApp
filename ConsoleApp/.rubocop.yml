@@ -5,5 +5,5 @@ Metrics/BlockLength:
 AllCops:
   Exclude:
     - 'lib/main.rb'
-    - 'lib/main2.rb'
+    - 'lib/main.rb'
     - 'lib/subjects_main.rb'
