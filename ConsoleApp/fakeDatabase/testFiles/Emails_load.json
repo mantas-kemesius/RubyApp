@@ -1,0 +1,16 @@
+{
+  "Emails": [
+    {
+      "email_to": "s111",
+      "email_from": "em@gmail",
+      "title": "newTitle",
+      "text": "text"
+    },
+    {
+      "email_to": "s112",
+      "email_from": "e@gmail",
+      "title": "newTitl",
+      "text": "tex"
+    }
+  ]
+}
