@@ -1,0 +1,18 @@
+{
+  "Users": [
+    {
+      "name": "Tomas",
+      "last_name": "Pavard",
+      "role": "user",
+      "email": "em@mail",
+      "phone": "5"
+    },
+    {
+      "name": "vard",
+      "last_name": "Pavard",
+      "role": "user",
+      "email": "eam@mail",
+      "phone": "54"
+    }
+  ]
+}
