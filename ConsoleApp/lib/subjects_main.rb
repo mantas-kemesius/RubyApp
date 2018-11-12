@@ -1,8 +1,10 @@
 require_relative '../lib/model/subject_window'
 require_relative '../lib/model/user'
+require_relative '../lib/model/student'
 require 'io/console'
 
 @active_user = User.new('Antanas', 'Smetona', 1, 'Antanas.Smetona@smetona.lt', '+37011122333')
+@active_student = Student.new('s123', 10, 'Info', 'Ruby')
 @active_role
 @user_dir_name = '../fakeDatabase/Users.json'
 @teacher_dir_name = '../fakeDatabase/Teachers.json'
@@ -95,20 +97,18 @@ def start_subjects
     when '2'
       clear
       subjects.print_subjects_by_teacher(@active_user.name + ' ' + @active_user.last_name)
-
       pause
     when '3'
       clear
-      # subjects.print_subjects_by_student(@active_user.username)
-      # TODO need fix, input should be Student object or User
-      subjects_names = 'Discrete mathematics, Algebra'
-      subjects.print_subjects_by_student(subjects_names)
+      subjects.print_subjects_by_student(@active_student.subjects)
       pause
     when '4'
       subject_add(subjects)
     when '5'
-      #TODO add func tiem kas tvarko Student, turi appendint prie subjects nauja entry ir patikrint ar jis yra tarp esanciu subjectu
-      # add_student_subject('Matanas')
+      clear
+      subjects.print_subjects
+      input = gets.chomp
+      @active_student.add_subjects(input)
     when '6'
       delete_subject_by_teacher(subjects)
     when '7'
