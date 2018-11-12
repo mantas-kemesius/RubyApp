@@ -1,11 +1,11 @@
 RSpec.configure do
-  RSpec::Matchers.define :be_correct_login do |username, password|
+  RSpec::Matchers.define :be_correct_login do |username_exp, password_exp|
     match do |user|
-      user.username.eql(username)&&
-      user.password.eql(password)
+      user.username.eql(username_exp) &&
+        user.password.eql(password_exp)
     end
-    failure_message do |password|
-      " #{username} and #{password} is not correct"
+    failure_message do
+      " #{username_exp} and #{password_exp} is not correct"
     end
   end
 end
