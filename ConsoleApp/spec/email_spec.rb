@@ -4,20 +4,12 @@ require_relative '../lib/helpers/files_handler'
 describe Email do
   context 'initial data ' do
     let(:email) do
-      described_class.new(
-        'email_to' => 'jonas.jonaitis@gmail.com',
-        'email_from' => 'petras.jonaitis@gmail.com',
-        'title' => 'Test title',
-        'text' => 'Test text'
-      )
+      described_class.new('jonas.jonaitis@gmail.com',
+                          'petras.jonaitis@gmail.com',
+                          'Test title', 'Test text')
     end
     let(:email_not_valid) do
-      described_class.new(
-        'email_to' => 1,
-        'email_from' => 2,
-        'title' => 3,
-        'text' => 4
-      )
+      described_class.new(1, 2, 3, 4)
     end
 
     let(:temp_email) do
