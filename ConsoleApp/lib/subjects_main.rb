@@ -5,7 +5,7 @@ require 'io/console'
 
 @active_user = User.new('Antanas', 'Smetona', 1, 'Antanas.Smetona@smetona.lt', '+37011122333')
 @active_student = Student.new('s123', 10, 'Info', 'Ruby')
-@active_role
+@active_role = 'ROLE_STUDENT'
 @user_dir_name = '../fakeDatabase/Users.json'
 @teacher_dir_name = '../fakeDatabase/Teachers.json'
 @student_dir_name = '../fakeDatabase/Students.json'
@@ -124,4 +124,3 @@ def start_subjects
   )
 end
 
-start_subjects
