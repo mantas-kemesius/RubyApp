@@ -1,14 +1,13 @@
-class CreateUsers < ActiveRecord::Migration[5.2]
+class CreateStudents < ActiveRecord::Migration[5.2]
   def change
-    create_table :users do |t|
+    create_table :students do |t|
       t.string :name
-      t.string :lastname
+      t.string :last_name
       t.string :email
-      t.string :username
       t.string :password
       t.integer :age
       t.string :university
-      t.string :role
+      t.text :bio
 
       t.timestamps
     end
