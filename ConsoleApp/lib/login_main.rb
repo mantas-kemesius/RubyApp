@@ -38,6 +38,7 @@ def role_option(label)
   puts label
   loop do
     clear
+    puts 'Select desired role:'
     puts '[1] Teacher'
     puts '[2] Student'
     puts '[0] Back'
@@ -73,7 +74,6 @@ def teacher_login
       @active_user = user_by_username(in_uname)
       @active_role = teacher_by_username(in_uname)
       puts 'Login successful'
-      puts 'Logged in as' + @active_user
       puts ''
 
       start_teacher

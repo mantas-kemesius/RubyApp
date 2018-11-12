@@ -10,15 +10,15 @@ require 'io/console'
 @teacher_dir_name = '../fakeDatabase/Teachers.json'
 @student_dir_name = '../fakeDatabase/Students.json'
 
-def clear
-  Gem.win_platform? ? (system 'cls') : (system 'clear')
-end
-
-def pause
-  print 'press any key'
-  STDIN.getch
-  print "                          \r"
-end
+# def clear
+#   Gem.win_platform? ? (system 'cls') : (system 'clear')
+# end
+#
+# def pause
+#   print 'press any key'
+#   STDIN.getch
+#   print "                          \r"
+# end
 
 def user_sign_in
   clear
@@ -53,7 +53,7 @@ def user_sign_in
     teacher_sign_in(in_uname, in_psw, in_name, in_surname, in_email, in_phone)
   elsif role_input == '2'
     student_sign_in(in_uname, in_psw, in_name, in_surname, in_email, in_phone)
-  elsif role_input.zero?
+  elsif role_input == '0'
     return
   end
 end

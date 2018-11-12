@@ -80,8 +80,13 @@ def start_subjects_student
     when '3'
       clear
       subjects.print_subjects
+      puts 'Enter title of the subject'
       input = gets.chomp
+      break if input == '0'
       @active_student.add_subjects(input)
+      clear
+      puts 'Successfully enrolled to subject'
+      pause
     when '0'
       break
     else
