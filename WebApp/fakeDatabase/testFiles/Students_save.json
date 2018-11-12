@@ -1,5 +1,20 @@
 {
   "Students": [
-
+    {
+      "s_id": "s123",
+      "group": 10,
+      "study_program": "Informatika",
+      "subjects": [
+        "Matematika"
+      ]
+    },
+    {
+      "s_id": "s123",
+      "group": 10,
+      "study_program": "Informatika",
+      "subjects": [
+        "Matematika"
+      ]
+    }
   ]
 }
