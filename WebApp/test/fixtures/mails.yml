@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  message: MyText
+  time: 2018-11-12
+  from: MyString
+  to: MyString
+  student: one
+  teacher: one
+
+two:
+  title: MyString
+  message: MyText
+  time: 2018-11-12
+  from: MyString
+  to: MyString
+  student: two
+  teacher: two
