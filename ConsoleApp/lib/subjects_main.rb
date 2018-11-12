@@ -96,7 +96,7 @@ end
 def subjects_menu_student
   clear
   puts '[1] Show all subjects'
-  puts '[2] Show my subjects(Student)'
+  puts '[2] Show my subjects'
   puts '[3] Enroll to subject'
   puts '[0] Back'
 end
