@@ -1,28 +1,18 @@
-# frozen_string_literal: true
-
 require_relative '../../lib/helpers/files_handler'
 require 'json'
-require_relative 'student_info'
 # Description/Explanation of Student class
-class Student < StudentInfo
-  attr_reader :s_id, :group, :faculty, :study_program
+class Student
+  attr_reader :s_id, :group, :study_program, :subjects
 
-  def initialize(student)
-    super(student)
-    init_s_id = student.fetch('s_id')
-    @s_id = init_s_id
-    init_group = student.fetch('group')
-    @group = init_group if init_group.positive?
-    @faculty = student.fetch('faculty')
-    @study_program = student.fetch('study_program')
+  def initialize(s_id, group, study_program, subjects)
+    @s_id = s_id
+    @group = group if group.positive?
+    @study_program = study_program
+    @subjects = subjects
   end
 
   def change_group(new_group)
     @group = new_group if new_group.positive?
-  end
-
-  def change_faculty(new_faculty)
-    @faculty = new_faculty
   end
 
   def change_study_program(new_study_program)
@@ -33,21 +23,19 @@ class Student < StudentInfo
     @s_id = new_s_id
   end
 
-  def save_student(path_to_db)
-    file = FilesHandler.new(path_to_db)
-    file.save_data(
-      's_id' => s_id,
-      'group' => group,
-      'faculty' => faculty,
-      'study_program' => study_program,
-      'subjects' => subjects,
-      'active' => active,
-      'mode' => mode
-    )
+  def add_subjects(new_subject)
+    subjects.insert(0, new_subject) unless subjects.include?(new_subject)
   end
 
-  def load_student(path_to_db)
-    file = FilesHandler.new(path_to_db)
-    initialize(file.load_data)
+  def remove_first_subjects
+    subjects.delete_at(0)
+  end
+
+  def remove_subjects(subject)
+    subjects.delete_at(find_subject(subject))
+  end
+
+  def find_subject(subject)
+    subjects.index(subject)
   end
 end

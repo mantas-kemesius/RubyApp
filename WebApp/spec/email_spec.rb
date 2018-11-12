@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 require_relative '../lib/helpers/files_handler'
 
 describe Email do
-  context 'when initial data' do
+  context 'initial data ' do
     let(:email) do
       described_class.new(
         'email_to' => 'jonas.jonaitis@gmail.com',
@@ -60,22 +58,22 @@ describe Email do
     end
     it 'change succesful to' do
       expect { email_not_valid.change_email_to('Naujas email_to') }
-        .to change(email_not_valid, :email_to)
+        .to change { email_not_valid.email_to }
         .from(nil).to('Naujas email_to')
     end
     it 'change succesful from' do
       expect { email_not_valid.change_email_from('Naujas email_from') }
-        .to change(email_not_valid, :email_from)
+        .to change { email_not_valid.email_from }
         .from(nil).to('Naujas email_from')
     end
     it 'change succesful title' do
       expect { email_not_valid.change_title('Naujas title') }
-        .to change(email_not_valid, :title)
+        .to change { email_not_valid.title }
         .from(nil).to('Naujas title')
     end
     it 'change succesful text' do
       expect { email_not_valid.change_text('Naujas text') }
-        .to change(email_not_valid, :text)
+        .to change { email_not_valid.text }
         .from(nil).to('Naujas text')
     end
 

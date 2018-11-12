@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../../lib/helpers/files_handler'
 # Email class implements email functionality
 class Email

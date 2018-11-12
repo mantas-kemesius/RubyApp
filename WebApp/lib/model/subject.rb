@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'subject_info'
 # Attributes of a study subject
 class Subject < SubjectInfo

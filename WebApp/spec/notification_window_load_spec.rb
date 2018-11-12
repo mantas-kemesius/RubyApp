@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
 RSpec.describe(NotificationWindow) do
-  context 'when saved to file' do
+  context 'saved to file' do
     let(:window) do
       described_class.new
     end

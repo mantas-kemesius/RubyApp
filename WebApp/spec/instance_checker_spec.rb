@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
 describe InstanceChecker do
-  context 'when initial data ' do
+  context 'initial data ' do
     let(:number1) { described_class.new(10_000) }
     let(:number2) { described_class.new(100) }
     let(:float1) { described_class.new(1.3) }

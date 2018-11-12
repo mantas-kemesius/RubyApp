@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
 describe SubjectInfo do
-  context 'when initial data successfully' do
+  context 'initial data is set successfully when' do
     let(:temp_subject) do
       described_class.new('Test email', 'Test email')
     end

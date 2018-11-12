@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
 RSpec.describe(SubjectWindow) do
-  context 'when on subject added' do
+  context 'on subject added' do
     let(:window) do
       described_class.new
     end
@@ -30,8 +28,7 @@ RSpec.describe(SubjectWindow) do
       end.to change { window.subjects.length }.by(1)
     end
   end
-
-  context 'when on delete' do
+  context 'on delete' do
     let(:window) do
       described_class.new
     end
@@ -74,8 +71,7 @@ RSpec.describe(SubjectWindow) do
       expect(window.subjects[1]).to eq item4
     end
   end
-
-  context 'when on load' do
+  context 'on load' do
     let(:window) do
       described_class.new
     end
@@ -102,8 +98,7 @@ RSpec.describe(SubjectWindow) do
       expect(window.subjects[0].credits).to eq '5'
     end
   end
-
-  context 'when saved to file' do
+  context 'saved to file' do
     let(:window) do
       described_class.new
     end
@@ -145,13 +140,9 @@ RSpec.describe(SubjectWindow) do
       expect(window.subjects[1].teacher).to eq 'Plikusas Nesakysiu'
     end
   end
-
-  context 'when on print' do
+  context 'on print' do
     let(:window) do
       described_class.new
-    end
-    let(:create_str) do
-      window.add_subject(subject)
     end
     let(:subject1) do
       Subject.new('Discrete mathematics', 'Hardcoras', '7.5',
@@ -188,8 +179,7 @@ RSpec.describe(SubjectWindow) do
       end.to output(str).to_stdout
     end
   end
-
-  context 'when subject exists' do
+  context 'subject exists' do
     let(:window) do
       described_class.new
     end

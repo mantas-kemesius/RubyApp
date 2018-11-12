@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # checks instances
 class InstanceChecker
   def initialize(value)

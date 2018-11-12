@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'spec_helper.rb'
 
 describe User do
@@ -31,14 +29,32 @@ describe User do
 
     it ' user email change was successful' do
       expect { user.change_email('petras@gmail.com') }
-        .to change(user, :email)
+        .to change { user.email }
         .from('').to('petras@gmail.com')
     end
 
     it 'user email phone was changed successfully' do
       expect { user.change_phone('864987315') }
-        .to change(user, :phone)
+        .to change { user.phone }
         .from('').to('864987315')
+    end
+
+    it 'user name was changed successfully' do
+      expect { user.change_name('new_name') }
+        .to change { user.name }
+        .from('Petras').to('new_name')
+    end
+
+    it 'user last name was changed successfully' do
+      expect { user.change_last_name('new_last') }
+        .to change { user.last_name }
+        .from('Petraitis').to('new_last')
+    end
+
+    it 'user role was changed successfully' do
+      expect { user.change_role('admin') }
+        .to change { user.role }
+        .from(0).to('admin')
     end
 
     it 'phone number is less than 13 characters' do

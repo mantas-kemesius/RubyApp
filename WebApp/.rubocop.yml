@@ -4,7 +4,6 @@ Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context']
 AllCops:
   Exclude:
-    - 'lib/models/subjects_main.rb'
     - 'app/*'
     - 'test/*'
     - 'db/*'
