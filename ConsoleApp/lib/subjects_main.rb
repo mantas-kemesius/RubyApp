@@ -5,11 +5,7 @@ require 'io/console'
 
 @active_user = User.new('Antanas', 'Smetona', 1, 'Antanas.Smetona@smetona.lt', '+37011122333')
 @active_student = Student.new('s123', 10, 'Info', 'Ruby')
-@active_role
-@user_dir_name = '../fakeDatabase/Users.json'
-@teacher_dir_name = '../fakeDatabase/Teachers.json'
-@student_dir_name = '../fakeDatabase/Students.json'
-@email_dir_name = '../fakeDatabase/Emails.json'
+@active_role = 'ROLE_STUDENT'
 
 def clear
   Gem.win_platform? ? (system 'cls') : (system 'clear')
@@ -19,6 +15,95 @@ def pause
   print 'press any key'
   STDIN.getch
   print "                          \r"
+end
+
+def start_subjects_teacher
+  subjects = SubjectWindow.new
+  subjects.load_subjects(
+      '../fakeDatabase/Subjects.json'
+  )
+  loop do
+    clear
+    subjects_menu_teacher
+    input = gets.chomp
+    case input
+    when '1'
+      clear
+      subjects.print_subjects
+      pause
+    when '2'
+      clear
+      subjects.print_subjects_by_teacher(@active_user.name + ' ' + @active_user.last_name)
+      pause
+    when '3'
+      subject_add(subjects)
+    when '4'
+      delete_subject_by_teacher(subjects)
+    when '0'
+      break
+    else
+      'Incorrect input. Choose again'
+    end
+  end
+  subjects.save_subjects(
+      '../fakeDatabase/Subjects.json'
+  )
+end
+
+def subjects_menu_teacher
+  clear
+  puts '[1] Show all subjects'
+  puts '[2] Show my subjects'
+  puts '[3] Add subject'
+  puts '[4] Delete my subjects'
+  puts '[0] Back'
+end
+
+def start_subjects_student
+  subjects = SubjectWindow.new
+  subjects.load_subjects(
+      '../fakeDatabase/Subjects.json'
+  )
+  loop do
+    clear
+    subjects_menu_student
+    input = gets.chomp
+    case input
+    when '1'
+      clear
+      subjects.print_subjects
+      pause
+    when '2'
+      clear
+      subjects.print_subjects_by_student(@active_student.subjects)
+      pause
+    when '3'
+      clear
+      subjects.print_subjects
+      puts 'Enter title of the subject'
+      input = gets.chomp
+      break if input == '0'
+      @active_student.add_subjects(input)
+      clear
+      puts 'Successfully enrolled to subject'
+      pause
+    when '0'
+      break
+    else
+      'Incorrect input. Choose again'
+    end
+  end
+  subjects.save_subjects(
+      '../fakeDatabase/Subjects.json'
+  )
+end
+
+def subjects_menu_student
+  clear
+  puts '[1] Show all subjects'
+  puts '[2] Show my subjects'
+  puts '[3] Enroll to subject'
+  puts '[0] Back'
 end
 
 def subject_add(subjects)
@@ -68,60 +153,6 @@ def delete_subject_by_title(subjects)
   subjects.delete_by_title(title)
 end
 
-def subjects_menu
-  clear
-  puts '[1] Show all subjects(any)'
-  puts '[2] Show my subjects(Teacher)'
-  puts '[3] Show my subjects(Student)'
-  puts '[4] Add subject(Teacher, admin)'
-  puts '[5] Join subject(Student)'
-  puts '[6] Delete my subjects(Teacher)'
-  puts '[7] Delete subjects(Admin)'
-  puts '[0] Back'
-end
 
-def start_subjects
-  subjects = SubjectWindow.new
-  subjects.load_subjects(
-      '../fakeDatabase/Subjects.json'
-  )
-  loop do
-    clear
-    subjects_menu
-    input = gets.chomp
-    case input
-    when '1'
-      clear
-      subjects.print_subjects
-      pause
-    when '2'
-      clear
-      subjects.print_subjects_by_teacher(@active_user.name + ' ' + @active_user.last_name)
-      pause
-    when '3'
-      clear
-      subjects.print_subjects_by_student(@active_student.subjects)
-      pause
-    when '4'
-      subject_add(subjects)
-    when '5'
-      clear
-      subjects.print_subjects
-      input = gets.chomp
-      @active_student.add_subjects(input)
-    when '6'
-      delete_subject_by_teacher(subjects)
-    when '7'
-      delete_subject_by_title(subjects)
-    when '0'
-      break
-    else
-      'Incorrect input. Choose again'
-    end
-  end
-  subjects.save_subjects(
-      '../fakeDatabase/Subjects.json'
-  )
-end
 
-start_subjects
+

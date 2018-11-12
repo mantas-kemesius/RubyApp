@@ -16,5 +16,14 @@
     "subjects": "",
     "active": 0,
     "mode": 0
+  },
+  {
+    "s_id": "testas",
+    "group": "3",
+    "faculty": "wow",
+    "study_program": "asdasd",
+    "subjects": "",
+    "active": 0,
+    "mode": 0
   }
 ]
