@@ -17,11 +17,11 @@ class Email
 
   def self.return_email_hash(date, email_to, email_from, title, text)
     {
-        'date' => date,
-        'email_to' => email_to,
-        'email_from' => email_from,
-        'title' => title,
-        'text' => text
+      'date' => date,
+      'email_to' => email_to,
+      'email_from' => email_from,
+      'title' => title,
+      'text' => text
     }
   end
 

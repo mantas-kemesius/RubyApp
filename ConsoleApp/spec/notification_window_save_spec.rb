@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(NotificationWindow) do
-  context 'saved to file' do
+  context 'when saved to file' do
     let(:window) do
       described_class.new
     end
