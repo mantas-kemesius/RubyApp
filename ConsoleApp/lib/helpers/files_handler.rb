@@ -7,9 +7,7 @@ class FilesHandler
   end
 
   def load_data
-    JSON.parse(File.read(
-                 @path_name
-               ))
+    JSON.parse(File.read(@path_name))
   end
 
   def save_data(data)
