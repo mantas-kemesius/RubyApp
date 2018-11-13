@@ -23,7 +23,7 @@ describe Teacher do
       regex = /[t]\d{7}$/
       expect(!teacher.username[regex].nil?).to eq true
     end
-    context 'on change' do
+    context 'when changed' do
       let(:teacher) do
         described_class.new('t1610179', 'VU', 'mif')
       end
@@ -44,7 +44,8 @@ describe Teacher do
           .from('mif').to('vf')
       end
     end
-    context 'teacher printed' do
+
+    context 'when teacher printed' do
       let(:teacher) do
         described_class.new('t1610179', 'VU', 'mif')
       end

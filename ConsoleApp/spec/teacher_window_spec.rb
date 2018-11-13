@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(TeacherWindow) do
-  context 'on teacher added' do
+  context 'when teacher added' do
     let(:window) do
       described_class.new
     end
@@ -27,7 +27,8 @@ RSpec.describe(TeacherWindow) do
       end.to change { window.teachers.length }.by(1)
     end
   end
-  context 'on delete' do
+
+  context 'when delete' do
     let(:window) do
       described_class.new
     end
@@ -60,7 +61,8 @@ RSpec.describe(TeacherWindow) do
       expect(window.teachers[0]).to eq nil
     end
   end
-  context 'on load' do
+
+  context 'when load' do
     let(:window) do
       described_class.new
     end
@@ -91,7 +93,8 @@ RSpec.describe(TeacherWindow) do
       expect(window.teachers[0].username).to eq 'mazasis'
     end
   end
-  context 'saved to file' do
+
+  context 'when saved to file' do
     let(:window) do
       described_class.new
     end
@@ -131,7 +134,8 @@ RSpec.describe(TeacherWindow) do
       expect(window.teachers[1].faculty).to eq 'vf'
     end
   end
-  context 'on append' do
+
+  context 'when append' do
     let(:window) do
       described_class.new
     end
@@ -177,7 +181,8 @@ RSpec.describe(TeacherWindow) do
       expect(window.teachers[1]).to eq nil
     end
   end
-  context 'on print' do
+
+  context 'when print' do
     let(:window) do
       described_class.new
     end
