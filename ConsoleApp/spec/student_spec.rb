@@ -17,7 +17,7 @@ describe Student do
 
     it 'initial student number was changed successful' do
       expect { student.change_sid('s100') }
-        .to change { student.s_id }
+        .to change(student, :s_id)
         .from('s123').to('s100')
     end
 
