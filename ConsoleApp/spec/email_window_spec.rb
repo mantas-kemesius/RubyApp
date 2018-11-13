@@ -38,9 +38,6 @@ RSpec.describe(EmailWindow) do
     let(:item2) do
       Email.new('t1610179', 'Vu', 'mif', 'ka')
     end
-    let(:item3) do
-      Email.new('t1610180', 'Vu', 'mif', 'ka')
-    end
 
     it 'single item deleted by position' do
       window.add_email(item)

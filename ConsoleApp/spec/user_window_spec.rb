@@ -32,15 +32,6 @@ describe UserWindow do
         'fakeDatabase/testFiles/Users_save.json'
       )
     end
-    let(:add_two) do
-      item.add_user(cur_user)
-      item.add_user(cur_user_temp)
-    end
-    let(:add_three) do
-      item.add_user(cur_user)
-      item.add_user(cur_user_temp)
-      item.add_user(cur_user)
-    end
 
     it 'same object' do
       item.add_user(cur_user)

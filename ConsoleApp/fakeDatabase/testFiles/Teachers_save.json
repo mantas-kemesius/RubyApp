@@ -1,14 +1,5 @@
 {
   "Teachers": [
-    {
-      "username": "t1610179",
-      "university": "Vilniaus universitetas",
-      "faculty": "mif"
-    },
-    {
-      "username": "t1610180",
-      "university": "Vu",
-      "faculty": "vf"
-    }
+
   ]
 }
