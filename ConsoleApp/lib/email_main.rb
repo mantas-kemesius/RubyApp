@@ -137,7 +137,7 @@ end
 
 def print_all_emails
   clear
-  file = FilesHandler.new('../fakeDatabase/Emails.json')
+  file = FilesHandler.new(@email_dir_name)
   data = file.load_data
   data.each do |item|
     puts
