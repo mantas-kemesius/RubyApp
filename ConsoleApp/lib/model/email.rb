@@ -1,4 +1,6 @@
 require_relative '../../lib/helpers/files_handler'
+require_relative 'email_info'
+
 # Email class implements email functionality
 class Email < EmailInfo
   attr_reader :date, :email_to, :email_from, :title
