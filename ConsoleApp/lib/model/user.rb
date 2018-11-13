@@ -3,17 +3,14 @@ require_relative 'user_info'
 class User < UserInfo
   ROLE = %w[ROLE_STUDENT ROLE_LECTURER ROLE_ADMIN].freeze
   attr_reader :username, :password, :email, :phone
-  def initialize(username, password, name, last_name, role_id)
-    super(name, last_name, role_id)
-    @username = username
-    @password = password
-    @email = ''
-    @phone = ''
-  end
-
-  def init_email_phone(email, phone)
-    @email = email
-    @phone = phone
+  def initialize(user_hash)
+    super(user_hash.fetch('name'),
+          user_hash.fetch('last_name'),
+          user_hash.fetch('role_id'))
+    @username = user_hash.fetch('username')
+    @password = user_hash.fetch('password')
+    @email = user_hash.fetch('email')
+    @phone = user_hash.fetch('phone')
   end
 
   def change_email(new_email)
@@ -23,5 +20,13 @@ class User < UserInfo
   def change_phone(new_phone)
     @phone = new_phone
   end
-  # TODO: implement user_exists?
+
+  def self.role_string(role_id)
+    ROLE[role_id]
+    # if role_id.zero?
+    #   'ROLE_STUDENT'
+    # elsif role_id == 1
+    #   'ROLE_TEACHER'
+    # end
+  end
 end

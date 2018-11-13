@@ -1,12 +1,19 @@
-[
-  {
-    "username": "mazasis",
-    "university": "Garaziukas",
-    "faculty": "Oktavija"
-  },
-  {
-    "username": "Tomas",
-    "university": "Vilnius University",
-    "faculty": "MIF"
-  }
-]
+{
+  "Teachers": [
+    {
+      "username": "mazasis",
+      "university": "Garaziukas",
+      "faculty": "Oktavija"
+    },
+    {
+      "username": "Tomas",
+      "university": "Vilnius University",
+      "faculty": "MIF"
+    },
+    {
+      "username": "t1",
+      "university": "VGTU",
+      "faculty": "MF"
+    }
+  ]
+}

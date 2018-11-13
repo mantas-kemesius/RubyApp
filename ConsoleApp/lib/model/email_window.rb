@@ -70,7 +70,6 @@ class EmailWindow
   def load_emails
     data = @files_handler.load_data
     data.each do |email|
-      puts email
       add_email_by_hash(email)
     end
   end

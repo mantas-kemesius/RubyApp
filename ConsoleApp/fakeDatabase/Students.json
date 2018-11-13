@@ -1,29 +1,28 @@
-[
-  {
-    "s_id": "arnasrad",
-    "group": "2",
-    "faculty": "MIF",
-    "study_program": "Computer Science",
-    "subjects": "",
-    "active": 0,
-    "mode": 0
-  },
-  {
-    "s_id": "TomasMacikas",
-    "group": "1",
-    "faculty": "MIF",
-    "study_program": "Informatics",
-    "subjects": "",
-    "active": 0,
-    "mode": 0
-  },
-  {
-    "s_id": "testas",
-    "group": "3",
-    "faculty": "wow",
-    "study_program": "asdasd",
-    "subjects": "",
-    "active": 0,
-    "mode": 0
-  }
-]
+{
+  "Students": [
+    {
+      "s_id": "arnasrad",
+      "group": 2,
+      "study_program": "Computer Science",
+      "subjects": ""
+    },
+    {
+      "s_id": "TomasMacikas",
+      "group": 1,
+      "study_program": "Informatics",
+      "subjects": ""
+    },
+    {
+      "s_id": "testas",
+      "group": 3,
+      "study_program": "asdasd",
+      "subjects": ""
+    },
+    {
+      "s_id": "t2",
+      "group": 2,
+      "study_program": "MIF",
+      "subjects": "Informatics"
+    }
+  ]
+}

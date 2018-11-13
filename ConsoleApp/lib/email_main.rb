@@ -35,8 +35,6 @@ def start_emails
       print_inbox(emails)
     when '3'
       print_sent(emails)
-    when '4'
-      delete_email(emails)
     when '0'
       break
     else
@@ -51,14 +49,15 @@ def emails_menu
   puts '[1] Compose an email'
   puts '[2] Inbox'
   puts '[3] Sent'
+  puts '[0] Exit'
 end
 
 def compose_email(emails)
   print 'To: '
   email_to = gets.chomp
 
-  users = UserWindow.new
-  users.load_users(@user_dir_name)
+  users = UserWindow.new(@user_dir_name)
+  users.load_users
   if users.email_used?(email_to)
     print 'Title: '
     title = gets.chomp

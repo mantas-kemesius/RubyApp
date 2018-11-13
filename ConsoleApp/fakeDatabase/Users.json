@@ -5,9 +5,9 @@
       "password": "princas",
       "name": "okta",
       "last_name": "vijus",
-      "email": "maz.vijus@traku.voke.com",
       "role_id": 1,
-      "role": "ROLE_TEACHER",
+      "role": "ROLE_LECTURER",
+      "email": "maz.vijus@traku.voke.com",
       "phone": "+370skoda112"
     },
     {
@@ -15,9 +15,9 @@
       "password": "slapta",
       "name": "Arnas",
       "last_name": "Radzevicius",
-      "email": "arnasrad@gmail.com",
       "role_id": 0,
       "role": "ROLE_STUDENT",
+      "email": "arnasrad@gmail.com",
       "phone": "860000000"
     },
     {
@@ -25,9 +25,9 @@
       "password": "slaptazodis",
       "name": "Tomas",
       "last_name": "Macikas",
-      "email": "macikastomas@gmail.com",
       "role_id": 0,
       "role": "ROLE_STUDENT",
+      "email": "macikastomas@gmail.com",
       "phone": "+37062274996"
     },
     {
@@ -35,9 +35,9 @@
       "password": "slapt",
       "name": "Tomas",
       "last_name": "Macikas",
-      "email": "tomas.macikas@mif.stud.vu.lt",
       "role_id": 1,
-      "role": "ROLE_TEACHER",
+      "role": "ROLE_LECTURER",
+      "email": "tomas.macikas@mif.stud.vu.lt",
       "phone": "+37062274996"
     },
     {
@@ -45,10 +45,30 @@
       "password": "testas",
       "name": "Labas",
       "last_name": "Vakaras",
-      "email": "Labas@one.lt",
       "role_id": 0,
       "role": "ROLE_STUDENT",
+      "email": "Labas@one.lt",
       "phone": "123456"
+    },
+    {
+      "username": "t1",
+      "password": "t1",
+      "name": "testas",
+      "last_name": "pirmasis",
+      "role_id": 1,
+      "role": "ROLE_LECTURER",
+      "email": "t1@gmail.com",
+      "phone": "242234-34"
+    },
+    {
+      "username": "t2",
+      "password": "t2",
+      "name": "testas",
+      "last_name": "antrasis",
+      "role_id": 0,
+      "role": "ROLE_STUDENT",
+      "email": "t2@gmail.com",
+      "phone": "23432-4234"
     }
   ]
 }
