@@ -9,7 +9,7 @@ class FilesHandler
   def load_data
     JSON.parse(File.read(
                  @path_name
-    ))
+               ))
   end
 
   def save_data(data)
