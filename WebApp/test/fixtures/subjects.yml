@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Algebra:
+  name: Algebra
+  description: Algebros pagrindai
+  teacher: Antanas Antanaitis
+
+Tinklai:
+  name: Kompiuteriu tinklai
+  description: Tinklu modeliavimas
+  teacher: Pranas Pranaitis
+
