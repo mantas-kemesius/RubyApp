@@ -29,7 +29,7 @@ describe User do
 
     it ' user email change was successful' do
       expect { user.change_email('petras@gmail.com') }
-        .to change { user.email }
+        .to change(user, :email)
         .from('').to('petras@gmail.com')
     end
 
