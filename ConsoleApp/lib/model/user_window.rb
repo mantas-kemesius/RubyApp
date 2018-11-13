@@ -40,10 +40,11 @@ class UserWindow
   def save_users
     data = []
     users.each do |user|
+      user_role = user.role
       data[data.length] = {
         'username' => user.username, 'password' => user.password,
         'name' => user.name, 'last_name' => user.last_name,
-        'role_id' => user.role, 'role' => User.role_string(user.role),
+        'role_id' => user_role, 'role' => User.role_string(user_role),
         'email' => user.email, 'phone' => user.phone
       }
       @files_handler.save_data('Users' => data)

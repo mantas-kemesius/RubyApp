@@ -1,5 +1,5 @@
-require_relative '../lib/model/email_window'
-require_relative '../lib/model/user_window'
+require_relative '../../ConsoleApp/lib/model/email_window'
+require_relative '../../ConsoleApp/lib/model/user_window'
 
 require 'date'
 require 'io/console'
@@ -63,9 +63,16 @@ def compose_email(emails)
     title = gets.chomp
     print 'Text: '
     text = gets.chomp
-    emails.add_email_by_args(email_to, @active_user.email, title, text)
+    emails.add_email_by_hash(
+        {
+          'date' => Date.today.to_s,
+          'email_to' => email_to,
+          'email_from' => @active_user.email,
+          'title' => title,
+          'text' => text
+        })
 
-    emails.save_emails(@email_dir_name)
+    emails.save_emails
     puts 'Email was sent successfully'
   else
     puts 'Email ' + email_to + ' not found'

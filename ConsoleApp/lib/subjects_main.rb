@@ -1,6 +1,7 @@
-require_relative '../lib/model/subject_window'
+require_relative '../../ConsoleApp/lib/model/subject_window'
 require_relative '../../ConsoleApp/lib/model/user.rb'
-require_relative '../lib/model/student'
+require_relative '../../ConsoleApp/lib/model/user_window.rb'
+require_relative '../../ConsoleApp/lib/model/student'
 require 'io/console'
 
 @active_user = User.new(

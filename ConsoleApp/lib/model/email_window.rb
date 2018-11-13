@@ -15,12 +15,12 @@ class EmailWindow
     @emails << email
   end
 
-  def add_email_by_args(email_to, email_from, title, text)
-    email_hash = Email.return_email_hash(Date.today.to_s, email_to,
-                                         email_from, title, text)
-    email = Email.new(email_hash)
-    @emails << email
-  end
+  # def add_email_by_args(email_to, email_from, title, text)
+  #   email_hash = Email.return_email_hash(Date.today.to_s, email_to,
+  #                                        email_from, title, text)
+  #   email = Email.new(email_hash)
+  #   @emails << email
+  # end
 
   def add_email_by_hash(email_hash)
     email = Email.new(email_hash)
@@ -37,7 +37,6 @@ class EmailWindow
 
       item.print_email
     end
-    puts
     puts '------------------'
     puts
   end
@@ -48,7 +47,6 @@ class EmailWindow
 
       item.print_email
     end
-    puts
     puts '------------------'
     puts
   end

@@ -1,4 +1,4 @@
-require_relative '../lib/model/notification_window'
+require_relative '../../ConsoleApp/lib/model/notification_window'
 require_relative '../../ConsoleApp/lib/notifications_main'
 require_relative '../../ConsoleApp/lib/subjects_main'
 require_relative '../../ConsoleApp/lib/email_main'

@@ -4,9 +4,7 @@ class User < UserInfo
   ROLE = %w[ROLE_STUDENT ROLE_LECTURER ROLE_ADMIN].freeze
   attr_reader :username, :password, :email, :phone
   def initialize(user_hash)
-    super(user_hash.fetch('name'),
-          user_hash.fetch('last_name'),
-          user_hash.fetch('role_id'))
+    super(user_hash)
     @username = user_hash.fetch('username')
     @password = user_hash.fetch('password')
     @email = user_hash.fetch('email')
