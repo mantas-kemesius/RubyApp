@@ -2,7 +2,7 @@ require 'spec_helper'
 require_relative '../lib/helpers/files_handler'
 
 describe Email do
-  context 'initial data ' do
+  context 'when initial data ' do
     let(:email) do
       described_class.new('jonas.jonaitis@gmail.com',
                           'petras.jonaitis@gmail.com',
@@ -21,59 +21,59 @@ describe Email do
       }
     end
 
-    it 'succesful to' do
+    it 'successful to' do
       expect(email.email_to).to eq 'jonas.jonaitis@gmail.com'
     end
-    it 'succesful from' do
+    it 'successful from' do
       expect(email.email_from).to eq 'petras.jonaitis@gmail.com'
     end
-    it 'succesful text' do
+    it 'successful text' do
       expect(email.title).to eq 'Test title'
     end
-    it 'succesful title' do
+    it 'successful title' do
       expect(email.text).to eq 'Test text'
     end
-    it 'unsuccesful to' do
+    it 'unsuccessful to' do
       expect(email_not_valid.email_to).to eq nil
     end
-    it 'unsuccesful from' do
+    it 'unsuccessful from' do
       expect(email_not_valid.email_from).to eq nil
     end
-    it 'unsuccesful text' do
+    it 'unsuccessful text' do
       expect(email_not_valid.title).to eq nil
     end
-    it 'unsuccesful title' do
+    it 'unsuccessful title' do
       expect(email_not_valid.text).to eq nil
     end
     it 'return full email' do
       expect(email.return_email).to eq temp_email
     end
-    it 'change succesful to' do
+    it 'change successful to' do
       expect { email_not_valid.change_email_to('Naujas email_to') }
-        .to change { email_not_valid.email_to }
+        .to change(email_not_valid, :email_to)
         .from(nil).to('Naujas email_to')
     end
-    it 'change succesful from' do
+    it 'change successful from' do
       expect { email_not_valid.change_email_from('Naujas email_from') }
-        .to change { email_not_valid.email_from }
+        .to change(email_not_valid, :email_from)
         .from(nil).to('Naujas email_from')
     end
-    it 'change succesful title' do
+    it 'change successful title' do
       expect { email_not_valid.change_title('Naujas title') }
-        .to change { email_not_valid.title }
+        .to change(email_not_valid, :title)
         .from(nil).to('Naujas title')
     end
     it 'change succesful text' do
       expect { email_not_valid.change_text('Naujas text') }
-        .to change { email_not_valid.text }
+        .to change(email_not_valid, :text)
         .from(nil).to('Naujas text')
     end
 
-    it 'change unsuccesful to' do
+    it 'change unsuccessful to' do
       email.change_email_to(1)
       expect(email.email_to).to eq 'jonas.jonaitis@gmail.com'
     end
-    it 'change unsuccesful from' do
+    it 'change unsuccessful from' do
       email.change_email_from(2)
       expect(email.email_from).to eq 'petras.jonaitis@gmail.com'
     end
