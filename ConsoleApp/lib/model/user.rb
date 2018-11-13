@@ -2,9 +2,16 @@ require_relative 'user_info'
 # User class
 class User < UserInfo
   ROLE = %w[ROLE_STUDENT ROLE_LECTURER ROLE_ADMIN].freeze
-  attr_reader :email, :phone
-  def initialize(name, last_name, role_id, email = '', phone = '')
+  attr_reader :username, :password, :email, :phone
+  def initialize(username, password, name, last_name, role_id)
     super(name, last_name, role_id)
+    @username = username
+    @password = password
+    @email = ''
+    @phone = ''
+  end
+
+  def init_email_phone(email, phone)
     @email = email
     @phone = phone
   end

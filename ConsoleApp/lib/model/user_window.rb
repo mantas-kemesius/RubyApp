@@ -17,7 +17,18 @@ class UserWindow
     false
   end
 
-  def add_user(user)
+  def email_used?(email)
+    if email.instance_of?(String)
+      users.each do |item|
+        return true if item.email.eql?(email)
+      end
+      false
+    end
+    false
+  end
+
+  def add_user(user, email, phone)
+    user.init_email_phone(email, phone)
     users << user
   end
 
@@ -31,9 +42,9 @@ class UserWindow
     data = []
     users.each do |user|
       data[data.length] = {
+        'username' => user.username, 'password' => user.password,
         'name' => user.name, 'last_name' => user.last_name,
-        'role' => user.role, 'email' => user.email,
-        'phone' => user.phone
+        'role' => user.role, 'email' => user.email, 'phone' => user.phone
       }
       file.save_data('Users' => data)
     end
@@ -44,11 +55,12 @@ class UserWindow
     file = FilesHandler.new(path)
     info = file.load_data.fetch('Users')
     info.each do |user|
-      add_user(User.new(user.fetch('name'),
+      add_user(User.new(user.fetch('username'),
+                        user.fetch('password'),
+                        user.fetch('name'),
                         user.fetch('last_name'),
-                        user.fetch('role'),
-                        user.fetch('email'),
-                        user.fetch('phone')))
+                        user.fetch('role')),
+               user.fetch('email'), user.fetch('phone'))
     end
   end
 end

@@ -1,3 +1,8 @@
+require_relative 'notification'
+require_relative '../../lib/helpers/files_handler'
+require_relative '../../lib/model/email'
+
+# Email repository
 class EmailWindow
   attr_reader :emails, :files_handler
 
@@ -13,19 +18,39 @@ class EmailWindow
   def add_email_by_args(email_to, email_from, title, text)
     email_hash = Email.return_email_hash(Date.today.to_s, email_to,
                                          email_from, title, text)
-    @emails << Email.new(email_hash)
+    email = Email.new(email_hash)
+    @emails << email
   end
 
   def add_email_by_hash(email_hash)
-    @emails << Email.new(email_hash)
+    email = Email.new(email_hash)
+    @emails << email
   end
 
   def delete_email(position)
     @emails.delete_at(position)
   end
 
-  def print_emails
-    @emails.each(&:print_email)
+  def print_received_by(email)
+    @emails.each do |item|
+      next unless item.email_to.eql?(email)
+
+      item.print_email
+    end
+    puts
+    puts '------------------'
+    puts
+  end
+
+  def print_sent_by(email)
+    @emails.each do |item|
+      next unless item.email_from.eql?(email)
+
+      item.print_email
+    end
+    puts
+    puts '------------------'
+    puts
   end
   # :reek:FeatureEnvy
 
@@ -45,6 +70,7 @@ class EmailWindow
   def load_emails
     data = @files_handler.load_data
     data.each do |email|
+      puts email
       add_email_by_hash(email)
     end
   end

@@ -99,8 +99,6 @@ def student_login
 
     if login_correct?(@user_dir_name, in_uname, in_psw, 0)
       @active_user = user_by_username(in_uname)
-      # TODO: fix student initializer first.
-      # s_id should be string, not integer
       # @active_role = student_by_username(in_uname)
       puts 'Login successful'
       puts ''
@@ -122,7 +120,7 @@ end
 
 def login_correct?(dir_name, username, password, role_id)
   file = FilesHandler.new(dir_name)
-  data = file.load_data
+  data = file.load_data.fetch('Users')
   data.each do |item|
     if username == item.fetch('username')
       return true if password == item.fetch('password') &&
@@ -134,19 +132,20 @@ end
 
 def user_by_username(username)
   file = FilesHandler.new(@user_dir_name)
-  data = file.load_data
+  data = file.load_data.fetch('Users')
   data.each do |item|
     next unless username == item.fetch('username')
-    user = User.new(item.fetch('name'), item.fetch('surname'),
-                    item.fetch('role_id'), item.fetch('email'),
-                    item.fetch('phone'))
+    user = User.new(item.fetch('username'), item.fetch('password'),
+                    item.fetch('name'), item.fetch('last_name'),
+                    item.fetch('role'))
+    user.init_email_phone(item.fetch('email'), item.fetch('phone'))
     return user
   end
 end
 
 def student_by_username(username)
   file = FilesHandler.new(@student_dir_name)
-  data = file.load_data
+  data = file.load_data.fetch('Users')
   data.each do |item|
     next unless username == item.fetch('s_id')
     student = Student.new(item)
@@ -156,7 +155,7 @@ end
 
 def teacher_by_username(username)
   file = FilesHandler.new(@teacher_dir_name)
-  data = file.load_data
+  data = file.load_data.fetch('Users')
   data.each do |item|
     next unless username == item.fetch('username')
     teacher = Teacher.new(item.fetch('username'), item.fetch('university'),

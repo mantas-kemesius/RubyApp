@@ -1,95 +1,111 @@
 [
   {
+    "date": "2018-11-06",
     "email_to": "jonas.jonaitis@gmail.com",
     "email_from": "jonas.jonaitis@gmail.com",
     "title": "Test email",
     "text": "Test email"
   },
   {
+    "date": "2018-11-19",
     "email_to": "jonas.jonaitis@gmail.com",
     "email_from": "jonas.jonaitis@gmail.com",
     "title": "Test email",
     "text": "Test email"
   },
   {
+    "date": "2018-11-18",
     "email_to": "jonas.jonaitis@gmail.com",
     "email_from": "jonas.jonaitis@gmail.com",
     "title": "Test email",
     "text": "Test email"
   },
   {
+    "date": "2018-11-07",
     "email_from": "petras@gmail.com",
     "email_to": "aldonas@gmail.com",
     "title": "Labas",
     "text": "heyjo kaip tau sekasis??"
   },
   {
+    "date": "2018-11-09",
     "email_from": "mantas@gmail.com",
     "email_to": "Tomas@gmail.com",
     "title": "Labas",
     "text": "sveikas kaip tau sekasis??"
   },
   {
+    "date": "2018-11-04",
     "email_from": "mantas@gmail.com",
     "email_to": "alio@gmail.com",
     "title": "Labas",
     "text": "sveikas kaip tau sekasis??"
   },
   {
+    "date": "2018-11-30",
     "email_from": "aldona@gmail.com",
     "email_to": "mantas@gmail.com",
     "title": "Labas",
     "text": "sveikas kaip tau sekasis??"
   },
   {
+    "date": "2018-11-25",
     "email_from": "mantas@gmail.com",
     "email_to": "juozas@gmail.com",
     "title": "Labas",
     "text": "sveikas kaip tau sekasis??"
   },
   {
+    "date": "2018-11-03",
     "email_from": "mantas@gmail.com",
     "email_to": "arnas@gmail.com",
     "title": "Labas",
     "text": "sveikas kaip tau sekasis??"
   },
   {
+    "date": "2018-11-01",
     "email_from": "arnas@gmail.com",
     "email_to": "juozas@gmail.com",
     "title": "Labas",
     "text": "sveikas kaip tau sekasis??"
   },
   {
+    "date": "2018-11-02",
     "email_from": "arnas@gmail.com",
     "email_to": "jonaitis@gmail.com",
     "title": "Test email",
     "text": "testas testukas testaitis"
   },
   {
+    "date": "2018-11-12",
     "email_from": "maz.vijus@traku.voke.com",
     "email_to": "arnasrad@gmail.com",
     "title": "test email",
     "text": "testuojam testas testukas jejeje"
   },
   {
+    "date": "2018-11-11",
     "email_from": "arnasrad@gmail.com",
     "email_to": "maz.vijus@traku.voke.com",
     "title": "test email",
     "text": "just another email "
   },
   {
+    "date": "2018-11-16",
     "email_from": "arnasrad@gmail.com",
     "email_to": "macikastomas@gmail.com",
     "title": "Sveix",
     "text": "ka tu"
   },
   {
+    "date": "2018-11-07",
     "email_from": "macikastomas@gmail.com",
     "email_to": "arnasrad@gmail.com",
     "title": "Nk",
     "text": "nk"
   },
   {
+    "date": "2018-09-06",
     "email_from": "arnasrad@gmail.com",
     "email_to": "arnasrad@gmail.com",
     "title": "testas",

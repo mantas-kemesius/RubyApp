@@ -2,12 +2,12 @@ require_relative '../../lib/helpers/files_handler'
 # Email class implements email functionality
 class Email
   attr_reader :date, :email_to, :email_from, :title, :text
-  def initialize(email)
-    date_init = email.fetch('date')
-    email_to_init = email.fetch('email_to')
-    email_from_init = email.fetch('email_from')
-    title_init = email.fetch('title')
-    text_init = email.fetch('text')
+  def initialize(email_hash)
+    date_init = email_hash.fetch('date')
+    email_to_init = email_hash.fetch('email_to')
+    email_from_init = email_hash.fetch('email_from')
+    title_init = email_hash.fetch('title')
+    text_init = email_hash.fetch('text')
     @date = date_init if date_init.instance_of?(String)
     @email_to = email_to_init if email_to_init.instance_of?(String)
     @email_from = email_from_init if email_from_init.instance_of?(String)
@@ -17,22 +17,33 @@ class Email
 
   def self.return_email_hash(date, email_to, email_from, title, text)
     {
-      date: date,
-      email_to: email_to,
-      email_from: email_from,
-      title: title,
-      text: text
+        'date' => date,
+        'email_to' => email_to,
+        'email_from' => email_from,
+        'title' => title,
+        'text' => text
     }
   end
 
   def return_email
     {
-      date: @date,
-      email_to: @email_to,
-      email_from: @email_from,
-      title: @title,
-      text: @text
+      'date' => @date,
+      'email_to' => @email_to,
+      'email_from' => @email_from,
+      'title' => @title,
+      'text' => @text
     }
+  end
+
+  def print_email
+    puts
+    puts '------------------'
+    puts
+    puts 'FROM: ' + @email_from
+    puts 'TO: ' + @email_to
+    puts 'DATE: ' + @date
+    puts 'TITLE: ' + @title
+    puts 'TEXT: ' + @text
   end
 
   def change_email_to(email_to_new)
