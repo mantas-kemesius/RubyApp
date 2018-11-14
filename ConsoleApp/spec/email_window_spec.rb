@@ -1,55 +1,119 @@
 require 'spec_helper'
 
 RSpec.describe(EmailWindow) do
-  context 'when email added' do
+  context 'when email is added by object' do
     let(:window) do
-      described_class.new
-    end
-    let(:item) do
-      Email.new('t1610179', 'Vilniaus universitetas', 'mif', 'ka')
+      described_class.new('../fakeDatabase/Emails.json')
     end
 
-    it 'same object' do
-      window.add_email(item)
+    let(:email_obj) do
+      Email.new(
+        'date' => '2018-11-13',
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      )
+    end
+
+    it 'the same email object appears at the end of email list' do
+      window.add_email_by_obj(email_obj)
       expect(window.emails[
-                 window.emails.length - 1]).to eq item
+                 window.emails.length - 1]).to eq email_obj
       window.delete_email(0)
     end
 
-    it 'added successful to list' do
-      window.add_email(item)
+    it 'email list is appended successfully' do
+      window.add_email_by_obj(email_obj)
       expect(window.emails).not_to be_empty
+      window.delete_email(0)
     end
 
-    it 'list size increased' do
+    it 'email list size is increased' do
       expect do
-        window.add_email(item)
+        window.add_email_by_obj(email_obj)
       end.to change { window.emails.length }.by(1)
+      window.delete_email(0)
+    end
+  end
+
+  context 'when email is added by hash' do
+    let(:window) do
+      described_class.new('../fakeDatabase/Emails.json')
+    end
+
+    let(:email_hash) do
+      {
+        'date' => '2018-11-13',
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      }
+    end
+
+    it 'the same email object appears at the end of email list' do
+      window.add_email_by_hash(email_hash)
+      expect(window.emails[
+                 window.emails.length - 1].return_email).to eq email_hash
+      window.delete_email(0)
+    end
+
+    it 'email list is appended successfully' do
+      window.add_email_by_hash(email_hash)
+      expect(window.emails).not_to be_empty
+      window.delete_email(0)
+    end
+
+    it 'email list size is increased' do
+      expect do
+        window.add_email_by_hash(email_hash)
+      end.to change { window.emails.length }.by(1)
+      window.delete_email(0)
     end
   end
 
   context 'with delete' do
     let(:window) do
-      described_class.new
+      described_class.new('../fakeDatabase/Emails.json')
     end
+
     let(:item) do
-      Email.new('t1610179', 'Vilniaus universitetas', 'mif', 'ka')
+      Email.new(
+        'date' => '2018-11-11',
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      )
     end
     let(:item2) do
-      Email.new('t1610179', 'Vu', 'mif', 'ka')
+      Email.new(
+        'date' => '2018-11-12',
+        'email_to' => 'petras.jonaitis@gmail.com',
+        'email_from' => 'jonas.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      )
     end
     let(:item3) do
-      Email.new('t1610180', 'Vu', 'mif', 'ka')
+      Email.new(
+        'date' => '2018-11-13',
+        'email_to' => 'jonas.petraitis@gmail.com',
+        'email_from' => 'petras.petraitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      )
     end
 
     it 'single item deleted by position' do
-      window.add_email(item)
+      window.add_email_by_obj(item)
       window.delete_email(0)
       expect(window.emails[0]).to eq nil
     end
     it 'delete all' do
-      window.add_email(item)
-      window.add_email(item2)
+      window.add_email_by_obj(item)
+      window.add_email_by_obj(item2)
       window.delete_all
       expect(window.emails[0]).to eq nil
     end
@@ -57,15 +121,21 @@ RSpec.describe(EmailWindow) do
 
   context 'with load' do
     let(:window) do
-      described_class.new
+      described_class.new('../fakeDatabase/Emails.json')
     end
+
     let(:load) do
-      window.load_emails(
-        'fakeDatabase/testFiles/Emails_load.json'
-      )
+      window.load_emails
     end
+
     let(:item) do
-      Email.new('t1610179', 'Vilniaus universitetas', 'mif', 'ka')
+      Email.new(
+        'date' => '2018-11-11',
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      )
     end
 
     it 'second item username correct' do
@@ -89,8 +159,9 @@ RSpec.describe(EmailWindow) do
 
   context 'when to file' do
     let(:window) do
-      described_class.new
+      described_class.new('../fakeDatabase/testFiles/Emails_save.json')
     end
+
     let(:path_to_db) { 'fakeDatabase/testFiles/Emails_save.json' }
     let(:item) do
       Email.new('t1610179', 'Vilniaus universitetas', 'mif', 'ka')
@@ -135,8 +206,9 @@ RSpec.describe(EmailWindow) do
 
   context 'when append' do
     let(:window) do
-      described_class.new
+      described_class.new('../fakeDatabase/Emails.json')
     end
+
     let(:item) do
       Email.new('t1610179', 'Vilniaus universitetas', 'mif', 'ka')
     end

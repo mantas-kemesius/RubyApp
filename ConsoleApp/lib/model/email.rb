@@ -14,13 +14,6 @@ class Email < EmailInfo
     @date = date_init if date_init.instance_of?(String)
     @email_to = email_to_init if email_to_init.instance_of?(String)
     @email_from = email_from_init if email_from_init.instance_of?(String)
-    # super(email_hash.fetch('title'), email_hash.fetch('text'))
-    # date_init = email_hash.fetch('date')
-    # email_to_init = email_hash.fetch('email_to')
-    # email_from_init = email_hash.fetch('email_from')
-    # @date = date_init if date_init.instance_of?(String)
-    # @email_to = email_to_init if email_to_init.instance_of?(String)
-    # @email_from = email_from_init if email_from_init.instance_of?(String)
   end
 
   # def self.return_email_hash(date, email_to, email_from, title, text)
@@ -38,24 +31,16 @@ class Email < EmailInfo
       'date' => @date,
       'email_to' => @email_to,
       'email_from' => @email_from,
-      'title' => title,
+      'title' => @title,
       'text' => text
     }
   end
 
   def print_email
-    puts
-    puts '------------------'
-    print_header
-    print_content
-  end
-
-  def print_header
-    puts
-    puts 'FROM: ' + @email_from
-    puts 'TO: ' + @email_to
-    puts 'DATE: ' + @date
-    puts 'TITLE: ' + @title
+    string_email = "\n\n------------------\n\nFROM: " + @email_from +
+                   "\nTO: " + @email_to + "\nDATE: " + @date +
+                   "\nTITLE: " + @title + "\n\n" + text + "\n"
+    print string_email
   end
 
   def change_email_to(email_to_new)

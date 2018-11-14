@@ -37,8 +37,7 @@ class EmailWindow
 
       item.print_email
     end
-    puts '------------------'
-    puts
+    print "\n"
   end
 
   def print_sent_by(email)
@@ -47,8 +46,7 @@ class EmailWindow
 
       item.print_email
     end
-    puts '------------------'
-    puts
+    print "\n"
   end
   # :reek:FeatureEnvy
 

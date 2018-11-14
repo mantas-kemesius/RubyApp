@@ -5,8 +5,4 @@ class EmailInfo
     # @title = title if title.instance_of?(String)
     @text = text if text.instance_of?(String)
   end
-
-  def print_content
-    puts 'TEXT: ' + @text
-  end
 end
