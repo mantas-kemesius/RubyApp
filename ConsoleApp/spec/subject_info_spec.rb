@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SubjectInfo do
-  context 'with initial data is set successfully when' do
+  context 'when data is set successfully when' do
     let(:temp_subject) do
       described_class.new('Test email', 'Test email')
     end

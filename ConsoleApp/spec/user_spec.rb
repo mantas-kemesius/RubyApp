@@ -98,10 +98,10 @@ describe User do
         .from('arnasrad@gmail.com').to('tomas.macikas@gmail.com')
     end
 
-    it 'phone change is successful' do
-      expect { user1.change_phone('860000001') }
-        .to change(user1, :phone)
-        .from('860000000').to('860000001')
+    it ' user email change was successful' do
+      expect { user.change_email('petras@gmail.com') }
+        .to change(user, :email)
+        .from('').to('petras@gmail.com')
     end
   end
 

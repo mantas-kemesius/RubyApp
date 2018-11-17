@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(SubjectWindow) do
-  context 'with on subject added' do
+  context 'when  subject added' do
     let(:window) do
       described_class.new
     end
@@ -10,26 +10,26 @@ RSpec.describe(SubjectWindow) do
                   '5', 'Andrius Andraitis')
     end
 
-    it 'same object' do
+    it 'when same object' do
       window.add_subject(item)
       expect(window.subjects[
                  window.subjects.length - 1]).to eq item
       window.delete_subject(0)
     end
 
-    it 'added successful to list' do
+    it 'when added successful to list' do
       window.add_subject(item)
       expect(window.subjects).not_to be_empty
     end
 
-    it 'list size increased' do
+    it 'when list size increased' do
       expect do
         window.add_subject(item)
       end.to change { window.subjects.length }.by(1)
     end
   end
 
-  context 'with on delete' do
+  context 'when  delete' do
     let(:window) do
       described_class.new
     end
@@ -56,24 +56,24 @@ RSpec.describe(SubjectWindow) do
       window.add_subject(item4)
     end
 
-    it 'single item deleted by position' do
+    it 'when single item deleted by position' do
       window.add_subject(item)
       window.delete_subject(0)
       expect(window.subjects[0]).to eq nil
     end
-    it 'deleted by name' do
+    it 'when deleted by name' do
       add
       window.delete_by_title('Ruby')
       expect(window.subjects[0]).to eq item4
     end
-    it 'deleted by name of teacher subjects' do
+    it 'when deleted by name of teacher subjects' do
       add
       window.delete_by_title_by_teacher('Ruby', 'Andrius Andraitis')
       expect(window.subjects[1]).to eq item4
     end
   end
-
-  context 'with on load' do
+  
+  context 'when  load' do
     let(:window) do
       described_class.new
     end
@@ -83,11 +83,11 @@ RSpec.describe(SubjectWindow) do
       )
     end
 
-    it 'first item title correct' do
+    it 'when first item title correct' do
       load
       expect(window.subjects[0].title).to eq 'Ruby Programming'
     end
-    it 'first item description correct' do
+    it 'when first item description correct' do
       load
       expect(window.subjects[0].description).to eq 'Agile Programming Ruby'
     end
@@ -101,7 +101,7 @@ RSpec.describe(SubjectWindow) do
     end
   end
 
-  context 'with saved to file' do
+  context 'when to file' do
     let(:window) do
       described_class.new
     end
@@ -144,7 +144,7 @@ RSpec.describe(SubjectWindow) do
     end
   end
 
-  context 'with on print' do
+  context 'when print' do
     let(:window) do
       described_class.new
     end
@@ -184,7 +184,7 @@ RSpec.describe(SubjectWindow) do
     end
   end
 
-  context 'with subject exists' do
+  context 'when  exists' do
     let(:window) do
       described_class.new
     end

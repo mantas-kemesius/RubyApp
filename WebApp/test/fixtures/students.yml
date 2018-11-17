@@ -2,18 +2,18 @@
 
 one:
   name: MyString
-  lastname: MyString
+  last_name: MyString
   email: MyString
+  password: MyString
   age: 1
   university: MyString
-  string: MyString
-  role: MyString
+  bio: MyText
 
 two:
   name: MyString
-  lastname: MyString
+  last_name: MyString
   email: MyString
+  password: MyString
   age: 1
   university: MyString
-  string: MyString
-  role: MyString
+  bio: MyText

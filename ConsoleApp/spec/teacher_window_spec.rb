@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(TeacherWindow) do
-  context 'with on teacher added' do
+  context 'when teacher added' do
     let(:window) do
       described_class.new
     end
@@ -28,7 +28,7 @@ RSpec.describe(TeacherWindow) do
     end
   end
 
-  context 'with on delete' do
+  context 'when delete' do
     let(:window) do
       described_class.new
     end
@@ -62,7 +62,7 @@ RSpec.describe(TeacherWindow) do
     end
   end
 
-  context 'with on load' do
+  context 'when load' do
     let(:window) do
       described_class.new
     end
@@ -94,7 +94,7 @@ RSpec.describe(TeacherWindow) do
     end
   end
 
-  context 'with saved to file' do
+  context 'when saved to file' do
     let(:window) do
       described_class.new
     end
@@ -135,7 +135,7 @@ RSpec.describe(TeacherWindow) do
     end
   end
 
-  context 'with on append' do
+  context 'when append' do
     let(:window) do
       described_class.new
     end
@@ -182,7 +182,7 @@ RSpec.describe(TeacherWindow) do
     end
   end
 
-  context 'with on print' do
+  context 'when print' do
     let(:window) do
       described_class.new
     end

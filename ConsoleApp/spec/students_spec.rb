@@ -7,9 +7,7 @@ describe Student do
 
     it ' student group change was successful' do
       expect { student.change_group(6) }
-        .to change do
-          student.group
-        end
+        .to change(student, :group)
         .from(10).to(6)
     end
 
@@ -49,9 +47,7 @@ describe Student do
 
     it ' student study_program change was successful' do
       expect { student.change_study_program('PS') }
-        .to change do
-          student.study_program
-        end
+        .to change(student, :study_program)
         .from('Informatika').to('PS')
     end
   end
