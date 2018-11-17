@@ -11,6 +11,19 @@ class User < UserInfo
     @phone = user_hash.fetch('phone')
   end
 
+  def return_user_hash
+    {
+      'username' => username,
+      'password' => password,
+      'name' => name,
+      'last_name' => last_name,
+      'role_id' => role,
+      'role' => User.role_string(role),
+      'email' => email,
+      'phone' => phone
+    }
+  end
+
   def change_name(new_name)
     @name = new_name
   end

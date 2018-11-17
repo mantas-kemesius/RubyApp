@@ -83,7 +83,7 @@ def teacher_sign_in(username, password, name, last_name, email, phone)
     return
   end
 
-  users.add_user(user_hash(username, password,
+  users.add_user_by_hash(user_hash(username, password,
                            name, last_name,
                            1, email, phone))
   teachers = TeacherWindow.new
@@ -120,7 +120,7 @@ def student_sign_in(username, password, name, last_name, email, phone)
     return
   end
 
-  users.add_user(user_hash(username, password,
+  users.add_user_by_hash(user_hash(username, password,
                            name, last_name,
                            0, email, phone))
   students = StudentWindow.new

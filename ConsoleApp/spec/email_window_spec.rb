@@ -73,7 +73,7 @@ RSpec.describe(EmailWindow) do
     end
   end
 
-  context 'with delete' do
+  context 'when deleting email' do
     let(:window) do
       described_class.new('fakeDatabase/testFiles/Emails_add.json')
     end
@@ -88,7 +88,7 @@ RSpec.describe(EmailWindow) do
       )
     end
 
-    it 'single item deleted by position' do
+    it 'single item is deleted by position successfully' do
       window.add_email_by_obj(item)
       window.delete_email(0)
       expect(window.emails[0]).to eq nil

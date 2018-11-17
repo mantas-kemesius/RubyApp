@@ -53,11 +53,11 @@ describe User do
     # it 'phone number is less than 13 characters' do
     #   expect(user.phone.length).to be < 3
     # end
-    # 
+    #
     # it 'email is of type String' do
     #   expect(user.email).to be_instance_of(String)
     # end
-    # 
+    #
     # it 'phone is of type String' do
     #   expect(user.phone).to be_instance_of(String)
     # end
@@ -135,6 +135,35 @@ describe User do
 
     it 'non-existent role returned unsuccessfully' do
       expect(described_class.role_string(7)).to eq nil
+    end
+  end
+
+  context 'when returning user hash' do
+    let(:user1) do
+      described_class.new('username' => 'arnasrad',
+                          'password' => 'slapta',
+                          'name' => 'Arnas',
+                          'last_name' => 'Radzevicius',
+                          'role_id' => 0,
+                          'email' => 'arnasrad@gmail.com',
+                          'phone' => '860000000')
+    end
+
+    let(:temp_user_hash) do
+      {
+        'username' => 'arnasrad',
+        'password' => 'slapta',
+        'name' => 'Arnas',
+        'last_name' => 'Radzevicius',
+        'role_id' => 0,
+        'role' => 'ROLE_STUDENT',
+        'email' => 'arnasrad@gmail.com',
+        'phone' => '860000000'
+      }
+    end
+
+    it ' return is successful' do
+      expect(user1.return_user_hash).to eq(temp_user_hash)
     end
   end
 end
