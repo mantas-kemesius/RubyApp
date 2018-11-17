@@ -24,7 +24,7 @@ RSpec.describe FilesHandler do
 
     it 'right load contents' do
       file_handler.save_data(data)
-      fh = open folder
+      fh = File.open folder
       content = fh.read
       fh.close
       expect(content).to eq "[\n  1,\n  2,\n  3\n]"
