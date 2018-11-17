@@ -44,6 +44,16 @@ RSpec.describe(EmailWindow) do
 
     let(:email_hash) do
       {
+        date: '2018-11-13',
+        email_to: 'jonas.jonaitis@gmail.com',
+        email_from: 'petras.jonaitis@gmail.com',
+        title: 'Test title',
+        text: 'Test text'
+      }
+    end
+
+    let(:email_hash2) do
+      {
         'date' => '2018-11-13',
         'email_to' => 'jonas.jonaitis@gmail.com',
         'email_from' => 'petras.jonaitis@gmail.com',
@@ -53,10 +63,26 @@ RSpec.describe(EmailWindow) do
     end
 
     it 'the same email object appears at the end of email list' do
-      window.add_email_by_hash(email_hash)
+      window.add_email_by_hash(email_hash2)
       expect(window.emails[
-                 window.emails.length - 1].return_email).to eq email_hash
+                 window.emails.length - 1].return_email).to eq(email_hash)
       window.delete_email(0)
+    end
+  end
+
+  context 'when email is added by hash for append' do
+    let(:window) do
+      described_class.new('fakeDatabase/testFiles/Emails_add.json')
+    end
+
+    let(:email_hash) do
+      {
+        'date' => '2018-11-13',
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      }
     end
 
     it 'email list is appended successfully' do
