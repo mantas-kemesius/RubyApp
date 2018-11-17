@@ -22,8 +22,9 @@ describe Subject do
       s += "\n" + '__________________________________________________' + "\n"
       expect { item.print_subject }.to output(s).to_stdout
     end
-
+    
     context 'when info change' do
+
       let(:item) do
         described_class.new('Ruby Programming', 'Agile Programming Ruby',
                             '5', 't1610179')

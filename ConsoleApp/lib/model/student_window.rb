@@ -17,6 +17,13 @@ class StudentWindow
     students.delete_at(position)
   end
 
+  def student_by_username(username)
+    students.each_with_index do |item, index|
+      return students.fetch(index) if item.s_id.eql?(username)
+    end
+    nil
+  end
+
   # :reek:FeatureEnvy
 
   def save_students(path)

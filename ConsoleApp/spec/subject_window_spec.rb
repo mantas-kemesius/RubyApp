@@ -72,7 +72,7 @@ RSpec.describe(SubjectWindow) do
       expect(window.subjects[1]).to eq item4
     end
   end
-
+  
   context 'when  load' do
     let(:window) do
       described_class.new

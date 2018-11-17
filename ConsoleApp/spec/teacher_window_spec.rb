@@ -198,4 +198,30 @@ RSpec.describe(TeacherWindow) do
       expect { window.print_teachers }.to output(str).to_stdout
     end
   end
+
+  context 'when searching for teacher by username' do
+    let(:window) do
+      described_class.new
+    end
+    let(:load) do
+      window.load_teachers(
+        'fakeDatabase/testFiles/Teachers_load.json'
+      )
+    end
+    let(:item) do
+      Teacher.new('mazasis', 'Garaziukas', 'Oktavija')
+    end
+
+    it 'search is successful' do
+      load
+      found_teacher = window.teacher_by_username('mazasis')
+      expect(found_teacher.username).to eq item.username
+    end
+
+    it 'search is unsuccessful' do
+      load
+      found_teacher = window.teacher_by_username('s184923')
+      expect(found_teacher).to eq nil
+    end
+  end
 end
