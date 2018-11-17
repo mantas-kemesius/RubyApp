@@ -140,21 +140,21 @@ def non_blank_input
     return input unless input.empty?
   end
 end
-
-def append_student(username, group, faculty, study_program)
-  file = FilesHandler.new(@student_dir_name)
-  data = file.load_data
-  data[data.length] = {
-      s_id: username,
-      group: group.to_i,
-      faculty: faculty,
-      study_program: study_program,
-      subjects: '',
-      active: 0,
-      mode: 0
-  }
-  file.save_data('Students' => data)
-end
+#
+# def append_student(username, group, faculty, study_program)
+#   file = FilesHandler.new(@student_dir_name)
+#   data = file.load_data
+#   data[data.length] = {
+#       s_id: username,
+#       group: group.to_i,
+#       faculty: faculty,
+#       study_program: study_program,
+#       subjects: '',
+#       active: 0,
+#       mode: 0
+#   }
+#   file.save_data('Students' => data)
+# end
 
 def user_hash(username, password, name, last_name, role_id, email, phone)
   {

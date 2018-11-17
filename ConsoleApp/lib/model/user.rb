@@ -11,6 +11,18 @@ class User < UserInfo
     @phone = user_hash.fetch('phone')
   end
 
+  def change_name(new_name)
+    @name = new_name
+  end
+
+  def change_last_name(new_last_name)
+    @last_name = new_last_name
+  end
+
+  def change_password(new_password)
+    @password = new_password
+  end
+
   def change_email(new_email)
     @email = new_email
   end
@@ -20,7 +32,7 @@ class User < UserInfo
   end
 
   def self.role_string(role_id)
-    ROLE[role_id]
+    ROLE.at(role_id)
     # if role_id.zero?
     #   'ROLE_STUDENT'
     # elsif role_id == 1

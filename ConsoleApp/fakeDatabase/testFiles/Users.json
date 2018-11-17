@@ -1,24 +1,24 @@
 {
   "Users": [
     {
-      "username": "s1612345",
-      "name": "Petras",
-      "lastName": "Petraitis",
-      "role": "ROLE_LECTURER",
-      "role_id": 1,
-      "email": "petras@gmail.com",
-      "phone": 862435384,
-      "password": "123"
+      "username": "arnasrad",
+      "password": "slapta",
+      "name": "Arnas",
+      "last_name": "Radzevicius",
+      "role_id": 0,
+      "role": "ROLE_STUDENT",
+      "email": "arnasrad@gmail.com",
+      "phone": "860000000"
     },
     {
-      "username": "s1612346",
-      "name": "Jonas",
-      "lastName": "Jonaitis",
-      "role": "ROLE_STUDENT",
-      "role_id": 0,
-      "email": "jonas@gmail.com",
-      "phone": 862435385,
-      "password": "234"
+      "username": "TomasMacikas",
+      "password": "slaptazodis",
+      "name": "Tomas",
+      "last_name": "Macikas",
+      "role_id": 1,
+      "role": "ROLE_LECTURER",
+      "email": "macikastomas@gmail.com",
+      "phone": "+37062274996"
     }
   ]
 }

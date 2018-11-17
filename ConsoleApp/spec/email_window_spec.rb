@@ -1,7 +1,4 @@
 require 'spec_helper'
-require_relative '../lib/helpers/files_handler'
-require_relative '../lib/model/email_window'
-require_relative '../lib/model/email'
 
 RSpec.describe(EmailWindow) do
   context 'when email is added by object' do
