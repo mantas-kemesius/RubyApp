@@ -74,6 +74,16 @@ describe User do
                           'phone' => '860000000')
     end
 
+    let(:user2) do
+      described_class.new('username' => 'TomasMacikas',
+                          'password' => 'slaptazodis',
+                          'name' => 'Tomas',
+                          'last_name' => 'Macikas',
+                          'role_id' => 1,
+                          'email' => '',
+                          'phone' => '')
+    end
+
     it 'name change is successful' do
       expect { user1.change_name('Tomas') }
         .to change(user1, :name)
@@ -99,8 +109,8 @@ describe User do
     end
 
     it ' user email change was successful' do
-      expect { user.change_email('petras@gmail.com') }
-        .to change(user, :email)
+      expect { user2.change_email('petras@gmail.com') }
+        .to change(user2, :email)
         .from('').to('petras@gmail.com')
     end
   end
