@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe FilesHandler do
-  context 'init' do
+  context 'with init' do
     let(:folder) { 'fakeDatabase/testFiles/tests.json' }
     let(:file_handler) { described_class.new(folder) }
     let(:data) { [1, 2, 3] }

@@ -22,7 +22,7 @@ describe Subject do
       s += "\n" + '__________________________________________________' + "\n"
       expect { item.print_subject }.to output(s).to_stdout
     end
-    context 'on info change' do
+    context 'with on info change' do
       let(:item) do
         described_class.new('Ruby Programming', 'Agile Programming Ruby',
                             '5', 't1610179')
@@ -30,22 +30,30 @@ describe Subject do
 
       it 'title changed correctly' do
         expect { item.change_title('NewTitle') }
-          .to change { item.title }
+          .to change do
+            item.title
+          end
           .from('Ruby Programming').to('NewTitle')
       end
       it 'description changed correctly' do
         expect { item.change_description('newDesc') }
-          .to change { item.description }
+          .to change do
+            item.description
+          end
           .from('Agile Programming Ruby').to('newDesc')
       end
       it 'credits changed correctly' do
         expect { item.change_credits('10') }
-          .to change { item.credits }
+          .to change do
+            item.credits
+          end
           .from('5').to('10')
       end
       it 'teacher change correctly' do
         expect { item.change_teacher('Plikusas') }
-          .to change { item.teacher }
+          .to change do
+            item.teacher
+          end
           .from('t1610179').to('Plikusas')
       end
     end

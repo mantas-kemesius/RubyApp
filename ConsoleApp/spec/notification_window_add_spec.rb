@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(NotificationWindow) do
-  context 'add item' do
+  context 'with add item' do
     let(:item) do
       described_class.new
     end

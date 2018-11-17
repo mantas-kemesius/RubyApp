@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(SubjectWindow) do
-  context 'on subject added' do
+  context 'with on subject added' do
     let(:window) do
       described_class.new
     end
@@ -28,7 +28,8 @@ RSpec.describe(SubjectWindow) do
       end.to change { window.subjects.length }.by(1)
     end
   end
-  context 'on delete' do
+
+  context 'with on delete' do
     let(:window) do
       described_class.new
     end
@@ -71,7 +72,8 @@ RSpec.describe(SubjectWindow) do
       expect(window.subjects[1]).to eq item4
     end
   end
-  context 'on load' do
+
+  context 'with on load' do
     let(:window) do
       described_class.new
     end
@@ -98,7 +100,8 @@ RSpec.describe(SubjectWindow) do
       expect(window.subjects[0].credits).to eq '5'
     end
   end
-  context 'saved to file' do
+
+  context 'with saved to file' do
     let(:window) do
       described_class.new
     end
@@ -140,7 +143,8 @@ RSpec.describe(SubjectWindow) do
       expect(window.subjects[1].teacher).to eq 'Plikusas Nesakysiu'
     end
   end
-  context 'on print' do
+
+  context 'with on print' do
     let(:window) do
       described_class.new
     end
@@ -179,7 +183,8 @@ RSpec.describe(SubjectWindow) do
       end.to output(str).to_stdout
     end
   end
-  context 'subject exists' do
+
+  context 'with subject exists' do
     let(:window) do
       described_class.new
     end

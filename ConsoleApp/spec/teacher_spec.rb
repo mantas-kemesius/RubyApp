@@ -23,28 +23,35 @@ describe Teacher do
       regex = /[t]\d{7}$/
       expect(!teacher.username[regex].nil?).to eq true
     end
-    context 'on change' do
+    context 'with on change' do
       let(:teacher) do
         described_class.new('t1610179', 'VU', 'mif')
       end
 
       it 'username changed correctly' do
         expect { teacher.change_username('t1610180') }
-          .to change { teacher.username }
+          .to change do
+            teacher.username
+          end
           .from('t1610179').to('t1610180')
       end
       it 'university changed correctly' do
         expect { teacher.change_university('VGTU') }
-          .to change { teacher.university }
+          .to change do
+            teacher.university
+          end
           .from('VU').to('VGTU')
       end
       it 'faculty changed correctly' do
         expect { teacher.change_faculty('vf') }
-          .to change { teacher.faculty }
+          .to change do
+            teacher.faculty
+          end
           .from('mif').to('vf')
       end
     end
-    context 'teacher printed' do
+
+    context 'with teacher printed' do
       let(:teacher) do
         described_class.new('t1610179', 'VU', 'mif')
       end

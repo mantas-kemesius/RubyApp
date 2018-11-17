@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(Notification) do
-  context 'object created' do
+  context 'with object created' do
     let(:note) do
       described_class.new('2018-28-10', 'First', 'Hello', 'Admin')
     end

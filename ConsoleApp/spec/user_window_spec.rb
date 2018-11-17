@@ -173,25 +173,25 @@ describe UserWindow do
 
     let(:item1) do
       User.new(
-          'username' => 'arnasrad',
-          'password' => 'slapta',
-          'name' => 'Arnas',
-          'last_name' => 'Radzevicius',
-          'role_id' => 0,
-          'email' => 'arnasrad@gmail.com',
-          'phone' => '860000000'
+        'username' => 'arnasrad',
+        'password' => 'slapta',
+        'name' => 'Arnas',
+        'last_name' => 'Radzevicius',
+        'role_id' => 0,
+        'email' => 'arnasrad@gmail.com',
+        'phone' => '860000000'
       )
     end
 
     let(:item2) do
       User.new(
-          'username' => 'TomasMacikas',
-          'password' => 'slaptazodis',
-          'name' => 'Tomas',
-          'last_name' => 'Macikas',
-          'role_id' => 1,
-          'email' => 'macikastomas@gmail.com',
-          'phone' => '+37062274996'
+        'username' => 'TomasMacikas',
+        'password' => 'slaptazodis',
+        'name' => 'Tomas',
+        'last_name' => 'Macikas',
+        'role_id' => 1,
+        'email' => 'macikastomas@gmail.com',
+        'phone' => '+37062274996'
       )
     end
 
@@ -290,32 +290,31 @@ describe UserWindow do
   end
 
   context 'when checking if username is used' do
-
     let(:window) do
       described_class.new('fakeDatabase/testFiles/Users_search.json')
     end
 
     let(:user1) do
       User.new(
-          'username' => 'arnasrad',
-          'password' => 'slapta',
-          'name' => 'Arnas',
-          'last_name' => 'Radzevicius',
-          'role_id' => 0,
-          'email' => 'arnasrad@gmail.com',
-          'phone' => '860000000'
+        'username' => 'arnasrad',
+        'password' => 'slapta',
+        'name' => 'Arnas',
+        'last_name' => 'Radzevicius',
+        'role_id' => 0,
+        'email' => 'arnasrad@gmail.com',
+        'phone' => '860000000'
       )
     end
 
     let(:user2) do
       User.new(
-          'username' => 'TomasMacikas',
-          'password' => 'slaptazodis',
-          'name' => 'Tomas',
-          'last_name' => 'Macikas',
-          'role_id' => 1,
-          'email' => 'macikastomas@gmail.com',
-          'phone' => '+37062274996'
+        'username' => 'TomasMacikas',
+        'password' => 'slaptazodis',
+        'name' => 'Tomas',
+        'last_name' => 'Macikas',
+        'role_id' => 1,
+        'email' => 'macikastomas@gmail.com',
+        'phone' => '+37062274996'
       )
     end
 
@@ -348,32 +347,31 @@ describe UserWindow do
   end
 
   context 'when checking if email is used' do
-
     let(:window) do
       described_class.new('fakeDatabase/testFiles/Users_search.json')
     end
 
     let(:user1) do
       User.new(
-          'username' => 'arnasrad',
-          'password' => 'slapta',
-          'name' => 'Arnas',
-          'last_name' => 'Radzevicius',
-          'role_id' => 0,
-          'email' => 'arnasrad@gmail.com',
-          'phone' => '860000000'
+        'username' => 'arnasrad',
+        'password' => 'slapta',
+        'name' => 'Arnas',
+        'last_name' => 'Radzevicius',
+        'role_id' => 0,
+        'email' => 'arnasrad@gmail.com',
+        'phone' => '860000000'
       )
     end
 
     let(:user2) do
       User.new(
-          'username' => 'TomasMacikas',
-          'password' => 'slaptazodis',
-          'name' => 'Tomas',
-          'last_name' => 'Macikas',
-          'role_id' => 1,
-          'email' => 'macikastomas@gmail.com',
-          'phone' => '+37062274996'
+        'username' => 'TomasMacikas',
+        'password' => 'slaptazodis',
+        'name' => 'Tomas',
+        'last_name' => 'Macikas',
+        'role_id' => 1,
+        'email' => 'macikastomas@gmail.com',
+        'phone' => '+37062274996'
       )
     end
 
@@ -412,13 +410,13 @@ describe UserWindow do
 
     let(:user) do
       User.new(
-          'username' => 'arnasrad',
-          'password' => 'slapta',
-          'name' => 'Arnas',
-          'last_name' => 'Radzevicius',
-          'role_id' => 0,
-          'email' => 'arnasrad@gmail.com',
-          'phone' => '860000000'
+        'username' => 'arnasrad',
+        'password' => 'slapta',
+        'name' => 'Arnas',
+        'last_name' => 'Radzevicius',
+        'role_id' => 0,
+        'email' => 'arnasrad@gmail.com',
+        'phone' => '860000000'
       )
     end
 

@@ -28,11 +28,11 @@ class Email < EmailInfo
 
   def return_email
     {
-      'date' => date,
-      'email_to' => email_to,
-      'email_from' => email_from,
-      'title' => title,
-      'text' => text
+      date: date,
+      email_to: email_to,
+      email_from: email_from,
+      title: title,
+      text: text
     }
   end
 
