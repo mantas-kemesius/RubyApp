@@ -28,18 +28,18 @@ class Email < EmailInfo
 
   def return_email
     {
-      'date' => @date,
-      'email_to' => @email_to,
-      'email_from' => @email_from,
-      'title' => @title,
+      'date' => date,
+      'email_to' => email_to,
+      'email_from' => email_from,
+      'title' => title,
       'text' => text
     }
   end
 
   def print_email
-    string_email = "\n\n------------------\n\nFROM: " + @email_from +
-                   "\nTO: " + @email_to + "\nDATE: " + @date +
-                   "\nTITLE: " + @title + "\n\n" + text + "\n"
+    string_email = "\n\n------------------\n\nFROM: " + email_from +
+                   "\nTO: " + email_to + "\nDATE: " + date +
+                   "\nTITLE: " + title + "\n\n" + text + "\n"
     print string_email
   end
 
