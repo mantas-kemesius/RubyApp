@@ -69,6 +69,36 @@
       "role": "ROLE_STUDENT",
       "email": "t2@gmail.com",
       "phone": "23432-4234"
+    },
+    {
+      "username": "t3",
+      "password": "t3",
+      "name": "testas",
+      "last_name": "treciasis",
+      "role_id": 1,
+      "role": "ROLE_LECTURER",
+      "email": "t3@gmail.com",
+      "phone": "32524-345"
+    },
+    {
+      "username": "t4",
+      "password": "t4",
+      "name": "testas",
+      "last_name": "ketvirtasis",
+      "role_id": 1,
+      "role": "ROLE_LECTURER",
+      "email": "t4@gmail.com",
+      "phone": "45534-53453"
+    },
+    {
+      "username": "t5",
+      "password": "t5",
+      "name": "testas",
+      "last_name": "penktasis",
+      "role_id": 0,
+      "role": "ROLE_STUDENT",
+      "email": "t5@gmail.com",
+      "phone": "2452-243"
     }
   ]
 }

@@ -116,4 +116,32 @@ describe StudentWindow do
       expect(item.students[1].subjects).to eq ['Matematika']
     end
   end
+
+  context 'when searching for student by username' do
+    let(:path_to_db) { 'fakeDatabase/testFiles/Students_load.json' }
+    let(:file) { FilesHandler.new(path_to_db) }
+    let(:item) do
+      described_class.new
+    end
+    let(:load) do
+      item.load_students(
+        'fakeDatabase/testFiles/Students_load.json'
+      )
+    end
+    let(:student) do
+      Student.new('s123', 10, 'Informatika', %w[Ruby Matematika])
+    end
+
+    it 'search is successful' do
+      load
+      found_student = item.student_by_username('s123')
+      expect(found_student.s_id).to eq student.s_id
+    end
+
+    it 'search is unsuccessful' do
+      load
+      found_student = item.student_by_username('s184923')
+      expect(found_student).to eq nil
+    end
+  end
 end

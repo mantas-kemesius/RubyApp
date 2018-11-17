@@ -404,4 +404,38 @@ describe UserWindow do
       expect(window.email_used?(2)).to eq false
     end
   end
+
+  context 'when searching for teacher by username' do
+    let(:window) do
+      described_class.new('fakeDatabase/testFiles/Users_load.json')
+    end
+
+    let(:user) do
+      User.new(
+          'username' => 'arnasrad',
+          'password' => 'slapta',
+          'name' => 'Arnas',
+          'last_name' => 'Radzevicius',
+          'role_id' => 0,
+          'email' => 'arnasrad@gmail.com',
+          'phone' => '860000000'
+      )
+    end
+
+    let(:load) do
+      window.load_users
+    end
+
+    it 'search is successful' do
+      load
+      found_user = window.user_by_username('arnasrad')
+      expect(found_user.username).to eq user.username
+    end
+
+    it 'search is unsuccessful' do
+      load
+      found_user = window.user_by_username('s184923')
+      expect(found_user).to eq nil
+    end
+  end
 end

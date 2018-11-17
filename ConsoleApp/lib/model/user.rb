@@ -46,10 +46,5 @@ class User < UserInfo
 
   def self.role_string(role_id)
     ROLE.at(role_id)
-    # if role_id.zero?
-    #   'ROLE_STUDENT'
-    # elsif role_id == 1
-    #   'ROLE_TEACHER'
-    # end
   end
 end

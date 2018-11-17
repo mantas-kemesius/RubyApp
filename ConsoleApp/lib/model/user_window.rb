@@ -11,6 +11,13 @@ class UserWindow
     @files_handler = FilesHandler.new(file_path)
   end
 
+  def user_by_username(username)
+    users.each_with_index do |item, index|
+      return users.fetch(index) if item.username.eql?(username)
+    end
+    nil
+  end
+
   def user_exists?(username)
     users.each do |item|
       return true if item.username.eql?(username)

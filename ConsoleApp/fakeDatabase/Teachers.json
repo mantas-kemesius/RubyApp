@@ -14,6 +14,16 @@
       "username": "t1",
       "university": "VGTU",
       "faculty": "MF"
+    },
+    {
+      "username": "t3",
+      "university": "VU",
+      "faculty": "MIF"
+    },
+    {
+      "username": "t4",
+      "university": "VU",
+      "faculty": "MIF"
     }
   ]
 }
