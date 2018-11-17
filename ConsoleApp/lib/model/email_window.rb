@@ -70,3 +70,4 @@ class EmailWindow
       add_email_by_hash(email)
     end
   end
+end
