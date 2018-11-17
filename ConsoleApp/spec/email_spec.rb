@@ -76,15 +76,15 @@ RSpec.describe(Email) do
 
     let(:temp_email_hash) do
       {
-        'date' => '2018-11-13',
-        'email_to' => 'jonas.jonaitis@gmail.com',
-        'email_from' => 'petras.jonaitis@gmail.com',
-        'title' => 'Test title',
-        'text' => 'Test text'
+        date: '2018-11-13',
+        email_to: 'jonas.jonaitis@gmail.com',
+        email_from: 'petras.jonaitis@gmail.com',
+        title: 'Test title',
+        text: 'Test text'
       }
     end
 
-    it 'hash returned successfully' do
+    it 'hash date returned successfully' do
       expect(email.return_email).to eq temp_email_hash
     end
 
