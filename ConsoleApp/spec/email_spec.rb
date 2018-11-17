@@ -84,19 +84,15 @@ RSpec.describe(Email) do
       }
     end
 
-    describe '#return_email' do
-      it 'hash returned successfully' do
-        expect(email.return_email).to eq temp_email_hash
-      end
+    it 'hash returned successfully' do
+      expect(email.return_email).to eq temp_email_hash
     end
 
-    describe '#print_email' do
-      it 'printed successfully' do
-        string_email = "\n\n------------------\n\nFROM: " + email.email_from +
-                       "\nTO: " + email.email_to + "\nDATE: " + email.date +
-                       "\nTITLE: " + email.title + "\n\n" + email.text + "\n"
-        expect { email.print_email }.to output(string_email).to_stdout
-      end
+    it 'printed successfully' do
+      string_email = "\n\n------------------\n\nFROM: " + email.email_from +
+                     "\nTO: " + email.email_to + "\nDATE: " + email.date +
+                     "\nTITLE: " + email.title + "\n\n" + email.text + "\n"
+      expect { email.print_email }.to output(string_email).to_stdout
     end
 
     it 'field email_to changed successfully' do

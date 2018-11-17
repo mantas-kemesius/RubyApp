@@ -64,6 +64,7 @@ class EmailWindow
 
   # :reek:FeatureEnvy
   def load_emails
+    @emails = []
     data = @files_handler.load_data
     data.each do |email|
       add_email_by_hash(email)

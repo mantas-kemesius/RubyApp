@@ -1,9 +1,12 @@
 require 'spec_helper'
+require_relative '../lib/helpers/files_handler'
+require_relative '../lib/model/email_window'
+require_relative '../lib/model/email'
 
 RSpec.describe(EmailWindow) do
   context 'when email is added by object' do
     let(:window) do
-      described_class.new('../fakeDatabase/Emails.json')
+      described_class.new('fakeDatabase/testFiles/Emails_add.json')
     end
 
     let(:email_obj) do
@@ -39,7 +42,7 @@ RSpec.describe(EmailWindow) do
 
   context 'when email is added by hash' do
     let(:window) do
-      described_class.new('../fakeDatabase/Emails.json')
+      described_class.new('fakeDatabase/testFiles/Emails_add.json')
     end
 
     let(:email_hash) do
@@ -75,7 +78,7 @@ RSpec.describe(EmailWindow) do
 
   context 'with delete' do
     let(:window) do
-      described_class.new('../fakeDatabase/Emails.json')
+      described_class.new('fakeDatabase/testFiles/Emails_add.json')
     end
 
     let(:item) do
@@ -83,24 +86,6 @@ RSpec.describe(EmailWindow) do
         'date' => '2018-11-11',
         'email_to' => 'jonas.jonaitis@gmail.com',
         'email_from' => 'petras.jonaitis@gmail.com',
-        'title' => 'Test title',
-        'text' => 'Test text'
-      )
-    end
-    let(:item2) do
-      Email.new(
-        'date' => '2018-11-12',
-        'email_to' => 'petras.jonaitis@gmail.com',
-        'email_from' => 'jonas.jonaitis@gmail.com',
-        'title' => 'Test title',
-        'text' => 'Test text'
-      )
-    end
-    let(:item3) do
-      Email.new(
-        'date' => '2018-11-13',
-        'email_to' => 'jonas.petraitis@gmail.com',
-        'email_from' => 'petras.petraitis@gmail.com',
         'title' => 'Test title',
         'text' => 'Test text'
       )
@@ -111,144 +96,155 @@ RSpec.describe(EmailWindow) do
       window.delete_email(0)
       expect(window.emails[0]).to eq nil
     end
-    it 'delete all' do
-      window.add_email_by_obj(item)
-      window.add_email_by_obj(item2)
-      window.delete_all
-      expect(window.emails[0]).to eq nil
-    end
   end
 
-  context 'with load' do
+  context 'when emails loaded' do
     let(:window) do
-      described_class.new('../fakeDatabase/Emails.json')
+      described_class.new('fakeDatabase/testFiles/Emails_load.json')
     end
 
     let(:load) do
       window.load_emails
     end
 
-    let(:item) do
+    let(:item1) do
       Email.new(
         'date' => '2018-11-11',
-        'email_to' => 'jonas.jonaitis@gmail.com',
-        'email_from' => 'petras.jonaitis@gmail.com',
+        'email_to' => 'petras.jonaitis@gmail.com',
+        'email_from' => 'jonas.jonaitis@gmail.com',
         'title' => 'Test title',
         'text' => 'Test text'
       )
     end
 
-    it 'second item username correct' do
-      load
-      expect(window.emails[1].email_to).to eq 's112'
+    let(:item2) do
+      Email.new(
+        'date' => '2018-11-11',
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title2',
+        'text' => 'Test text2'
+      )
     end
-    it 'second item university correct' do
+
+    it 'first item has correct date' do
       load
-      expect(window.emails[1].email_from).to eq 'e@gmail'
+      expect(window.emails[0].date).to eq item1.date
     end
-    it 'second item faculty correct' do
+    it 'first item has correct email_to' do
       load
-      expect(window.emails[1].title).to eq 'newTitl'
+      expect(window.emails[0].email_to).to eq item1.email_to
     end
-    it 'delete before load' do
-      window.add_email(item)
+    it 'first item has correct email_from' do
       load
-      expect(window.emails[0].text).to eq 'text'
+      expect(window.emails[0].email_from).to eq item1.email_from
+    end
+    it 'first item has correct title' do
+      load
+      expect(window.emails[0].title).to eq item1.title
+    end
+    it 'first item has correct text' do
+      load
+      expect(window.emails[0].text).to eq item1.text
+    end
+    it 'second item has correct date' do
+      load
+      expect(window.emails[1].date).to eq item2.date
+    end
+    it 'second item has correct email_to' do
+      load
+      expect(window.emails[1].email_to).to eq item2.email_to
+    end
+    it 'second item has correct email_from' do
+      load
+      expect(window.emails[1].email_from).to eq item2.email_from
+    end
+    it 'second item has correct title' do
+      load
+      expect(window.emails[1].title).to eq item2.title
+    end
+    it 'second item has correct text' do
+      load
+      expect(window.emails[1].text).to eq item2.text
+    end
+    it 'EmailWindow object email array is cleared before loading' do
+      window.add_email_by_obj(item1)
+      load
+      expect(window.emails.size).to eq 2
     end
   end
 
-  context 'when to file' do
+  context 'when saving emails to file' do
     let(:window) do
-      described_class.new('../fakeDatabase/testFiles/Emails_save.json')
+      described_class.new('fakeDatabase/testFiles/Emails_save.json')
     end
 
-    let(:path_to_db) { 'fakeDatabase/testFiles/Emails_save.json' }
-    let(:item) do
-      Email.new('t1610179', 'Vilniaus universitetas', 'mif', 'ka')
+    let(:item1) do
+      Email.new(
+        'date' => '2018-11-11',
+        'email_to' => 'petras.jonaitis@gmail.com',
+        'email_from' => 'jonas.jonaitis@gmail.com',
+        'title' => 'Test title',
+        'text' => 'Test text'
+      )
     end
+
     let(:item2) do
-      Email.new('t1610180', 'Vu', 'mif', 'ka')
+      Email.new(
+        'date' => '2018-11-11',
+        'email_to' => 'jonas.jonaitis@gmail.com',
+        'email_from' => 'petras.jonaitis@gmail.com',
+        'title' => 'Test title2',
+        'text' => 'Test text2'
+      )
     end
+
     let(:add) do
-      window.add_email(item)
-      window.add_email(item2)
-      window.save_emails(
-        'fakeDatabase/testFiles/Emails_save.json'
-      )
-      window.delete_email(0)
-      window.delete_email(0)
-      window.load_emails(
-        'fakeDatabase/testFiles/Emails_save.json'
-      )
+      window.add_email_by_obj(item1)
+      window.add_email_by_obj(item2)
+      window.save_emails
+      window.load_emails
     end
 
-    it 'username correct' do
-      item2.change_email_to('t1610197')
+    it 'first item date is correct' do
       add
-      expect(window.emails[1].email_to).to eq 't1610197'
+      expect(window.emails[0].date).to eq item1.date
     end
-    it 'university correct' do
-      item2.change_email_from('VGTU')
+    it 'first item email_to is correct' do
       add
-      expect(window.emails[1].email_from).to eq 'VGTU'
+      expect(window.emails[0].email_to).to eq item1.email_to
     end
-    it 'title correct' do
-      item2.change_title('vf')
+    it 'first item email_from is correct' do
       add
-      expect(window.emails[1].title).to eq 'vf'
+      expect(window.emails[0].email_from).to eq item1.email_from
     end
-    it 'text correct' do
-      item2.change_title('vf')
+    it 'first item email_title is correct' do
       add
-      expect(window.emails[1].text).to eq 'ka'
+      expect(window.emails[0].title).to eq item1.title
     end
-  end
-
-  context 'when append' do
-    let(:window) do
-      described_class.new('../fakeDatabase/Emails.json')
+    it 'first item email_text is correct' do
+      add
+      expect(window.emails[0].text).to eq item1.text
     end
-
-    let(:item) do
-      Email.new('t1610179', 'Vilniaus universitetas', 'mif', 'ka')
+    it 'second item date is correct' do
+      add
+      expect(window.emails[1].date).to eq item2.date
     end
-    let(:item2) do
-      Email.new('t1610180', 'Vilniaus universitetas', 'mif', 'ka')
+    it 'second item email_to is correct' do
+      add
+      expect(window.emails[1].email_to).to eq item2.email_to
     end
-
-    let(:save_item) do
-      window.add_email(item)
-      window.save_emails(
-        'fakeDatabase/testFiles/Emails_append.json'
-      )
-      window.delete_email(0)
+    it 'second item email_from is correct' do
+      add
+      expect(window.emails[1].email_from).to eq item2.email_from
     end
-    let(:load) do
-      window.load_emails(
-        'fakeDatabase/testFiles/Emails_append.json'
-      )
+    it 'second item email_title is correct' do
+      add
+      expect(window.emails[1].title).to eq item2.title
     end
-    let(:append) do
-      window.append_email(item2,
-                          'fakeDatabase/testFiles/Emails_append.json')
-    end
-
-    it 'appended new item' do
-      save_item
-      append
-      load
-      expect(window.emails[1].email_to).to eq 't1610180'
-    end
-    it 'appended changed value' do
-      item2.change_email_from('t1610181')
-      save_item
-      append
-      load
-      expect(window.emails[1].email_to).to eq 't1610180'
-    end
-    it 'without adding' do
-      save_item
-      expect(window.emails[1]).to eq nil
+    it 'second item email_text is correct' do
+      add
+      expect(window.emails[1].text).to eq item2.text
     end
   end
 end
