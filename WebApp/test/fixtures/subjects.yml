@@ -1,13 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  time: 2018-11-12
-  student: one
-  teacher: one
+Algebra:
+  name: Algebra
+  description: Algebros pagrindai
+  teacher: Antanas Antanaitis
 
-two:
-  name: MyString
-  time: 2018-11-12
-  student: two
-  teacher: two
+Tinklai:
+  name: Kompiuteriu tinklai
+  description: Tinklu modeliavimas
+  teacher: Pranas Pranaitis
+

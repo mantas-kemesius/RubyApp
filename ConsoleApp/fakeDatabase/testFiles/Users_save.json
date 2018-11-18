@@ -1,18 +1,5 @@
 {
   "Users": [
-    {
-      "name": "Tomas",
-      "last_name": "pavard",
-      "role": "user",
-      "email": "em@mail",
-      "phone": "866"
-    },
-    {
-      "name": "Jonas",
-      "last_name": "pavard",
-      "role": "user",
-      "email": "em@mail",
-      "phone": "855"
-    }
+
   ]
 }

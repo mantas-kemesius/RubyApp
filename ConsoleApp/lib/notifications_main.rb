@@ -1,4 +1,4 @@
-require_relative '../lib/model/notification_window'
+require_relative '../../ConsoleApp/lib/model/notification_window'
 
 require 'date'
 require 'io/console'

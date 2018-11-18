@@ -54,6 +54,12 @@ describe StudentWindow do
       item.delete_student(0)
       expect(item.students[0]).to eq nil
     end
+    it 'delete all' do
+      item.add_student(student)
+      item.add_student(student)
+      item.delete_all
+      expect(item.students[0]).to eq nil
+    end
     it 'add with current s_id' do
       item.add_student(student)
       expect(item.students[
@@ -73,6 +79,12 @@ describe StudentWindow do
       item.add_student(student)
       expect(item.students[
                  item.students.length - 1].subjects).to eq %w[Ruby Matematika]
+    end
+    it 'load deletes_all' do
+      item.add_student(student)
+      item.add_student(student)
+      load
+      expect(item.students.length).to eq 1
     end
     it 'first item s_id correct' do
       load
@@ -114,6 +126,81 @@ describe StudentWindow do
       student.remove_subjects('Ruby')
       add
       expect(item.students[1].subjects).to eq ['Matematika']
+    end
+  end
+
+  context 'when searching for student by username' do
+    let(:path_to_db) { 'fakeDatabase/testFiles/Students_load.json' }
+    let(:file) { FilesHandler.new(path_to_db) }
+    let(:item) do
+      described_class.new
+    end
+    let(:load) do
+      item.load_students(
+        'fakeDatabase/testFiles/Students_load.json'
+      )
+    end
+    let(:student) do
+      Student.new('s123', 10, 'Informatika', %w[Ruby Matematika])
+    end
+
+    it 'search is successful' do
+      load
+      found_student = item.student_by_username('s123')
+      expect(found_student.s_id).to eq student.s_id
+    end
+
+    it 'search is unsuccessful' do
+      load
+      found_student = item.student_by_username('s184923')
+      expect(found_student).to eq nil
+    end
+  end
+
+  context 'when append' do
+    let(:window) do
+      described_class.new
+    end
+    let(:item) do
+      Student.new('s123', 1, 'Informatika', %w[Ruby Matematika])
+    end
+    let(:item2) do
+      Student.new('s124', 12, 'PS', %w[Ruby Matematika])
+    end
+
+    let(:save_item) do
+      window.add_student(item)
+      window.save_students(
+        'fakeDatabase/testFiles/Students_append.json'
+      )
+      window.delete_student(0)
+    end
+    let(:load) do
+      window.load_students(
+        'fakeDatabase/testFiles/Students_append.json'
+      )
+    end
+    let(:append) do
+      window.append_student(item2,
+                            'fakeDatabase/testFiles/Students_append.json')
+    end
+
+    it 'appended new item' do
+      save_item
+      append
+      load
+      expect(window.students[1].s_id).to eq 's124'
+    end
+    it 'appended changed value' do
+      item2.change_sid('s125')
+      save_item
+      append
+      load
+      expect(window.students[1].s_id).to eq 's125'
+    end
+    it 'without adding' do
+      save_item
+      expect(window.students[1]).to eq nil
     end
   end
 end

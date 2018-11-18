@@ -1,9 +1,15 @@
-require_relative '../lib/model/subject_window'
-require_relative '../lib/model/user'
-require_relative '../lib/model/student'
+require_relative '../../ConsoleApp/lib/model/subject_window'
+require_relative '../../ConsoleApp/lib/model/user.rb'
+require_relative '../../ConsoleApp/lib/model/user_window.rb'
+require_relative '../../ConsoleApp/lib/model/student'
 require 'io/console'
 
-@active_user = User.new('Antanas', 'Smetona', 1, 'Antanas.Smetona@smetona.lt', '+37011122333')
+@active_user = User.new(
+    {
+        'username' => 'antaniux', 'password' => 'smetancikas',
+        'name' => 'Antanas', 'last_name' => 'Smetona',
+        'role_id' => 1, 'email' => 'Antanas.Smetona@smetona.lt',
+        'phone' => '+37011122333'})
 @active_student = Student.new('s123', 10, 'Info', 'Ruby')
 @active_role = 'ROLE_STUDENT'
 

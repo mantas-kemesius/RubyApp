@@ -9,6 +9,13 @@ class TeacherWindow
     @teachers = []
   end
 
+  def teacher_by_username(username)
+    teachers.each_with_index do |item, index|
+      return teachers.fetch(index) if item.username.eql?(username)
+    end
+    nil
+  end
+
   def add_teacher(teacher)
     teachers << teacher
   end
