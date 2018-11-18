@@ -1,16 +1,5 @@
 {
   "Notifications": [
-    {
-      "date": "2018-10-28",
-      "title": "myTitle",
-      "text": "myText",
-      "sender": "newSender"
-    },
-    {
-      "date": "2018-10-28",
-      "title": "myTitle",
-      "text": "myText",
-      "sender": "newSender"
-    }
+
   ]
 }
