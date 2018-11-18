@@ -8,5 +8,6 @@ class Student < ApplicationRecord
   validates :age, inclusion: 1...100, length: { minimum: 1, maximum: 3 }
   has_many :subjects
   has_many :mails
+  has_one :schedule
   has_many :teachers, through: :subjects
 end

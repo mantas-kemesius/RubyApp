@@ -1,5 +1,16 @@
 {
   "Emails": [
-
+    {
+      "email_to": "t1610179",
+      "email_from": "Vilniaus universitetas",
+      "title": "mif",
+      "text": "ka"
+    },
+    {
+      "email_to": "t1610180",
+      "email_from": "Vu",
+      "title": "vf",
+      "text": "ka"
+    }
   ]
 }
