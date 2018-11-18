@@ -113,6 +113,12 @@ describe User do
         .to change(user2, :email)
         .from('').to('petras@gmail.com')
     end
+
+    it ' user phone change was successful' do
+      expect { user2.change_phone('8685123') }
+        .to change(user2, :phone)
+        .from('').to('8685123')
+    end
   end
 
   context 'when getting user role string ' do
