@@ -25,7 +25,13 @@ RSpec.describe(NotificationWindow) do
       items << notification2
     end
 
-    it 'loaded successfully' do
+    it 'loaded items is same' do
+      add
+      load
+      expect(window.notifications == items).to be true
+    end
+    it 'load deletes existing items' do
+      window.add_notification(notification1)
       add
       load
       expect(window.notifications == items).to be true

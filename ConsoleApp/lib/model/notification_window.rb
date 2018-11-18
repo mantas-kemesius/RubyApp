@@ -21,6 +21,10 @@ class NotificationWindow
     notifications.delete_at(position)
   end
 
+  def delete_all
+    @notifications = []
+  end
+
   def print_notifications
     notifications.each(&:print_notification)
   end
@@ -34,12 +38,13 @@ class NotificationWindow
         'date' => notification.date, 'title' => notification.title,
         'text' => notification.text, 'sender' => notification.sender
       }
-      file.save_data('Notifications' => data)
     end
+    file.save_data('Notifications' => data)
   end
 
   # :reek:FeatureEnvy
   def load_notifications(path)
+    delete_all
     file = FilesHandler.new(path)
     info = file.load_data.fetch('Notifications')
     info.each do |notification|
