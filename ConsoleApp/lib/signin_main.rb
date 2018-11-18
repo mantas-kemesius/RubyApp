@@ -87,11 +87,10 @@ def teacher_sign_in(username, password, name, last_name, email, phone)
                            name, last_name,
                            1, email, phone))
   teachers = TeacherWindow.new
-  teachers.load_teachers(@teacher_dir_name)
-  teachers.add_teacher(Teacher.new(username, in_uni, in_faculty))
+  teacher = Teacher.new(username, in_uni, in_faculty)
+  teachers.append_teacher(teacher,@teacher_dir_name)
 
   users.save_users
-  teachers.save_teachers(@teacher_dir_name)
   puts 'Account has been created successfully'
   puts ''
 end
@@ -124,12 +123,11 @@ def student_sign_in(username, password, name, last_name, email, phone)
                            name, last_name,
                            0, email, phone))
   students = StudentWindow.new
-  students.load_students(@student_dir_name)
-  students.add_student(Student.new(username, in_group.to_i,
-                                   in_faculty, in_study_program))
+  student = Student.new(username, in_group.to_i,
+                        in_faculty, in_study_program)
+  students.append_student(student,@student_dir_name)
 
   users.save_users
-  students.save_students(@student_dir_name)
   puts 'Account has been created successfully'
   puts ''
 end
