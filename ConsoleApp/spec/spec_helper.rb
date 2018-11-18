@@ -32,6 +32,7 @@ require_relative 'custom matchers/be_unique_subject'
 require_relative 'custom matchers/be_registered_user'
 require_relative 'custom matchers/be_correct_notification'
 require_relative 'custom matchers/user_values_changed'
+require_relative 'custom matchers/be_identical_to_file'
 
 require 'simplecov'
 SimpleCov.start

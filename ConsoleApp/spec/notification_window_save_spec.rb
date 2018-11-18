@@ -25,8 +25,13 @@ RSpec.describe(NotificationWindow) do
 
     it 'files are same' do
       save
-      expect(FileUtils.compare_file(path_to_save, path_to_load)).to be true
+      expect(path_to_save).to be_identical_to_file(path_to_load)
       change_file
     end
+    # it 'files are same' do
+    #   save
+    #   expect(FileUtils.compare_file(path_to_save, path_to_load)).to be true
+    #   change_file
+    # end
   end
 end
