@@ -73,9 +73,9 @@ def teacher_login
 
     users = UserWindow.new(@user_dir_name)
     users.load_users
-    if valid_credentials?(users, in_uname, in_psw, 0)
+    if valid_credentials?(users, in_uname, in_psw, 1)
       @active_user = users.user_by_username(in_uname)
-
+      puts 'Labas'
       teachers = TeacherWindow.new
       teachers.load_teachers(@teacher_dir_name)
       @active_role = teachers.teacher_by_username(in_uname)
