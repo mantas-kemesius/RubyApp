@@ -1,5 +1,5 @@
 RSpec.configure do
-  RSpec::Matchers.define :be_correct_password do
+  RSpec::Matchers.define :be_valid_password do
     match do |password|
       actual_length = password.length
       length_min = 5

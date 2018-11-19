@@ -1,5 +1,5 @@
 RSpec.configure do
-  RSpec::Matchers.define :user_values_changed do |name, las, role, email, pho|
+  RSpec::Matchers.define :user_info_changed do |name, las, role, email, pho|
     match do |user|
       user.name.eql(name) &&
         user.last_name.eql(las) &&
