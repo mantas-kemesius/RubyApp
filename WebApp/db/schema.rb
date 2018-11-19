@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_222336) do
 
   create_table "subjects", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.date "time"
     t.integer "student_id"
     t.integer "teacher_id"
