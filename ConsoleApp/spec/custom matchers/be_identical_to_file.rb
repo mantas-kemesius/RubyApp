@@ -6,7 +6,7 @@ RSpec.configure do
       actual_file == expected_file
     end
     failure_message do
-      'File are not the same'
+      'Files are not the same'
     end
   end
 end

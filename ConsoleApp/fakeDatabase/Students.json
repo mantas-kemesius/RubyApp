@@ -29,6 +29,12 @@
       "group": 2,
       "study_program": "MIF",
       "subjects": "Informatics"
+    },
+    {
+      "s_id": "Pirmunas",
+      "group": 2,
+      "study_program": "Matematikos",
+      "subjects": "Programavimas"
     }
   ]
 }

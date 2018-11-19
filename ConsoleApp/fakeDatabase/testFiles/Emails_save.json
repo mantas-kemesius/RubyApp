@@ -1,30 +1,16 @@
-{
-  "Emails": [
-    {
-      "email_to": "t1610179",
-      "email_from": "Vilniaus universitetas",
-      "title": "mif",
-      "text": "ka"
-    },
-    {
-      "email_to": "t1610180",
-      "email_from": "Vu",
-      "title": "vf",
-      "text": "ka"
-    },
-    {
-      "date": "2018-11-11",
-      "email_to": "petras.jonaitis@gmail.com",
-      "email_from": "jonas.jonaitis@gmail.com",
-      "title": "Test title",
-      "text": "Test text"
-    },
-    {
-      "date": "2018-11-11",
-      "email_to": "jonas.jonaitis@gmail.com",
-      "email_from": "petras.jonaitis@gmail.com",
-      "title": "Test title2",
-      "text": "Test text2"
-    }
-  ]
-}
+[
+  {
+    "date": "2018-11-11",
+    "email_to": "petras.jonaitis@gmail.com",
+    "email_from": "jonas.jonaitis@gmail.com",
+    "title": "Test title",
+    "text": "Test text"
+  },
+  {
+    "date": "2018-11-11",
+    "email_to": "jonas.jonaitis@gmail.com",
+    "email_from": "petras.jonaitis@gmail.com",
+    "title": "Test title2",
+    "text": "Test text2"
+  }
+]

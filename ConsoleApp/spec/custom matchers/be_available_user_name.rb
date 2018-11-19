@@ -1,5 +1,5 @@
 RSpec.configure do
-  RSpec::Matchers.define :be_available_user do |users|
+  RSpec::Matchers.define :be_available_user_name do |users|
     match do |user_name|
       return true if users.user_exists?(user_name)
 

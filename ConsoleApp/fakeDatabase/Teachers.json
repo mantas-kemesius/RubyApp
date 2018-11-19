@@ -24,6 +24,16 @@
       "username": "t4",
       "university": "VU",
       "faculty": "MIF"
+    },
+    {
+      "username": "Geriausias",
+      "university": "VU",
+      "faculty": "MIF"
+    },
+    {
+      "username": "Gerasis",
+      "university": "VU",
+      "faculty": "MIF"
     }
   ]
 }

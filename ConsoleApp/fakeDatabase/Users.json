@@ -21,16 +21,6 @@
       "phone": "860000000"
     },
     {
-      "username": "TomasMacikas",
-      "password": "slaptazodis",
-      "name": "Tomas",
-      "last_name": "Macikas",
-      "role_id": 0,
-      "role": "ROLE_STUDENT",
-      "email": "macikastomas@gmail.com",
-      "phone": "+37062274996"
-    },
-    {
       "username": "Tomas",
       "password": "slapt",
       "name": "Tomas",
@@ -99,6 +89,36 @@
       "role": "ROLE_STUDENT",
       "email": "t5@gmail.com",
       "phone": "2452-243"
+    },
+    {
+      "username": "Pirmunas",
+      "password": "pirminis",
+      "name": "Pirmasis",
+      "last_name": "Zmogus",
+      "role_id": 0,
+      "role": "ROLE_STUDENT",
+      "email": "Pirmasis@zmogelis.lt",
+      "phone": "12345"
+    },
+    {
+      "username": "Geriausias",
+      "password": "Mokytojas",
+      "name": "Ponas",
+      "last_name": "Plikusas",
+      "role_id": 1,
+      "role": "ROLE_LECTURER",
+      "email": "Matanas@best.lt",
+      "phone": "99999999"
+    },
+    {
+      "username": "Gerasis",
+      "password": "irusas",
+      "name": "irus",
+      "last_name": "grinis",
+      "role_id": 1,
+      "role": "ROLE_LECTURER",
+      "email": "irus@grinis.eu",
+      "phone": "123456"
     }
   ]
 }
