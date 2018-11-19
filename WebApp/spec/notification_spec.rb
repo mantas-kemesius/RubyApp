@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
 RSpec.describe(Notification) do
-  context 'when object created' do
+  context 'object created' do
     let(:note) do
       described_class.new('2018-28-10', 'First', 'Hello', 'Admin')
     end

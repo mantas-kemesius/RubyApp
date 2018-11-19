@@ -1,25 +1,46 @@
 require_relative '../../lib/helpers/files_handler'
+require_relative 'email_info'
+
 # Email class implements email functionality
-class Email
-  attr_reader :email_to, :email_from, :title, :text
-  def initialize(email)
-    email_to_init = email.fetch('email_to')
-    email_from_init = email.fetch('email_from')
-    title_init = email.fetch('title')
-    text_init = email.fetch('text')
+class Email < EmailInfo
+  attr_reader :date, :email_to, :email_from, :title
+  def initialize(email_hash)
+    super(email_hash.fetch('text'))
+    title_init = email_hash.fetch('title')
+    date_init = email_hash.fetch('date')
+    email_to_init = email_hash.fetch('email_to')
+    email_from_init = email_hash.fetch('email_from')
+    @title = title_init if title_init.instance_of?(String)
+    @date = date_init if date_init.instance_of?(String)
     @email_to = email_to_init if email_to_init.instance_of?(String)
     @email_from = email_from_init if email_from_init.instance_of?(String)
-    @title = title_init if title_init.instance_of?(String)
-    @text = text_init if text_init.instance_of?(String)
   end
+
+  # def self.return_email_hash(date, email_to, email_from, title, text)
+  #   {
+  #     'date' => date,
+  #     'email_to' => email_to,
+  #     'email_from' => email_from,
+  #     'title' => title,
+  #     'text' => text
+  #   }
+  # end
 
   def return_email
     {
-      'email_to' => email_to,
-      'email_from' => email_from,
-      'title' => title,
-      'text' => text
+      date: date,
+      email_to: email_to,
+      email_from: email_from,
+      title: title,
+      text: text
     }
+  end
+
+  def print_email
+    string_email = "\n\n------------------\n\nFROM: " + email_from +
+                   "\nTO: " + email_to + "\nDATE: " + date +
+                   "\nTITLE: " + title + "\n\n" + text + "\n"
+    print string_email
   end
 
   def change_email_to(email_to_new)
@@ -28,13 +49,5 @@ class Email
 
   def change_email_from(email_from_new)
     @email_from = email_from_new if email_from_new.instance_of?(String)
-  end
-
-  def change_text(text_new)
-    @text = text_new if text_new.instance_of?(String)
-  end
-
-  def change_title(title_new)
-    @title = title_new if title_new.instance_of?(String)
   end
 end

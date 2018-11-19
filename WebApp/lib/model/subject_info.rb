@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Additional attributes of a Study Subject class
 class SubjectInfo
   attr_reader :credits, :teacher

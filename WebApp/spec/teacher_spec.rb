@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 describe Teacher do
   context 'when created' do
@@ -7,12 +5,12 @@ describe Teacher do
       described_class.new('t1610179', 'Vilniaus universitetas', 'mif')
     end
 
-    it 'ID set correct' do
-      expect(teacher.id).to eq 't1610179'
+    it 'username set correct' do
+      expect(teacher.username).to eq 't1610179'
     end
 
     it 'ID set correct start' do
-      expect(teacher.id).to start_with 't'
+      expect(teacher.username).to start_with 't'
     end
 
     it 'university set correct' do
@@ -21,17 +19,42 @@ describe Teacher do
     it 'faculty was set correct' do
       expect(teacher.faculty).to eq 'mif'
     end
-    it 'faculty set correct' do
-      expect(teacher.on_vacation).to eq false
-    end
-    it 'id number is correct format' do
+    it 'username number is correct format' do
       regex = /[t]\d{7}$/
-      expect(!teacher.id[regex].nil?).to eq true
+      expect(!teacher.username[regex].nil?).to eq true
     end
-    it 'teacher is on vacation' do
-      expect { teacher.goes_on_vacation(true) }
-        .to change(teacher, :on_vacation)
-        .from(false).to(true)
+    context 'on change' do
+      let(:teacher) do
+        described_class.new('t1610179', 'VU', 'mif')
+      end
+
+      it 'username changed correctly' do
+        expect { teacher.change_username('t1610180') }
+          .to change { teacher.username }
+          .from('t1610179').to('t1610180')
+      end
+      it 'university changed correctly' do
+        expect { teacher.change_university('VGTU') }
+          .to change { teacher.university }
+          .from('VU').to('VGTU')
+      end
+      it 'faculty changed correctly' do
+        expect { teacher.change_faculty('vf') }
+          .to change { teacher.faculty }
+          .from('mif').to('vf')
+      end
+    end
+    context 'teacher printed' do
+      let(:teacher) do
+        described_class.new('t1610179', 'VU', 'mif')
+      end
+
+      it 'prints one teacher' do
+        s = teacher.username + "\n" + teacher.university + "\n"
+        s += teacher.faculty + "\n"
+        s += '__________________________________________________' + "\n"
+        expect { teacher.print_teacher }.to output(s).to_stdout
+      end
     end
   end
 end

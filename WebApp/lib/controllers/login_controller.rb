@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative './../helpers/files_handler'
 
 # User Login controller

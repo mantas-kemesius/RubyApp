@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subjects: one
+  time: 2018-11-19 00:23:36
+  teacher: one
+  student: one
+
+two:
+  subjects: two
+  time: 2018-11-19 00:23:36
+  teacher: two
+  student: two

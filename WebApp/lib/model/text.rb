@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Text class for notifications
 class Text
   attr_reader :title, :text

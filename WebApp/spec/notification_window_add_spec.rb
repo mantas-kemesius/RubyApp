@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
 RSpec.describe(NotificationWindow) do
-  context 'when add item' do
+  context 'add item' do
     let(:item) do
       described_class.new
     end

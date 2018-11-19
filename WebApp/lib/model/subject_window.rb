@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'subject'
 require_relative '../../lib/helpers/files_handler'
 require 'pp'
@@ -59,11 +57,8 @@ class SubjectWindow
   # :reek:FeatureEnvy
   def print_subjects_by_student(student_subjects)
     # TODO: use student object, not string of subjects names
-    subjects_arr = student_subjects.split(', ')
-    subjects_arr.each do |subject_title|
-      subjects.each do |subject|
-        subject.print_subject if subject.title.eql?(subject_title)
-      end
+    subjects.each do |subject|
+      subject.print_subject if student_subjects.include?(subject.title)
     end
   end
 

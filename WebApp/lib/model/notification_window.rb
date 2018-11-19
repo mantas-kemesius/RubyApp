@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'notification'
 require_relative '../../lib/helpers/files_handler'
 

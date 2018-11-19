@@ -38,5 +38,15 @@
     "role_id": 1,
     "role": "ROLE_TEACHER",
     "phone": "+37062274996"
+  },
+  {
+    "username": "testas",
+    "password": "testas",
+    "name": "Labas",
+    "surname": "Vakaras",
+    "email": "Labas@one.lt",
+    "role_id": 0,
+    "role": "ROLE_STUDENT",
+    "phone": "123456"
   }
 ]

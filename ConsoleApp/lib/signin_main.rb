@@ -1,6 +1,9 @@
-require_relative '../lib/model/user'
-require_relative '../lib/model/teacher'
-require_relative '../lib/model/student'
+require_relative '../../ConsoleApp/lib/model/user'
+require_relative '../../ConsoleApp/lib/model/user_window'
+require_relative '../../ConsoleApp/lib/model/teacher'
+require_relative '../../ConsoleApp/lib/model/teacher_window'
+require_relative '../../ConsoleApp/lib/model/student'
+require_relative '../../ConsoleApp/lib/model/student_window'
 require_relative '../../ConsoleApp/lib/menu_main'
 require 'io/console'
 
@@ -36,9 +39,9 @@ def user_sign_in
   in_name = non_blank_input
   return if in_name == '0'
 
-  print 'Surname*: '
-  in_surname = non_blank_input
-  return if in_surname == '0'
+  print 'last_name*: '
+  in_last_name = non_blank_input
+  return if in_last_name == '0'
 
   print 'Email*: '
   in_email = non_blank_input
@@ -50,15 +53,15 @@ def user_sign_in
 
   role_input = role_option('New account role:')
   if role_input == '1'
-    teacher_sign_in(in_uname, in_psw, in_name, in_surname, in_email, in_phone)
+    teacher_sign_in(in_uname, in_psw, in_name, in_last_name, in_email, in_phone)
   elsif role_input == '2'
-    student_sign_in(in_uname, in_psw, in_name, in_surname, in_email, in_phone)
+    student_sign_in(in_uname, in_psw, in_name, in_last_name, in_email, in_phone)
   elsif role_input == '0'
     return
   end
 end
 
-def teacher_sign_in(username, password, name, surname, email, phone)
+def teacher_sign_in(username, password, name, last_name, email, phone)
   clear
   print 'University*: '
   in_uni = non_blank_input
@@ -68,27 +71,35 @@ def teacher_sign_in(username, password, name, surname, email, phone)
   in_faculty = gets.chomp
   return if in_faculty == '0'
 
-  if username_used?(@user_dir_name, username)
+  users = UserWindow.new(@user_dir_name)
+  users.load_users
+  if users.user_exists?(username)
     puts 'Username ' + username + ' already used'
     return
   end
 
-  if email_used?(email)
+  if users.email_used?(email)
     puts 'Email ' + email + ' already used'
     return
   end
 
-  append_user(username, password, name, surname, 1, email, phone)
-  append_teacher(username, in_uni, in_faculty)
+  users.add_user_by_hash(user_hash(username, password,
+                           name, last_name,
+                           1, email, phone))
+  teachers = TeacherWindow.new
+  teacher = Teacher.new(username, in_uni, in_faculty)
+  teachers.append_teacher(teacher,@teacher_dir_name)
+
+  users.save_users
   puts 'Account has been created successfully'
   puts ''
 end
 
-def student_sign_in(username, password, name, surname, email, phone)
+def student_sign_in(username, password, name, last_name, email, phone)
   clear
   print 'Group*: '
-  in_group = non_blank_input
-  return if in_group == '0'
+  in_group = integer_input
+  return if in_group == 0 || in_group == nil
   print 'Faculty*: '
   in_faculty = non_blank_input
   return if in_faculty == '0'
@@ -96,18 +107,27 @@ def student_sign_in(username, password, name, surname, email, phone)
   in_study_program = non_blank_input
   return if in_study_program == '0'
 
-  if username_used?(@user_dir_name, username)
+  users = UserWindow.new(@user_dir_name)
+  users.load_users
+  if users.user_exists?(username)
     puts 'Username ' + username + ' already used'
     return
   end
 
-  if email_used?(email)
+  if users.email_used?(email)
     puts 'Email ' + email + ' already used'
     return
   end
 
-  append_user(username, password, name, surname, 0, email, phone)
-  append_student(username, in_group, in_faculty, in_study_program)
+  users.add_user_by_hash(user_hash(username, password,
+                           name, last_name,
+                           0, email, phone))
+  students = StudentWindow.new
+  student = Student.new(username, in_group.to_i,
+                        in_faculty, in_study_program)
+  students.append_student(student,@student_dir_name)
+
+  users.save_users
   puts 'Account has been created successfully'
   puts ''
 end
@@ -118,71 +138,38 @@ def non_blank_input
     return input unless input.empty?
   end
 end
+#
+# def append_student(username, group, faculty, study_program)
+#   file = FilesHandler.new(@student_dir_name)
+#   data = file.load_data
+#   data[data.length] = {
+#       s_id: username,
+#       group: group.to_i,
+#       faculty: faculty,
+#       study_program: study_program,
+#       subjects: '',
+#       active: 0,
+#       mode: 0
+#   }
+#   file.save_data('Students' => data)
+# end
 
-def email_used?(email)
-  file = FilesHandler.new(@user_dir_name)
-  data = file.load_data
-  data.each do |item|
-    return true if email == item.fetch('email')
-  end
-  false
-end
-
-def username_used?(dir_name, username)
-  file = FilesHandler.new(dir_name)
-  data = file.load_data
-  data.each do |item|
-    return true if username == item.fetch('username')
-  end
-  false
-end
-
-def append_user(username, password, name, surname, role_id, email, phone)
-  file = FilesHandler.new(@user_dir_name)
-  data = file.load_data
-  data[data.length] = {
-      username: username,
-      password: password,
-      name: name,
-      surname: surname,
-      email: email,
-      role_id: role_id,
-      role: role_string(role_id),
-      phone: phone
+def user_hash(username, password, name, last_name, role_id, email, phone)
+  {
+      'username' => username,
+      'password' => password,
+      'name' => name,
+      'last_name' => last_name,
+      'role_id' => role_id,
+      'email' => email,
+      'phone' => phone
   }
-  file.save_data(data)
 end
 
-def append_teacher(username, university, faculty)
-  file = FilesHandler.new(@teacher_dir_name)
-  data = file.load_data
-  data[data.length] = {
-      username: username,
-      university: university,
-      faculty: faculty
-  }
-  file.save_data(data)
-end
-
-def append_student(username, group, faculty, study_program)
-  file = FilesHandler.new(@student_dir_name)
-  data = file.load_data
-  data[data.length] = {
-      s_id: username,
-      group: group,
-      faculty: faculty,
-      study_program: study_program,
-      subjects: '',
-      active: 0,
-      mode: 0
-  }
-  file.save_data(data)
-end
-
-def role_string(role_id)
-  if role_id.zero?
-    'ROLE_STUDENT'
-  elsif role_id == 1
-    'ROLE_TEACHER'
+def integer_input
+  user_num = Integer(gets) rescue false
+  if user_num
+    return user_num
+  else return nil
   end
 end

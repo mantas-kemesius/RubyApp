@@ -17,6 +17,23 @@ class StudentWindow
     students.delete_at(position)
   end
 
+  def student_by_username(username)
+    students.each_with_index do |item, index|
+      return students.fetch(index) if item.s_id.eql?(username)
+    end
+    nil
+  end
+
+  def append_student(student, path)
+    load_students(path)
+    add_student(student)
+    save_students(path)
+  end
+
+  def delete_all
+    @students = []
+  end
+
   # :reek:FeatureEnvy
 
   def save_students(path)
@@ -33,6 +50,7 @@ class StudentWindow
 
   # :reek:FeatureEnvy
   def load_students(path)
+    delete_all
     file = FilesHandler.new(path)
     info = file.load_data.fetch('Students')
     info.each do |student|

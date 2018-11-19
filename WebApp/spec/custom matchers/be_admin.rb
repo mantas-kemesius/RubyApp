@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.configure do
   RSpec::Matchers.define :be_admin do
     match do |admin|

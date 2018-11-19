@@ -1,0 +1,11 @@
+{
+  "s_id": 123,
+  "group": 10,
+  "faculty": "MIF",
+  "study_program": "Informatika",
+  "subjects": [
+    "Ruby",
+    "Matematika"
+  ],
+  "active": 1
+}

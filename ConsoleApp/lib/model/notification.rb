@@ -29,4 +29,9 @@ class Notification < Text
   def change_sender(sender)
     @sender = sender
   end
+
+  def ==(other)
+    ret_value = date.eql?(other.date) && title.eql?(other.title)
+    ret_value && text.eql?(other.text) && sender.eql?(other.sender)
+  end
 end

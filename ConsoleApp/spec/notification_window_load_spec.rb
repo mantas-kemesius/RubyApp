@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe(NotificationWindow) do
-  context 'saved to file' do
+  context 'when loaded from file' do
     let(:window) do
       described_class.new
     end
@@ -11,22 +11,30 @@ RSpec.describe(NotificationWindow) do
         'fakeDatabase/testFiles/Notifications_load.json'
       )
     end
+    let(:notification1) do
+      Notification.new('2018-10-28', 'myTitle', 'myText', 'Tomas')
+    end
+    let(:notification2) do
+      Notification.new('2018-10-29', 'TestTitle', 'TestText', 'Tadas')
+    end
+    let(:items) do
+      []
+    end
+    let(:add) do
+      items << notification1
+      items << notification2
+    end
 
-    it 'first item date correct' do
+    it 'loaded items is same' do
+      add
       load
-      expect(window.notifications[0].date).to eq '2018-10-28'
+      expect(window.notifications == items).to be true
     end
-    it 'first item title correct' do
+    it 'load deletes existing items' do
+      window.add_notification(notification1)
+      add
       load
-      expect(window.notifications[0].title).to eq 'myTitle'
-    end
-    it 'first item text correct' do
-      load
-      expect(window.notifications[0].text).to eq 'myText'
-    end
-    it 'first item sender correct' do
-      load
-      expect(window.notifications[0].sender).to eq 'John'
+      expect(window.notifications == items).to be true
     end
   end
 end
