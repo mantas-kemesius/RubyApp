@@ -4,6 +4,12 @@ Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context']
 AllCops:
   Exclude:
+    - 'lib/model/*'
+    - 'lib/helpers/*'
+    - 'lib/controllers/*'
+    - 'lib/*'
+    - 'specOld/*'
+    - 'specOld/customMatchers/*'
     - 'app/*'
     - 'test/*'
     - 'db/*'

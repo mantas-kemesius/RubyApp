@@ -6,3 +6,4 @@ exclude_paths:
 - lib/menu_main.rb
 - lib/notifications_main.rb
 - lib/signin_ma
+- lib
