@@ -16,16 +16,6 @@ class Email < EmailInfo
     @email_from = email_from_init if email_from_init.instance_of?(String)
   end
 
-  # def self.return_email_hash(date, email_to, email_from, title, text)
-  #   {
-  #     'date' => date,
-  #     'email_to' => email_to,
-  #     'email_from' => email_from,
-  #     'title' => title,
-  #     'text' => text
-  #   }
-  # end
-
   def return_email
     {
       date: date,
@@ -37,10 +27,7 @@ class Email < EmailInfo
   end
 
   def print_email
-    string_email = "\n\n------------------\n\nFROM: " + email_from +
-                   "\nTO: " + email_to + "\nDATE: " + date +
-                   "\nTITLE: " + title + "\n\n" + text + "\n"
-    print string_email
+    print email_header + email_content
   end
 
   def change_email_to(email_to_new)
@@ -49,5 +36,16 @@ class Email < EmailInfo
 
   def change_email_from(email_from_new)
     @email_from = email_from_new if email_from_new.instance_of?(String)
+  end
+
+  private
+
+  def email_header
+    "\n\n------------------\n\nFROM: " + email_from +
+      "\nTO: " + email_to + "\nDATE: " + date
+  end
+
+  def email_content
+    "\nTITLE: " + title + "\n\n" + text + "\n"
   end
 end

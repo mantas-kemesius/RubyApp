@@ -119,6 +119,16 @@
       "role": "ROLE_LECTURER",
       "email": "irus@grinis.eu",
       "phone": "123456"
+    },
+    {
+      "username": "t",
+      "password": "t6",
+      "name": "testas",
+      "last_name": "sestasis",
+      "role_id": 0,
+      "role": "ROLE_STUDENT",
+      "email": "t6@gmail.com",
+      "phone": "254234-23"
     }
   ]
 }

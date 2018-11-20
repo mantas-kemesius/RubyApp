@@ -24,14 +24,6 @@ class User < UserInfo
     }
   end
 
-  def change_name(new_name)
-    @name = new_name
-  end
-
-  def change_last_name(new_last_name)
-    @last_name = new_last_name
-  end
-
   def change_password(new_password)
     @password = new_password
   end
