@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+Tomas:
   name: Tomas
   last_name: MyString
   email: MyString
@@ -9,8 +9,8 @@ one:
   university: MyString
   bio: MyText
 
-two:
-  name: MyString
+Tadas:
+  name: Tadas
   last_name: MyString
   email: MyString
   password: MyString

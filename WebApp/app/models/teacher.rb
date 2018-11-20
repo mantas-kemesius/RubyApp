@@ -1,3 +1,5 @@
+require_relative 'application_record'
+
 class Teacher < ApplicationRecord
   validates_uniqueness_of :email, message: "your email should be unique"
   validates_length_of :name, maximum: 40, message: "name maximum length 40 characters"
@@ -9,5 +11,6 @@ class Teacher < ApplicationRecord
   has_one :schedules
   has_many :subjects
   has_many :mails
+  has_many :notifications
   has_many :students, through: :subjects
 end

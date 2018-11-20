@@ -1,7 +1,8 @@
 exclude_paths:
- - lib/main.rb
- - lib/main.rb
- - lib/model/subject_window.rb
- - test/application_system_test_case.rb
- - test/test_helper.rb
- - config/application.rb
+- lib/main.rb
+- lib/subjects_main.rb
+- lib/email_main.rb
+- lib/login_main.rb
+- lib/menu_main.rb
+- lib/notifications_main.rb
+- lib/signin_ma
