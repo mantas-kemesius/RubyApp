@@ -8,12 +8,3 @@ Tomas:
   age: 13
   university: Vu
   bio: MyText
-
-Tadas:
-  name: Tadas
-  last_name: MyString
-  email: MyString
-  password: MyString
-  age: 1
-  university: MyString
-  bio: MyText
