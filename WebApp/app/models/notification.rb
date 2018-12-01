@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Class for notifications
 class Notification < ApplicationRecord
   validates :title, presence: true
   validates :text, presence: true
@@ -8,8 +11,9 @@ class Notification < ApplicationRecord
     str += '____________________________________________________' + "\n"
     print str
   end
-  def change_title(newTitle)
-    @title = newTitle
-    self.save
+
+  def change_title(new_title)
+    @title = new_title
+    save
   end
 end

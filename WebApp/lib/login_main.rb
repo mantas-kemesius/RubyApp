@@ -1,4 +1,4 @@
-require_relative '../lib/model/user'
+rrequire_relative '../lib/model/user'
 require_relative '../lib/model/teacher'
 require_relative '../lib/model/student'
 require_relative '../../ConsoleApp/lib/menu_main'

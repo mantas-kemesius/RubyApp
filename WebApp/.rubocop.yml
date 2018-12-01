@@ -19,3 +19,6 @@ AllCops:
     - 'bin/*'
     - 'config/initializers/*'
     - 'Rakefile'
+    - 'db/migrate/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'

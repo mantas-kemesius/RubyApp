@@ -5,7 +5,8 @@ require_relative '../test_helper'
 class NotificationTest < ActiveSupport::TestCase
   def setup
     teacher = Teacher.create(name: 'Tom', last_name: 'Mac')
-    @notification = teacher.notifications.build(title: 'New Subjects', text: 'Added new subjects')
+    @notification = teacher.notifications.build(title: 'New Subjects',
+                                                text: 'Added new subjects')
   end
 
   test 'notification should be valid' do

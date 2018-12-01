@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 require 'active_record'
-# Base
+# ApplicationRecord class
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 end

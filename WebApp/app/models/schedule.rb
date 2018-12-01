@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Schedule
 class Schedule < ApplicationRecord
   belongs_to :subject
   belongs_to :teacher

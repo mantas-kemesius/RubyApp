@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require_relative 'rails_helper'
 
-RSpec.describe Notification, :type => :model do
+RSpec.describe Notification, type: :model do
   context 'when object created' do
-
     it 'have title and text attributes' do
       note = described_class.new(title: 'First', text: 'Hello')
       expect(note).to have_attributes(title: 'First', text: 'Hello')
@@ -23,6 +24,7 @@ RSpec.describe Notification, :type => :model do
       expect(note).not_to be_valid
     end
   end
+
   context 'when added to database' do
     let(:note) do
       described_class.new(title: 'First', text: 'Hello')
@@ -34,6 +36,7 @@ RSpec.describe Notification, :type => :model do
       notification = described_class.last
       notification.destroy
     end
+
     it 'title set correctly' do
       add
       notification = Notification.last
@@ -55,6 +58,7 @@ RSpec.describe Notification, :type => :model do
       expect { note.print_notification }.to output(s).to_stdout
     end
   end
+
   context 'when deleted from database' do
     let(:note) do
       described_class.new(title: 'First', text: 'Hello')

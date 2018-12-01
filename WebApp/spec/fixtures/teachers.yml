@@ -5,6 +5,14 @@ Tomas:
   last_name: Tomaitis
   email: tomas.tomaitis@gmail.com
   password: Tomaitis123
-  age: 13
+  age: 24
   university: Vu
   bio: MyText
+Antanas:
+  name: Antanas
+  last_name: Samuolaitis
+  email: samuolaitis@gmail.com
+  password: slaptazodisxd
+  age: 29
+  university: Vu
+  bio: Best Teacher 2k18
