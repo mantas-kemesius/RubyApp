@@ -1,4 +1,6 @@
 import React from 'react';
+import {Logo} from "./logo/Component.jsx";
+import { HeaderMenu } from "./headerMenu/Component.jsx";
 
 class Homepage extends React.Component {
 
@@ -10,7 +12,8 @@ class Homepage extends React.Component {
         return (
             <div>
                 <div className="home-header">
-                    header
+                    <Logo/>
+                    <HeaderMenu/>
                 </div>
                 <div className="home-body">
                     body

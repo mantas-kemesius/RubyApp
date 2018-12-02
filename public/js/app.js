@@ -16,6 +16,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Component = __webpack_require__(22);
+
+var _Component2 = __webpack_require__(23);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42,7 +46,8 @@ var Homepage = function (_React$Component) {
                 _react2.default.createElement(
                     "div",
                     { className: "home-header" },
-                    "header"
+                    _react2.default.createElement(_Component.Logo, null),
+                    _react2.default.createElement(_Component2.HeaderMenu, null)
                 ),
                 _react2.default.createElement(
                     "div",
@@ -57,6 +62,107 @@ var Homepage = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Homepage;
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Logo = undefined;
+
+var _react = __webpack_require__(1);
+
+var React = _interopRequireWildcard(_react);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var Logo = exports.Logo = function Logo() {
+    return React.createElement(
+        "div",
+        { className: "Logo" },
+        React.createElement(
+            "span",
+            { className: "Logo-title" },
+            "Uni",
+            React.createElement(
+                "span",
+                { className: "Logo-dot" },
+                "."
+            )
+        )
+    );
+};
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.HeaderMenu = undefined;
+
+var _react = __webpack_require__(1);
+
+var React = _interopRequireWildcard(_react);
+
+var _Component = __webpack_require__(24);
+
+var _Component2 = _interopRequireDefault(_Component);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var HeaderMenu = exports.HeaderMenu = function HeaderMenu() {
+    return React.createElement(
+        "div",
+        { className: "HeaderMenu" },
+        React.createElement(_Component2.default, { id: 1, name: "Prisijungti" }),
+        React.createElement(_Component2.default, { id: 2, name: "Registracija" })
+    );
+};
+
+/***/ }),
+
+/***/ 24:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(1);
+
+var React = _interopRequireWildcard(_react);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var MenuItem = function MenuItem(_ref) {
+    var id = _ref.id,
+        name = _ref.name;
+
+    return React.createElement(
+        'span',
+        { key: id },
+        name
+    );
+};
+
+exports.default = MenuItem;
 
 /***/ }),
 
@@ -121,7 +227,7 @@ var App = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'Homepage' },
+                null,
                 _react2.default.createElement(_Homepage2.default, null)
             );
         }

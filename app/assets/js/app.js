@@ -7,7 +7,7 @@ import Homepage from "./Components/Homepage.jsx";
 class App extends Component {
     render() {
         return (
-            <div className = "Homepage">
+            <div>
                 <Homepage/>
             </div>
         )
