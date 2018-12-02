@@ -9,6 +9,14 @@ class UserController < ApplicationController
     @user.email = params[:user]['email']
     @user.password = params[:user]['password']
     @user.age = params[:user]['age']
-    @user.save
+    if @user.save
+      render json: 'Success!'
+    else
+      render json: 'Failed!'
+    end
+  end
+
+  def login
+    render json: User.find_by(email: params[:user]['email'], password: params[:user]['password'])
   end
 end

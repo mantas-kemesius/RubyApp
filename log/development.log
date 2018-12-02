@@ -4111,3 +4111,587 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-12-02 18:37:04 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:37:26 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:37:28 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:37:29 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:43:32 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:43:40 +0200
+  
+SyntaxError (/Users/mantas/Desktop/RubyApp/app/models/user.rb:18: syntax error, unexpected <<, expecting keyword_end
+<<<<<<< HEAD
+^~
+/Users/mantas/Desktop/RubyApp/app/models/user.rb:27: syntax error, unexpected >>, expecting keyword_end
+>>>>>>> f697dcb0eda7094c2b4f783...
+^~):
+  
+app/models/user.rb:18: syntax error, unexpected <<, expecting keyword_end
+app/models/user.rb:27: syntax error, unexpected >>, expecting keyword_end
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:44:14 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/user_controller.rb:16:in `login'
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:45:02 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 222ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `email' for #<UserController:0x00007fb605fba7d0>):
+  
+app/controllers/user_controller.rb:16:in `login'
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:48:58 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 329ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `new' for #<UserController:0x00007fb609882220>):
+  
+app/controllers/user_controller.rb:16:in `login'
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:49:15 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:49:25 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.1ms)
+
+
+  
+ArgumentError (Unsupported argument type: #<User:0x00007fb608cc95f0> (User)):
+  
+app/controllers/user_controller.rb:19:in `login'
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:50:04 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:50:11 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/user_controller.rb:20
+No template found for UserController#login, rendering head :no_content
+Completed 204 No Content in 76ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:50:55 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:51:02 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 2.9ms)
+
+
+  
+SystemExit (#<Enumerator: #<ActiveRecord::Relation [#<User id: 1, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:30:50", updated_at: "2018-12-02 15:30:50">, #<User id: 2, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:31:09", updated_at: "2018-12-02 15:31:09">, #<User id: 3, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:31:09", updated_at: "2018-12-02 15:31:09">, #<User id: 4, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:31:09", updated_at: "2018-12-02 15:31:09">, #<User id: 5, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:31:09", updated_at: "2018-12-02 15:31:09">, #<User id: 6, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:31:09", updated_at: "2018-12-02 15:31:09">, #<User id: 7, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:32:38", updated_at: "2018-12-02 15:32:38">, #<User id: 8, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:33:05", updated_at: "2018-12-02 15:33:05">, #<User id: 9, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:34:37", updated_at: "2018-12-02 15:34:37">, #<User id: 10, name: "jonas", last_name: "jonas", email: "jonas@gmail.com", password: "jonas", age: 18, created_at: "2018-12-02 15:34:48", updated_at: "2018-12-02 15:34:48">, ...]>:find_each({:start=>nil, :finish=>nil, :batch_size=>1000, :error_on_ignore=>nil})>):
+  
+app/controllers/user_controller.rb:20:in `abort'
+app/controllers/user_controller.rb:20:in `login'
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:52:50 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/controllers/user_controller.rb:20
+No template found for UserController#login, rendering head :no_content
+Completed 204 No Content in 62ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:53:08 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:53:16 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/controllers/user_controller.rb:20
+No template found for UserController#login, rendering head :no_content
+Completed 204 No Content in 77ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 18:54:38 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:54:41 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"fads", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.7ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/user_controller.rb:24:in `abort'
+app/controllers/user_controller.rb:24:in `block in login'
+app/controllers/user_controller.rb:20:in `each'
+app/controllers/user_controller.rb:20:in `login'
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:54:52 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/controllers/user_controller.rb:20
+No template found for UserController#login, rendering head :no_content
+Completed 204 No Content in 64ms (ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:59:19 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/controllers/user_controller.rb:18
+Completed 500 Internal Server Error in 14ms (Views: 1.9ms | ActiveRecord: 1.2ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/user_controller.rb:24:in `block in login'
+app/controllers/user_controller.rb:18:in `each'
+app/controllers/user_controller.rb:18:in `login'
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 18:59:48 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/controllers/user_controller.rb:18
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:02:42 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.com"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:17
+Completed 200 OK in 23ms (Views: 1.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:02:48 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.coma", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.coma"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:17
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 19:04:10 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:04:24 +0200
+Processing by UserController#create as HTML
+  Parameters: {"user"=>{"name"=>"mlfdsanjdsfnj", "last_name"=>"jknfdksjnksj", "email"=>"sdfasdf", "password"=>"[FILTERED]", "age"=>"324"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_controller.rb:12
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:04:25 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:04:30 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 19:05:10 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:05:17 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.com"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:05:22 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.com"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:05:22 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.com"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:07 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.com"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 19:06:23 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:26 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"fdas", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "fdas"], ["password", "sdaf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:27 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"fdas", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "fdas"], ["password", "sdaf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:27 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"fdas", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "fdas"], ["password", "sdaf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:27 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"fdas", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "fdas"], ["password", "sdaf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:48 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"fdas", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "fdas"], ["password", "sdaf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 19:06:50 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:53 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"dasf", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "dasf"], ["password", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:54 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"dasf", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "dasf"], ["password", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:54 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"dasf", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "dasf"], ["password", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:55 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"dasf", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "dasf"], ["password", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:55 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"dasf", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "dasf"], ["password", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:06:55 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"dasf", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "dasf"], ["password", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:07:09 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.com"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-02 19:08:30 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:08:38 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.com"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:08:38 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:08:40 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:08:44 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"fadsf", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "fadsf"], ["password", "dasfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:08:44 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:08:47 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:08:58 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:04 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jfad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jfad"], ["password", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:05 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jfad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jfad"], ["password", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:06 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jfad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jfad"], ["password", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:06 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jfad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jfad"], ["password", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:06 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jfad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jfad"], ["password", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:06 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jfad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jfad"], ["password", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:06 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jfad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jfad"], ["password", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:07 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jfad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jfad"], ["password", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for 127.0.0.1 at 2018-12-02 19:09:16 +0200
+Processing by UserController#login as HTML
+  Parameters: {"user"=>{"email"=>"jonas@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "jonas@gmail.com"], ["password", "jonas"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:20
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:09:16 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+

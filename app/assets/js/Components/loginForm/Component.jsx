@@ -28,8 +28,8 @@ class LoginForm extends React.Component {
             const user = {...this.state};
             axios.post(`http://0.0.0.0:3000/user/login`, {user})
                 .then(res => {
-                    if (res.status >= 200 && res.status < 300) {
-                        localStorage.setItem('current_user', JSON.stringify({...user, age: parseInt(user.age),loggedIn: true}));
+                    if (res.status >= 200 && res.status < 300 && res.data !== null) {
+                        localStorage.setItem('current_user', JSON.stringify({...res.data, loggedIn: true}));
                         window.location.replace("http://0.0.0.0:3000/");
                     }
                 })
@@ -41,7 +41,6 @@ class LoginForm extends React.Component {
             <div className="LoginForm">
                 <h1>Prisijungimas</h1>
                 <input type="email" placeholder="El. paštas" className="input input-text" value={this.state.email} onChange={(e) => this.handleEmail(e)}/>
-                <input type="password" placeholder="Slaptažodis" className="input input-text"/>
                 <input type="password" placeholder="Slaptažodis" className="input input-text" value={this.state.password} onChange={(e) => this.handlePassword(e)}/>
                 <button className="btn btn-login" onClick={this.handleClick}>Prisijungti</button>
             </div>

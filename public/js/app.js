@@ -4501,8 +4501,8 @@ var LoginForm = function (_React$Component) {
             if (_this.state.email !== "" && _this.state.password !== "") {
                 var user = _extends({}, _this.state);
                 _axios2.default.post("http://0.0.0.0:3000/user/login", { user: user }).then(function (res) {
-                    if (res.status >= 200 && res.status < 300) {
-                        localStorage.setItem('current_user', JSON.stringify(_extends({}, user, { age: parseInt(user.age), loggedIn: true })));
+                    if (res.status >= 200 && res.status < 300 && res.data !== null) {
+                        localStorage.setItem('current_user', JSON.stringify(_extends({}, res.data, { loggedIn: true })));
                         window.location.replace("http://0.0.0.0:3000/");
                     }
                 });
@@ -4538,7 +4538,6 @@ var LoginForm = function (_React$Component) {
                 _react2.default.createElement("input", { type: "email", placeholder: "El. pa\u0161tas", className: "input input-text", value: this.state.email, onChange: function onChange(e) {
                         return _this2.handleEmail(e);
                     } }),
-                _react2.default.createElement("input", { type: "password", placeholder: "Slapta\u017Eodis", className: "input input-text" }),
                 _react2.default.createElement("input", { type: "password", placeholder: "Slapta\u017Eodis", className: "input input-text", value: this.state.password, onChange: function onChange(e) {
                         return _this2.handlePassword(e);
                     } }),
