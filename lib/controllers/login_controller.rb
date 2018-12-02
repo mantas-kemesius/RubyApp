@@ -1,6 +1,6 @@
 require_relative './../helpers/files_handler'
 
-# User Login controller
+# User Loginpage controller
 class LoginController
   attr_reader :username, :password, :file_name
   def initialize(file_name, username, password)

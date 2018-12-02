@@ -2,7 +2,7 @@ import React from 'react';
 import {Logo} from "./logo/Component.jsx";
 import { HeaderMenu } from "./headerMenu/Component.jsx";
 
-class Register extends React.Component {
+class Homepage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -16,7 +16,7 @@ class Register extends React.Component {
                     <HeaderMenu/>
                 </div>
                 <div className="home-body">
-                    Register
+                    body
                 </div>
             </div>
         );
@@ -24,4 +24,4 @@ class Register extends React.Component {
 
 }
 
-export default Register;
+export default Homepage;

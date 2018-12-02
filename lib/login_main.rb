@@ -73,12 +73,12 @@ def teacher_login
     if login_correct?(@user_dir_name, in_uname, in_psw, 1)
       @active_user = user_by_username(in_uname)
       @active_role = teacher_by_username(in_uname)
-      puts 'Login successful'
+      puts 'Loginpage successful'
       puts ''
 
       start_teacher
     else
-      puts 'Login failed'
+      puts 'Loginpage failed'
       puts ''
     end
   end
@@ -102,12 +102,12 @@ def student_login
       # TODO: fix student initializer first.
       # s_id should be string, not integer
       # @active_role = student_by_username(in_uname)
-      puts 'Login successful'
+      puts 'Loginpage successful'
       puts ''
 
       start_student
     else
-      puts 'Login failed'
+      puts 'Loginpage failed'
       puts ''
     end
   end

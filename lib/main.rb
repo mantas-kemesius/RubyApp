@@ -32,7 +32,7 @@ end
 
 def login_menu
   clear
-  puts '[1] Login'
+  puts '[1] Loginpage'
   puts '[2] Sign in'
   puts '[0] Exit from program'
 end

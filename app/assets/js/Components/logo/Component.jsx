@@ -5,7 +5,7 @@ export const Logo = () => {
     return (
         <div className="Logo">
             <Link to='/'>
-                <span className="Logo-title">Uni<span className="Logo-dot">.</span></span>
+                <span className="Logo-title">Kemauras<span className="Logo-dot">.</span></span>
             </Link>
         </div>
     );
