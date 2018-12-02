@@ -22,4 +22,5 @@ class App extends Component {
 ReactDOM.render(
     <BrowserRouter>
         <App/>
-    </BrowserRouter>, document.getElementById('app'));
+    </BrowserRouter>
+    , document.getElementById('app'));
