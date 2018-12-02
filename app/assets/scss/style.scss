@@ -1,0 +1,21 @@
+/* ---------------------------------------------------
+    Import example
+----------------------------------------------------- */
+
+@import 'components/container.scss';
+
+/* ---------------------------------------------------
+    SCSS Code example
+----------------------------------------------------- */
+
+body{
+  margin:0;
+  padding:0;
+  background: #000000;
+}
+
+h3{
+  font-size:16px;
+}
+
+///* YOU COULD CHECK web/assets/build/css/style.css to see your compiled scss code */

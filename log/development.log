@@ -445,3 +445,366 @@ FOREIGN KEY ("student_id")
   ↳ bin/rails:11
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:11
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:24:32 +0200
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Migrating to CreateNotifications (20181120114019)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181120114019_create_notifications.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_907aa28542"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+)[0m
+  ↳ db/migrate/20181120114019_create_notifications.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/migrate/20181120114019_create_notifications.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181120114019"]]
+  ↳ bin/rails:11
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:24:59 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mantas/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mantas/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 18ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2018-12-02 14:25:17 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:32:12 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:1:in `<main>'
+Started POST "/__web_console/repl_sessions/f419abcdc78f3a0cba174ae62cd785e3/trace" for 127.0.0.1 at 2018-12-02 14:32:24 +0200
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:36:26 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/home/index" for 127.0.0.1 at 2018-12-02 14:36:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/home/index"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/Home/index" for 127.0.0.1 at 2018-12-02 14:36:38 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Home/index"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:36:43 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:38:32 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started POST "/__web_console/repl_sessions/b41cee80b7db9bfc8326154e87b99d5c/trace" for 127.0.0.1 at 2018-12-02 14:38:40 +0200
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:38:48 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:40:55 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started POST "/__web_console/repl_sessions/98960e7c25c27bdc3d0186417e3d2075/trace" for 127.0.0.1 at 2018-12-02 14:41:20 +0200
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:46:19 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:47:42 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:47:44 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:48:06 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started POST "/__web_console/repl_sessions/7ce4dfcf9615587eb57c8f90ab99e1d1/trace" for 127.0.0.1 at 2018-12-02 14:48:09 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:11
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:11
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Migrating to CreateStudents (20181112201423)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181112201423_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181112201423"]]
+  ↳ bin/rails:11
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateTeachers (20181112201450)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181112201450_create_teachers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181112201450"]]
+  ↳ bin/rails:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateSubjects (20181112201730)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" date, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_4762ac6e1b"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_cac7f2be05"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+)[0m
+  ↳ db/migrate/20181112201730_create_subjects.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_student_id" ON "subjects" ("student_id")[0m
+  ↳ db/migrate/20181112201730_create_subjects.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_teacher_id" ON "subjects" ("teacher_id")[0m
+  ↳ db/migrate/20181112201730_create_subjects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181112201730"]]
+  ↳ bin/rails:11
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateMails (20181112204702)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "mails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "message" text, "time" date, "from" varchar, "to" varchar, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_566e8621b8"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_d8b5950514"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+)[0m
+  ↳ db/migrate/20181112204702_create_mails.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_student_id" ON "mails" ("student_id")[0m
+  ↳ db/migrate/20181112204702_create_mails.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_teacher_id" ON "mails" ("teacher_id")[0m
+  ↳ db/migrate/20181112204702_create_mails.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181112204702"]]
+  ↳ bin/rails:11
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateSchedules (20181118222336)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subjects_id" integer, "time" datetime, "teacher_id" integer, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_d6d6fdc7a2"
+FOREIGN KEY ("subjects_id")
+  REFERENCES "subjects" ("id")
+, CONSTRAINT "fk_rails_3175dc2a9d"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+, CONSTRAINT "fk_rails_e062fc2990"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+)[0m
+  ↳ db/migrate/20181118222336_create_schedules.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_subjects_id" ON "schedules" ("subjects_id")[0m
+  ↳ db/migrate/20181118222336_create_schedules.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_teacher_id" ON "schedules" ("teacher_id")[0m
+  ↳ db/migrate/20181118222336_create_schedules.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_student_id" ON "schedules" ("student_id")[0m
+  ↳ db/migrate/20181118222336_create_schedules.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181118222336"]]
+  ↳ bin/rails:11
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateNotifications (20181120114019)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_907aa28542"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+)[0m
+  ↳ db/migrate/20181120114019_create_notifications.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/migrate/20181120114019_create_notifications.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181120114019"]]
+  ↳ bin/rails:11
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-02 12:49:46.661734"], ["updated_at", "2018-12-02 12:49:46.661734"]]
+  ↳ bin/rails:11
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:49:54 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:51:19 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:56:23 +0200
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:56:23 +0200
+  
+Started GET "/" for 127.0.0.1 at 2018-12-02 14:56:23 +0200
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/home_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-12-02 15:00:37 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 1372ms (Views: 1361.0ms | ActiveRecord: 0.0ms)
+
+
