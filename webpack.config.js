@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -16,7 +15,7 @@ module.exports = {
         ]
     },
     output: {
-        path: path.resolve(__dirname, './web/assets/build'),
+        path: path.resolve(__dirname, './public'),
         filename: 'js/[name].js'
     },
     module: {
@@ -56,7 +55,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: './assets/[name].[ext]',
-                            publicPath: "/build/"
+                            publicPath: "/"
                         }
                     }
                 ]
@@ -65,19 +64,13 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['build'], {
-            root: path.resolve(__dirname, './web')
+            root: path.resolve(__dirname, './public')
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            filename: 'js/vendor.js',
+            filename: './js/vendor.js',
             minChunks: Infinity
         }),
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, './app/Resources/assets/images/'),
-                to: 'images'
-            }
-        ]),
         new ExtractTextPlugin({
             filename: './css/style.css',
             allChunks: true
