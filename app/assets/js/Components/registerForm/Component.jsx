@@ -76,7 +76,7 @@ class RegisterForm extends React.Component {
                 <input type="text" placeholder="Pavardė" className="input input-text" value={this.state.last_name} onChange={(e) => this.handleLastname(e)}/>
                 <input type="text" placeholder="Amžius" className="input input-text" value={this.state.age} onChange={(e) => this.handleAge(e)}/>
                 <input type="password" placeholder="Slaptažodis" className="input input-text" value={this.state.password} onChange={(e) => this.handlePassword(e)}/>
-                <button className="btn btn-login" onClick={this.handleClick}>Registruotis</button>
+                <button className="btns btn-login" onClick={this.handleClick}>Registruotis</button>
             </div>
         );
     }

@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
                 <h1>Prisijungimas</h1>
                 <input type="email" placeholder="El. paštas" className="input input-text" value={this.state.email} onChange={(e) => this.handleEmail(e)}/>
                 <input type="password" placeholder="Slaptažodis" className="input input-text" value={this.state.password} onChange={(e) => this.handlePassword(e)}/>
-                <button className="btn btn-login" onClick={this.handleClick}>Prisijungti</button>
+                <button className="btns btn-login" onClick={this.handleClick}>Prisijungti</button>
             </div>
         );
     }

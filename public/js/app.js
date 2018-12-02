@@ -4551,7 +4551,7 @@ var LoginForm = function (_React$Component) {
                     } }),
                 _react2.default.createElement(
                     "button",
-                    { className: "btn btn-login", onClick: this.handleClick },
+                    { className: "btns btn-login", onClick: this.handleClick },
                     "Prisijungti"
                 )
             );
@@ -4700,7 +4700,7 @@ var RegisterForm = function (_React$Component) {
                     } }),
                 _react2.default.createElement(
                     'button',
-                    { className: 'btn btn-login', onClick: this.handleClick },
+                    { className: 'btns btn-login', onClick: this.handleClick },
                     'Registruotis'
                 )
             );
@@ -6486,7 +6486,15 @@ var _react = __webpack_require__(1);
 
 var React = _interopRequireWildcard(_react);
 
+var _axios = __webpack_require__(82);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6497,19 +6505,176 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var TeacherBody = exports.TeacherBody = function (_React$Component) {
     _inherits(TeacherBody, _React$Component);
 
-    function TeacherBody() {
+    function TeacherBody(props) {
         _classCallCheck(this, TeacherBody);
 
-        return _possibleConstructorReturn(this, (TeacherBody.__proto__ || Object.getPrototypeOf(TeacherBody)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (TeacherBody.__proto__ || Object.getPrototypeOf(TeacherBody)).call(this, props));
+
+        _this.state = {
+            name: "",
+            time: "08:15",
+            subjects: []
+        };
+
+        _this.handleName = function (event) {
+            _this.setState({ name: event.target.value });
+        };
+
+        _this.handleTime = function (event) {
+            _this.setState({ time: event.target.value });
+        };
+
+        _this.delete = function (id) {
+            var subjects = [].concat(_toConsumableArray(_this.state.subjects));
+            var subject = subjects[id];
+            subjects.splice(id, 1);
+            localStorage.setItem('subjects', JSON.stringify(subjects));
+            _axios2.default.post('http://0.0.0.0:3000/subject/delete', { id: subject.id }).then(function (res) {
+                console.log(res);
+            });
+            _this.setState({ subjects: subjects });
+        };
+
+        _this.handleClick = function () {
+            if (_this.state.name !== "" && _this.state.time !== "") {
+                var subjects = [].concat(_toConsumableArray(_this.state.subjects));
+                var _this$state = _this.state,
+                    name = _this$state.name,
+                    time = _this$state.time;
+                // localStorage.setItem('subjects', JSON.stringify(subjectsLocal));
+
+                var currentUser = JSON.parse(localStorage.getItem('current_user'));
+                subjects.push({ name: name, time: time, teacher_id: currentUser.id });
+                _axios2.default.post('http://0.0.0.0:3000/subject/create', { name: name, time: time, id: currentUser.id });
+                _this.setState({ subjects: subjects });
+            }
+        };
+
+        _axios2.default.get('http://0.0.0.0:3000/subjects').then(function (res) {
+            // localStorage.setItem('subjects', JSON.stringify(res.data));
+            _this.setState({ subjects: res.data });
+        });
+        return _this;
     }
 
     _createClass(TeacherBody, [{
-        key: "render",
+        key: 'render',
         value: function render() {
+            var _this2 = this;
+
+            var currentUser = JSON.parse(localStorage.getItem('current_user'));
+            var subjects = [].concat(_toConsumableArray(this.state.subjects));
+            var subList = void 0;
+            if (subjects) {
+                subList = subjects.map(function (item, index) {
+                    if (item.teacher_id === currentUser.id) {
+                        return React.createElement(
+                            'tr',
+                            { key: index },
+                            React.createElement(
+                                'td',
+                                null,
+                                item.name
+                            ),
+                            React.createElement(
+                                'td',
+                                null,
+                                item.time
+                            ),
+                            React.createElement(
+                                'td',
+                                null,
+                                React.createElement(
+                                    'button',
+                                    { onClick: function onClick() {
+                                            return _this2.delete(index);
+                                        } },
+                                    '\u274C'
+                                )
+                            )
+                        );
+                    }
+                });
+            } else {
+                subList = "Empty 😥";
+            }
             return React.createElement(
-                "div",
-                { className: "TeacherBody home-body" },
-                "TEACHER"
+                'div',
+                { className: 'TeacherBody home-body' },
+                React.createElement(
+                    'div',
+                    { className: 'TeacherBody-container' },
+                    React.createElement(
+                        'div',
+                        { className: 'welcome-user' },
+                        'Sveiki, ',
+                        currentUser.name,
+                        ' ',
+                        currentUser.last_name,
+                        ' \uD83E\uDD18!'
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'TeacherBody-add-subject' },
+                        React.createElement(
+                            'h1',
+                            null,
+                            'Prid\u0117ti dalyk\u0105 \uD83D\uDCDA'
+                        ),
+                        React.createElement('input', { type: 'email', placeholder: 'Pavadinimas', className: 'input input-text', value: this.state.name, onChange: function onChange(e) {
+                                return _this2.handleName(e);
+                            } }),
+                        React.createElement('input', { type: 'text', placeholder: 'Laikas', className: 'input input-text', value: this.state.time, onChange: function onChange(e) {
+                                return _this2.handleTime(e);
+                            } }),
+                        React.createElement(
+                            'button',
+                            { className: 'btns btn-login', onClick: this.handleClick },
+                            'Prid\u0117ti \u2705'
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'TeacherBody-subjects' },
+                        React.createElement(
+                            'h1',
+                            null,
+                            'Visi j\u016Bs\u0173 dalykai:'
+                        ),
+                        React.createElement(
+                            'table',
+                            { className: 'table' },
+                            React.createElement(
+                                'thead',
+                                null,
+                                React.createElement(
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        'Pavadinimas'
+                                    ),
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        'Laikas'
+                                    ),
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        'I\u0161trinti'
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'tbody',
+                                null,
+                                subList
+                            )
+                        )
+                    )
+                )
             );
         }
     }]);
