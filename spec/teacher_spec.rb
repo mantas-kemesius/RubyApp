@@ -3,13 +3,12 @@
 require_relative 'spec_helper'
 RSpec.describe Teacher, type: :model do
   fixtures :teachers
-
   context 'when created' do
     it 'has none to begin with' do
       expect(Teacher.count).to eq teachers.size
     end
     it 'has one after adding one' do
-      Teacher.create!()
+      Teacher.create!
       expect(Teacher.count).to eq teachers.size + 1
     end
     it 'is in database' do
@@ -18,10 +17,11 @@ RSpec.describe Teacher, type: :model do
       user.teacher = teacher
       expect(Teacher.find(teacher.id)).to be_present
     end
-    # it 'search by name' do
-    #   teacher = described_class.create!(name: 'Tom', last_name: 'Mac', age: 1)
-    #   expect(Teacher.find_by_name(teacher.name)).to be_present
-    # end
+    it 'added successfully' do
+      user = User.create!(name: 'Tom', last_name: 'Mac', age: 1)
+      Teacher.add('ktu', user)
+      expect(Teacher.exists?(user_id: user.id, university: 'ktu')).to be true
+    end
   end
 
   context 'when deleted' do
@@ -33,7 +33,11 @@ RSpec.describe Teacher, type: :model do
       teacher.destroy
       expect(Teacher.count).to eq teachers.size - 1
     end
-    # TODO: delete by function by id or name?
+    it 'deleted item does not exist' do
+      teacher = teachers(:Tomas)
+      teacher.destroy
+      expect(Teacher.exists?(teacher.id)).to be false
+    end
   end
 
   # context 'when printed' do
