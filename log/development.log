@@ -4899,3 +4899,707 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "mails"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "mails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "message" text, "time" date, "from" varchar, "to" varchar, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_student_id" ON "mails" ("student_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_teacher_id" ON "mails" ("teacher_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "schedules"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subjects_id" integer, "time" datetime, "teacher_id" integer, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_student_id" ON "schedules" ("student_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_subjects_id" ON "schedules" ("subjects_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_teacher_id" ON "schedules" ("teacher_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students"[0m
+  ↳ db/schema.rb:50
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "university" varchar, "faculty" varchar, "course" varchar, "group" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:50
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX "index_student_on_user_id" ON "students" ("user_id")[0m
+  ↳ db/schema.rb:50
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects"[0m
+  ↳ db/schema.rb:60
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" date, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:60
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_student_id" ON "subjects" ("student_id")[0m
+  ↳ db/schema.rb:60
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_teacher_id" ON "subjects" ("teacher_id")[0m
+  ↳ db/schema.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers"[0m
+  ↳ db/schema.rb:71
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:71
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_teachers_on_user_id" ON "teachers" ("user_id")[0m
+  ↳ db/schema.rb:71
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:80
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "token" integer, "role" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:80
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181120114019)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181112201423),
+(20181112201450),
+(20181112201730),
+(20181112204702),
+(20181118222336);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-02 17:31:48.696879"], ["updated_at", "2018-12-02 17:31:48.696879"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "mails"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "mails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "message" text, "time" date, "from" varchar, "to" varchar, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_student_id" ON "mails" ("student_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_teacher_id" ON "mails" ("teacher_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "schedules"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subjects_id" integer, "time" datetime, "teacher_id" integer, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_student_id" ON "schedules" ("student_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_subjects_id" ON "schedules" ("subjects_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_teacher_id" ON "schedules" ("teacher_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students"[0m
+  ↳ db/schema.rb:50
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "university" varchar, "faculty" varchar, "course" varchar, "group" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:50
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX "index_student_on_user_id" ON "students" ("user_id")[0m
+  ↳ db/schema.rb:50
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects"[0m
+  ↳ db/schema.rb:60
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" date, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:60
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_student_id" ON "subjects" ("student_id")[0m
+  ↳ db/schema.rb:60
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_teacher_id" ON "subjects" ("teacher_id")[0m
+  ↳ db/schema.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers"[0m
+  ↳ db/schema.rb:71
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:71
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX "index_teachers_on_user_id" ON "teachers" ("user_id")[0m
+  ↳ db/schema.rb:71
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:80
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "token" integer, "role" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:80
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181120114019)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181112201423),
+(20181112201450),
+(20181112201730),
+(20181112204702),
+(20181118222336);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-02 17:31:48.785176"], ["updated_at", "2018-12-02 17:31:48.785176"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-12-02 17:31:48.789386"], ["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:32:36 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"mantas", "last_name"=>"mantas", "email"=>"mantas@mantas.lt", "password"=>"[FILTERED]", "age"=>"18"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mantas@mantas.lt"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:15
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "age", "token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "mantas"], ["last_name", "mantas"], ["email", "mantas@mantas.lt"], ["password", "mantas"], ["age", 18], ["token", 0], ["created_at", "2018-12-02 17:32:36.459294"], ["updated_at", "2018-12-02 17:32:36.459294"]]
+  ↳ app/controllers/user_controller.rb:15
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+Completed 200 OK in 31ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:32:36 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:11
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:11
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Migrating to CreateStudents (20181112201423)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181112201423_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181112201423"]]
+  ↳ bin/rails:11
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateTeachers (20181112201450)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181112201450_create_teachers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181112201450"]]
+  ↳ bin/rails:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateSubjects (20181112201730)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" date, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_4762ac6e1b"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_cac7f2be05"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+)[0m
+  ↳ db/migrate/20181112201730_create_subjects.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_student_id" ON "subjects" ("student_id")[0m
+  ↳ db/migrate/20181112201730_create_subjects.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_teacher_id" ON "subjects" ("teacher_id")[0m
+  ↳ db/migrate/20181112201730_create_subjects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181112201730"]]
+  ↳ bin/rails:11
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateMails (20181112204702)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "mails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "message" text, "time" date, "from" varchar, "to" varchar, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_566e8621b8"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_d8b5950514"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+)[0m
+  ↳ db/migrate/20181112204702_create_mails.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_student_id" ON "mails" ("student_id")[0m
+  ↳ db/migrate/20181112204702_create_mails.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_teacher_id" ON "mails" ("teacher_id")[0m
+  ↳ db/migrate/20181112204702_create_mails.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181112204702"]]
+  ↳ bin/rails:11
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateSchedules (20181118222336)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subjects_id" integer, "time" datetime, "teacher_id" integer, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_d6d6fdc7a2"
+FOREIGN KEY ("subjects_id")
+  REFERENCES "subjects" ("id")
+, CONSTRAINT "fk_rails_3175dc2a9d"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+, CONSTRAINT "fk_rails_e062fc2990"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+)[0m
+  ↳ db/migrate/20181118222336_create_schedules.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_subjects_id" ON "schedules" ("subjects_id")[0m
+  ↳ db/migrate/20181118222336_create_schedules.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_teacher_id" ON "schedules" ("teacher_id")[0m
+  ↳ db/migrate/20181118222336_create_schedules.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_student_id" ON "schedules" ("student_id")[0m
+  ↳ db/migrate/20181118222336_create_schedules.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181118222336"]]
+  ↳ bin/rails:11
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+Migrating to CreateNotifications (20181120114019)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_907aa28542"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+)[0m
+  ↳ db/migrate/20181120114019_create_notifications.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/migrate/20181120114019_create_notifications.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181120114019"]]
+  ↳ bin/rails:11
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-02 17:33:45.261884"], ["updated_at", "2018-12-02 17:33:45.261884"]]
+  ↳ bin/rails:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "mails"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "mails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "message" text, "time" date, "from" varchar, "to" varchar, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_student_id" ON "mails" ("student_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_teacher_id" ON "mails" ("teacher_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schedules"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subjects_id" integer, "time" datetime, "teacher_id" integer, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_student_id" ON "schedules" ("student_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_subjects_id" ON "schedules" ("subjects_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_teacher_id" ON "schedules" ("teacher_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students"[0m
+  ↳ db/schema.rb:50
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:50
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects"[0m
+  ↳ db/schema.rb:62
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" date, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:62
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_student_id" ON "subjects" ("student_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_teacher_id" ON "subjects" ("teacher_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers"[0m
+  ↳ db/schema.rb:73
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:85
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "role" varchar, "token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:85
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181120114019)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181112201423),
+(20181112201450),
+(20181112201730),
+(20181112204702),
+(20181118222336);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-02 17:35:34.975608"], ["updated_at", "2018-12-02 17:35:34.975608"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "mails"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "mails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "message" text, "time" date, "from" varchar, "to" varchar, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_student_id" ON "mails" ("student_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_teacher_id" ON "mails" ("teacher_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schedules"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subjects_id" integer, "time" datetime, "teacher_id" integer, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_student_id" ON "schedules" ("student_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_subjects_id" ON "schedules" ("subjects_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_teacher_id" ON "schedules" ("teacher_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students"[0m
+  ↳ db/schema.rb:50
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:50
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects"[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" date, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_student_id" ON "subjects" ("student_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_teacher_id" ON "subjects" ("teacher_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers"[0m
+  ↳ db/schema.rb:73
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:85
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "role" varchar, "token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:85
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181120114019)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181112201423),
+(20181112201450),
+(20181112201730),
+(20181112204702),
+(20181118222336);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-02 17:35:35.051642"], ["updated_at", "2018-12-02 17:35:35.051642"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-12-02 17:35:35.055819"], ["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "mails"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "mails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "message" text, "time" date, "from" varchar, "to" varchar, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_student_id" ON "mails" ("student_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_teacher_id" ON "mails" ("teacher_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schedules"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subjects_id" integer, "time" datetime, "teacher_id" integer, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_student_id" ON "schedules" ("student_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_subjects_id" ON "schedules" ("subjects_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_teacher_id" ON "schedules" ("teacher_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "students"[0m
+  ↳ db/schema.rb:50
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:50
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects"[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" date, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:62
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_student_id" ON "subjects" ("student_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_teacher_id" ON "subjects" ("teacher_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers"[0m
+  ↳ db/schema.rb:73
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:73
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:85
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "role" varchar, "token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:85
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181120114019)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181112201423),
+(20181112201450),
+(20181112201730),
+(20181112204702),
+(20181118222336);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (10.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-02 17:38:09.792110"], ["updated_at", "2018-12-02 17:38:09.792110"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "mails"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "mails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "message" text, "time" date, "from" varchar, "to" varchar, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_student_id" ON "mails" ("student_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX "index_mails_on_teacher_id" ON "mails" ("teacher_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_notifications_on_teacher_id" ON "notifications" ("teacher_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "schedules"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subjects_id" integer, "time" datetime, "teacher_id" integer, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_student_id" ON "schedules" ("student_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_subjects_id" ON "schedules" ("subjects_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_schedules_on_teacher_id" ON "schedules" ("teacher_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "students"[0m
+  ↳ db/schema.rb:50
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:50
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects"[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" date, "student_id" integer, "teacher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_student_id" ON "subjects" ("student_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX "index_subjects_on_teacher_id" ON "subjects" ("teacher_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers"[0m
+  ↳ db/schema.rb:73
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "university" varchar, "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:85
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "age" integer, "role" varchar, "token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:85
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181120114019)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181112201423),
+(20181112201450),
+(20181112201730),
+(20181112204702),
+(20181118222336);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-02 17:38:09.879808"], ["updated_at", "2018-12-02 17:38:09.879808"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-12-02 17:38:09.884407"], ["key", "environment"]]
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23

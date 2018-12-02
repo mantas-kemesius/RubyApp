@@ -7,7 +7,8 @@ class RegisterForm extends React.Component {
         last_name: "",
         email: "",
         password: "",
-        age: ""
+        age: "",
+        role: "ROLE_STUDENT"
     };
     constructor(props) {
         super(props);

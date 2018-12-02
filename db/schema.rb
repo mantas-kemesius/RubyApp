@@ -48,13 +48,15 @@ ActiveRecord::Schema.define(version: 2018_11_20_114019) do
   end
 
   create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.integer "age"
     t.string "university"
-    t.string "faculty"
-    t.string "course"
-    t.string "group"
+    t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_student_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -69,12 +71,15 @@ ActiveRecord::Schema.define(version: 2018_11_20_114019) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.integer "user_id"
+    t.string "name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.integer "age"
     t.string "university"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,6 +88,8 @@ ActiveRecord::Schema.define(version: 2018_11_20_114019) do
     t.string "email"
     t.string "password"
     t.integer "age"
+    t.string "role"
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

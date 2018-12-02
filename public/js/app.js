@@ -4599,7 +4599,8 @@ var RegisterForm = function (_React$Component) {
             last_name: "",
             email: "",
             password: "",
-            age: ""
+            age: "",
+            role: "ROLE_STUDENT"
         };
 
         _this.handleName = function (event) {
