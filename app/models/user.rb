@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email,
                           message: 'your email should be unique'
   validates_length_of :name, maximum: 40,
-                      message: 'name maximum length 40 chars'
+                             message: 'name maximum length 40 chars'
   validates_length_of :last_name,
                       maximum: 40,
                       message: 'last name maximum length 40 chars'
@@ -16,4 +16,9 @@ class User < ApplicationRecord
                       maximum: 30, message: 'password max length 40 chars'
   validates :age, inclusion: 1...100, length: { minimum: 1, maximum: 3 }
 
+  def print_user
+    str = name + "\n" + last_name + "\n"
+    str += '_________________________' + "\n"
+    print str
+  end
 end
