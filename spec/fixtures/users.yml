@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Tomas:
+  name: Tomas
+  last_name: Tomaitis
+  email: tomas.tomaitis@gmail.com
+  password: Tomaitis123
+  age: 24
+Antanas:
+  name: Antanas
+  last_name: Samuolaitis
+  email: samuolaitis@gmail.com
+  password: slaptazodisxd
+  age: 29
