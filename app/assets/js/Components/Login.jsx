@@ -1,6 +1,7 @@
 import React from 'react';
 import {Logo} from "./logo/Component.jsx";
 import { HeaderMenu } from "./headerMenu/Component.jsx";
+import LoginForm from "./loginForm/Component.jsx";
 
 class Login extends React.Component {
 
@@ -16,7 +17,7 @@ class Login extends React.Component {
                     <HeaderMenu/>
                 </div>
                 <div className="home-body">
-                    Login
+                    <LoginForm />
                 </div>
             </div>
         );

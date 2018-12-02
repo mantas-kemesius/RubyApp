@@ -9,8 +9,10 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="LoginForm">
-                <input type="text" placeholder="Username"/>
-                <input type="password" placeholder="password"/>
+                <h1>Prisijungimas</h1>
+                <input type="text" placeholder="Username" className="input input-text"/>
+                <input type="password" placeholder="password" className="input input-text"/>
+                <button className="btn btn-login">Prisijungti</button>
             </div>
         );
     }
