@@ -1,18 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 Tomas:
-  name: Tomas
-  last_name: Tomaitis
-  email: tomas.tomaitis@gmail.com
-  password: Tomaitis123
-  age: 24
   university: Vu
   bio: MyText
+  user: Tomas
 Antanas:
-  name: Antanas
-  last_name: Samuolaitis
-  email: samuolaitis@gmail.com
-  password: slaptazodisxd
-  age: 29
   university: Vu
   bio: Best Teacher 2k18
+  user: Antanas
