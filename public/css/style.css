@@ -23,7 +23,7 @@
 
 .home-body {
   width: 100%;
-  height: 90vh;
+  height: 80vh;
 }
 
 .HeaderMenu {
@@ -189,4 +189,19 @@ body {
 
 h3 {
   font-size: 16px;
+}
+
+.WelcomeBody {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.WelcomeBody-container {
+  width: 60%;
+  padding: 10%;
+  margin-left: 10%;
+  box-shadow: 1px 3px 10px 0px #e4e4e4;
+  border-radius: 3px;
+  border: 1px solid #e4e4e4;
+  color: #484848;
 }

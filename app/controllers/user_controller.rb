@@ -12,7 +12,10 @@ class UserController < ApplicationController
     @user.role = params[:user]['role']
     @user.token = Digest::MD5.new.hexdigest(params[:user]['email'])
     if @user.save
-      render json: 'Success!', status: 200
+      render json: User.find_by(
+        email: params[:user]['email'],
+        password: params[:user]['password']
+      ), status: 200
     else
       render json: 'Failed!', status: 404
     end

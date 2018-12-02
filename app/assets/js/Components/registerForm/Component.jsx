@@ -50,7 +50,7 @@ class RegisterForm extends React.Component {
             axios.post(`http://0.0.0.0:3000/user/create`, {user})
                 .then(res => {
                     if (res.status >= 200 && res.status < 300) {
-                        localStorage.setItem('current_user', JSON.stringify({...user, age: parseInt(user.age),loggedIn: true}));
+                        localStorage.setItem('current_user', JSON.stringify({...res.data,loggedIn: true}));
                         window.location.replace("http://0.0.0.0:3000/");
                     }
                 })
@@ -64,11 +64,11 @@ class RegisterForm extends React.Component {
                 <div className="radio">
                     <label>
                         <input type="radio" checked={this.state.role === 'ROLE_STUDENT'} onChange={() => this.handleRadio('ROLE_STUDENT')}/>
-                        Studentas
+                         Studentas
                     </label>
                     <label>
                         <input type="radio" checked={this.state.role === 'ROLE_TEACHER'} onChange={() => this.handleRadio('ROLE_TEACHER')}/>
-                        Dėstytojas
+                         Dėstytojas
                     </label>
                 </div>
                 <input type="email" placeholder="El. paštas" className="input input-text" value={this.state.email} onChange={(e) => this.handleEmail(e)}/>

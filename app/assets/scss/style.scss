@@ -24,3 +24,18 @@ h3{
 }
 
 ///* YOU COULD CHECK web/assets/build/css/style.css to see your compiled scss code */
+
+.WelcomeBody{
+  text-align: center;
+  margin-top: 5%;
+}
+
+.WelcomeBody-container{
+  width: 60%;
+  padding: 10%;
+  margin-left: 10%;
+  box-shadow: 1px 3px 10px 0px rgba(228,228,228,1);
+  border-radius: 3px;
+  border: 1px solid #e4e4e4;
+  color: #484848;
+}
