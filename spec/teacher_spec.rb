@@ -3,30 +3,21 @@
 require_relative 'spec_helper'
 RSpec.describe Teacher, type: :model do
   fixtures :teachers
-  context 'when checking fixtures' do
-    it 'first object loaded' do
-      teachers(:Tomas)
-      expect(teachers(:Tomas).name).to eq('Tomas')
-    end
-  end
 
   context 'when created' do
     it 'has none to begin with' do
       expect(Teacher.count).to eq teachers.size
     end
     it 'has one after adding one' do
-      Teacher.create!(age: 1)
+      Teacher.create!()
       expect(Teacher.count).to eq teachers.size + 1
     end
-    it 'created successfully' do
-      teacher = described_class.new(name: 'Tom', last_name: 'Mac')
-      expect(teacher).to have_attributes(name: 'Tom', last_name: 'Mac')
-    end
     it 'is in database' do
-      teacher = described_class.create!(name: 'Tom', last_name: 'Mac', age: 1)
+      user = User.create!(name: 'Tom', last_name: 'Mac', age: 1)
+      teacher = Teacher.create(university: 'ktu')
+      user.teacher = teacher
       expect(Teacher.find(teacher.id)).to be_present
     end
-    # TODO: create by function?
     # it 'search by name' do
     #   teacher = described_class.create!(name: 'Tom', last_name: 'Mac', age: 1)
     #   expect(Teacher.find_by_name(teacher.name)).to be_present
@@ -45,22 +36,22 @@ RSpec.describe Teacher, type: :model do
     # TODO: delete by function by id or name?
   end
 
-  context 'when printed' do
-    let(:make_all_teacher_str) do
-      str = ''
-      teachers.each do |teach|
-        str += teach.name + "\n" + teach.last_name + "\n"
-        str += '_________________________' + "\n"
-      end
-      str
-    end
-
-    it 'test teachers printed' do
-      teacher = teachers(:Tomas)
-      # teacher_str = make_all_teacher_str
-      str = teacher.name + "\n" + teacher.last_name + "\n"
-      str += '_________________________' + "\n"
-      expect { teacher.print_teacher }.to output(str).to_stdout
-    end
-  end
+  # context 'when printed' do
+  #   let(:make_all_teacher_str) do
+  #     str = ''
+  #     teachers.each do |teach|
+  #       str += teach.name + "\n" + teach.last_name + "\n"
+  #       str += '_________________________' + "\n"
+  #     end
+  #     str
+  #   end
+  #
+  #   it 'test teachers printed' do
+  #     teacher = teachers(:Tomas)
+  #     # teacher_str = make_all_teacher_str
+  #     str = teacher.name + "\n" + teacher.last_name + "\n"
+  #     str += '_________________________' + "\n"
+  #     expect { teacher.print_teacher }.to output(str).to_stdout
+  #   end
+  # end
 end
