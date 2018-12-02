@@ -1,9 +1,8 @@
 import React from 'react';
 import {Logo} from "./logo/Component.jsx";
 import { HeaderMenu } from "./headerMenu/Component.jsx";
-import LoginForm from "./loginForm/Component.jsx";
 
-class Login extends React.Component {
+class Homepage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -17,7 +16,7 @@ class Login extends React.Component {
                     <HeaderMenu/>
                 </div>
                 <div className="home-body">
-                    <LoginForm />
+                    body
                 </div>
             </div>
         );
@@ -25,4 +24,4 @@ class Login extends React.Component {
 
 }
 
-export default Login;
+export default Homepage;
