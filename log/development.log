@@ -5603,3 +5603,336 @@ FOREIGN KEY ("teacher_id")
   ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/mantas/.rvm/gems/ruby-2.5.1/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:39:50 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:39:57 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"adsfasdfs", "last_name"=>"dfasdfasdf", "email"=>"adfasdf", "password"=>"[FILTERED]", "age"=>"324", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+Completed 404 Not Found in 35ms (Views: 0.1ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:40:08 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"adsfasdfs", "last_name"=>"dfasdfasdf", "email"=>"adfasdf@fdasdsf.lt", "password"=>"[FILTERED]", "age"=>"324", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adfasdf@fdasdsf.lt"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+Completed 404 Not Found in 31ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:40:22 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"mantas", "last_name"=>"mantas", "email"=>"mantas@gmail.com", "password"=>"[FILTERED]", "age"=>"123", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mantas@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+Completed 404 Not Found in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:41:15 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"mantas", "last_name"=>"mantas", "email"=>"mantas@gmail.com", "password"=>"[FILTERED]", "age"=>"123", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mantas@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.2ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/user_controller.rb:16:in `abort'
+app/controllers/user_controller.rb:16:in `register'
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:41:45 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"mantas", "last_name"=>"mantas", "email"=>"mantas@gmail.com", "password"=>"[FILTERED]", "age"=>"123", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mantas@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_controller.rb:16
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.4ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/user_controller.rb:17:in `abort'
+app/controllers/user_controller.rb:17:in `register'
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:42:10 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"mantas", "last_name"=>"mantas", "email"=>"mantas@gmail.com", "password"=>"[FILTERED]", "age"=>"123", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mantas@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_controller.rb:15
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.4ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/user_controller.rb:16:in `abort'
+app/controllers/user_controller.rb:16:in `register'
+Started GET "/user/create" for 127.0.0.1 at 2018-12-02 19:42:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/user/create"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:42:35 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"mantas", "last_name"=>"mantas", "email"=>"mantas@gmail.com", "password"=>"[FILTERED]", "age"=>"123", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.4ms)
+
+
+  
+SystemExit (#<User id: nil, name: "mantas", last_name: "mantas", email: "mantas@gmail.com", password: "mantas", age: 123, role: "ROLE_STUDENT", token: "d41d8cd98f00b204e9800998ecf8427e", created_at: nil, updated_at: nil>):
+  
+app/controllers/user_controller.rb:14:in `abort'
+app/controllers/user_controller.rb:14:in `register'
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:43:04 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"mantas", "last_name"=>"mantas", "email"=>"mantas@gmail.com", "password"=>"[FILTERED]", "age"=>"12", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (#<User id: nil, name: "mantas", last_name: "mantas", email: "mantas@gmail.com", password: "mantas", age: 12, role: "ROLE_STUDENT", token: "d41d8cd98f00b204e9800998ecf8427e", created_at: nil, updated_at: nil>):
+  
+app/controllers/user_controller.rb:14:in `abort'
+app/controllers/user_controller.rb:14:in `register'
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:43:14 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"mantas", "last_name"=>"mantas", "email"=>"mantas@gmail.com", "password"=>"[FILTERED]", "age"=>"12", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mantas@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:16
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "age", "role", "token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "mantas"], ["last_name", "mantas"], ["email", "mantas@gmail.com"], ["password", "mantas"], ["age", 12], ["role", "ROLE_STUDENT"], ["token", "d41d8cd98f00b204e9800998ecf8427e"], ["created_at", "2018-12-02 17:43:14.956886"], ["updated_at", "2018-12-02 17:43:14.956886"]]
+  ↳ app/controllers/user_controller.rb:16
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:16
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:43:14 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:44:47 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:44:53 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:45:35 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:45:36 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:46:33 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:46:34 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:46:38 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 34ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:46:39 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:46:59 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:46:59 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:47:00 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:47:01 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:47:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:49:40 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-12-02 19:50:44 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 15ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:51:02 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"jonas", "last_name"=>"jonas", "email"=>"jonas@jonas.lt", "password"=>"[FILTERED]", "age"=>"12", "role"=>"ROLE_TEACHER"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:14
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonas@jonas.lt"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:14
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "age", "role", "token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "jonas"], ["last_name", "jonas"], ["email", "jonas@jonas.lt"], ["password", "jonas"], ["age", 12], ["role", "ROLE_TEACHER"], ["token", "d41d8cd98f00b204e9800998ecf8427e"], ["created_at", "2018-12-02 17:51:02.239480"], ["updated_at", "2018-12-02 17:51:02.239480"]]
+  ↳ app/controllers/user_controller.rb:14
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:14
+Completed 200 OK in 39ms (Views: 0.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:51:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:51:43 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/create" for 127.0.0.1 at 2018-12-02 19:51:54 +0200
+Processing by UserController#register as HTML
+  Parameters: {"user"=>{"name"=>"asdf", "last_name"=>"asdfasd", "email"=>"psa", "password"=>"[FILTERED]", "age"=>"32", "role"=>"ROLE_STUDENT"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "psa"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:14
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "age", "role", "token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "asdf"], ["last_name", "asdfasd"], ["email", "psa"], ["password", "adsf"], ["age", 32], ["role", "ROLE_STUDENT"], ["token", "d894729d1f8f84d80fd1a92dd6362b44"], ["created_at", "2018-12-02 17:51:54.456279"], ["updated_at", "2018-12-02 17:51:54.456279"]]
+  ↳ app/controllers/user_controller.rb:14
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:14
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-02 19:51:54 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+

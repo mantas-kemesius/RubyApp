@@ -4607,6 +4607,26 @@ var RegisterForm = function (_React$Component) {
             _this.setState({ name: event.target.value });
         };
 
+        _this.handleLastname = function (event) {
+            _this.setState({ last_name: event.target.value });
+        };
+
+        _this.handleEmail = function (event) {
+            _this.setState({ email: event.target.value });
+        };
+
+        _this.handlePassword = function (event) {
+            _this.setState({ password: event.target.value });
+        };
+
+        _this.handleAge = function (event) {
+            _this.setState({ age: event.target.value });
+        };
+
+        _this.handleRadio = function (role) {
+            _this.setState({ role: role });
+        };
+
         _this.handleClick = function () {
             if (_this.state.name !== "" && _this.state.last_name !== "" && _this.state.email !== "" && _this.state.password !== "" && Number.isInteger(parseInt(_this.state.age))) {
                 var user = _extends({}, _this.state);
@@ -4623,26 +4643,6 @@ var RegisterForm = function (_React$Component) {
     }
 
     _createClass(RegisterForm, [{
-        key: 'handleLastname',
-        value: function handleLastname(event) {
-            this.setState({ last_name: event.target.value });
-        }
-    }, {
-        key: 'handleEmail',
-        value: function handleEmail(event) {
-            this.setState({ email: event.target.value });
-        }
-    }, {
-        key: 'handlePassword',
-        value: function handlePassword(event) {
-            this.setState({ password: event.target.value });
-        }
-    }, {
-        key: 'handleAge',
-        value: function handleAge(event) {
-            this.setState({ age: event.target.value });
-        }
-    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -4654,6 +4654,26 @@ var RegisterForm = function (_React$Component) {
                     'h1',
                     null,
                     'Registracija'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'radio' },
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        _react2.default.createElement('input', { type: 'radio', checked: this.state.role === 'ROLE_STUDENT', onChange: function onChange() {
+                                return _this2.handleRadio('ROLE_STUDENT');
+                            } }),
+                        'Studentas'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        _react2.default.createElement('input', { type: 'radio', checked: this.state.role === 'ROLE_TEACHER', onChange: function onChange() {
+                                return _this2.handleRadio('ROLE_TEACHER');
+                            } }),
+                        'D\u0117stytojas'
+                    )
                 ),
                 _react2.default.createElement('input', { type: 'email', placeholder: 'El. pa\u0161tas', className: 'input input-text', value: this.state.email, onChange: function onChange(e) {
                         return _this2.handleEmail(e);

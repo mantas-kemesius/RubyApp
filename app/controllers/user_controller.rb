@@ -3,7 +3,6 @@
 class UserController < ApplicationController
   protect_from_forgery
   def register
-    md5 = Digest::MD5.new
     @user = User.new
     @user.name = params[:user]['name']
     @user.last_name = params[:user]['last_name']
@@ -11,7 +10,7 @@ class UserController < ApplicationController
     @user.password = params[:user]['password']
     @user.age = params[:user]['age']
     @user.role = params[:user]['role']
-    @user.token = md5.hexdigest
+    @user.token = Digest::MD5.new.hexdigest(params[:user]['email'])
     if @user.save
       render json: 'Success!', status: 200
     else

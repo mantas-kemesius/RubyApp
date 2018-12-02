@@ -18,20 +18,24 @@ class RegisterForm extends React.Component {
         this.setState({name: event.target.value});
     }
 
-    handleLastname(event) {
+    handleLastname = (event) => {
         this.setState({last_name: event.target.value});
     }
 
-    handleEmail(event) {
+    handleEmail = (event) => {
         this.setState({email: event.target.value});
     }
 
-    handlePassword(event) {
+    handlePassword = (event) => {
         this.setState({password: event.target.value});
     }
 
-    handleAge(event) {
+    handleAge = (event) => {
         this.setState({age: event.target.value});
+    }
+
+    handleRadio = (role) => {
+        this.setState({role: role})
     }
 
     handleClick = () => {
@@ -57,6 +61,16 @@ class RegisterForm extends React.Component {
         return (
             <div className="RegisterForm">
                 <h1>Registracija</h1>
+                <div className="radio">
+                    <label>
+                        <input type="radio" checked={this.state.role === 'ROLE_STUDENT'} onChange={() => this.handleRadio('ROLE_STUDENT')}/>
+                        Studentas
+                    </label>
+                    <label>
+                        <input type="radio" checked={this.state.role === 'ROLE_TEACHER'} onChange={() => this.handleRadio('ROLE_TEACHER')}/>
+                        Dėstytojas
+                    </label>
+                </div>
                 <input type="email" placeholder="El. paštas" className="input input-text" value={this.state.email} onChange={(e) => this.handleEmail(e)}/>
                 <input type="text" placeholder="Vardas" className="input input-text" value={this.state.name} onChange={(e) => this.handleName(e)}/>
                 <input type="text" placeholder="Pavardė" className="input input-text" value={this.state.last_name} onChange={(e) => this.handleLastname(e)}/>
