@@ -16,4 +16,12 @@ class Subject < ApplicationRecord
     subject = find_by(teacher_id: teacher)
     destroy(subject.id)
   end
+
+  def self.update_time(time)
+    update(time: time)
+  end
+
+  def self.update_name(name)
+    update(name: name)
+  end
 end
