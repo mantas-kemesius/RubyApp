@@ -15,10 +15,31 @@ class User < ApplicationRecord
   validates_length_of :password,
                       maximum: 30, message: 'password max length 40 chars'
   validates :age, inclusion: 1...100, length: { minimum: 1, maximum: 3 }
+  has_one :teacher
+  has_one :student
 
-  def print_user
-    str = name + "\n" + last_name + "\n"
-    str += '_________________________' + "\n"
-    print str
+  def self.add(name, last_name, email, password, age)
+    create(name: name, last_name: last_name, email: email,
+           password: password, age: age)
+  end
+
+  def self.del(user_id)
+    destroy(user_id)
+  end
+
+  def self.update_name(name)
+    update(name: name)
+  end
+
+  def self.update_last_name(last_name)
+    update(last_name: last_name)
+  end
+
+  def self.update_password(password)
+    update(password: password)
+  end
+
+  def self.update_age(age)
+    update(age: age)
   end
 end
