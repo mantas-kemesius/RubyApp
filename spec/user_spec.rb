@@ -45,22 +45,22 @@ RSpec.describe User, type: :model do
     # TODO: delete by function by id or name?
   end
 
-  context 'when printed' do
-    let(:make_all_teacher_str) do
-      str = ''
-      users.each do |user|
-        str += user.name + "\n" + user.last_name + "\n"
-        str += '_________________________' + "\n"
-      end
-      str
-    end
-
-    it 'test teachers printed' do
-      user = users(:Tomas)
-      # teacher_str = make_all_teacher_str
-      str = user.name + "\n" + user.last_name + "\n"
-      str += '_________________________' + "\n"
-      expect { user.print_user }.to output(str).to_stdout
-    end
-  end
+  # context 'when printed' do
+  #   let(:make_all_teacher_str) do
+  #     str = ''
+  #     users.each do |user|
+  #       str += user.name + "\n" + user.last_name + "\n"
+  #       str += '_________________________' + "\n"
+  #     end
+  #     str
+  #   end
+  #
+  #   it 'test teachers printed' do
+  #     user = users(:Tomas)
+  #     # teacher_str = make_all_teacher_str
+  #     str = user.name + "\n" + user.last_name + "\n"
+  #     str += '_________________________' + "\n"
+  #     expect { user.print_user }.to output(str).to_stdout
+  #   end
+  # end
 end

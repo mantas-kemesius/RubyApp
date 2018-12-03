@@ -15,4 +15,6 @@ class User < ApplicationRecord
   validates_length_of :password,
                       maximum: 30, message: 'password max length 40 chars'
   validates :age, inclusion: 1...100, length: { minimum: 1, maximum: 3 }
+  has_one :teacher
+  has_one :student
 end
