@@ -2,12 +2,12 @@
 
 class SubjectController < ApplicationController
   protect_from_forgery
-
   def create
     @subject = Subject.new
     @subject.name = params[:subject]['name']
     @subject.time = params[:subject]['time']
     @subject.teacher_id = params[:subject]['id']
+    # abort @subject.inspect
     if @subject.save
       render json: Subject.find_by(
         teacher_id: params[:subject]['id']
