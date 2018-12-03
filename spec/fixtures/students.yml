@@ -10,18 +10,18 @@ Tomas:
   course: Informatics
   group: 1
   bio: Informatics student
-#Sigitas:
-#  user: Sigitas
-#  course: Bioinformatics
-#  group: 2
-#  bio: Bioinformatics student
-#Eimantas:
-#  user: Eimantas
-#  course: Program Systems
-#  group: 3
-#  bio: PS student
-#Redas:
-#  user: Redas
-#  course: Program Systems
-#  group: 3
-#  bio: Program Systems student
+Sigitas:
+  user: Sigitas
+  course: Bioinformatics
+  group: 2
+  bio: Bioinformatics student
+Eimantas:
+  user: Eimantas
+  course: Program Systems
+  group: 3
+  bio: PS student
+Redas:
+  user: Redas
+  course: Program Systems
+  group: 3
+  bio: Program Systems student

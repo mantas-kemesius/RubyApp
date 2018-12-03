@@ -12917,3 +12917,207 @@ Migrating to AddTeacherSubject (20181203153129)
   ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2018-12-03 20:43:31.935419"], ["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (108.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "test"[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "test"[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (468.1ms)[0m  [1m[35mCREATE DATABASE "test" ENCODING = 'unicode'[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "test" ENCODING = 'unicode'[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "mails" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "mails" ("id" bigserial primary key, "title" character varying, "message" text, "time" date, "from" character varying, "to" character varying, "student_id" integer, "teacher_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE  INDEX  "index_mails_on_student_id" ON "mails"  ("student_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_mails_on_teacher_id" ON "mails"  ("teacher_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "title" character varying, "text" text, "teacher_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_teacher_id" ON "notifications"  ("teacher_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schedules" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" bigserial primary key, "subjects_id" integer, "time" timestamp, "teacher_id" integer, "student_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE  INDEX  "index_schedules_on_student_id" ON "schedules"  ("student_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE  INDEX  "index_schedules_on_subjects_id" ON "schedules"  ("subjects_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE  INDEX  "index_schedules_on_teacher_id" ON "schedules"  ("teacher_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "user_id" integer, "course" character varying, "group" integer, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_user_id" ON "students"  ("user_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" bigserial primary key, "name" character varying, "time" character varying, "teacher_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_on_teacher_id" ON "subjects"  ("teacher_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" bigserial primary key, "user_id" integer, "university" character varying, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "subject_id" integer)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE  INDEX  "index_teachers_on_user_id" ON "teachers"  ("user_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "age" integer, "token" character varying, "role" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181203153129)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181112201423),
+(20181120114019),
+(20181118222336),
+(20181112201450),
+(20181203145549),
+(20181112201424),
+(20181112201730),
+(20181112204702);
+
+[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-03 20:43:36.331506"], ["updated_at", "2018-12-03 20:43:36.331506"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "mails" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "mails" ("id" bigserial primary key, "title" character varying, "message" text, "time" date, "from" character varying, "to" character varying, "student_id" integer, "teacher_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_mails_on_student_id" ON "mails"  ("student_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE  INDEX  "index_mails_on_teacher_id" ON "mails"  ("teacher_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "title" character varying, "text" text, "teacher_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_teacher_id" ON "notifications"  ("teacher_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "schedules" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "schedules" ("id" bigserial primary key, "subjects_id" integer, "time" timestamp, "teacher_id" integer, "student_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE  INDEX  "index_schedules_on_student_id" ON "schedules"  ("student_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE  INDEX  "index_schedules_on_subjects_id" ON "schedules"  ("subjects_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE  INDEX  "index_schedules_on_teacher_id" ON "schedules"  ("teacher_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "user_id" integer, "course" character varying, "group" integer, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_user_id" ON "students"  ("user_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" bigserial primary key, "name" character varying, "time" character varying, "teacher_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_on_teacher_id" ON "subjects"  ("teacher_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" bigserial primary key, "user_id" integer, "university" character varying, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "subject_id" integer)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_teachers_on_user_id" ON "teachers"  ("user_id")[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "age" integer, "token" character varying, "role" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-12-03 20:43:36.530114"], ["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7458657555131878620)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2018-12-03 20:45:31.875543"], ["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7458657555131878620)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101

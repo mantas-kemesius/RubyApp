@@ -24,3 +24,21 @@ Arnas:
   email: arnelis.liux@gmail.com
   password: asesuarnas
   age: 15
+Sigitas:
+  name: Sigitas
+  last_name: Oktavianas
+  email: sigis.skoda@gmail.com
+  password: asesusigis
+  age: 22
+Redas:
+  name: Redas
+  last_name: Redauskas
+  email: redux97@gmail.com
+  password: asesuredas
+  age: 23
+Eimantas:
+  name: Eimantas
+  last_name: Eimantelis
+  email: eimis@gmail.com
+  password: eimuciofilmuok
+  age: 33
