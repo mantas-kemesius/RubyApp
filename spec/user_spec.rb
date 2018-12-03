@@ -26,11 +26,11 @@ RSpec.describe User, type: :model do
       user = described_class.create!(name: 'Tom', last_name: 'Mac', age: 1)
       expect(User.find(user.id)).to be_present
     end
-    # TODO: create by function?
-    # it 'search by name' do
-    #   teacher = described_class.create!(name: 'Tom', last_name: 'Mac', age: 1)
-    #   expect(Teacher.find_by_name(teacher.name)).to be_present
-    # end
+    it 'added successfully' do
+      User.add('Tom', 'Mac', 'Testas', '123', 22)
+      expect(User.exists?(name: 'Tom', last_name: 'Mac', age: 22,
+                          password: '123', email: 'Testas')).to be true
+    end
   end
 
   context 'when deleted' do
@@ -42,25 +42,33 @@ RSpec.describe User, type: :model do
       user.destroy
       expect(User.count).to eq users.size - 1
     end
-    # TODO: delete by function by id or name?
+    it 'deletes user by id' do
+      user = users(:Tomas)
+      User.del(user.id)
+      expect(User.exists?(user.id)).to be false
+    end
   end
 
-  context 'when printed' do
-    let(:make_all_teacher_str) do
-      str = ''
-      users.each do |user|
-        str += user.name + "\n" + user.last_name + "\n"
-        str += '_________________________' + "\n"
-      end
-      str
+  context 'when changing' do
+    it 'can change name' do
+      user = User.create!(name: 'one', age: 15)
+      User.update_name('two')
+      expect(User.find(user.id).name).to eq 'two'
     end
-
-    it 'test teachers printed' do
-      user = users(:Tomas)
-      # teacher_str = make_all_teacher_str
-      str = user.name + "\n" + user.last_name + "\n"
-      str += '_________________________' + "\n"
-      expect { user.print_user }.to output(str).to_stdout
+    it 'can change last_name' do
+      user = User.create!(last_name: 'one', age: 15)
+      User.update_last_name('two')
+      expect(User.find(user.id).last_name).to eq 'two'
+    end
+    it 'can change password' do
+      user = User.create!(password: 'one', age: 15)
+      User.update_password('two')
+      expect(User.find(user.id).password).to eq 'two'
+    end
+    it 'can change age' do
+      user = User.create!(age: 15)
+      User.update_age(22)
+      expect(User.find(user.id).age).to eq 22
     end
   end
 end
