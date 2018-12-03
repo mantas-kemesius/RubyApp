@@ -19,6 +19,20 @@ RSpec.describe Subject, type: :model do
 
       expect(Subject.find(subject.id)).to be_present
     end
+    it 'changed time is in database' do
+      teacher = Teacher.create!(university: 'ktu')
+      subject = Subject.create(name: 'Alge', time: '8', teacher_id: teacher.id)
+      Subject.update_time('8:00')
+
+      expect(Subject.find(subject.id).time).to eq '8:00'
+    end
+    it 'changed name is in database' do
+      teacher = Teacher.create!(university: 'ktu')
+      subject = Subject.create(name: 'Alge', time: '8', teacher_id: teacher.id)
+      Subject.update_name('Algebra')
+
+      expect(Subject.find(subject.id).name).to eq 'Algebra'
+    end
     it 'added successfully' do
       teacher = Teacher.create(university: 'ktu')
 
