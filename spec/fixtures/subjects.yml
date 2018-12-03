@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Algebra:
+  name: Algebra
+  time: 8:00
+  teacher: Tomas
+Komparchas:
+  name: Komparchas
+  time: 8:45
+  teacher: Antanas
+Komparchass:
+  name: Komparchass
+  time: 9:00
+  teacher: Bronius
