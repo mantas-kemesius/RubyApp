@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_114019) do
+ActiveRecord::Schema.define(version: 2018_12_03_153129) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "mails", force: :cascade do |t|
     t.string "title"
@@ -48,15 +51,13 @@ ActiveRecord::Schema.define(version: 2018_11_20_114019) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.integer "age"
-    t.string "university"
+    t.integer "user_id"
+    t.string "course"
+    t.integer "group"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_114019) do
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_114019) do
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "subject_id"
     t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
