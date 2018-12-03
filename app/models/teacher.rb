@@ -18,4 +18,9 @@ class Teacher < ApplicationRecord
     teacher = create(university: university)
     user.teacher = teacher
   end
+
+  def self.del(user)
+    teacher = find_by(user_id: user)
+    destroy(teacher.id)
+  end
 end

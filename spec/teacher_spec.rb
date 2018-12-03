@@ -38,6 +38,12 @@ RSpec.describe Teacher, type: :model do
       teacher.destroy
       expect(Teacher.exists?(teacher.id)).to be false
     end
+    it 'deletes item by user' do
+      teacher = teachers(:Antanas)
+      user = teacher.user
+      Teacher.del(user)
+      expect(Teacher.exists?(teacher.id)).to be false
+    end
   end
 
   # context 'when printed' do
