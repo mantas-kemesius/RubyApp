@@ -5164,7 +5164,15 @@ var _react = __webpack_require__(0);
 
 var React = _interopRequireWildcard(_react);
 
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -5175,19 +5183,300 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var StudentBody = exports.StudentBody = function (_React$Component) {
     _inherits(StudentBody, _React$Component);
 
-    function StudentBody() {
+    function StudentBody(props) {
         _classCallCheck(this, StudentBody);
 
-        return _possibleConstructorReturn(this, (StudentBody.__proto__ || Object.getPrototypeOf(StudentBody)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (StudentBody.__proto__ || Object.getPrototypeOf(StudentBody)).call(this, props));
+
+        _this.state = {
+            name: "",
+            time: "08:15",
+            email: "",
+            student_email: "",
+            message: "",
+            subject_name: "",
+            subjects: [],
+            messages: [],
+            users: [],
+            student_subjects: []
+        };
+
+        _this.handleEmail = function (event) {
+            _this.setState({ email: event.target.value });
+        };
+
+        _this.handleMessage = function (event) {
+            _this.setState({ message: event.target.value });
+        };
+
+        _this.delete = function (id) {
+            var subjects = [].concat(_toConsumableArray(_this.state.subjects));
+            var subject = subjects[id];
+            subjects.splice(id, 1);
+            localStorage.setItem('subjects', JSON.stringify(subjects));
+            _axios2.default.post('http://0.0.0.0:3000/subject/delete', { id: subject.id }).then(function (res) {
+                console.log(res);
+            });
+            _this.setState({ subjects: subjects });
+        };
+
+        _this.sendMessage = function () {
+            if (_this.state.email !== "" && _this.state.message !== "") {
+                var users = [].concat(_toConsumableArray(_this.state.users));
+                var _this$state = _this.state,
+                    email = _this$state.email,
+                    message = _this$state.message;
+
+                var user = users.filter(function (item) {
+                    return email === item.email;
+                });
+
+                var id = user[0].id;
+
+
+                var currentUser = JSON.parse(localStorage.getItem('current_user'));
+                _axios2.default.post('http://0.0.0.0:3000/message/create', {
+                    from: currentUser.id, to: id, text: message
+                });
+                _this.setState({ email: "", message: "" });
+            }
+        };
+
+        _this.getUser = function (id) {
+            var user = _this.state.users.filter(function (item) {
+                return id === item.id;
+            });
+
+            return user[0];
+        };
+
+        _axios2.default.get('http://0.0.0.0:3000/subjects').then(function (res) {
+            // localStorage.setItem('subjects', JSON.stringify(res.data));
+            _this.setState({ subjects: res.data });
+        });
+        _axios2.default.get('http://0.0.0.0:3000/users').then(function (res) {
+            // localStorage.setItem('subjects', JSON.stringify(res.data));
+            _this.setState({ users: res.data });
+            // this.setState({subjects: res.data});
+        });
+        _axios2.default.get('http://0.0.0.0:3000/messages').then(function (res) {
+            // localStorage.setItem('subjects', JSON.stringify(res.data));
+            _this.setState({ messages: res.data });
+            // this.setState({subjects: res.data});
+        });
+        _axios2.default.get('http://0.0.0.0:3000/ssubjects').then(function (res) {
+            // localStorage.setItem('subjects', JSON.stringify(res.data));
+            _this.setState({ student_subjects: res.data });
+            // this.setState({subjects: res.data});
+        });
+        return _this;
     }
 
     _createClass(StudentBody, [{
-        key: "render",
+        key: 'render',
         value: function render() {
+            var _this2 = this;
+
+            var currentUser = JSON.parse(localStorage.getItem('current_user'));
+            var subjects = [].concat(_toConsumableArray(this.state.subjects));
+            var subList = void 0,
+                usersList = void 0,
+                messages = void 0,
+                ssubList = void 0;
+
+            if (this.state.users) {
+                usersList = this.state.users.map(function (item, index) {
+                    if (currentUser.id !== item.id) {
+                        return React.createElement(
+                            'li',
+                            { key: index },
+                            item.email
+                        );
+                    }
+                });
+            }
+
+            if (this.state.messages) {
+                messages = this.state.messages.map(function (item, index) {
+                    if (item.to === currentUser.id) {
+                        var user = _this2.getUser(item.from);
+                        return React.createElement(
+                            'tr',
+                            { key: index },
+                            React.createElement(
+                                'td',
+                                null,
+                                user.email
+                            ),
+                            React.createElement(
+                                'td',
+                                null,
+                                item.text
+                            )
+                        );
+                    }
+                });
+            }
+
+            if (subjects) {
+                ssubList = this.state.student_subjects.filter(function (item) {
+                    return currentUser.id === item.student_id;
+                });
+                ssubList.forEach(function (sub) {
+                    subList = subjects.map(function (item, index) {
+                        if (sub.subject_id === item.id) {
+                            return React.createElement(
+                                'tr',
+                                { key: index },
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    _this2.getUser(item.teacher_id).name,
+                                    ' ',
+                                    _this2.getUser(item.teacher_id).last_name
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    item.name
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    item.time
+                                )
+                            );
+                        }
+                    });
+                });
+            } else {
+                subList = "Empty 😥";
+            }
             return React.createElement(
-                "div",
-                { className: "StudentBody home-body" },
-                "STUDENT"
+                'div',
+                { className: 'TeacherBody home-body' },
+                React.createElement(
+                    'div',
+                    { className: 'TeacherBody-container' },
+                    React.createElement(
+                        'div',
+                        { className: 'welcome-user' },
+                        'Sveiki, ',
+                        currentUser.name,
+                        ' ',
+                        currentUser.last_name,
+                        ' \uD83E\uDD18!'
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'TeacherBody-message' },
+                        React.createElement(
+                            'h1',
+                            null,
+                            'Visi j\u016Bs\u0173 dalykai:'
+                        ),
+                        React.createElement(
+                            'table',
+                            { className: 'table' },
+                            React.createElement(
+                                'thead',
+                                null,
+                                React.createElement(
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        'D\u0117stytojas'
+                                    ),
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        'Pavadinimas'
+                                    ),
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        'Laikas'
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'tbody',
+                                null,
+                                subList
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'TeacherBody-message' },
+                        React.createElement(
+                            'h1',
+                            null,
+                            'Vartotojai'
+                        ),
+                        React.createElement(
+                            'ul',
+                            null,
+                            usersList
+                        ),
+                        React.createElement(
+                            'h1',
+                            null,
+                            'I\u0161siusti lai\u0161k\u0105'
+                        ),
+                        React.createElement('input', { type: 'email', placeholder: 'Kam', className: 'input input-text', value: this.state.email,
+                            onChange: function onChange(e) {
+                                return _this2.handleEmail(e);
+                            } }),
+                        React.createElement('input', { type: 'text', placeholder: '\u017Dinut\u0117', className: 'input input-text', value: this.state.message,
+                            onChange: function onChange(e) {
+                                return _this2.handleMessage(e);
+                            } }),
+                        React.createElement(
+                            'button',
+                            { className: 'btns btn-login', onClick: this.sendMessage },
+                            'Si\u016Bsti'
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'TeacherBody-ssubject' },
+                        React.createElement(
+                            'h1',
+                            null,
+                            '\u017Dinut\u0117s'
+                        ),
+                        React.createElement(
+                            'table',
+                            { className: 'table' },
+                            React.createElement(
+                                'thead',
+                                null,
+                                React.createElement(
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        'Nuo'
+                                    ),
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        '\u017Dinut\u0117'
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'tbody',
+                                null,
+                                messages
+                            )
+                        )
+                    )
+                )
             );
         }
     }]);
@@ -5240,7 +5529,26 @@ var TeacherBody = exports.TeacherBody = function (_React$Component) {
         _this.state = {
             name: "",
             time: "08:15",
-            subjects: []
+            email: "",
+            student_email: "",
+            message: "",
+            subject_name: "",
+            subjects: [],
+            messages: [],
+            users: [],
+            student_subjects: []
+        };
+
+        _this.handleEmail = function (event) {
+            _this.setState({ email: event.target.value });
+        };
+
+        _this.handleStudentEmail = function (event) {
+            _this.setState({ student_email: event.target.value });
+        };
+
+        _this.handleMessage = function (event) {
+            _this.setState({ message: event.target.value });
         };
 
         _this.handleName = function (event) {
@@ -5249,6 +5557,10 @@ var TeacherBody = exports.TeacherBody = function (_React$Component) {
 
         _this.handleTime = function (event) {
             _this.setState({ time: event.target.value });
+        };
+
+        _this.handleSubjectName = function (event) {
+            _this.setState({ subject_name: event.target.value });
         };
 
         _this.delete = function (id) {
@@ -5277,9 +5589,81 @@ var TeacherBody = exports.TeacherBody = function (_React$Component) {
             }
         };
 
+        _this.sendMessage = function () {
+            if (_this.state.email !== "" && _this.state.message !== "") {
+                var users = [].concat(_toConsumableArray(_this.state.users));
+                var _this$state2 = _this.state,
+                    email = _this$state2.email,
+                    message = _this$state2.message;
+
+                var user = users.filter(function (item) {
+                    return email === item.email;
+                });
+
+                var id = user[0].id;
+
+
+                var currentUser = JSON.parse(localStorage.getItem('current_user'));
+                _axios2.default.post('http://0.0.0.0:3000/message/create', {
+                    from: currentUser.id, to: id, text: message
+                });
+                _this.setState({ email: "", message: "" });
+            }
+        };
+
+        _this.addSubject = function () {
+            if (_this.state.student_email !== "" && _this.state.student_subjects !== "") {
+                var users = [].concat(_toConsumableArray(_this.state.users));
+                var _this$state3 = _this.state,
+                    student_email = _this$state3.student_email,
+                    subject_name = _this$state3.subject_name;
+
+                var user = users.filter(function (item) {
+                    return student_email === item.email;
+                });
+                console.log(user);
+                var id = user[0].id;
+
+
+                var subject = _this.state.subjects.filter(function (item) {
+                    return subject_name === item.name;
+                });
+
+                var subject_id = subject[0].id;
+
+                _axios2.default.post('http://0.0.0.0:3000/ssubjects/create', {
+                    student_id: id, subject_id: subject_id
+                });
+                _this.setState({ student_email: "", subject_name: "" });
+            }
+        };
+
+        _this.getUser = function (id) {
+            var user = _this.state.users.filter(function (item) {
+                return id === item.id;
+            });
+
+            return user[0];
+        };
+
         _axios2.default.get('http://0.0.0.0:3000/subjects').then(function (res) {
             // localStorage.setItem('subjects', JSON.stringify(res.data));
             _this.setState({ subjects: res.data });
+        });
+        _axios2.default.get('http://0.0.0.0:3000/users').then(function (res) {
+            // localStorage.setItem('subjects', JSON.stringify(res.data));
+            _this.setState({ users: res.data });
+            // this.setState({subjects: res.data});
+        });
+        _axios2.default.get('http://0.0.0.0:3000/messages').then(function (res) {
+            // localStorage.setItem('subjects', JSON.stringify(res.data));
+            _this.setState({ messages: res.data });
+            // this.setState({subjects: res.data});
+        });
+        _axios2.default.get('http://0.0.0.0:3000/ssubjects').then(function (res) {
+            // localStorage.setItem('subjects', JSON.stringify(res.data));
+            _this.setState({ student_subjects: res.data });
+            // this.setState({subjects: res.data});
         });
         return _this;
     }
@@ -5291,7 +5675,60 @@ var TeacherBody = exports.TeacherBody = function (_React$Component) {
 
             var currentUser = JSON.parse(localStorage.getItem('current_user'));
             var subjects = [].concat(_toConsumableArray(this.state.subjects));
-            var subList = void 0;
+            var subList = void 0,
+                usersList = void 0,
+                studentList = void 0,
+                messages = void 0,
+                ssubList = void 0;
+
+            if (this.state.users) {
+                usersList = this.state.users.map(function (item, index) {
+                    if (currentUser.id !== item.id) {
+                        return React.createElement(
+                            'li',
+                            { key: index },
+                            item.email
+                        );
+                    }
+                });
+            }
+
+            if (this.state.users) {
+                studentList = this.state.users.map(function (item, index) {
+                    if (currentUser.id !== item.id && item.role === 'ROLE_STUDENT') {
+                        return React.createElement(
+                            'li',
+                            { key: index },
+                            item.email
+                        );
+                    }
+                });
+            }
+
+            if (this.state.messages) {
+                messages = this.state.messages.map(function (item, index) {
+                    if (item.to === currentUser.id) {
+                        // console.log(item.from);
+                        var user = _this2.getUser(item.from);
+                        // console.log(user.email);
+                        return React.createElement(
+                            'tr',
+                            { key: index },
+                            React.createElement(
+                                'td',
+                                null,
+                                user.email
+                            ),
+                            React.createElement(
+                                'td',
+                                null,
+                                item.text
+                            )
+                        );
+                    }
+                });
+            }
+
             if (subjects) {
                 subList = subjects.map(function (item, index) {
                     if (item.teacher_id === currentUser.id) {
@@ -5398,6 +5835,102 @@ var TeacherBody = exports.TeacherBody = function (_React$Component) {
                                 'tbody',
                                 null,
                                 subList
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'TeacherBody-message' },
+                        React.createElement(
+                            'h1',
+                            null,
+                            'Vartotojai'
+                        ),
+                        React.createElement(
+                            'ul',
+                            null,
+                            usersList
+                        ),
+                        React.createElement(
+                            'h1',
+                            null,
+                            'I\u0161siusti lai\u0161k\u0105'
+                        ),
+                        React.createElement('input', { type: 'email', placeholder: 'Kam', className: 'input input-text', value: this.state.email, onChange: function onChange(e) {
+                                return _this2.handleEmail(e);
+                            } }),
+                        React.createElement('input', { type: 'text', placeholder: '\u017Dinut\u0117', className: 'input input-text', value: this.state.message, onChange: function onChange(e) {
+                                return _this2.handleMessage(e);
+                            } }),
+                        React.createElement(
+                            'button',
+                            { className: 'btns btn-login', onClick: this.sendMessage },
+                            'Si\u016Bsti'
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'TeacherBody-ssubject' },
+                        React.createElement(
+                            'h1',
+                            null,
+                            'Studentai'
+                        ),
+                        React.createElement(
+                            'ul',
+                            null,
+                            studentList
+                        ),
+                        React.createElement(
+                            'h1',
+                            null,
+                            'Prid\u0117ti studentui nauj\u0105 dalyk\u0105'
+                        ),
+                        React.createElement('input', { type: 'email', placeholder: 'Kam', className: 'input input-text', value: this.state.student_email, onChange: function onChange(e) {
+                                return _this2.handleStudentEmail(e);
+                            } }),
+                        React.createElement('input', { type: 'text', placeholder: 'Dalykas', className: 'input input-text', value: this.state.subject_name, onChange: function onChange(e) {
+                                return _this2.handleSubjectName(e);
+                            } }),
+                        React.createElement(
+                            'button',
+                            { className: 'btns btn-login', onClick: this.addSubject },
+                            'Prid\u0117ti'
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'TeacherBody-ssubject' },
+                        React.createElement(
+                            'h1',
+                            null,
+                            '\u017Dinut\u0117s'
+                        ),
+                        React.createElement(
+                            'table',
+                            { className: 'table' },
+                            React.createElement(
+                                'thead',
+                                null,
+                                React.createElement(
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        'Nuo'
+                                    ),
+                                    React.createElement(
+                                        'th',
+                                        { scope: 'col' },
+                                        '\u017Dinut\u0117'
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'tbody',
+                                null,
+                                messages
                             )
                         )
                     )

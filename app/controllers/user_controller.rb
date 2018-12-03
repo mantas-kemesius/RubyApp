@@ -30,4 +30,8 @@ class UserController < ApplicationController
       render json: @user, status: 200
     end
   end
+
+  def fetchAll
+    render json: User.find_each
+  end
 end
