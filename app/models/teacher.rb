@@ -15,7 +15,7 @@ class Teacher < ApplicationRecord
   belongs_to :user
 
   def self.add(university, user)
-    teacher = Teacher.create(university: university)
+    teacher = create(university: university)
     user.teacher = teacher
   end
 end
