@@ -78,15 +78,23 @@ RSpec.describe User, type: :model do
     end
 
     let(:u2) do
-      instance_double('User', id: 222)
+      instance_double('User', id: 222) # mock
     end
 
     let(:u3) do
-      instance_double('User', id: 333)
+      instance_double('User', id: 333) # mock
     end
 
-    let(:send) do
+    let(:u4) do
+      User.create!(email: 'asdf', age: 5)
+    end
+
+    let(:send_to_u2) do
       u1.send_email(u2.id, 'Title', 'text')
+    end
+
+    let(:send_to_u4) do
+      u1.send_email(u4.id, 'Title', 'text')
     end
 
     it 'email fixture count is same as database mail count before delete' do
@@ -99,13 +107,20 @@ RSpec.describe User, type: :model do
     end
 
     it 'mail does not exist in database before sending' do
+      puts u4.id
       expect(Mail.where(from_id: u1.id, to_id: u2.id).exists?).to be false
     end
 
     it 'creates new mail' do
       allow(User).to receive(:exists?).and_return(true) # stub method
-      send
+      send_to_u2
       expect(Mail.where(from_id: u1.id, to_id: u2.id,
+                        title: 'Title', message: 'text').exists?).to be true
+    end
+
+    it 'successfully sends a mail to user' do
+      send_to_u4
+      expect(Mail.where(from_id: u1.id, to_id: u4.id,
                         title: 'Title', message: 'text').exists?).to be true
     end
 
