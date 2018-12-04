@@ -2,7 +2,7 @@
 
 require_relative 'spec_helper'
 RSpec.describe User, type: :model do
-  fixtures :users
+  fixtures :users, :mails
   context 'when checking fixtures' do
     it 'first object loaded' do
       users(:Tomas)
@@ -78,21 +78,41 @@ RSpec.describe User, type: :model do
     end
 
     let(:u2) do
-      instance_double('User', id: 0002)
+      instance_double('User', id: 222)
+    end
+
+    let(:u3) do
+      instance_double('User', id: 333)
     end
 
     let(:send) do
       u1.send_email(u2.id, 'Title', 'text')
     end
 
-    it 'email does not exist in database before sending' do
+    it 'email fixture count is same as database mail count before delete' do
+      expect(Mail.count).to eq mails.size
+    end
+
+    it 'mail count does not change if send was unsuccessful' do
+      u1.send_email(nil, 'title', 'text')
+      expect(Mail.count).to eq mails.size
+    end
+
+    it 'mail does not exist in database before sending' do
       expect(Mail.where(from_id: u1.id, to_id: u2.id).exists?).to be false
     end
 
-    it 'creates new email' do
-      allow(User).to receive(:exists?) { true } # stub method
+    it 'creates new mail' do
+      allow(User).to receive(:exists?).and_return(true) # stub method
       send
-      expect(Mail.where(from_id: u1.id, to_id: u2.id).exists?).to be true
+      expect(Mail.where(from_id: u1.id, to_id: u2.id,
+                        title: 'Title', message: 'text').exists?).to be true
+    end
+
+    it 'does not send mail if user is not found' do
+      u1.send_email(u3.id, 'Title', 'text')
+      expect(Mail.where(from_id: u1.id, to_id: u3.id,
+                        title: 'Title', message: 'text').exists?).to be false
     end
   end
 end
