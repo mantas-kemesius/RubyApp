@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_153129) do
+ActiveRecord::Schema.define(version: 2018_12_03_214319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,19 +19,18 @@ ActiveRecord::Schema.define(version: 2018_12_03_153129) do
     t.string "title"
     t.text "message"
     t.date "time"
-    t.string "from"
-    t.string "to"
-    t.integer "student_id"
-    t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_mails_on_student_id"
-    t.index ["teacher_id"], name: "index_mails_on_teacher_id"
+    t.integer "to_id"
+    t.integer "from_id"
+    t.index ["from_id"], name: "index_mails_on_from_id"
+    t.index ["to_id"], name: "index_mails_on_to_id"
   end
 
   create_table "notifications", force: :cascade do |t|
     t.string "title"
     t.text "text"
+    t.string "sender"
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -89,6 +88,10 @@ ActiveRecord::Schema.define(version: 2018_12_03_153129) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "to_emails_id"
+    t.integer "from_emails_id"
+    t.index ["from_emails_id"], name: "index_users_on_from_emails_id"
+    t.index ["to_emails_id"], name: "index_users_on_to_emails_id"
   end
 
 end

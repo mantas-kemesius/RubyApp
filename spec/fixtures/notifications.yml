@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Tomas_notif:
+  title: New subjects
+  text: Added New Subjects
+  sender: Tomas Tomaitis
+  teacher: Tomas
+Antanas_notif:
+  title: New Math Subjects
+  text: Added Algebra 1,2
+  sender: Antanas
+  teacher: Samuolaitis
+Bronius_notif_1:
+  title: I am teacher Bronius Rope
+  text: Very good teacher
+  sender: Bronius Rope
+  teacher: Bronius
+Bronius_notif_2:
+  title: I teach informatics
+  text: I am the best
+  sender: Bronius Rope
+  teacher: Bronius

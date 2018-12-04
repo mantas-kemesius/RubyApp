@@ -3,79 +3,69 @@
 require_relative 'rails_helper'
 
 RSpec.describe Notification, type: :model do
-  context 'when object created' do
+  fixtures :notifications
+  context 'when checking validation' do
     it 'have title and text attributes' do
-      note = described_class.new(title: 'First', text: 'Hello')
-      expect(note).to have_attributes(title: 'First', text: 'Hello')
+      note = described_class.create(title: 'First',
+                                    text: 'Hello', sender: 'Tomas')
+      expect(note).to have_attributes(title: 'First',
+                                      text: 'Hello', sender: 'Tomas')
     end
 
     it 'is valid' do
-      note = described_class.new(title: 'First', text: 'Hello')
+      note = described_class.create(title: 'First',
+                                    text: 'Hello', sender: 'Tomas')
       expect(note).to be_valid
     end
 
     it 'have title' do
-      note = described_class.new(title: '', text: 'Hello')
+      note = described_class.create(title: '', text: 'Hello', sender: 'Tomas')
       expect(note).not_to be_valid
     end
 
     it 'have text' do
-      note = described_class.new(title: 'First', text: '')
+      note = described_class.create(title: 'First', text: '', sender: 'Tomas')
+      expect(note).not_to be_valid
+    end
+
+    it 'have sender' do
+      note = described_class.create(title: 'First', text: 'Hello', sender: '')
       expect(note).not_to be_valid
     end
   end
 
-  context 'when added to database' do
-    let(:note) do
-      described_class.new(title: 'First', text: 'Hello')
-    end
-    let(:add) do
-      note.save
-    end
-    let(:delete) do
-      notification = described_class.last
-      notification.destroy
-    end
+  context 'when checking sender' do
+    it 'sender correct' do
+      teacher = instance_double('Teacher')
+      allow(teacher).to receive(:full_name).and_return('Tom Mac')
+      note = described_class.add('First', 'Hello', teacher)
 
-    it 'title set correctly' do
-      add
-      notification = Notification.last
-      expect(notification.title).to eq note.title
-      delete
-    end
-
-    it 'text set correctly' do
-      add
-      notification = Notification.last
-      expect(notification.text).to eq note.text
-      delete
-    end
-
-    it 'notification printed' do
-      note = described_class.new(title: 'First', text: '')
-      s = "\n" + note.title + "\n" + note.text + "\n"
-      s += '____________________________________________________' + "\n"
-      expect { note.print_notification }.to output(s).to_stdout
+      expect(note.sender).to eq('Tom Mac')
     end
   end
 
-  context 'when deleted from database' do
-    let(:note) do
-      described_class.new(title: 'First', text: 'Hello')
+  context 'when created' do
+    it 'added successfully' do # Stub method
+      teacher = instance_double('Teacher', full_name: 'Tom Mac')
+      Notification.add('First', 'Hello', teacher)
+      expect(Notification.exists?(title: 'First',
+                                  text: 'Hello', sender: 'Tom Mac')).to be true
     end
-    let(:add) do
-      note.save
+    it 'full name should be received from teacher' do # Mock
+      teacher = instance_spy('Teacher', full_name: 'Tom Mac')
+      expect(teacher).to have_received(:full_name)
+      Notification.add('First', 'Hello', teacher)
     end
-    let(:delete) do
-      notification = described_class.last
-      notification.destroy
-    end
+  end
 
-    it 'does not exist' do
-      notification = described_class.last
-      add
-      delete
-      expect(note).not_to eq notification
+  context 'when deleted' do
+    it 'same before delete' do
+      expect(Notification.count).to eq notifications.size
+    end
+    it 'count decreases' do
+      notif = notifications(:Tomas_notif)
+      notif.destroy
+      expect(Notification.count).to eq notifications.size - 1
     end
   end
 end

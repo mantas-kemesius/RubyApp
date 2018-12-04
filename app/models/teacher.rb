@@ -23,4 +23,8 @@ class Teacher < ApplicationRecord
     teacher = find_by(user_id: user)
     destroy(teacher.id)
   end
+
+  def full_name
+    "#{user.name} #{user.last_name}"
+  end
 end

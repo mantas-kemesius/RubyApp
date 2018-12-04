@@ -14,13 +14,22 @@ RSpec.describe Teacher, type: :model do
     it 'is in database' do
       user = User.create!(name: 'Tom', last_name: 'Mac', age: 1)
       teacher = Teacher.create(university: 'ktu')
-      user.teacher = teacher
+      teacher.user = user
       expect(Teacher.find(teacher.id)).to be_present
     end
     it 'added successfully' do
       user = User.create!(name: 'Tom', last_name: 'Mac', age: 1)
       Teacher.add('ktu', user)
       expect(Teacher.exists?(user_id: user.id, university: 'ktu')).to be true
+    end
+  end
+
+  context 'when checking users data' do
+    it 'full name correct' do
+      user = User.create!(name: 'Tom', last_name: 'Mac', age: 1)
+      teacher = Teacher.create(university: 'ktu')
+      teacher.user = user
+      expect(teacher.full_name).to eq('Tom Mac')
     end
   end
 
