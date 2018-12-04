@@ -53,8 +53,8 @@ RSpec.describe Notification, type: :model do
     end
     it 'full name should be received from teacher' do # Mock
       teacher = instance_spy('Teacher', full_name: 'Tom Mac')
-      expect(teacher).to have_received(:full_name)
       Notification.add('First', 'Hello', teacher)
+      expect(teacher).to have_received(:full_name)
     end
   end
 
