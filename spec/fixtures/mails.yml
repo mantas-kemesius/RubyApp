@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 Tomas:
-  to: Tomas
-  from: Bronius
+  to_id: Tomas
+  from_id: Bronius
   title: 8:00
   message: Alius
 Antanas:
-  to: Antanas
-  from: Bronius
+  to_id: Antanas
+  from_id: Bronius
   title: 8:00
   message: Balius
 Bronius:
-  to: 121
-  from: 123
+  to_id: 121
+  from_id: 123
   title: 8:00
   message: Trys
