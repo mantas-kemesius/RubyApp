@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Tomas:
+  to: Tomas
+  from: Bronius
+  title: 8:00
+  message: Alius
+Antanas:
+  to: Antanas
+  from: Bronius
+  title: 8:00
+  message: Balius
+Bronius:
+  to: 121
+  from: 123
+  title: 8:00
+  message: Trys

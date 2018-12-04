@@ -17,6 +17,8 @@ class User < ApplicationRecord
   validates :age, inclusion: 1...100, length: { minimum: 1, maximum: 3 }
   has_one :teacher
   has_one :student
+  has_many :to_emails, foreign_key: 'to_id', class_name: 'Email'
+  has_many :from_emails, foreign_key: 'receiver_id', class_name: 'Email'
 
   def self.add(name, last_name, email, password, age)
     create(name: name, last_name: last_name, email: email,
