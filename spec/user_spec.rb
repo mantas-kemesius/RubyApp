@@ -71,4 +71,28 @@ RSpec.describe User, type: :model do
       expect(User.find(user.id).age).to eq 22
     end
   end
+
+  context 'when send_email' do
+    let(:u1) do
+      User.create!(email: 'qwer', age: 1)
+    end
+
+    let(:u2) do
+      instance_double('User', id: 0002)
+    end
+
+    let(:send) do
+      u1.send_email(u2.id, 'Title', 'text')
+    end
+
+    it 'email does not exist in database before sending' do
+      expect(Mail.where(from_id: u1.id, to_id: u2.id).exists?).to be false
+    end
+
+    it 'creates new email' do
+      allow(User).to receive(:exists?) { true } # stub method
+      send
+      expect(Mail.where(from_id: u1.id, to_id: u2.id).exists?).to be true
+    end
+  end
 end
