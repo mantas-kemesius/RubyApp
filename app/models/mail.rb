@@ -7,22 +7,22 @@ class Mail < ApplicationRecord
   validates :title, presence: true
   validates :message, presence: true
 
-  def self.add(from, to, title, message)
-    create(from: from, to: to, title: title,
+  def self.add(from_id, to_id, title, message)
+    create(from_id: from_id, to_id: to_id, title: title,
            message: message)
   end
 
-  def self.del(from)
-    mail = find_by(from: from)
+  def self.del(from_id)
+    mail = find_by(from_id: from_id)
     destroy(mail.id)
   end
 
-  def self.update_from_emails(from)
-    update(from: from)
+  def self.update_from_emails(from_id)
+    update(from_id: from_id)
   end
 
-  def self.update_to_emails(to)
-    update(to: to)
+  def self.update_to_emails(to_id)
+    update(to_id: to_id)
   end
 
   def self.update_title(title)
