@@ -32,4 +32,9 @@ class Student < ApplicationRecord
   def self.change_group(student, group)
     student.group = group
   end
+
+  def self.delete(user)
+    student = find_by(user_id: user)
+    student.destroy if student.destroyable?
+  end
 end
