@@ -5,11 +5,13 @@ Arnas:
   course: Informatics
   group: 2
   bio: Informatics student
+  destroyable: false
 Tomas:
   user: Tomas
   course: Informatics
   group: 1
   bio: Informatics student
+  destroyable: true
 Sigitas:
   user: Sigitas
   course: Bioinformatics
