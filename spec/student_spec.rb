@@ -40,9 +40,21 @@ RSpec.describe Student, type: :model do
       expect(Student.exists?(student.id)).to be false
     end
     it 'deletes item by user' do
-      student = students(:Arnas)
+      student = students(:Tomas)
       user = student.user
       Student.del(user)
+      expect(Student.exists?(student.id)).to be false
+    end
+    it 'deletes student by user' do
+      student = students(:Arnas)
+      user = student.user
+      Student.delete(user)
+      expect(Student.exists?(student.id)).to be true
+    end
+    it 'doesnt delete student by user' do
+      student = students(:Tomas)
+      user = student.user
+      Student.delete(user)
       expect(Student.exists?(student.id)).to be false
     end
   end
@@ -55,8 +67,24 @@ RSpec.describe Student, type: :model do
     end
     it 'student group set to new' do
       student = students(:Tomas)
-      Student.change_group(student, 1)
-      expect(student.group).to eq 1
+      Student.change_group(student, 2)
+      expect(student.group).to eq 2
+    end
+  end
+
+  context 'when destroing' do
+    it 'is not destroyed if not destroyable' do
+      mocked_student = instance_spy('student', destroyable?: false)
+      allow(Student).to receive(:find_by).and_return mocked_student
+      Student.delete(5)
+      expect(mocked_student).not_to have_received :destroy
+    end
+
+    it 'is destroyed if destroyable' do
+      mocked_student = instance_spy('student', destroyable?: true)
+      allow(Student).to receive(:find_by).and_return mocked_student
+      Student.delete(5)
+      expect(mocked_student).to have_received :destroy
     end
   end
 end
