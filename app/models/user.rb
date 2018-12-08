@@ -44,4 +44,10 @@ class User < ApplicationRecord
   def self.update_age(age)
     update(age: age)
   end
+
+  def send_email(to_id, title, text)
+    return unless User.exists?(to_id)
+
+    Mail.create(from_id: id, to_id: to_id, title: title, message: text)
+  end
 end
