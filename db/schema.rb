@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_153129) do
+ActiveRecord::Schema.define(version: 2018_12_08_191239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "mails", force: :cascade do |t|
     t.string "title"
@@ -27,6 +34,14 @@ ActiveRecord::Schema.define(version: 2018_12_03_153129) do
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_mails_on_student_id"
     t.index ["teacher_id"], name: "index_mails_on_teacher_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "text"
+    t.integer "from"
+    t.integer "to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -48,6 +63,20 @@ ActiveRecord::Schema.define(version: 2018_12_03_153129) do
     t.index ["student_id"], name: "index_schedules_on_student_id"
     t.index ["subjects_id"], name: "index_schedules_on_subjects_id"
     t.index ["teacher_id"], name: "index_schedules_on_teacher_id"
+  end
+
+  create_table "ssubjects", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_subjects", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
@@ -92,18 +121,4 @@ ActiveRecord::Schema.define(version: 2018_12_03_153129) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "text"
-    t.integer "from"
-    t.integer "to"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "ssubjects", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 end

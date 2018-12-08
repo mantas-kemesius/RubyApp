@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   root 'home#index'
+  resources :articles
   get '/login', to: 'home#index'
   get '/register', to: 'home#index'
 
