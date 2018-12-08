@@ -11,14 +11,31 @@ class Notification < ApplicationRecord
     create(title: title, text: text, sender: teacher.full_name)
   end
 
+  def del
+    # notification = find_by(teacher_id: teacher)
+    destroy
+  end
+
+  def delete_by_teacher_and_title(teacher)
+    notification = Notification.find_by(teacher_id: teacher, title: title)
+    Notification.destroy(notification.id)
+  end
+
   def print_notification
-    str = "\n" + title + "\n" + text + "\n"
-    str += '____________________________________________________' + "\n"
+    str = title + "\n" + text + "\n" + sender + "\n"
+    str += '_________________________' + "\n"
     print str
   end
 
-  def change_title(new_title)
-    @title = new_title
-    save
+  def update_title(new_title)
+    update(title: new_title)
+  end
+
+  def update_text(new_text)
+    update(text: new_text)
+  end
+
+  def update_sender(new_sender)
+    update(sender: new_sender)
   end
 end

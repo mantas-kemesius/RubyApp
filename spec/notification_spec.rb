@@ -67,5 +67,44 @@ RSpec.describe Notification, type: :model do
       notif.destroy
       expect(Notification.count).to eq notifications.size - 1
     end
+    it 'deletes notification by notification id' do
+      notif = notifications(:Antanas_notif)
+      # teacher = notif.teacher
+      notif.del
+      expect(Notification.exists?(notif.id)).to be false
+    end
+    it 'deletes notification by teacher and title' do
+      notif = notifications(:Bronius_notif_2)
+      teacher = notif.teacher
+      notif.delete_by_teacher_and_title(teacher)
+      expect(Notification.exists?(notif.id)).to be false
+    end
+  end
+
+  context 'when printed' do
+    it 'prints notification' do
+      notif = notifications(:Tomas_notif)
+      str = notif.title + "\n" + notif.text + "\n" + notif.sender + "\n"
+      str += '_________________________' + "\n"
+      expect { notif.print_notification }.to output(str).to_stdout
+    end
+  end
+
+  context 'when changed' do
+    it 'title was changed' do
+      notif = notifications(:Antanas_notif)
+      expect { notif.update_title('difTitle') }.to change(notif, :title)
+        .from('New Math Subjects').to('difTitle')
+    end
+    it 'text was changed' do
+      notif = notifications(:Antanas_notif)
+      expect { notif.update_text('difText') }.to change(notif, :text)
+        .from('Added Algebra 1,2').to('difText')
+    end
+    it 'sender was changed' do
+      notif = notifications(:Bronius_notif_1)
+      expect { notif.update_sender('difSender') }.to change(notif, :sender)
+        .from('Bronius Rope').to('difSender')
+    end
   end
 end
