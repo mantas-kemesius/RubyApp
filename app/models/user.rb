@@ -3,6 +3,7 @@
 require_relative 'application_record'
 # Class For user
 class User < ApplicationRecord
+  Error = Class.new(StandardError)
   validates_uniqueness_of :email,
                           message: 'your email should be unique'
   validates_length_of :name, maximum: 40,
@@ -43,6 +44,16 @@ class User < ApplicationRecord
 
   def self.update_age(age)
     update(age: age)
+  end
+
+  def check_password(password, validator)
+      raise Error unless validator.valid?(password)
+
+      'password valid'
+  end
+
+  def valid?(data)
+    true #check or not empty
   end
 
   def send_email(to_id, title, text)

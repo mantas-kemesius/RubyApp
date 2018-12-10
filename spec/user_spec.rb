@@ -130,4 +130,32 @@ RSpec.describe User, type: :model do
                         title: 'Title', message: 'text').exists?).to be false
     end
   end
+
+  context 'with valid data' do
+    it 'password valid' do
+      user = users(:Tomas)
+      validator = double(:validator)
+      allow(validator).to receive(:valid?).and_return(true)
+      expect(user.check_password(user.password, validator)).to eq('password valid')
+    end
+
+    it 'password valid with validator' do
+      user = users(:Tomas)
+      expect(user.check_password(user.password, user)).to eq('password valid')
+    end
+
+    it 'password valid with validator' do
+      user = users(:Tomas)
+      expect(user.check_password('', user)).to eq('password valid')
+    end
+  end
+
+  context 'with invalid data' do
+    it 'raises Error' do
+      user = users(:Tomas)
+      validator = double(:validator)
+      allow(validator).to receive(:valid?).and_return(false)
+      expect { user.check_password(' ', validator) }.to raise_error(User::Error)
+    end
+  end
 end
