@@ -52,7 +52,8 @@ RSpec.describe User, type: :model do
   context 'when changing' do
     it 'can change name' do
       user = User.create!(name: 'one', age: 15)
-      User.update_name('two')
+      allow(user).to receive(:is_name_long_enough).and_return(true)
+      user.update_name('two')
       expect(User.find(user.id).name).to eq 'two'
     end
     it 'can change last_name' do

@@ -30,7 +30,8 @@ class User < ApplicationRecord
     destroy(user_id)
   end
 
-  def self.update_name(name)
+  def update_name(name)
+    raise Error unless is_name_long_enough(name)
     update(name: name)
   end
 
@@ -60,5 +61,9 @@ class User < ApplicationRecord
     return unless User.exists?(to_id)
 
     Mail.create(from_id: id, to_id: to_id, title: title, message: text)
+  end
+
+  def is_name_long_enough(name)
+    name.length > 100
   end
 end
