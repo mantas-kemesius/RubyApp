@@ -11,20 +11,29 @@ class Notification < ApplicationRecord
     create(title: title, text: text, sender: teacher.full_name)
   end
 
-  def del
-    # notification = find_by(teacher_id: teacher)
-    destroy
+  def self.del(teacher)
+    notification = find_by(teacher_id: teacher)
+    destroy(notification.id)
   end
 
-  def delete_by_teacher_and_title(teacher)
-    notification = Notification.find_by(teacher_id: teacher, title: title)
-    Notification.destroy(notification.id)
-  end
+  # def delete_by_teacher_and_title(teacher)
+  #   notification = Notification.find_by(teacher_id: teacher, title: title)
+  #   Notification.destroy(notification.id)
+  # end
 
   def print_notification
     str = title + "\n" + text + "\n" + sender + "\n"
     str += '_________________________' + "\n"
     print str
+  end
+
+  def self.print_by_sender(sender)
+    notifications = find_by_sender(sender)
+    if notifications.empty?
+      puts 'Nothing to show'
+    else
+      notifications.each(&:print_notification)
+    end
   end
 
   def update_title(new_title)
@@ -37,5 +46,15 @@ class Notification < ApplicationRecord
 
   def update_sender(new_sender)
     update(sender: new_sender)
+  end
+
+  def self.find_by_sender(sender)
+    where(sender: sender)
+  end
+
+  def self.existing_title(title)
+    raise 'Not existing' unless exists?(title: title)
+
+    true
   end
 end

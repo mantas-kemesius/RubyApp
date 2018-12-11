@@ -36,4 +36,8 @@ class Teacher < ApplicationRecord
     Grade.create(student_id: student.id, subject_id: subject.id,
                  grade: grade.grade)
   end
+
+  def email
+    user.email
+  end
 end

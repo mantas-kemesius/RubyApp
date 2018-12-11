@@ -107,7 +107,6 @@ RSpec.describe User, type: :model do
     end
 
     it 'mail does not exist in database before sending' do
-      puts u4.id
       expect(Mail.where(from_id: u1.id, to_id: u2.id).exists?).to be false
     end
 
