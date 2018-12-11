@@ -42,6 +42,13 @@ RSpec.describe Notification, type: :model do
 
       expect(note.sender).to eq('Tom Mac')
     end
+    it 'searches existing title' do
+      expect(Notification.existing_title('New Math Subjects')).to be true
+    end
+    it 'searches not existing title' do
+      expect { Notification.existing_title('not existing') }
+          .to raise_error('Not existing')
+    end
   end
 
   context 'when created' do
