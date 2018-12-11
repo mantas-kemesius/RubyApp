@@ -6,6 +6,8 @@ class Subject < ApplicationRecord
                              message: 'name maximum length 40 characters'
   validates :time, presence: true
   validates :teacher_id, presence: true
+  has_many :grades, through: :students
+  has_many :students
   belongs_to :teacher
 
   def self.add(name, time, teacher)

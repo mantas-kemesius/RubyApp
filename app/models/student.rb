@@ -13,6 +13,7 @@ class Student < ApplicationRecord
   has_many :mails
   has_one :schedule
   has_many :teachers, through: :subjects
+  has_many :grades, through: :subjects
   belongs_to :user
 
   def self.add(course, group, user)

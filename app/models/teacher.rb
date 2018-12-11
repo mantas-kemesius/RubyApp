@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'application_record'
+require_relative 'grade'
 # Class For teachers info
 class Teacher < ApplicationRecord
   validates_length_of :university,
@@ -26,5 +27,13 @@ class Teacher < ApplicationRecord
 
   def full_name
     "#{user.name} #{user.last_name}"
+  end
+
+  def enter_grade(student, subject, grade)
+    raise 'Student does not have the subject' unless
+        student.subjects.exists?(subject.id)
+
+    Grade.create(student_id: student.id, subject_id: subject.id,
+                 grade: grade.grade)
   end
 end

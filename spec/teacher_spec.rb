@@ -55,6 +55,67 @@ RSpec.describe Teacher, type: :model do
     end
   end
 
+  context 'when entering a grade for a student' do
+    let(:student_mock) do
+      instance_double('Student', id: 111) # mock
+    end
+
+    let(:subject_mock) do
+      instance_double('Subject', id: 222, name: 'Information Theory',
+                                 teacher_id: teacher.id) # mock
+    end
+
+    let(:student) do
+      Student.create!(group: 1)
+    end
+
+    let(:teacher) do
+      Teacher.create!(university: 'VU')
+      # instance_double('Teacher', id: 333) # mock
+    end
+
+    let(:subject) do
+      Subject.create!(name: 'Information Theory', time: '8',
+                      teacher_id: teacher.id)
+    end
+
+    let(:grade_mock) do
+      instance_double('Grade', id: 444, grade: 5) # mock
+    end
+
+    let(:add_associations) do
+      # student_object.subjects << subject_object
+      # student = Student.create
+      # subject = Subject.create(name: 'Information Theory', teacher_id: teacher.id)
+      student.subjects << subject
+    end
+
+    it 'student does not have a specified subject' do
+      # allow(student_mock).to receive(:subjects).and_return(subject_mock) # stub method
+      # allow(subject_mock).to receive(:find).and_return() # stub method
+      expect do
+        teacher.enter_grade(student, subject,
+                            grade_mock)
+      end
+        .to raise_error('Student does not have the subject')
+    end
+
+    # it 'student has a specified subject' do
+    #   add_associations
+    #   expect { teacher.enter_grade(student, subject, grade_mock) }
+    #     .not_to raise_error('Student does not have the subject')
+    # end
+
+    it 'grade object is created in database after successful operation' do
+      student.subjects << subject
+
+      teacher.enter_grade(student, subject, grade_mock)
+      expect(Grade.where(subject_id: subject.id,
+                         student_id: student.id,
+                         grade: grade_mock.grade).exists?).to be true
+    end
+  end
+
   # context 'when printed' do
   #   let(:make_all_teacher_str) do
   #     str = ''
