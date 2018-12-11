@@ -31,6 +31,10 @@ RSpec.describe Teacher, type: :model do
       teacher.user = user
       expect(teacher.full_name).to eq('Tom Mac')
     end
+    it 'email correct' do
+      teacher = teachers(:Bronius)
+      expect(teacher.email).to eq('bronius.rope@gmail.com')
+    end
   end
 
   context 'when deleted' do

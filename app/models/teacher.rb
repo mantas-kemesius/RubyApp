@@ -27,4 +27,8 @@ class Teacher < ApplicationRecord
   def full_name
     "#{user.name} #{user.last_name}"
   end
+
+  def email
+    user.email
+  end
 end

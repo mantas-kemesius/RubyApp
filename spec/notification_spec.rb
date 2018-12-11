@@ -68,25 +68,51 @@ RSpec.describe Notification, type: :model do
       expect(Notification.count).to eq notifications.size - 1
     end
     it 'deletes notification by notification id' do
-      notif = notifications(:Antanas_notif)
-      # teacher = notif.teacher
-      notif.del
+      notif = notifications(:Bronius_notif_1)
+      teacher = notif.teacher_id
+      Notification.del(teacher)
       expect(Notification.exists?(notif.id)).to be false
     end
-    it 'deletes notification by teacher and title' do
-      notif = notifications(:Bronius_notif_2)
-      teacher = notif.teacher
-      notif.delete_by_teacher_and_title(teacher)
-      expect(Notification.exists?(notif.id)).to be false
-    end
+    # it 'deletes notification by teacher and title' do
+    #   notif = notifications(:Bronius_notif_2)
+    #   teacher = notif.teacher
+    #   notif.delete_by_teacher_and_title(teacher)
+    #   expect(Notification.exists?(notif.id)).to be false
+    # end
   end
 
   context 'when printed' do
+    let(:printed) do
+      'I am teacher Bronius Rope' + "\n" + 'Very good teacher' \
+        "\n" + 'Bronius Rope' + "\n" + '_________________________' \
+        "\n" + 'I teach informatics' + "\n" + 'I am the best' + "\n" \
+        'Bronius Rope' + "\n" + '_________________________' + "\n" + ''
+    end
+    let(:stub) do
+      described_class
+    end
+    let(:holder) do
+      []
+    end
+
     it 'prints notification' do
       notif = notifications(:Tomas_notif)
       str = notif.title + "\n" + notif.text + "\n" + notif.sender + "\n"
       str += '_________________________' + "\n"
       expect { notif.print_notification }.to output(str).to_stdout
+    end
+    it 'print by title' do
+      stub = described_class
+      allow(stub).to receive(:find_by_sender).and_return([])
+      expect { stub.print_by_sender('Bronius Rope') }
+        .to output('Nothing to show' + "\n").to_stdout
+    end
+    it 'print by title with >= 2 notifications' do
+      holder << notifications(:Bronius_notif_1)
+      holder << notifications(:Bronius_notif_2)
+      allow(stub).to receive(:find_by_title).and_return(holder)
+      expect { stub.print_by_sender('Bronius Rope') }
+        .to output(printed).to_stdout
     end
   end
 
@@ -105,6 +131,30 @@ RSpec.describe Notification, type: :model do
       notif = notifications(:Bronius_notif_1)
       expect { notif.update_sender('difSender') }.to change(notif, :sender)
         .from('Bronius Rope').to('difSender')
+    end
+  end
+
+  context 'when searching' do # Stub
+    it 'find by sender' do
+      notif = notifications(:Tomas_notif)
+      expect(Notification.find_by_sender('Tomas Tomaitis')[0]).to eq notif
+    end
+    it 'find by sender with 2 or more notifications' do
+      holder = []
+      holder << notifications(:Bronius_notif_1)
+      holder << notifications(:Bronius_notif_2)
+      expect(Notification.find_by_sender('Bronius Rope')).to eq holder
+    end
+    it 'searches not existing title' do
+      stub = described_class
+      allow(stub).to receive(:exists?).and_return(false)
+      expect { Notification.existing_title('not existing') }
+        .to raise_error('Not existing')
+    end
+    it 'searches if same title exists' do
+      stub = described_class
+      allow(stub).to receive(:exists?).and_return(true)
+      expect(stub.existing_title('New Math Subjects')).to be true
     end
   end
 end
