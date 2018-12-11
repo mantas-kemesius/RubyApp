@@ -42,6 +42,13 @@ RSpec.describe Notification, type: :model do
 
       expect(note.sender).to eq('Tom Mac')
     end
+    it 'searches existing title' do
+      expect(Notification.existing_title('New Math Subjects')).to be true
+    end
+    it 'searches not existing title' do
+      expect { Notification.existing_title('not existing') }
+          .to raise_error('Not existing')
+    end
   end
 
   context 'when created' do
@@ -69,8 +76,7 @@ RSpec.describe Notification, type: :model do
     end
     it 'deletes notification by notification id' do
       notif = notifications(:Bronius_notif_1)
-      teacher = notif.teacher_id
-      Notification.del(teacher)
+      Notification.del(notif.id)
       expect(Notification.exists?(notif.id)).to be false
     end
     # it 'deletes notification by teacher and title' do
