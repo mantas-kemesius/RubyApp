@@ -11,9 +11,8 @@ class Notification < ApplicationRecord
     create(title: title, text: text, sender: teacher.full_name)
   end
 
-  def self.del(teacher)
-    notification = find_by(teacher_id: teacher)
-    destroy(notification.id)
+  def self.del(notification_id)
+    destroy(notification_id)
   end
 
   # def delete_by_teacher_and_title(teacher)

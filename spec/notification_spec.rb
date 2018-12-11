@@ -76,8 +76,7 @@ RSpec.describe Notification, type: :model do
     end
     it 'deletes notification by notification id' do
       notif = notifications(:Bronius_notif_1)
-      teacher = notif.teacher_id
-      Notification.del(teacher)
+      Notification.del(notif.id)
       expect(Notification.exists?(notif.id)).to be false
     end
     # it 'deletes notification by teacher and title' do
