@@ -28,7 +28,7 @@ class Notification < ApplicationRecord
   end
 
   def self.print_by_sender(sender)
-    notifications = Notification.find_by_sender(sender)
+    notifications = find_by_sender(sender)
     if notifications.empty?
       puts 'Nothing to show'
     else
@@ -49,11 +49,11 @@ class Notification < ApplicationRecord
   end
 
   def self.find_by_sender(sender)
-    Notification.where(sender: sender)
+    where(sender: sender)
   end
 
   def self.existing_title(title)
-    raise 'Not existing' unless Notification.exists?(title: title)
+    raise 'Not existing' unless exists?(title: title)
 
     true
   end
