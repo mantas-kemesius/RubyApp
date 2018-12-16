@@ -8,7 +8,6 @@ class SubjectController < ApplicationController
     @subject.name = params[:subject]['name']
     @subject.time = params[:subject]['time']
     @subject.teacher_id = params[:subject]['id']
-    # abort @subject.inspect
     if @subject.save
       render json: Subject.find_by(teacher_id: params[:subject]['id']),
              status: 200
@@ -18,7 +17,7 @@ class SubjectController < ApplicationController
   end
 
   def delete
-    @subject = Subject.destroy(params[:subject]['id'])
+    @subject = Subject.destroy(params.fetch(:subject).fetch('id'))
   end
 
   def fetch_all

@@ -26,27 +26,18 @@ ActiveRecord::Schema.define(version: 2018_12_08_191239) do
     t.string "title"
     t.text "message"
     t.date "time"
-    t.string "from"
-    t.string "to"
-    t.integer "student_id"
-    t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_mails_on_student_id"
-    t.index ["teacher_id"], name: "index_mails_on_teacher_id"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.text "text"
-    t.integer "from"
-    t.integer "to"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "to_id"
+    t.integer "from_id"
+    t.index ["from_id"], name: "index_mails_on_from_id"
+    t.index ["to_id"], name: "index_mails_on_to_id"
   end
 
   create_table "notifications", force: :cascade do |t|
     t.string "title"
     t.text "text"
+    t.string "sender"
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,30 +56,14 @@ ActiveRecord::Schema.define(version: 2018_12_08_191239) do
     t.index ["teacher_id"], name: "index_schedules_on_teacher_id"
   end
 
-  create_table "ssubjects", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "student_subjects", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.integer "age"
-    t.string "university"
+    t.integer "user_id"
+    t.string "course"
+    t.integer "group"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -97,6 +72,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_191239) do
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -119,6 +95,10 @@ ActiveRecord::Schema.define(version: 2018_12_08_191239) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "to_emails_id"
+    t.integer "from_emails_id"
+    t.index ["from_emails_id"], name: "index_users_on_from_emails_id"
+    t.index ["to_emails_id"], name: "index_users_on_to_emails_id"
   end
 
 end
