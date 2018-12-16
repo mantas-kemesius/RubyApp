@@ -2,5 +2,5 @@
 
 require 'rails_helper'
 
-RSpec.describe ArticlesController, type: :controller do
+RSpec.describe 'articles/index.html.erb', type: :view do
 end

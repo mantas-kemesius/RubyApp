@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# message controller class
 class MessageController < ApplicationController
   protect_from_forgery
   def create
@@ -22,5 +23,4 @@ class MessageController < ApplicationController
   def fetchAll
     render json: Message.find_each
   end
-
 end

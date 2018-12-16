@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# subject controller class
 class SubjectController < ApplicationController
   protect_from_forgery
   def create
@@ -9,9 +10,8 @@ class SubjectController < ApplicationController
     @subject.teacher_id = params[:subject]['id']
     # abort @subject.inspect
     if @subject.save
-      render json: Subject.find_by(
-        teacher_id: params[:subject]['id']
-      ), status: 200
+      render json: Subject.find_by(teacher_id: params[:subject]['id']),
+             status: 200
     else
       render json: 'Failed!', status: 404
     end
@@ -24,5 +24,4 @@ class SubjectController < ApplicationController
   def fetchAll
     render json: Subject.find_each
   end
-
 end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# subjects controller
 class SsubjectsController < ApplicationController
   protect_from_forgery
   def create
@@ -21,5 +22,4 @@ class SsubjectsController < ApplicationController
   def fetchAll
     render json: Ssubjects.find_each
   end
-
 end

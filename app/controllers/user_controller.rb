@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# user controller class
 class UserController < ApplicationController
   protect_from_forgery
   def register
@@ -22,7 +23,8 @@ class UserController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:user]['email'], password: params[:user]['password'])
+    @user = User.find_by(email: params[:user]['email'],
+                         password: params[:user]['password'])
     if @user.nil?
       render json: 'Failed!', status: 404
     else

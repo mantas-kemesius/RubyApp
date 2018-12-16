@@ -14,13 +14,13 @@ class Teacher < ApplicationRecord
   has_many :students, through: :subjects
   belongs_to :user
 
-  def self.add(university, user)
-    teacher = create(university: university)
-    user.teacher = teacher
-  end
-
-  def self.del(user)
-    teacher = find_by(user_id: user)
-    destroy(teacher.id)
-  end
+  # def self.add(university, user)
+  #   teacher = create(university: university)
+  #   user.teacher = teacher
+  # end
+  #
+  # def self.del(user)
+  #   teacher = find_by(user_id: user)
+  #   destroy(teacher.id)
+  # end
 end
