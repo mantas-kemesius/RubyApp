@@ -22384,3 +22384,19 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 12ms (Views: 7.8ms | ActiveRecord: 1.5ms)
 
 
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7458657555131878620)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2018-12-16 22:49:45.668540"], ["key", "environment"]]
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7458657555131878620)[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/juozas/.gem/ruby/2.5.0/gems/activesupport-5.2.1/lib/active_support/subscriber.rb:101
