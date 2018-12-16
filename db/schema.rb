@@ -101,4 +101,9 @@ ActiveRecord::Schema.define(version: 2018_12_08_191239) do
     t.index ["to_emails_id"], name: "index_users_on_to_emails_id"
   end
 
+  # Holds all tasks
+  create_table :ticket do |t|
+    t.string :ticket
+  end
+
 end
