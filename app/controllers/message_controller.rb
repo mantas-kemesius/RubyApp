@@ -20,7 +20,7 @@ class MessageController < ApplicationController
     @message = Message.destroy(params[:message]['id'])
   end
 
-  def fetchAll
+  def fetch_all
     render json: Message.find_each
   end
 end

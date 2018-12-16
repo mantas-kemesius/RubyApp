@@ -21,7 +21,7 @@ class SubjectController < ApplicationController
     @subject = Subject.destroy(params[:subject]['id'])
   end
 
-  def fetchAll
+  def fetch_all
     render json: Subject.find_each
   end
 end

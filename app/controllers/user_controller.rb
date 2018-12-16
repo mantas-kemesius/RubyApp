@@ -33,7 +33,7 @@ class UserController < ApplicationController
     end
   end
 
-  def fetchAll
+  def fetch_all
     render json: User.find_each
   end
 end

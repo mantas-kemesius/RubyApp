@@ -19,7 +19,7 @@ class SsubjectsController < ApplicationController
     @ss = Ssubjects.destroy(params[:student_subjects]['id'])
   end
 
-  def fetchAll
+  def fetch_all
     render json: Ssubjects.find_each
   end
 end
