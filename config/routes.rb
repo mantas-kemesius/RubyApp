@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get '/ticket/index', to: 'ticket#index'
   get '/ticket/create', to: 'ticket#create'
   get '/ticket/destroy', to: 'ticket#destroy'
+  get '/ticket/about', to: 'ticket#about'
   post '/ticket/create', to: 'ticket#create' # with params this time
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
