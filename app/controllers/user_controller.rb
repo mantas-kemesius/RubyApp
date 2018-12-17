@@ -42,6 +42,11 @@ class UserController < ApplicationController
     @user.save
   end
 
+  def modify_last_name
+    @user.last_name = params.fetch(:user).fetch('last_name')
+    @user.save
+  end
+
   def fetch_all
     render json: User.find_each
   end

@@ -23,6 +23,18 @@ RSpec.describe UserController, type: :controller do
                   'age' => '25', 'role' => 'STUDENT' } }
   end
 
+  let(:test_hash) do
+    { 'user' => { 'name' => 'tomas', 'lastname' => 'tomaitis',
+                  'email' => 'tomas@tomaitis.com',
+                  'password' => 'paswordukas',
+                  'age' => '23', 'role' => 'TEACHER' } }
+  end
+
+  let(:short_test_hash) do
+    { 'user' => { 'email' => 'tomas@tomaitis.com',
+                  'password' => 'paswordukas' } }
+  end
+
   it 'creating a user is successful' do
     post :register, params: new_hash
     usr = User.find_by(email: 'testas@testaitis.com')
@@ -60,21 +72,28 @@ RSpec.describe UserController, type: :controller do
   it 'deletes user' do
     post :register, params: del_hash
     usr = User.find_by(email: 'vienas@vienasis.com')
-    post :delete, params: { 'user' => { :id => usr.id } }
+    post :delete, params: { 'user' => { id: usr.id } }
     usr = User.find_by(email: 'vienas@vienasis.com')
     expect(usr).to be nil
   end
 
   it 'modifies user age' do
     age = rand(99)
-    if !User.find_by(email: 'tomas.tomaitis@gmail.com')
-      post :register, params: { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
-                                            'email' => 'tomas.tomaitis@gmail.com',
-                                            'password' => 'paswordukas',
-                                            'age' => 23, 'role' => 'TEACHER' } }
+    unless User.find_by(email: 'tomas.tomaitis@gmail.com')
+      post :register, params: test_hash
     end
-    post :modify_age, params: { :user => { :email => 'tomas.tomaitis@gmail.com', :age => age }}
+    post :modify_age, params: short_test_hash
     usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
     expect(usr.age.eql?(age)).to be true
+  end
+
+  it 'modifies user last name' do
+    name = 'ripaitis'
+    unless User.find_by(email: 'tomas.tomaitis@gmail.com')
+      post :register, params: test_hash
+    end
+    post :modify_last_name, params: short_test_hash
+    usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
+    expect(usr.last_name.eql?(name)).to be true
   end
 end
