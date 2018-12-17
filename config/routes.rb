@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :articles
   get '/login', to: 'home#index'
   get '/register', to: 'home#index'
+  
+  post '/articles/show', to: 'articles#show'
 
   post '/user/create', to: 'user#register'
   post '/user/login', to: 'user#login'
