@@ -3,6 +3,7 @@
 # # articles controller class
 class TicketController < ApplicationController
   def index
+    @tickets = Ticket.all
   end
 
   def create
@@ -11,5 +12,8 @@ class TicketController < ApplicationController
 
   def destroy
     Ticket.find_by(ticket: params.fetch(:ticket)).destroy
+  end
+
+  def about
   end
 end

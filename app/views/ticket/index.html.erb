@@ -1,6 +1,7 @@
 <div class="content-container default-content-container">
 <%= link_to 'Add new task', url_for(:controller => :ticket, :action => :create) %><br><br>
 <span class="txt-highl">All tickets:</span><br>
+  <h1>Here you could check all tickets</h1>
 <hr>
 <% @tickets.each do |ticket| %>
   |<%= ticket.id %>| <%= ticket.ticket %>
@@ -8,11 +9,3 @@
   <br>
 <% end %>
 </div>
-
-<%# @articles.each do |article| %>
-<!--  <tr>-->
-<!--    <td><%#= article.title %></td>-->
-<!--    <td><%#= article.text %></td>-->
-<!--    <td><%#= link_to 'Show', article_path(article) %></td>-->
-<!--  </tr>-->
-<%# end %>

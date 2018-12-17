@@ -24,15 +24,10 @@ RSpec.describe UserController, type: :controller do
   end
 
   let(:test_hash) do
-    { 'user' => { 'name' => 'tomas', 'lastname' => 'tomaitis',
-                  'email' => 'tomas@tomaitis.com',
+    { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
+                  'email' => 'tomas.tomaitis@gmail.com',
                   'password' => 'paswordukas',
-                  'age' => '23', 'role' => 'TEACHER' } }
-  end
-
-  let(:short_test_hash) do
-    { 'user' => { 'email' => 'tomas@tomaitis.com',
-                  'password' => 'paswordukas' } }
+                  'age' => 23, 'role' => 'TEACHER' } }
   end
 
   it 'creating a user is successful' do
@@ -77,23 +72,33 @@ RSpec.describe UserController, type: :controller do
     expect(usr).to be nil
   end
 
-  it 'modifies user age' do
-    age = rand(99)
-    unless User.find_by(email: 'tomas.tomaitis@gmail.com')
-      post :register, params: test_hash
+  context 'when too many lines' do
+    let(:check_and_post) do
+      unless User.find_by(email: 'tomas.tomaitis@gmail.com')
+        post :register, params: test_hash
+      end
     end
-    post :modify_age, params: short_test_hash
-    usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
-    expect(usr.age.eql?(age)).to be true
-  end
+    let(:age) do
+      rand(99)
+    end
+    let(:lastname) do
+      'Ripauskas'
+    end
 
-  it 'modifies user last name' do
-    name = 'ripaitis'
-    unless User.find_by(email: 'tomas.tomaitis@gmail.com')
-      post :register, params: test_hash
+    it 'modifies user age' do
+      check_and_post
+      post :modify_age, params: { user: { email: 'tomas.tomaitis@gmail.com',
+                                          age: age } }
+      usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
+      expect(usr.age.eql?(age)).to be true
     end
-    post :modify_last_name, params: short_test_hash
-    usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
-    expect(usr.last_name.eql?(name)).to be true
+
+    it 'modifies user last name' do
+      check_and_post
+      post :modify_last_name, params: { user: { email: 'tomas.tomaitis@gmail.com',
+                                                last_name: lastname } }
+      usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
+      expect(usr.last_name.eql?(lastname)).to be true
+    end
   end
 end
