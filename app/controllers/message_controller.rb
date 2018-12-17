@@ -8,7 +8,6 @@ class MessageController < ApplicationController
     @message.text = params[:message]['text']
     @message.from = params[:message]['from']
     @message.to = params[:message]['to']
-    # abort @subject.inspect
     if @message.save
       render json: 'Success!', status: 200
     else
