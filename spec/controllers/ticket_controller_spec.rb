@@ -4,6 +4,11 @@ require 'rails_helper'
 
 RSpec.describe TicketController, type: :controller do
 
+  it 'covers mutation +super' do
+    expect_any_instance_of(TicketController).not_to receive(:initialize)
+    get :index
+  end
+
   it 'VIEWS TEST: create renders view' do
     post :create
     expect(response).to render_template(:create)

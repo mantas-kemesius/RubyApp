@@ -57,13 +57,13 @@ RSpec.describe UserController, type: :controller do
     allow_any_instance_of(UserController).to receive(:fetch_all).and_return(true)
   end
 
-  # it 'deletes user' do
-  #   post :register, params: del_hash
-  #   post :delete, params: { 'user' => { 'email' => 'vienas@vienasis.com',
-  #                                       'password' => 'paswordukas' } }
-  #   usr = User.find_by(email: 'vienas@vienasis.com')
-  #   expect(usr).to be nil
-  # end
+  it 'deletes user' do
+    post :register, params: del_hash
+    usr = User.find_by(email: 'vienas@vienasis.com')
+    post :delete, params: { 'user' => { :id => usr.id } }
+    usr = User.find_by(email: 'vienas@vienasis.com')
+    expect(usr).to be nil
+  end
 
   it 'modifies user age' do
     age = rand(99)

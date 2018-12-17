@@ -34,9 +34,7 @@ class UserController < ApplicationController
   end
 
   def delete
-    @user = User.find_by(email: params[:user]['email'],
-                         password: params[:user]['password'])
-    User.destroy(@user.id) if @user
+    User.destroy(@user.id)
   end
 
   def modify_age
