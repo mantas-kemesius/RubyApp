@@ -99,12 +99,6 @@ ActiveRecord::Schema.define(version: 2018_12_08_191239) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tickets", force: :cascade do |t|
-    t.string "ticket"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "teachers", force: :cascade do |t|
     t.integer "user_id"
     t.string "university"
@@ -113,6 +107,12 @@ ActiveRecord::Schema.define(version: 2018_12_08_191239) do
     t.datetime "updated_at", null: false
     t.integer "subject_id"
     t.index ["user_id"], name: "index_teachers_on_user_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "ticket"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
