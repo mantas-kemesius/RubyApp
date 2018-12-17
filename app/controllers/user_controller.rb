@@ -33,6 +33,22 @@ class UserController < ApplicationController
     end
   end
 
+  def delete
+    @user = User.find_by(email: params[:user]['email'],
+                         password: params[:user]['password'])
+    User.destroy(@user.id) if @user
+  end
+
+  def modify_age
+    @user = User.find_by(email: params[:user]['email'])
+    if @user.nil?
+      false
+    else
+      @user.age = params['age']
+      true
+    end
+  end
+
   def fetch_all
     render json: User.find_each
   end

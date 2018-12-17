@@ -3,11 +3,24 @@
 require 'rails_helper'
 
 RSpec.describe UserController, type: :controller do
+  let(:uc) do
+    uc = described_class
+    allow_any_instance_of(uc).to receive(:login).and_return(true)
+    uc
+  end
+
   let(:new_hash) do
     { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
                   'email' => 'testas@testaitis.com',
                   'password' => 'paswordukas',
                   'age' => '28', 'role' => 'TEACHER' } }
+  end
+
+  let(:del_hash) do
+    { 'user' => { 'name' => 'vienas', 'lastname' => 'vienasis',
+                  'email' => 'vienas@vienasis.com',
+                  'password' => 'paswordukas',
+                  'age' => '25', 'role' => 'STUDENT' } }
   end
 
   it 'creating a user is successful' do
@@ -42,5 +55,21 @@ RSpec.describe UserController, type: :controller do
 
   it 'successfully fetches users' do
     allow_any_instance_of(UserController).to receive(:fetch_all).and_return(true)
+  end
+
+  # it 'deletes user' do
+  #   post :register, params: del_hash
+  #   post :delete, params: { 'user' => { 'email' => 'vienas@vienasis.com',
+  #                                       'password' => 'paswordukas' } }
+  #   usr = User.find_by(email: 'vienas@vienasis.com')
+  #   expect(usr).to be nil
+  # end
+
+  it 'modifies user age' do
+    post :modify_age, params: { 'user' =>
+                                    { 'email' => 'tomas.tomaitis@gmail.com' },
+                                'age' => '28' }
+    usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
+    expect(usr.age.eql?('28')).to be true
   end
 end
