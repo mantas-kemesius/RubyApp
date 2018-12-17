@@ -3,6 +3,7 @@
 # # articles controller class
 class TicketController < ApplicationController
   def index
+    @tickets = Ticket.all
   end
 
   def create

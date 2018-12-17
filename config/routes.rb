@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'mail/index', to: 'mail#index'
+  get 'mail/create', to: 'mail#create'
+  get 'mail/destroy', to: 'mail#destroy'
+  post 'mail/create', to: 'mail#create'
   root 'home#index'
   resources :articles
   get '/login', to: 'home#index'
