@@ -1,0 +1,23 @@
+<div style="width: 1400px; margin: auto">
+  <div class="content-container default-content-container" style="width: 600px; float: left">
+    <span class="txt-highl">lectures you manage: </span><br>
+    <hr>
+    <% @lectures.each do |lect| %>
+      |<%= lect.id %>| <%= lect.name %> <%= lect.status %> <%= lect.budget %>
+      <%= link_to 'Edit', url_for(:controller => :lectures, :action => :update, :id => lect.id) %>
+      <%= link_to 'Delete', url_for(:controller => :lectures, :method => :destroy, :id => lect.id) %>
+      <%= link_to 'Add student', url_for(:controller => :lectures, :action => :addstudent, :id => lect.id) %><br>
+
+      <span class="txt-highl">students:</span> <br>
+      <% lect.students_getter.each do |stud| %>
+        <%= stud unless stud.eql?(nil)%>
+        <%= link_to 'Remove', url_for(:controller => :lectmems, :id => lect.id, :student => stud) %>
+        <br>
+      <% end %>
+
+      <br>
+      <hr>
+    <% end %>
+    <%= link_to 'Create lecture', url_for(:controller => :lectures, :action => :create) %>
+  </div>
+</div>
