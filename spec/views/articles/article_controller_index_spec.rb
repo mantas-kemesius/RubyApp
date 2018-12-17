@@ -38,14 +38,4 @@ RSpec.describe ArticlesController, type: :controller do
     get :index
     expect(response.body.match?('<script src="js/app.js"></script>')).to eq true
   end
-  #
-  # it 'about view have input' do
-  #   get :about
-  #   expect(response.body.match?('<input value = "about"/>')).to eq true
-  # end
-  #
-  # it 'about view have button' do
-  #   get :about
-  #   expect(response.body.match?('<button>About</button>')).to eq true
-  # end
 end

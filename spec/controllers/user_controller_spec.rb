@@ -9,6 +9,13 @@ RSpec.describe UserController, type: :controller do
     uc
   end
 
+  let(:modify_age_hash) do
+    { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
+                  'email' => 'tomas.tomaitis@gmail.com',
+                  'password' => 'paswordukas',
+                  'age' => 23, 'role' => 'TEACHER' } }
+  end
+
   let(:new_hash) do
     { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
                   'email' => 'testas@testaitis.com',
@@ -68,10 +75,7 @@ RSpec.describe UserController, type: :controller do
   it 'modifies user age' do
     age = rand(99)
     if !User.find_by(email: 'tomas.tomaitis@gmail.com')
-      post :register, params: { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
-                                            'email' => 'tomas.tomaitis@gmail.com',
-                                            'password' => 'paswordukas',
-                                            'age' => 23, 'role' => 'TEACHER' } }
+      post :register, params: modify_age_hash
     end
     post :modify_age, params: { :user => { :email => 'tomas.tomaitis@gmail.com', :age => age }}
     usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
