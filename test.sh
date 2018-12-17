@@ -1,0 +1,1 @@
+bundle exec mutant --include app/models --use rspec HomeController TicketController#create TicketController#delete

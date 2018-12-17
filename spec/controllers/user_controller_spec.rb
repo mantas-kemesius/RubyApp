@@ -66,10 +66,15 @@ RSpec.describe UserController, type: :controller do
   # end
 
   it 'modifies user age' do
-    post :modify_age, params: { 'user' =>
-                                    { 'email' => 'tomas.tomaitis@gmail.com' },
-                                'age' => '28' }
+    age = rand(99)
+    if !User.find_by(email: 'tomas.tomaitis@gmail.com')
+      post :register, params: { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
+                                            'email' => 'tomas.tomaitis@gmail.com',
+                                            'password' => 'paswordukas',
+                                            'age' => 23, 'role' => 'TEACHER' } }
+    end
+    post :modify_age, params: { :user => { :email => 'tomas.tomaitis@gmail.com', :age => age }}
     usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
-    expect(usr.age.eql?('28')).to be true
+    expect(usr.age.eql?(age)).to be true
   end
 end

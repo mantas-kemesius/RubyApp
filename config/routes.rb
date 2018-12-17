@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   post '/user/create', to: 'user#register'
   post '/user/login', to: 'user#login'
+  post '/user/modify/age', to: 'user#modify_age'
   get '/users', to: 'user#fetch_all'
 
   post '/subject/create', to: 'subject#create'

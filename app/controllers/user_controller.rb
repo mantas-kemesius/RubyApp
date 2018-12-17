@@ -40,13 +40,8 @@ class UserController < ApplicationController
   end
 
   def modify_age
-    @user = User.find_by(email: params[:user]['email'])
-    if @user.nil?
-      false
-    else
-      @user.age = params['age']
-      true
-    end
+    @user.age = params.fetch(:user).fetch('age')
+    @user.save
   end
 
   def fetch_all
