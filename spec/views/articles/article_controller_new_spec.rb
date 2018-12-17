@@ -2,7 +2,6 @@
 
 require 'rails_helper'
 
-
 RSpec.describe ArticlesController, type: :controller do
   render_views
 
@@ -19,18 +18,18 @@ RSpec.describe ArticlesController, type: :controller do
   it 'index view have submit button' do
     get :new
     expect(
-        response.body.match?(
-            '<input type="submit"'
-        )
+      response.body.match?(
+        '<input type="submit"'
+      )
     ).to eq true
   end
 
   it 'index view have form with post method' do
     get :new
     expect(
-        response.body.match?(
-            '<form action="/articles" accept-charset="UTF-8" method="post">'
-        )
+      response.body.match?(
+        '<form action="/articles" accept-charset="UTF-8" method="post">'
+      )
     ).to eq true
   end
 
