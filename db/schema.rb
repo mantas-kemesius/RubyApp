@@ -99,6 +99,12 @@ ActiveRecord::Schema.define(version: 2018_12_08_191239) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.string "ticket"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teachers", force: :cascade do |t|
     t.integer "user_id"
     t.string "university"
