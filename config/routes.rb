@@ -22,5 +22,10 @@ Rails.application.routes.draw do
   post '/ssubjects/delete', to: 'ssubjects#delete'
   get '/ssubjects', to: 'ssubjects#fetch_all'
 
+  get '/ticket/index', to: 'ticket#index'
+  get '/ticket/create', to: 'ticket#create'
+  get '/ticket/destroy', to: 'ticket#destroy'
+  post '/ticket/create', to: 'ticket#create' # with params this time
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

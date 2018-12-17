@@ -3,10 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :controller do
-  describe 'GET #index' do
-    it 'returns http success' do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
+  it 'covers mutation +super' do
+    expect_any_instance_of(ArticlesController).not_to receive(:initialize)
+    get :index
   end
 end
