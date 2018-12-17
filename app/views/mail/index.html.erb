@@ -3,7 +3,7 @@
   <span class="txt-highl">All emails:</span><br>
   <hr>
   <% @mails.each do |mail| %>
-    |<%= mail.title %>| <%= mail.message %>
+    |<%= mail.title %>| <%= mail.message %> <%= mail.from %> <%= mail.to %>
     <%= link_to 'Remove', url_for(:controller => :mail, :action => :destroy, :id => mail.id) %>
     <br>
   <% end %>
