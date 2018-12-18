@@ -29,7 +29,7 @@ RSpec.describe MailController, type: :controller do
                                       title: 'test', message: 'testt' } }
       expect(Mail.find_by(from: 'vardauskas', to: 'vardauskaitis',
                           title: 'test', message: 'testt'))
-          .not_to be nil
+        .not_to be nil
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.describe MailController, type: :controller do
       Mail.create(from: 'vardauskas')
       mail = Mail.find_by(from: 'vardauskas')
       get :destroy, params: { id: mail.id }
-      expect(Mail.find_by(from: 'vardauskas' )).to be nil
+      expect(Mail.find_by(from: 'vardauskas')).to be nil
     end
   end
 end

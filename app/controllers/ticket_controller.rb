@@ -1,13 +1,15 @@
-# # frozen_string_literal: true
-#
-# # articles controller class
+# frozen_string_literal: true
+
+# articles controller class
 class TicketController < ApplicationController
   def index
     @tickets = Ticket.all
   end
 
   def create
-    Ticket.create(ticket: params.fetch(:ticket).fetch(:ticket)) if params.key?(:ticket)
+    return unless params.key?(:ticket)
+
+    Ticket.create(ticket: params.fetch(:ticket).fetch(:ticket))
   end
 
   def destroy
@@ -15,6 +17,5 @@ class TicketController < ApplicationController
     @ticket.destroy
   end
 
-  def about
-  end
+  def about; end
 end

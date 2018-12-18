@@ -13,7 +13,7 @@ RSpec.describe MailController, type: :controller do
   it 'create view have submit button' do
     get :create
     expect(
-        response.body.match?('submit')
+      response.body.match?('submit')
     ).to eq true
   end
 
@@ -25,7 +25,7 @@ RSpec.describe MailController, type: :controller do
   it 'create view form action is to /mail/create' do
     get :create
     expect(
-        response.body.match?('action="/mail/create"')
+      response.body.match?('action="/mail/create"')
     ).to eq true
   end
 
@@ -36,7 +36,8 @@ RSpec.describe MailController, type: :controller do
 
   it 'index view have javascript lib files' do
     get :index
-    expect(response.body.match?('<script src="js/vendor.js"></script>')).to eq true
+    expect(response.body.match?('<script src="js/vendor.js"></script>'))
+      .to eq true
   end
 
   it 'index view have javascript files' do

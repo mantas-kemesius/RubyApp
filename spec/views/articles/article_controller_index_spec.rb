@@ -30,7 +30,8 @@ RSpec.describe ArticlesController, type: :controller do
 
   it 'index view have javascript lib files' do
     get :index
-    expect(response.body.match?('<script src="js/vendor.js"></script>')).to eq true
+    expect(response.body.match?('<script src="js/vendor.js"></script>'))
+      .to eq true
   end
 
   it 'index view have javascript files' do
