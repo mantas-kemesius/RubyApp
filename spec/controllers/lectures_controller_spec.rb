@@ -11,7 +11,7 @@ describe LecturesController do
   end
 
   let(:edt) do
-    { lecture: { teacher: 'teach2@mail.com', id: '201050',
+    { lecture: { teacher: 'teach2@mail.com', id: '9999',
                  status: 'Inactive', name: 'Algebra', credits: 10 } }
   end
 
@@ -80,49 +80,49 @@ describe LecturesController do
 
     it do
       controller.credsmanag
-      expect(assigns(:lect)).to eq teacher: 'teach2@mail.com', id: '201050',
+      expect(assigns(:lect)).to eq teacher: 'teach2@mail.com', id: '9999',
                                    credits: 10, status: 'Inactive',
                                    name: 'Algebra'
     end
 
-    # it 'present params used in post update' do
-    #   expect_any_instance_of(StudyManagement).to receive(:credits_setter)
-    #   post :update
-    # end
+    it 'present params used in post update' do
+      expect_any_instance_of(StudyManagement).to receive(:credits_setter)
+      post :update
+    end
 
-    # it 'only loads view when getting edit form' do
-    #   expect_any_instance_of(StudyManagement).not_to receive(:credits_setter)
-    #   get :edit # routes to update
-    # end
+    it 'only loads view when getting edit form' do
+      expect_any_instance_of(StudyManagement).not_to receive(:credits_setter)
+      get :edit # routes to update
+    end
 
-    # it 'edits the name' do
-    #   post :update
-    #   lect = Lecture.find_by(id: edt[:project][:id])
-    #   expect(lect.name).to eq 'Algebra'
-    # end
-  #
-  #   it 'actually edits the status' do
-  #     post :update
-  #     proj = Project.find_by(id: edt[:project][:id])
-  #     expect(proj.status).to eq 'Postponed'
-  #   end
-  #
-  #   it 'actually edits the manager' do
-  #     post :update
-  #     proj = Project.find_by(id: edt[:project][:id])
-  #     expect(proj.manager).to eq 'ar@mail.com'
-  #   end
-  #
-  #   it 'actually edits the budget' do
-  #     post :update
-  #     proj = Project.find_by(id: edt[:project][:id])
-  #     expect(proj.budget).to be 21.0
-  #   end
-  # end
-  #
-  # it 'also covers -if key mutation' do
-  #   sign_in(User.find_by(email: 'ar@gmail.com'))
+    it 'edits the name' do
+      post :update
+      lect = Lecture.find_by(id: edt[:lecture][:id])
+      expect(lect.name).to eq 'Algebra'
+    end
+
+    it 'edits the status' do
+      post :update
+      lect = Lecture.find_by(id: edt[:lecture][:id])
+      expect(lect.status).to eq 'Inactive'
+    end
+
+    it 'edits the manager' do
+      post :update
+      lect = Lecture.find_by(id: edt[:lecture][:id])
+      expect(lect.teacher).to eq 'teach2@mail.com'
+    end
+
+    it 'edits the budget' do
+      post :update
+      lect = Lecture.find_by(id: edt[:lecture][:id])
+      expect(lect.credits).to be 10
+    end
+  end
+
+  # it 'if mutation' do
+  #   sign_in(User.find_by(email: 'teach2@mail.com'))
   #   expect { post :update }
   #       .not_to raise_error(ActionController::ParameterMissing)
-  end
+  # end
 end

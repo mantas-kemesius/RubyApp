@@ -27,9 +27,10 @@ class LecturesController < ApplicationController
     StudyManagement.new.credits_setter(@lect.fetch(:id), @lect.fetch(:credits))
   end
 
-  def stts_nm_mngr(lecture)
+  def allseters(lecture)
     @lect = params.fetch(:lecture)
-    lecture.credits_setter(@lect.fetch(:credits))
+    credsmanag
+    lecture.status_set(@lect.fetch(:status))
     lecture.name = @lect.fetch(:name)
     lecture.teacher = @lect.fetch(:teacher)
   end
@@ -38,7 +39,7 @@ class LecturesController < ApplicationController
     return unless params.key?(:lecture)
 
     lect = Lecture.find_by(id: params.fetch(:lecture).fetch(:id))
-    stts_nm_mngr(lect)
+    allseters(lect)
     lect.save
   end
 

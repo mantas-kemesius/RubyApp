@@ -19,10 +19,10 @@ describe LecturesController do
   it 'load lectures' do
     sign_in(User.find_by(email: 'teach@gmail.com'))
     get :index
-    expect(response.body).to match('|201050| act8 In progress 200.0')
+    expect(response.body).to match('|88996| Algebra active 10')
   end
 
-  it 'covers mutation manager: nil/"" ' do
+  it 'covers mutation teacher: nil/"" ' do
     sign_in(User.find_by(email: 'teach@gmail.com'))
     get :index
     expect(assigns(:lectures).first.name).to eq 'Tomas'

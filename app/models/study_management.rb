@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Study management for looking for lectures/students credits
 class StudyManagement < ApplicationRecord
   def credits_setter(lectid, value)
     lect = Lecture.find_by(id: lectid)

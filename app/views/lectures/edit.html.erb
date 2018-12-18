@@ -1,0 +1,25 @@
+
+<div class="content-container signup-content-container">
+  <%= form_for :Lecture, :url => { :action => 'update' }, :html=>{:class=>"user-form"} do |form| %>
+    <%= form.hidden_field :id, :value => params[:id] %>
+    <p>
+      <%= form.label :student %><br>
+      <%= form.text_field :student, :value => Lecture.find_by(id: params[:id]).student %>
+    </p>
+    <p>
+      <%= form.label :status %><br>
+      <%= form.select :status, ['Active', 'Inactive', 'Canceled'], :value => Lecture.find_by(id: params[:id]).status %>
+    </p>
+    <p>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, :value => Lecture.find_by(id: params[:id]).name %>
+    </p>
+    <p>
+      <%= form.label :credits %><br>
+      <%= form.text_field :credits, :value => Lecture.find_by(id: params[:id]).credits %>
+    </p>
+    <p>
+      <%= form.submit 'Edit' %>
+    </p>
+  <% end %>
+</div>

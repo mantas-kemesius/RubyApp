@@ -1,9 +1,9 @@
 <div style="width: 1400px; margin: auto">
   <div class="content-container default-content-container" style="width: 600px; float: left">
-    <span class="txt-highl">lectures you manage: </span><br>
+    <span class="txt-highl">your lectures: </span><br>
     <hr>
     <% @lectures.each do |lect| %>
-      |<%= lect.id %>| <%= lect.name %> <%= lect.status %> <%= lect.budget %>
+      |<%= lect.id %>| <%= lect.name %> <%= lect.status %> <%= lect.credtis %>
       <%= link_to 'Edit', url_for(:controller => :lectures, :action => :update, :id => lect.id) %>
       <%= link_to 'Delete', url_for(:controller => :lectures, :method => :destroy, :id => lect.id) %>
       <%= link_to 'Add student', url_for(:controller => :lectures, :action => :addstudent, :id => lect.id) %><br>
