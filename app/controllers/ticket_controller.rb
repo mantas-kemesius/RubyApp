@@ -11,7 +11,8 @@ class TicketController < ApplicationController
   end
 
   def destroy
-    Ticket.find_by(ticket: params.fetch(:ticket)).destroy
+    @ticket = Ticket.find_by(nil)
+    @ticket.destroy
   end
 
   def about

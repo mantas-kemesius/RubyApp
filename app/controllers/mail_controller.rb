@@ -17,6 +17,7 @@ class MailController < ApplicationController
   end
 
   def destroy
-    Mail.find_by(id: params.fetch(:id)).destroy
+    @mail = Mail.find_by(nil)
+    @mail.destroy
   end
 end
