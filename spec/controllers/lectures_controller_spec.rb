@@ -38,20 +38,17 @@ describe LecturesController do
 
   it 'student name is written' do
     post :addstudent, params: { lecture: { name: 'notexisted' },
-                            id: '9988' }
-    puts "***"
+                                id: '9988' }
     expect(Student.find_by(name: 'notexisted').name)
-        .to eq 'notexisted'
+      .to eq 'notexisted'
   end
 
   context 'when creating a project' do
-    # rubocop complains without this
     subject(:subj) { described_class.new }
 
     before do
       allow_any_instance_of(described_class)
         .to receive(:params).and_return(newpr)
-      # has a valid new project
     end
 
     it 'correct teacher' do
@@ -120,10 +117,4 @@ describe LecturesController do
       expect(lect.credits).to be 10
     end
   end
-
-  # it 'if mutation' do
-  #   sign_in(User.find_by(email: 'teach2@mail.com'))
-  #   expect { post :update }
-  #       .not_to raise_error(ActionController::ParameterMissing)
-  # end
 end
