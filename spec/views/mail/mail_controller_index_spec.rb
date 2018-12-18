@@ -8,14 +8,14 @@ RSpec.describe MailController, type: :controller do
   it 'have add new email link' do
     get :index
     expect(
-        response.body.match?('<a href="/mail/create">Add new email</a>')
+      response.body.match?('<a href="/mail/create">Add new email</a>')
     ).to eq true
   end
 
   it 'have span' do
     get :index
     expect(
-        response.body.match?('<span class="txt-highl">All emails:</span>')
+      response.body.match?('<span class="txt-highl">All emails:</span>')
     ).to eq true
   end
 
@@ -24,9 +24,7 @@ RSpec.describe MailController, type: :controller do
                                { from: 'vardauskas', to: 'vardauskaitis',
                                  title: 'test', message: 'testt' } }
     get :index
-    expect(
-        response.body.match?('vardauskas')
-    ).to eq true
+    expect(response.body.match?('vardauskas')).to eq true
   end
 
   it 'have mail to value' do
@@ -34,9 +32,7 @@ RSpec.describe MailController, type: :controller do
                                 { from: 'vardauskas', to: 'vardauskaitis',
                                   title: 'test', message: 'testt' } }
     get :index
-    expect(
-        response.body.match?('vardauskaitis')
-    ).to eq true
+    expect(response.body.match?('vardauskaitis')).to eq true
   end
 
   it 'have mail title value' do
@@ -44,9 +40,7 @@ RSpec.describe MailController, type: :controller do
                                 { from: 'vardauskas', to: 'vardauskaitis',
                                   title: 'test', message: 'testt' } }
     get :index
-    expect(
-        response.body.match?('test')
-    ).to eq true
+    expect(response.body.match?('test')).to eq true
   end
 
   it 'have mail message value' do
@@ -54,14 +48,13 @@ RSpec.describe MailController, type: :controller do
                                 { from: 'vardauskas', to: 'vardauskaitis',
                                   title: 'test', message: 'testt' } }
     get :index
-    expect(
-        response.body.match?('testt')
-    ).to eq true
+    expect(response.body.match?('testt')).to eq true
   end
 
   it 'index view have javascript lib files' do
     get :index
-    expect(response.body.match?('<script src="js/vendor.js"></script>')).to eq true
+    expect(response.body.match?('<script src="js/vendor.js"></script>'))
+      .to eq true
   end
 
   it 'index view have javascript files' do

@@ -2,7 +2,6 @@
 
 require 'rails_helper'
 
-
 RSpec.describe SsubjectsController, type: :controller do
   render_views
 

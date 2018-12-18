@@ -4,13 +4,13 @@
 class SubjectController < ApplicationController
   protect_from_forgery
   def create
+    parameters = params[:subject] # rubocop Assignment Branch Condition size err
     @subject = Subject.new
-    @subject.name = params[:subject]['name']
-    @subject.time = params[:subject]['time']
-    @subject.teacher_id = params[:subject]['id']
+    @subject.name = parameters['name']
+    @subject.time = parameters['time']
+    @subject.teacher_id = parameters['id']
     if @subject.save
-      render json: Subject.find_by(teacher_id: params[:subject]['id']),
-             status: 200
+      render json: Subject.find_by(teacher_id: parameters['id']), status: 200
     else
       render json: 'Failed!', status: 404
     end

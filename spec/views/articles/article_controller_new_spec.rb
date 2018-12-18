@@ -7,7 +7,8 @@ RSpec.describe ArticlesController, type: :controller do
 
   it 'index view have label' do
     get :new
-    expect(response.body.match?('<label for="article_text">Text</label>')).to eq true
+    expect(response.body.match?('<label for="article_text">Text</label>'))
+      .to eq true
   end
 
   it 'index view have textarea input' do
@@ -31,7 +32,8 @@ RSpec.describe ArticlesController, type: :controller do
 
   it 'index view have javascript lib files' do
     get :new
-    expect(response.body.match?('<script src="js/vendor.js"></script>')).to eq true
+    expect(response.body.match?('<script src="js/vendor.js"></script>'))
+      .to eq true
   end
 
   it 'index view have javascript files' do

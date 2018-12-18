@@ -12,7 +12,9 @@ RSpec.describe TicketController, type: :controller do
 
   it 'about view have form' do
     get :about
-    expect(response.body.match?('<form action = "/ticket/about" method = "post">')).to eq true
+    expect(response.body
+               .match?('<form action = "/ticket/about" method = "post">'))
+      .to eq true
   end
 
   it 'about view have input' do
@@ -27,7 +29,8 @@ RSpec.describe TicketController, type: :controller do
 
   it 'index view have javascript lib files' do
     get :about
-    expect(response.body.match?('<script src="js/vendor.js"></script>')).to eq true
+    expect(response.body.match?('<script src="js/vendor.js"></script>'))
+      .to eq true
   end
 
   it 'index view have javascript files' do

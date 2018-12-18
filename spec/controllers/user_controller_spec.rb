@@ -61,7 +61,8 @@ RSpec.describe UserController, type: :controller do
   end
 
   it 'successfully fetches users' do
-    allow_any_instance_of(UserController).to receive(:fetch_all).and_return(true)
+    allow_any_instance_of(UserController).to receive(:fetch_all)
+      .and_return(true)
   end
 
   it 'deletes user' do
