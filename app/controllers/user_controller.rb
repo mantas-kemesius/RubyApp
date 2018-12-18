@@ -3,6 +3,8 @@
 # user controller class
 class UserController < ApplicationController
   protect_from_forgery
+
+  # rubocop:disable Metrics/AbcSize
   def register
     @user = User.new
     @user.name = params[:user]['name']
@@ -12,15 +14,9 @@ class UserController < ApplicationController
     @user.age = params[:user]['age']
     @user.role = params[:user]['role']
     @user.token = Digest::MD5.new.hexdigest(params[:user]['email'])
-    if @user.save
-      render json: User.find_by(
-        email: params[:user]['email'],
-        password: params[:user]['password']
-      ), status: 200
-    else
-      render json: 'Failed!', status: 404
-    end
+    rendering
   end
+  # rubocop:enable Metrics/AbcSize
 
   def login
     @user = User.find_by(email: params[:user]['email'],
@@ -35,6 +31,17 @@ class UserController < ApplicationController
 
   def delete
     User.destroy(@user.id)
+  end
+
+  def rendering
+    if @user.save
+      render json: User.find_by(
+        email: params[:user]['email'],
+        password: params[:user]['password']
+      ), status: 200
+    else
+      render json: 'Failed!', status: 404
+    end
   end
 
   def modify_age
