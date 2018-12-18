@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2018_12_17_213821) do
     t.string "password"
     t.integer "age"
     t.string "university"
-    t.string "lectid"
+    t.integer "lectid"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

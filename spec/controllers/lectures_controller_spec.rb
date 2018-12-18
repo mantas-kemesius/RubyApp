@@ -26,8 +26,8 @@ describe LecturesController do
   end
 
   it 'student added' do
-    expect_any_instance_of(Lecture).to receive(:add_student).with('naujas')
-    post :addstudent, params: { lecture: { student: 'naujas' },
+    expect_any_instance_of(Lecture).to receive(:add_student).with('notexisted')
+    post :addstudent, params: { lecture: { name: 'notexisted' },
                                 id: '99_88' }
   end
 
@@ -36,12 +36,13 @@ describe LecturesController do
     post :addstudent, params: {}
   end
 
-  # it 'student name is written' do
-  #   post :addstudent, params: { lecture: { student: 'naujas' },
-  #                           id: '99_88' }
-  #   expect(Student.find_by(lectid: 99_88, name: 'naujas').student)
-  #       .to eq 'naujas'
-  # end
+  it 'student name is written' do
+    post :addstudent, params: { lecture: { name: 'notexisted' },
+                            id: '9988' }
+    puts "***"
+    expect(Student.find_by(name: 'notexisted').name)
+        .to eq 'notexisted'
+  end
 
   context 'when creating a project' do
     # rubocop complains without this
@@ -53,19 +54,19 @@ describe LecturesController do
       # has a valid new project
     end
 
-    it 'creates project with correct teacher' do
+    it 'correct teacher' do
       subj.send(:create)
       lect = Lecture.find_by(name: 'Komparchas')
       expect(lect.teacher).to eq 'teach@gmail.com'
     end
 
-    it 'creates project with correct status' do
+    it 'correct status' do
       subj.send(:create)
       lect = Lecture.find_by(name: 'Komparchas')
       expect(lect.status).to eq 'Active'
     end
 
-    it 'creates project with correct credits' do
+    it 'correct credits' do
       subj.send(:create)
       lect = Lecture.find_by(name: 'Komparchas')
       expect(lect.credits).to eq 5
@@ -92,28 +93,28 @@ describe LecturesController do
 
     it 'only loads view when getting edit form' do
       expect_any_instance_of(StudyManagement).not_to receive(:credits_setter)
-      get :edit # routes to update
+      get :edit
     end
 
-    it 'edits the name' do
+    it 'edits name' do
       post :update
       lect = Lecture.find_by(id: edt[:lecture][:id])
       expect(lect.name).to eq 'Algebra'
     end
 
-    it 'edits the status' do
+    it 'edits status' do
       post :update
       lect = Lecture.find_by(id: edt[:lecture][:id])
       expect(lect.status).to eq 'Inactive'
     end
 
-    it 'edits the manager' do
+    it 'edits teacher' do
       post :update
       lect = Lecture.find_by(id: edt[:lecture][:id])
       expect(lect.teacher).to eq 'teach2@mail.com'
     end
 
-    it 'edits the budget' do
+    it 'edits credits' do
       post :update
       lect = Lecture.find_by(id: edt[:lecture][:id])
       expect(lect.credits).to be 10

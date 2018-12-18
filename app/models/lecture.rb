@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Student lectures
 class Lecture < ApplicationRecord
   has_many :students
 
@@ -13,7 +14,7 @@ class Lecture < ApplicationRecord
   end
 
   def status_set(status)
-    if ['Active', 'Inactive', 'Cancelled'].include? status
+    if %w[Active Inactive Cancelled].include? status
       self.status = status
       save
     else
@@ -21,8 +22,8 @@ class Lecture < ApplicationRecord
     end
   end
 
-  def add_student(mail)
-    Student.create(email: mail)
+  def add_student(name)
+    Student.create(lectid: id, name: name)
     true
   end
 end

@@ -1,20 +1,20 @@
+# frozen_string_literal: true
 
+# for managing lectures
 class LecturesController < ApplicationController
   def index
     @lectures = Lecture.where(teacher: current_user['email'])
   end
 
   def addstudent
-    otherparams = params
-    return unless otherparams.key?(:lecture)
+    other = params
+    return unless other.key?(:lecture)
 
     Lecture.find_by(id: params.fetch(:id))
-           .add_student(params.fetch(:lecture).fetch(:student))
+           .add_student(params.fetch(:lecture).fetch(:name))
   end
 
   def create
-    return unless params.key?(:lecture)
-
     @hash = params.fetch(:lecture)
     Lecture.create(name: @hash.fetch(:name),
                    teacher: @hash.fetch(:teacher),
@@ -36,8 +36,6 @@ class LecturesController < ApplicationController
   end
 
   def update
-    return unless params.key?(:lecture)
-
     lect = Lecture.find_by(id: params.fetch(:lecture).fetch(:id))
     allseters(lect)
     lect.save
