@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+analize:
+  id: 9988
+  name: Analize
+  teacher: Jonas
+  status: active
+ruby:
+  id: 9999
+  name: Ruby
+  teacher: Jonas
+  status: active

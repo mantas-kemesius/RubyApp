@@ -19,6 +19,19 @@ Rails.application.routes.draw do
   get '/users', to: 'user#fetch_all'
   post '/users/delete', to: 'user#delete'
 
+  match '/lectures?method=create', to: 'lectures#create', via: [:get, :post]
+  match '/lectures/create', to: 'lectures#create', via: [:get, :post]
+  match '/lectures?id=*&method=edit', to: 'lectures#edit', via: [:get, :post]
+  get 'lectures/:id', to: 'lectures#update'
+  post 'lectures/:id', to: 'lectures#update' # with params this time
+  post 'lectures/destroy', to: 'lectures#destroy'
+  get '/lectures/update', to: 'lectures#update'
+  get '/lectures/edit', to: 'lectures#update'
+  post '/lectures/update', to: 'lectures#update'
+  get '/lectures/addstudent/:id', to: 'lectures#addstudent'
+  post '/lectures/addstudent/:id', to: 'lectures#addstudent'
+  post '/lectures/addstudent/', to: 'lectures#addstudent' # test requirement
+
   post '/subject/create', to: 'subject#create'
   post '/subject/delete', to: 'subject#delete'
   get '/subjects', to: 'subject#fetch_all'
