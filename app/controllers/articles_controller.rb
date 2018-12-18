@@ -7,20 +7,18 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = params[:article]
   end
 
-  def new; end
-
-  def update
-    @article = Article.find(params[:id])
-
-    if @article.update(article_params)
-      redirect_to @article
-    else
-      render 'edit'
-    end
-  end
+  #  def update
+  #    @article = Article.find params[:id]
+  #
+  #    if @article.update(article_params)
+  #      redirect_to @article
+  #    else
+  #      render 'edit'
+  #    end
+  #  end
 
   def create
     @article = Article.new(article_params)

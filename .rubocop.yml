@@ -22,5 +22,6 @@ AllCops:
     - 'db/migrate/*'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
+    
 RSpec/AnyInstance:
   Enabled: false

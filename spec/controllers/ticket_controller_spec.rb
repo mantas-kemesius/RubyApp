@@ -1,10 +1,9 @@
-# # frozen_string_literal: true
-#
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe TicketController, type: :controller do
-
-  it 'covers mutation +super' do
+  it 'covers mutation' do
     expect_any_instance_of(TicketController).not_to receive(:initialize)
     get :index
   end

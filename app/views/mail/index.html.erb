@@ -1,0 +1,10 @@
+<div class="content-container default-content-container">
+  <%= link_to 'Add new email', url_for(:controller => :mail, :action => :create) %><br><br>
+  <span class="txt-highl">All emails:</span><br>
+  <hr>
+  <% @mails.each do |mail| %>
+    |<%= mail.title %>| <%= mail.message %> <%= mail.from %> <%= mail.to %>
+    <%= link_to 'Remove', url_for(:controller => :mail, :action => :destroy, :id => mail.id) %>
+    <br>
+  <% end %>
+</div>

@@ -5,19 +5,14 @@ class MessageController < ApplicationController
   protect_from_forgery
   def create
     @message = Message.new
-    @message.text = params[:message]['text']
-    @message.from = params[:message]['from']
-    @message.to = params[:message]['to']
-    # abort @subject.inspect
-    if @message.save
-      render json: 'Success!', status: 200
-    else
-      render json: 'Failed!', status: 404
-    end
+    @message.text = params.fetch(:message).fetch('text')
+    @message.from = params.fetch(:message).fetch('from')
+    @message.to = params.fetch(:message).fetch('to')
+    @message.save
   end
 
   def delete
-    @message = Message.destroy(params[:message]['id'])
+    @message.destroy
   end
 
   def fetch_all

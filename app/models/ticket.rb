@@ -2,5 +2,4 @@
 
 # Student class
 class Ticket < ApplicationRecord
-
 end

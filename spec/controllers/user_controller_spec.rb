@@ -23,6 +23,20 @@ RSpec.describe UserController, type: :controller do
                   'age' => '25', 'role' => 'STUDENT' } }
   end
 
+  let(:test_hash) do
+    { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
+                  'email' => 'tomas.tomaitis@gmail.com',
+                  'password' => 'paswordukas',
+                  'age' => 23, 'role' => 'TEACHER' } }
+  end
+
+  let(:test_hash2) do
+    { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
+                  'email' => 'tom.t@gmail.com',
+                  'password' => 'paswordukas',
+                  'age' => 23, 'role' => 'TEACHER' } }
+  end
+
   it 'creating a user is successful' do
     post :register, params: new_hash
     usr = User.find_by(email: 'testas@testaitis.com')
@@ -54,27 +68,45 @@ RSpec.describe UserController, type: :controller do
   end
 
   it 'successfully fetches users' do
-    allow_any_instance_of(UserController).to receive(:fetch_all).and_return(true)
+    allow_any_instance_of(UserController).to receive(:fetch_all)
+      .and_return(true)
   end
 
   it 'deletes user' do
     post :register, params: del_hash
     usr = User.find_by(email: 'vienas@vienasis.com')
-    post :delete, params: { 'user' => { :id => usr.id } }
+    post :delete, params: { 'user' => { id: usr.id } }
     usr = User.find_by(email: 'vienas@vienasis.com')
     expect(usr).to be nil
   end
 
-  # it 'modifies user age' do
-  #   age = rand(99)
-  #   if !User.find_by(email: 'tomas.tomaitis@gmail.com')
-  #     post :register, params: { 'user' => { 'name' => 'testas', 'lastname' => 'testaitis',
-  #                                           'email' => 'tomas.tomaitis@gmail.com',
-  #                                           'password' => 'paswordukas',
-  #                                           'age' => 23, 'role' => 'TEACHER' } }
-  #   end
-  #   post :modify_age, params: { :user => { :email => 'tomas.tomaitis@gmail.com', :age => age }}
-  #   usr = User.find_by(email: 'tomas.tomaitis@gmail.com')
-  #   expect(usr.age.eql?(age)).to be true
-  # end
+  context 'when too many lines' do
+    let(:check_and_post) do
+      unless User.find_by(email: 'tom.t@gmail.com')
+        post :register, params: test_hash2
+      end
+    end
+    let(:age) do
+      rand(99)
+    end
+    let(:lastname) do
+      'Ripauskas'
+    end
+
+    it 'modifies user age' do
+      check_and_post
+      post :modify_age, params: { user: { email: 'tom.t@gmail.com',
+                                          age: age } }
+      usr = User.find_by(email: 'tom.t@gmail.com')
+      expect(usr.age.eql?(age)).to be true
+    end
+
+    it 'modifies user last name' do
+      check_and_post
+      post :modify_last_name, params: { user: { email: 'tom.t@gmail.com',
+                                                last_name: lastname } }
+      usr = User.find_by(email: 'tom.t@gmail.com')
+      expect(usr.last_name.eql?(lastname)).to be true
+    end
+  end
 end
