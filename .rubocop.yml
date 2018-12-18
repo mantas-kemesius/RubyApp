@@ -24,4 +24,4 @@ AllCops:
     - 'spec/rails_helper.rb'
     
 RSpec/AnyInstance:
-Enabled: false
+  Enabled: false
