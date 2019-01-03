@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # for managing lectures
+# :reek:InstanceVariableAssumption
 class LecturesController < ApplicationController
   def index
     @lectures = Lecture.where(teacher: current_user['email'])

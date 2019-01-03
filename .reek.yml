@@ -11,4 +11,4 @@ exclude_paths:
 - test/test_helper.rb
 - db/migrate
 - test/application_system_test_case.rb
-- app
+#- app/controllers

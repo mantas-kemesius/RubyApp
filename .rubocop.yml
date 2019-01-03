@@ -10,7 +10,6 @@ AllCops:
     - 'lib/*'
     - 'specOld/*'
     - 'specOld/customMatchers/*'
-    - 'app/*'
     - 'test/*'
     - 'db/*'
     - 'config/*'

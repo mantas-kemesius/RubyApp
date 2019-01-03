@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # user controller class
+# :reek:InstanceVariableAssumption
 class UserController < ApplicationController
   protect_from_forgery
 

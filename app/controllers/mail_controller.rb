@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 # mail controller
+# :reek:InstanceVariableAssumption
 class MailController < ApplicationController
   def index
     @mails = Mail.all
   end
 
+  # :reek:FeatureEnvy
   def create
     return unless params.key?(:mail)
 

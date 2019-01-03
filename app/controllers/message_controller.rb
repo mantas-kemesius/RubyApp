@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # message controller class
+# :reek:InstanceVariableAssumption
 class MessageController < ApplicationController
   protect_from_forgery
   def create

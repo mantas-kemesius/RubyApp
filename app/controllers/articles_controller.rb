@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # articles controller class
+# :reek:InstanceVariableAssumption
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all

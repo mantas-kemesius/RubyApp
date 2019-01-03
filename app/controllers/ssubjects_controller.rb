@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # subjects controller
+# :reek:InstanceVariableAssumption
 class SsubjectsController < ApplicationController
   protect_from_forgery
   def create

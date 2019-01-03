@@ -3,6 +3,7 @@
 require_relative 'application_record'
 # Class For teachers info
 class Teacher < ApplicationRecord
+  # :reek:UtilityFunction
   def delete_project(lecture)
     proj = Lecture.find_by(id: lecture)
     proj.destroy
