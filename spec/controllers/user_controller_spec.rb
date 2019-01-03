@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe UserController, type: :controller do
   let(:uc) do
-    uc = described_class
-    allow_any_instance_of(uc).to receive(:login).and_return(true)
+    uc = instance_double('Some collaborator')
+    allow(uc).to receive(:login).and_return(true)
     uc
   end
 
@@ -68,8 +68,8 @@ RSpec.describe UserController, type: :controller do
   end
 
   it 'successfully fetches users' do
-    allow_any_instance_of(UserController).to receive(:fetch_all)
-      .and_return(true)
+    someuser = instance_double('Some User')
+    allow(someuser).to receive(:fetch_all).and_return(true)
   end
 
   it 'deletes user' do
