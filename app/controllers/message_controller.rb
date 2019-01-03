@@ -4,12 +4,12 @@
 # :reek:InstanceVariableAssumption
 class MessageController < ApplicationController
   protect_from_forgery
+  # :reek:DuplicateMethodCall
   def create
-    parameters = params.fetch(:message)
     @message = Message.new
-    @message.text = parameters.fetch('text')
-    @message.from = parameters.fetch('from')
-    @message.to = parameters.fetch('to')
+    @message.text = params.fetch(:message).fetch('text')
+    @message.from = params.fetch(:message).fetch('from')
+    @message.to = params.fetch(:message).fetch('to')
     @message.save
   end
 

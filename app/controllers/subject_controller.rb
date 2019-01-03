@@ -4,17 +4,22 @@
 # :reek:InstanceVariableAssumption
 class SubjectController < ApplicationController
   protect_from_forgery
+  # :reek:DuplicateMethodCall
   def create
     parameters = params[:subject] # rubocop Assignment Branch Condition size err
     @subject = Subject.new
-    @subject.name = parameters['name']
-    @subject.time = parameters['time']
-    @subject.teacher_id = parameters['id']
+    assign(parameters)
     if @subject.save
       render json: Subject.find_by(teacher_id: parameters['id']), status: 200
     else
       render json: 'Failed!', status: 404
     end
+  end
+
+  def assign(parameters)
+    @subject.name = parameters['name']
+    @subject.time = parameters['time']
+    @subject.teacher_id = parameters['id']
   end
 
   def delete

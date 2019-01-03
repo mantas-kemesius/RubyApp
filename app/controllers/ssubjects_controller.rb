@@ -4,6 +4,7 @@
 # :reek:InstanceVariableAssumption
 class SsubjectsController < ApplicationController
   protect_from_forgery
+  # :reek:DuplicateMethodCall
   def create
     @ss = Ssubjects.new
     @ss.student_id = params[:ssubject]['student_id']
