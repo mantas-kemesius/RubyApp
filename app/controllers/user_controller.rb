@@ -2,27 +2,32 @@
 
 # user controller class
 # :reek:InstanceVariableAssumption
+# :reek:TooManyStatements: enabled: false
 class UserController < ApplicationController
   protect_from_forgery
-
-  # rubocop:disable Metrics/AbcSize
   def register
-    @user = User.new
-    @user.name = params[:user]['name']
-    @user.last_name = params[:user]['last_name']
-    @user.email = params[:user]['email']
-    @user.password = params[:user]['password']
-    @user.age = params[:user]['age']
-    @user.role = params[:user]['role']
-    @user.token = Digest::MD5.new.hexdigest(params[:user]['email'])
+    parameters = params.fetch(:user)
+    save(parameters)
     rendering
   end
-  # rubocop:enable Metrics/AbcSize
+
+  def save(parameters)
+    email = parameters['email']
+    @user = User.new
+    @user.name = parameters['name']
+    @user.last_name = parameters['last_name']
+    @user.email = email
+    @user.password = parameters['password']
+    @user.age = parameters['age']
+    @user.role = parameters['role']
+    @user.token = Digest::MD5.new.hexdigest(email)
+  end
 
   def login
-    @user = User.find_by(email: params[:user]['email'],
-                         password: params[:user]['password'])
-    if @user.nil?
+    parameters = params[:user]
+    @user = User.find_by(email: parameters['email'],
+                         password: parameters['password'])
+    if @user.blank?
       render json: 'Failed!', status: 404
     else
       @user.password = ''
@@ -35,10 +40,11 @@ class UserController < ApplicationController
   end
 
   def rendering
+    parameters = params[:user]
     if @user.save
       render json: User.find_by(
-        email: params[:user]['email'],
-        password: params[:user]['password']
+        email: parameters['email'],
+        password: parameters['password']
       ), status: 200
     else
       render json: 'Failed!', status: 404
