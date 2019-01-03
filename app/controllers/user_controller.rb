@@ -7,27 +7,45 @@ class UserController < ApplicationController
 
   # rubocop:disable Metrics/AbcSize
   def register
-    @user = User.new
-    @user.name = params[:user]['name']
-    @user.last_name = params[:user]['last_name']
-    @user.email = params[:user]['email']
-    @user.password = params[:user]['password']
-    @user.age = params[:user]['age']
-    @user.role = params[:user]['role']
-    @user.token = Digest::MD5.new.hexdigest(params[:user]['email'])
+    user = set_user_data(params[:user])
+    user.save
     rendering
   end
+
+  def set_user_data(params)
+    user = User.new
+    user = set_name_last_name_email_password(
+      user,
+      params
+    )
+    user = set_age_role(
+      user,
+      params
+    )
+    user.token = Digest::MD5.new.hexdigest(user.email)
+  end  
+
   # rubocop:enable Metrics/AbcSize
+  def set_name_last_name(user, params)
+    user.name = params['name']
+    user.last_name = ['last_name']
+    user.email = ['email']
+    user
+  end  
+
+  def set_age_role(user, params)
+    user.age = params['age']
+    user.role = params['role']
+    user.password = params['password']
+    user
+  end  
 
   def login
-    @user = User.find_by(email: params[:user]['email'],
-                         password: params[:user]['password'])
-    if @user.nil?
-      render json: 'Failed!', status: 404
-    else
-      @user.password = ''
-      render json: @user, status: 200
-    end
+    temp = params[:user]
+    @user = User.find_by(email: temp['email'],
+                         password: temp['password'])
+    @user.password = ''
+    render json: @user, status: 200
   end
 
   def delete
@@ -35,10 +53,11 @@ class UserController < ApplicationController
   end
 
   def rendering
+    temp = params[:user]
     if @user.save
       render json: User.find_by(
-        email: params[:user]['email'],
-        password: params[:user]['password']
+        email: temp['email'],
+        password: temp['password']
       ), status: 200
     else
       render json: 'Failed!', status: 404
