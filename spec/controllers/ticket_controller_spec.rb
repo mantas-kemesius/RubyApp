@@ -25,6 +25,13 @@ RSpec.describe TicketController, type: :controller do
     expect(Ticket.find_by(ticket: 'Some Ticket')).to be nil
   end
 
+  it 'ticket was created' do
+    someticket = instance_double('Some Ticket')
+    allow(someticket).to receive(:key?).and_return(true)
+    post :create, params: { ticket: { ticket: someticket } }
+    expect(Ticket.all.count).to be 1
+  end
+
   it 'task not deleted' do
     t = described_class
     allow_any_instance_of(t).to receive(:destroy).and_return(true)
