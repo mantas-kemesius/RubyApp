@@ -4,15 +4,15 @@
 # :reek:InstanceVariableAssumption
 class LecturesController < ApplicationController
   def index
-    @lectures = Lecture.where(teacher: current_user['email'])
+    @lectures = Lecture.all
   end
 
   def addstudent
     other = params
     return unless other.key?(:lecture)
 
-    Lecture.find_by(id: params.fetch(:id))
-           .add_student(params.fetch(:lecture).fetch(:name))
+    lecture = Lecture.find_by(nil)
+    lecture.add_student(params.fetch(:lecture).fetch(:name))
   end
 
   def create
@@ -29,7 +29,6 @@ class LecturesController < ApplicationController
   end
 
   def allseters(lecture)
-    @lect = params.fetch(:lecture)
     credsmanag
     lecture.status_set(@lect.fetch(:status))
     lecture.name = @lect.fetch(:name)
@@ -42,7 +41,8 @@ class LecturesController < ApplicationController
     lect.save
   end
 
+  #:reek:UtilityFunction
   def destroy
-    Lecture.find_by(id: params.fetch(:id)).destroy
+    Lecture.find_by(nil).destroy
   end
 end

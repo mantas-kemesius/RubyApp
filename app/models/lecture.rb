@@ -8,7 +8,7 @@ class Lecture < ApplicationRecord
     studs = []
     list = Student.where(lectid: self)
     list.each do |stud|
-      studs.push(stud.student)
+      studs.push(stud)
     end
     studs
   end

@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   #  def update
-  #    @article = Article.find params[:id]
+  #    @article = params[:article]
   #
   #    if @article.update(article_params)
   #      redirect_to @article

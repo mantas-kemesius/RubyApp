@@ -2,36 +2,47 @@
 
 # user controller class
 # :reek:InstanceVariableAssumption
-# :reek:TooManyStatements: enabled: false
 class UserController < ApplicationController
   protect_from_forgery
+
   def register
-    parameters = params.fetch(:user)
-    save(parameters)
+    @user = User.new
+    set_basic
+    set_advanced
     rendering
   end
 
-  def save(parameters)
-    email = parameters['email']
-    @user = User.new
-    @user.name = parameters['name']
-    @user.last_name = parameters['last_name']
-    @user.email = email
-    @user.password = parameters['password']
-    @user.age = parameters['age']
-    @user.role = parameters['role']
-    @user.token = Digest::MD5.new.hexdigest(email)
+  def set_basic
+    user = params.fetch(:user)
+    @user.name = user.fetch('name')
+    @user.last_name = user['last_name']
+    @user.email = user.fetch('email')
+  end
+
+  def set_advanced
+    user = params.fetch(:user)
+    @user.password = user.fetch('password')
+    @user.age = user.fetch('age')
+    @user.role = user.fetch('role')
   end
 
   def login
-    parameters = params[:user]
-    @user = User.find_by(email: parameters['email'],
-                         password: parameters['password'])
-    if @user.blank?
-      render json: 'Failed!', status: 404
-    else
+    user = params.fetch(:user)
+    usermail = user['email']
+    userpass = user['password']
+    @user = User.find_by(email: usermail,
+                         password: userpass)
+
+    loginrender
+  end
+
+  def loginrender
+    if @user.class.equal?(User)
       @user.password = ''
-      render json: @user, status: 200
+      @user.save
+      render json: @user
+    else
+      render json: 'Failed!', status: 404
     end
   end
 
@@ -40,12 +51,8 @@ class UserController < ApplicationController
   end
 
   def rendering
-    parameters = params[:user]
     if @user.save
-      render json: User.find_by(
-        email: parameters['email'],
-        password: parameters['password']
-      ), status: 200
+      render json: @user
     else
       render json: 'Failed!', status: 404
     end

@@ -3,13 +3,13 @@
     <span class="txt-highl">your lectures: </span><br>
     <hr>
     <% @lectures.each do |lect| %>
-      |<%= lect.id %>| <%= lect.name %> <%= lect.status %> <%= lect.credtis %>
+      |<%= lect.id %>| <%= lect.name %> <%= lect.status %> <%= lect.credits %>
       <%= link_to 'Edit', url_for(:controller => :lectures, :action => :update, :id => lect.id) %>
       <%= link_to 'Delete', url_for(:controller => :lectures, :method => :destroy, :id => lect.id) %>
       <%= link_to 'Add student', url_for(:controller => :lectures, :action => :addstudent, :id => lect.id) %><br>
 
       <span class="txt-highl">students:</span> <br>
-      <% lect.students_getter.each do |stud| %>
+      <% lect.student_getter.each do |stud| %>
         <%= stud unless stud.eql?(nil)%>
         <%= link_to 'Remove', url_for(:controller => :lectmems, :id => lect.id, :student => stud) %>
         <br>

@@ -4,17 +4,21 @@
 # :reek:InstanceVariableAssumption
 class SsubjectsController < ApplicationController
   protect_from_forgery
-  # :reek:DuplicateMethodCall
   def create
     @ss = Ssubjects.new
-    @ss.student_id = params[:ssubject]['student_id']
-    @ss.subject_id = params[:ssubject]['subject_id']
+    ssubject = params.fetch(:ssubject)
+    setvalues(ssubject)
     # abort @subject.inspect
     if @ss.save
       render json: 'Success!', status: 200
     else
       render json: 'Failed!', status: 404
     end
+  end
+
+  def setvalues(ssubject)
+    @ss.student_id = ssubject.fetch('student_id')
+    @ss.subject_id = ssubject.fetch('subject_id')
   end
 
   def delete

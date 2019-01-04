@@ -31,6 +31,13 @@ describe LecturesController do
                                 id: '99_88' }
   end
 
+  it 'student size increased' do
+    lect = Lecture.find_by(id: 99_88)
+    post :addstudent, params: { lecture: { name: 'laas' },
+                                id: '99_88' }
+    expect(lect.student_getter.count).to be 1
+  end
+
   it 'student is not added with empty params' do
     expect_any_instance_of(Lecture).not_to receive(:add_student)
     post :addstudent, params: {}

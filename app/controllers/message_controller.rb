@@ -4,12 +4,16 @@
 # :reek:InstanceVariableAssumption
 class MessageController < ApplicationController
   protect_from_forgery
-  # :reek:DuplicateMethodCall
   def create
     @message = Message.new
-    @message.text = params.fetch(:message).fetch('text')
-    @message.from = params.fetch(:message).fetch('from')
-    @message.to = params.fetch(:message).fetch('to')
+    message = params.fetch(:message)
+    check_spam(message)
+  end
+
+  def setvalues(message)
+    @message.text = message.fetch('text')
+    @message.from = message.fetch('from')
+    @message.to = message.fetch('to')
     @message.save
   end
 
@@ -19,5 +23,13 @@ class MessageController < ApplicationController
 
   def fetch_all
     render json: Message.find_each
+  end
+
+  def check_spam(messagein)
+    text = messagein.fetch('text')
+    message = Message.find_by(text: text)
+    return unless message.equal?(nil)
+
+    setvalues(messagein)
   end
 end

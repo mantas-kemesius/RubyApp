@@ -12,6 +12,13 @@ RSpec.describe UserController, type: :controller do
                   'age' => '28', 'role' => 'TEACHER' } }
   end
 
+  let(:new_hash2) do
+    { 'user' => { 'name' => 'testas', 'last_name' => 'testaitis',
+                  'email' => 'testas2@testaitis.com',
+                  'password' => 'paswordukas',
+                  'age' => '28', 'role' => 'TEACHER' } }
+  end
+
   before { post :register, params: new_hash }
 
   it 'expected to have id key' do
@@ -78,5 +85,14 @@ RSpec.describe UserController, type: :controller do
   it 'expected to have right role' do
     get :fetch_all
     expect(response.body.match?('"role":"TEACHER"')).to eq true
+  end
+
+  it 'expected to have status 200' do
+    expect(response.status).to eq 200
+  end
+
+  it 'expected to have right body' do
+    teststr = '"name":"testas","last_name":"testaitis","email":"testas@te'
+    expect(response.body.match?(teststr)).to eq true
   end
 end

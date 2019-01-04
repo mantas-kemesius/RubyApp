@@ -53,6 +53,8 @@ RSpec.describe UserController, type: :controller do
     login_hash = { 'user' => { 'email' => 'samuolaitis@gmail.com',
                                'password' => 'slaptazodisxd' } }
     post :login, params: login_hash
+    usr = User.find_by(email: 'samuolaitis@gmail.com')
+    expect(usr.password.eql?('')).to be true
   end
 
   it 'login failed with incorrect data' do

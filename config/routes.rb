@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/register', to: 'home#index'
   
   post '/articles/show', to: 'articles#show'
+  post '/articles/update', to: 'articles#update'
 
   post '/user/create', to: 'user#register'
   post '/user/login', to: 'user#login'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   post '/user/modify/last_name', to: 'user#modify_last_name'
   get '/users', to: 'user#fetch_all'
   post '/users/delete', to: 'user#delete'
+  get '/users/rendering', to: 'user#rendering'
 
   match '/lectures?method=create', to: 'lectures#create', via: [:get, :post]
   match '/lectures/create', to: 'lectures#create', via: [:get, :post]
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
   get '/lectures/addstudent/:id', to: 'lectures#addstudent'
   post '/lectures/addstudent/:id', to: 'lectures#addstudent'
   post '/lectures/addstudent/', to: 'lectures#addstudent' # test requirement
+  get '/lectures/index', to: 'lectures#index'
 
   post '/subject/create', to: 'subject#create'
   post '/subject/delete', to: 'subject#delete'
